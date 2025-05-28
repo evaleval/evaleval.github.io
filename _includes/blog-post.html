@@ -1,0 +1,97 @@
+<section id="blog-post" class="py-20 px-8">
+  <div class="blog-container">
+    <div class="blog-content">
+      <div class="max-w-3xl mx-auto">
+        <div class="mb-8">
+          <h1 class="text-3xl md:text-4xl font-bold mb-4">{{ page.title }}</h1>
+          <div class="post-meta mb-4">
+            Published on {{ page.date | date: "%B %-d, %Y" }}
+            {% if page.author %} by <a href="{{ page.author_url | default: '#' }}" class="underline">{{ page.author }}</a>{% endif %}
+          </div>
+          <div class="flex flex-wrap mb-6">
+            {% for tag in page.tags %}
+            <span class="post-tag">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="prose max-w-none">
+          {{ content }}
+        </div>
+
+        <!-- Optional static footnotes block, if you prefer to render separately -->
+        {% comment %}
+        <div class="footnotes mt-12 border-t border-gray-200 pt-6 prose prose-sm">
+          {% for note in page.footnotes %}
+          <p>{{ note }}</p>
+          {% endfor %}
+        </div>
+        {% endcomment %}
+      </div>
+    </div>
+
+    <div class="blog-sidebar hidden lg:block">
+      <div class="sticky top-24">
+        <div class="mb-8">
+          <h3 class="mono text-sm mb-4">TABLE OF CONTENTS</h3>
+          <ul class="space-y-2">
+            {% for section in page.toc %}
+            <li><a href="#{{ section.id }}" class="hover:underline">{{ section.text }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="mb-8">
+          <h3 class="mono text-sm mb-4">FOOTNOTES</h3>
+          <div id="dynamic-footnotes" class="space-y-3 text-sm"></div>
+        </div>
+
+        <div>
+          <h3 class="mono text-sm mb-4">SHARE</h3>
+          <div class="flex space-x-4">
+            <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title | url_encode }}" class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+              <i class="fab fa-twitter text-sm"></i>
+            </a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url }}&title={{ page.title | url_encode }}" class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+              <i class="fab fa-linkedin-in text-sm"></i>
+            </a>
+            <a href="mailto:?subject={{ page.title | url_encode }}&body={{ page.url | absolute_url }}" class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+              <i class="fas fa-envelope text-sm"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Move footnotes to sidebar dynamically
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get all footnotes from the main content
+    const footnotes = document.querySelectorAll('.footnote-item');
+    const footnoteContainer = document.getElementById('dynamic-footnotes');
+    
+    // Clone each footnote and add to sidebar
+    footnotes.forEach(fn => {
+      const clone = fn.cloneNode(true);
+      footnoteContainer.appendChild(clone);
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Process LaTeX equations (handled by MathJax automatically)
+    if (typeof MathJax !== 'undefined') {
+      MathJax.typesetPromise();
+    }
+  });
+</script>

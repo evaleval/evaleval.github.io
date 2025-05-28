@@ -1,0 +1,16 @@
+---
+# Layout front matter is optional here
+---
+<article class="project-card">
+  <h1>{{ page.title }}</h1>
+  <p><strong>Team:</strong> {{ page.team | join: ", " }}</p>
+  <div>{{ content }}</div>
+  {% if page.related_blogs %}
+    <h3>Related Blogs</h3>
+    <ul>
+      {% for blog in page.related_blogs %}
+        <li><a href="{{ blog | prepend: site.baseurl }}">{{ blog }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</article>
