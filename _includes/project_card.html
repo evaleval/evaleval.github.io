@@ -1,8 +1,38 @@
-<div class="project-card p-6">
-  <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
-    <i class="fas fa-{{ include.project.icon | default: 'project-diagram' }}"></i>
+<a
+  href="{{ project.url | relative_url }}"
+  class="project-card p-6 hover:shadow-lg transition-shadow duration-200 border border-gray-100 rounded-lg"
+>
+  {%- if project.img -%}
+  TEST
+  <div class="overflow-hidden rounded mb-6 h-48">
+    <img
+      src="{{ project.img | relative_url }}"
+      alt="{{ project.alt }}"
+      class="w-full h-full object-cover"
+    >
   </div>
-  <h3 class="text-xl font-bold mb-4">{{ include.project.title }}</h3>
-  <p class="text-gray-600 text-sm mb-4">{{ include.project.description }}</p>
-  <a href="{{ include.project.url | default: '#' }}" class="mono text-xs text-gray-500 hover:text-black">Learn more →</a>
-</div>
+  {%- endif -%}
+
+  <!-- Optionally map a `project.icon` field to an <i> tag: -->
+  {% if project.icon %}
+  <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+    <i class="{{ project.icon }}"></i>
+  </div>
+  {% endif %}
+
+  <h3 class="text-xl font-bold mb-4">{{ project.title }}</h3>
+
+  {% if project.excerpt %}
+    <p class="text-gray-600 text-sm mb-4">
+      {{ project.excerpt }}
+    </p>
+  {% else %}
+    <p class="text-gray-600 text-sm mb-4">
+      {{ project.description | strip_html | truncate:120 }}
+    </p>
+  {% endif %}
+
+  <span class="mono text-xs text-gray-500 hover:text-black">
+    Learn more →
+  </span>
+</a>

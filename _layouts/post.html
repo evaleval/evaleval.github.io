@@ -25,15 +25,19 @@
                 <!-- Post Meta -->
                 <div class="post-meta mb-4 text-sm text-gray-500">
                     {{ page.date | date: "%B %-d, %Y" }}
-                    {% if page.author %}
-                    • by 
-                    {% if page.author_url %}
-                    <a href="{{ page.author_url }}" class="text-gray-700 hover:text-black">{{ page.author }}</a>
-                    {% else %}
-                    <span class="text-gray-700">{{ page.author }}</span>
+                    {% if page.authors and page.authors.size > 0 %}
+                        • by
+                        {% for author in page.authors %}
+                        {% if forloop.first %} {% elsif forloop.last %} and {% else %}, {% endif %}
+                        {% if author.url %}
+                            <a href="{{ author.url | relative_url }}" class="text-gray-700 hover:text-black">
+                            {{ author.name }}
+                            </a>
+                        {% else %}
+                            <span class="text-gray-700">{{ author.name }}</span>
+                        {% endif %}
+                        {% endfor %}
                     {% endif %}
-                    {% endif %}
-                    • {{ content | reading_time }}
                 </div>
                 
                 <!-- Title -->

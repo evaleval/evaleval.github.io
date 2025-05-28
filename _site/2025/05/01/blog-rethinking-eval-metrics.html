@@ -170,94 +170,23 @@
                 <div class="post-meta mb-4 text-sm text-gray-500">
                     May 1, 2025
                     
-                    • by 
+                        • by
+                        
+                         
+                        
+                            <a href="/about/#sarah-chen" class="text-gray-700 hover:text-black">
+                            Dr. Sarah Chen
+                            </a>
+                        
+                        
+                         and 
+                        
+                            <a href="/about/#john-doe" class="text-gray-700 hover:text-black">
+                            Dr. John Doe
+                            </a>
+                        
+                        
                     
-                    <a href="/about/#sarah-chen" class="text-gray-700 hover:text-black">Dr. Sarah Chen</a>
-                    
-                    
-                    • <p>The rapid advancement of generative AI models has outpaced the development of appropriate evaluation metrics. Current approaches often rely on proxy measures that fail to capture important dimensions of model performance.<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></p>
-
-<h2 id="current-limitations">Current Limitations</h2>
-
-<p>Most evaluation frameworks focus on:</p>
-
-<ul>
-  <li>Perplexity‑based measures</li>
-  <li>Human evaluation with limited samples</li>
-  <li>Automated metrics like BLEU and ROUGE</li>
-</ul>
-
-<p>These approaches suffer from several well‑documented issues:<sup id="fnref:2"><a href="#fn:2" class="footnote" rel="footnote" role="doc-noteref">2</a></sup></p>
-
-<blockquote>
-  <p><strong>Key Problems:</strong></p>
-  <ol>
-    <li>Poor correlation with human judgment</li>
-    <li>Insensitivity to subtle quality differences</li>
-    <li>Failure to detect harmful outputs</li>
-  </ol>
-</blockquote>
-
-<h2 id="proposed-framework">Proposed Framework</h2>
-
-<p>We propose a multi‑dimensional evaluation framework based on the following equation:</p>
-
-\[Q = \alpha \cdot \mathrm{Fidelity} \;+\; \beta \cdot \mathrm{Diversity} \;+\; \gamma \cdot \mathrm{Novelty}\]
-
-<p>Where:</p>
-
-<ul>
-  <li><strong>Fidelity</strong> measures output quality and coherence</li>
-  <li><strong>Diversity</strong> captures the range of possible outputs</li>
-  <li><strong>Novelty</strong> assesses creative generation beyond training data</li>
-</ul>
-
-<p>The weights ( \alpha, \beta, \gamma ) can be adjusted based on application requirements. Our experiments show this framework provides more nuanced evaluation than single‑score metrics.<sup id="fnref:3"><a href="#fn:3" class="footnote" rel="footnote" role="doc-noteref">3</a></sup></p>
-
-<h2 id="implementation">Implementation</h2>
-
-<p>The evaluation pipeline consists of three main components:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">evaluate_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_data</span><span class="p">):</span>
-    <span class="c1"># Calculate fidelity score
-</span>    <span class="n">fidelity</span> <span class="o">=</span> <span class="nf">calculate_fidelity</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
-    
-    <span class="c1"># Calculate diversity score
-</span>    <span class="n">diversity</span> <span class="o">=</span> <span class="nf">calculate_diversity</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
-    
-    <span class="c1"># Calculate novelty score
-</span>    <span class="n">novelty</span> <span class="o">=</span> <span class="nf">calculate_novelty</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)</span>
-    
-    <span class="c1"># Combine with weights
-</span>    <span class="n">total_score</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">fidelity</span> <span class="o">+</span> <span class="mf">0.3</span><span class="o">*</span><span class="n">diversity</span> <span class="o">+</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">novelty</span>
-    
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="sh">'</span><span class="s">fidelity</span><span class="sh">'</span><span class="p">:</span> <span class="n">fidelity</span><span class="p">,</span>
-        <span class="sh">'</span><span class="s">diversity</span><span class="sh">'</span><span class="p">:</span> <span class="n">diversity</span><span class="p">,</span>
-        <span class="sh">'</span><span class="s">novelty</span><span class="sh">'</span><span class="p">:</span> <span class="n">novelty</span><span class="p">,</span>
-        <span class="sh">'</span><span class="s">total_score</span><span class="sh">'</span><span class="p">:</span> <span class="n">total_score</span>
-    <span class="p">}</span>
-</code></pre></div></div>
-<p>Initial results across 5 benchmark datasets show improved correlation with human evaluation (r=0.87 vs 0.62 for traditional metrics).</p>
-
-<hr />
-
-<h2 id="footnotes">Footnotes</h2>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1">
-      <p>Zhang et al. “On the Limitations of Current Evaluation Metrics”, NeurIPS 2022. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2">
-      <p>See our recent survey paper for comprehensive analysis. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:3">
-      <p>Complete experimental results available in supplementary materials. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
-
                 </div>
                 
                 <!-- Title -->
@@ -369,13 +298,6 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
                     <div class="mb-4 md:mb-0">
                         
-                        <div class="flex items-center">
-                            <div>
-                                <div class="font-medium">Dr. Sarah Chen</div>
-                                <div class="text-sm text-gray-600">Research Scientist</div>
-                            </div>
-                        </div>
-                        
                     </div>
                     
                     <div class="flex gap-4">
@@ -437,9 +359,7 @@
                 © 2025 | EvalEval Coalition
             </div>
             <div class="flex space-x-6">
-                <a href="#" class="footer-link mono text-sm">GitHub</a>
-                <a href="#" class="footer-link mono text-sm">Twitter</a>
-                <a href="#" class="footer-link mono text-sm">Contact</a>
+                <a href="https://github.com/evaleval/" class="footer-link mono text-sm">GitHub</a>
             </div>
         </div>
     </div>
