@@ -1,0 +1,216 @@
+- name: Yacine Jernite
+  lastname: Jernite
+  role: Host
+  subheading: ML & Society Lead at Hugging Face
+  link: https://yjernite.github.io/
+  photo: assets/img/team/yacine-jernite.jpg
+  affiliations:
+    - host
+  projects:
+
+- name: Zeerak Talant
+  lastname: Talat
+  role: Host
+  subheading: Responsible ML & AI Chancellor's Fellow at the University of Edinburgh
+  link: https://zeerak.org/
+  photo: assets/img/team/zeerak-talat.jpg
+  affiliations:
+    - host
+  projects:
+
+- name: Irene Solaiman
+  lastname: Solaiman
+  role: Host
+  subheading: Head of Global Policy at Hugging Face
+  link: https://www.irenesolaiman.com/
+  photo: assets/img/team/irene-solaiman.jpg
+  affiliations:
+    - host
+  projects:
+
+- name: Avijit Ghosh
+  lastname: Ghosh
+  role: Host
+  subheading: Applied Policy Researcher at Hugging Face
+  link: https://www.evijit.io
+  photo: assets/img/team/avijit-ghosh.jpg
+  affiliations:
+    - research
+    - host
+  projects:
+    - eval-cards
+
+- name: Prajna Soni
+  lastname: Soni
+  role: Research Chair
+  subheading: Applied Research Scientist at Alinia AI
+  link: https://www.prajnasoni.github.io
+  photo: assets/img/team/prajna-soni.jpg
+  affiliations:
+    - research
+    - org
+  projects:
+    - bench-sat
+    - research-output
+
+- name: Stella Biderman
+  lastname: Biderman
+  role: Host
+  subheading: Executive Director at EleutherAI
+  link: https://stella-biderman.com/
+  photo: assets/img/team/stella-biderman.jpg
+  affiliations:
+    - infra
+    - host
+  projects:
+    - lm-harness
+    - research-output
+
+- name: Anka Reuel
+  lastname: Reuel
+  role: Research Chair
+  subheading: PhD Candidate at Stanford University
+  link: https://ankareuel.com
+  photo: assets/img/team/anka-reuel.jpg
+  affiliations:
+    - research
+  projects:
+    - bench-sat
+    - eval-cards
+
+- name: Jan Batzner
+  lastname: Batzner
+  role: Infrastructure Chair
+  subheading: Research Associate at Weizenbaum Institute and Technical University Munich
+  link: https://www.gov.sot.tum.de/rds/team/jan-batzner/
+  photo: assets/img/team/jan-batzner.jpg
+  affiliations:
+    - infra
+  projects:
+    - cache
+
+- name: Mubashara Akhtar
+  lastname: Akhtar
+  role: Research Chair
+  subheading: ETH AI Center Postdoc Fellow, ETH Zurich 
+  link: https://www.mubasharaakhtar.com/
+  photo: assets/img/team/mubashara-akhtar.JPG
+  affiliations:
+    - research
+  projects:
+    - bench-sat
+
+- name: Subho Majumdar
+  lastname: Majumdar
+  role: Research Chair
+  subheading: Vijil / AI Risk and Vulnerability Alliance
+  link: https://shubhobm.github.io/
+  photo: assets/img/team/subho-majumdar.PNG
+  affiliations:
+    - research
+    - infra
+  projects:
+    - eval-sci
+    - cache
+
+- name: Leshem Choshen
+  lastname: Choshen
+  role: Infrastructure Chair
+  subheading: MIT, MIT-IBM Watson AI Lab
+  link: https://ktilana.wixsite.com/leshem-choshen
+  photo: assets/img/team/leshem-choshen.jpg
+  affiliations:
+    - infra
+  projects:
+    - cache
+
+- name: Ichhya Pant
+  lastname: Pant
+  role: Organizing Chair
+  subheading: Responsible AI at TikTok
+  link: https://www.linkedin.com/in/ichhya-pant/
+  photo: assets/img/team/ichhya-pant.jpg
+  affiliations:
+    - org
+  projects:
+    - workshop
+
+- name: Kevin Wei
+  lastname: Wei
+  role: Organizing Chair
+  subheading: 
+  link: 
+  photo: assets/img/team/kevin-wei.jpg
+  affiliations:
+    - org
+  projects:
+    - research-output
+
+- name: Cedric Deslandes Whitney
+  lastname: Whitney
+  role: Research Chair
+  subheading: PhD Candidate at UC Berkeley, School of Information
+  link: https://scholar.google.com/citations?hl=en&user=-hx7ClMAAAAJ
+  photo: assets/img/team/cedric-whitney.jpg
+  affiliations:
+    - research
+  projects:
+    - eval-cards
+
+- name: Patricia Paskov
+  lastname: Paskov
+  role: Research Chair
+  subheading: 
+  link: https://www.linkedin.com/in/patricia-paskov/
+  photo: assets/img/team/patricia-paskov.jpg
+  affiliations:
+    - research
+  projects:
+    - eval-sci
+
+- name: Jennifer Mickel
+  lastname: Mickel
+  role: Organizing Chair
+  subheading: EleutherAI
+  link: https://jennm.github.io/
+  photo: assets/img/team/jennifer-mickel.jpeg
+  affiliations:
+    - org
+  projects:
+    - workshop
+    - research-output
+
+- name: Kevin Klyman
+  lastname: Klyman
+  role: Organizing Chair
+  subheading: Researcher at Stanford University
+  link: https://www.kevinklyman.com/
+  photo: assets/img/team/kevin-klyman.png
+  affiliations:
+    - org
+  projects:
+    - research-output
+
+- name: Garnett Achieng
+  lastname: Achieng
+  role: Organizing Chair
+  subheading: Policy Manager at TikTok
+  link: https://garnettachieng.notion.site/Hello-I-m-Garnett-Achieng-4401ae2666134b149d8ea407ad41adde
+  photo: assets/img/team/garnett-achieng.jpg
+  affiliations:
+    - infra
+    - org
+  projects:
+    - lm-harness
+    - research-output
+
+- name: Baber Abbassi
+  lastname: Abbassi
+  role: Infrastructure Chair
+  subheading: Evaluations Engineer at EleutherAI
+  link: https://www.linkedin.com/in/baber-abbasi/?originalSubdomain=uk
+  photo: assets/img/team/
+  affiliations:
+    - infra
+  projects:
+    - lm-harness

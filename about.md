@@ -1,7 +1,7 @@
 ---
-layout: default
+layout: page
 title: "About"
 permalink: /about/
 ---
 
-{% include about.html %}
+{% include about-team.html %}
