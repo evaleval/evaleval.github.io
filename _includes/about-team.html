@@ -1,0 +1,51 @@
+<!-- Team Section -->
+<section id="home" class="min-h-screen flex items-center justify-center px-8 pt-20">
+    <div class="max-w-4xl mx-auto">
+        <div class="mb-8">
+            <span class="mono text-sm tracking-wider">RESEARCH COMMUNITY</span>
+            <h1 class="hero-title font-bold my-4">EvalEval <span class="border-b-2 border-black">Coalition</span></h1>
+        </div>
+        <div class="space-y-6 mt-16 text-black-700 text-base leading-relaxed">
+            <p><strong>We’re building a coalition on evaluating evaluations (EvalEval)!</strong></p>
+            <p>
+                The flawed state of evaluations, lack of consensus for documenting evaluation applicability and utility, and disparate coverage of broader impact categories hinder adoption, scientific research, and policy analysis of generative AI systems. Coalition members are working collectively to improve the state of evaluations.
+            </p>
+            <p>
+                In addition to working group outputs, positive effects can include influencing research papers’ <em>Broader Impact</em> sections, how evaluations are released, and overall public policy.
+            </p>
+            <p>
+                Our NeurIPS 2024 <strong>“Evaluating Evaluations”</strong> workshop kicked off the latest work streams, highlighting tiny paper submissions that provoked and advanced the state of evaluations. Our original framework for establishing categories of social impact is now published as a chapter in the <em>Oxford Handbook on Generative AI</em> and we hope it will guide standards for Broader Impact analyses. We’ve previously hosted a series of workshops to hone the framework.
+            </p>
+            <p>
+                Hosted by <strong>Hugging Face</strong>, <strong>University of Edinburgh</strong>, and <strong>EleutherAI</strong>, this cross‑sector and interdisciplinary coalition operates across three working groups: Research, Infrastructure and Organization. 
+            </p>
+        </div>
+    </div>
+</section>
+<section class="max-w-4xl mx-auto px-8 pb-20 space-y-12">
+  {% assign categories = 
+    "host:Hosts,research:Research Chairs,infra:Infrastructure Chairs,org:Organization Chairs" | split: "," %}
+
+  {% for cat in categories %}
+    {% assign parts = cat | split: ":" %}
+    {% assign cat_key = parts[0] %}
+    {% assign cat_title = parts[1] %}
+
+    <div>
+      <h2 class="text-2xl font-bold mb-6 text-center">{{ cat_title }}</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        {% assign filtered = site.data.team | where_exp: "m", "m.affiliations contains cat_key" %}
+        {% assign sorted = filtered | sort: "lastname" %}
+        {% for member in sorted %}
+          {% if member.affiliations contains cat_key %}
+            <a href="{{ member.link }}" target="_blank" rel="noopener noreferrer" class="group block rounded-md p-4 border border-gray-200 hover:shadow-lg transition-shadow">
+              <img src="/{{ member.photo }}" alt="{{ member.name }}" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+              <h3 class="text-lg font-semibold text-center group-hover:text-black">{{ member.name }}</h3>
+              <p class="text-center text-sm text-gray-600">{{ member.subheading }}</p>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</section>
