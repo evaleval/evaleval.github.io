@@ -39,7 +39,7 @@
         {% for member in sorted %}
           {% if member.affiliations contains cat_key %}
             <a href="{{ member.link }}" target="_blank" rel="noopener noreferrer" class="group block rounded-md p-4 border border-gray-200 hover:shadow-lg transition-shadow">
-              <img src="/{{ member.photo }}" alt="{{ member.name }}" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+              <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
               <h3 class="text-lg font-semibold text-center group-hover:text-black">{{ member.name }}</h3>
               <p class="text-center text-sm text-gray-600">{{ member.subheading }}</p>
             </a>
