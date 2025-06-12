@@ -209,8 +209,9 @@
   role: Infrastructure Chair
   subheading: Evaluations Engineer at EleutherAI
   link: https://www.linkedin.com/in/baber-abbasi/?originalSubdomain=uk
-  photo: assets/img/team/
+  photo: assets/img/team/baber-abbassi.jpg
   affiliations:
     - infra
+    - host
   projects:
     - lm-harness

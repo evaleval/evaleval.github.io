@@ -1,19 +1,32 @@
 <!-- Navigation -->
 <nav class="fixed w-full z-50 py-6 px-8 bg-white">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="{{ '/' | relative_url }}" class="flex items-center space-x-3 text-xl font-medium tracking-wide hover:underline">
-            <img src="{{ '/assets/img/logo-square.png' | relative_url }}" alt="EvalEval Logo" class="h-8 w-8 object-contain">
-            <span class="inline-block align-middle">EvalEval Coalition</span>
-        </a>    
-        <div class="hidden md:flex space-x-8">
-            <a href="{{ '/about/' | relative_url }}" class="nav-link text-sm">About</a>
-            <a href="{{ '/projects/' | relative_url }}" class="nav-link text-sm">Research</a>
-            <a href="{{ '/blog/' | relative_url }}" class="nav-link text-sm">Blog</a>
-            <a href="{{ '/resources/' | relative_url }}" class="nav-link text-sm">Resources</a>
-            <a href="{{ '/#contact' | relative_url }}" class="nav-link text-sm">Contact</a>
-        </div>
-        <button class="md:hidden">
-            <i class="fas fa-bars text-xl"></i>
-        </button>
+  <div class="max-w-7xl mx-auto flex justify-between items-center">
+    <a href="{{ '/' | relative_url }}" class="flex items-center space-x-3 text-xl font-medium tracking-wide hover:underline">
+      <img src="{{ '/assets/img/logo-square.png' | relative_url }}" alt="EvalEval Logo" class="h-8 w-8 object-contain">
+      <span class="inline-block align-middle">EvalEval Coalition</span>
+    </a>    
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex space-x-8">
+      <a href="{{ '/about/' | relative_url }}" class="nav-link text-sm">About</a>
+      <a href="{{ '/projects/' | relative_url }}" class="nav-link text-sm">Research</a>
+      <a href="{{ '/blog/' | relative_url }}" class="nav-link text-sm">Blog</a>
+      <a href="{{ '/resources/' | relative_url }}" class="nav-link text-sm">Resources</a>
+      <a href="{{ '/#contact' | relative_url }}" class="nav-link text-sm">Contact</a>
     </div>
+
+    <!-- Hamburger Button -->
+    <button id="menu-toggle" class="md:hidden focus:outline-none">
+      <i class="fas fa-bars text-xl"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden flex-col mt-4 space-y-4 md:hidden px-4">
+    <a href="{{ '/about/' | relative_url }}" class="nav-link text-sm">About</a>
+    <a href="{{ '/projects/' | relative_url }}" class="nav-link text-sm">Research</a>
+    <a href="{{ '/blog/' | relative_url }}" class="nav-link text-sm">Blog</a>
+    <a href="{{ '/resources/' | relative_url }}" class="nav-link text-sm">Resources</a>
+    <a href="{{ '/#contact' | relative_url }}" class="nav-link text-sm">Contact</a>
+  </div>
 </nav>
