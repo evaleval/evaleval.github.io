@@ -22,11 +22,13 @@
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden flex-col mt-4 space-y-4 md:hidden px-4">
+  <!-- <div id="mobile-menu" class="hidden md:hidden flex-col absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-md max-h-[80vh] overflow-y-auto z-40 px-4 py-4 space-y-4"> -->
+  <div id="mobile-menu" class="hidden md:hidden flex-col absolute top-full left-0 w-full bg-white border-t border-gray-200 shadow-md max-h-[80vh] overflow-y-auto z-40 px-4 py-4 space-y-4 transition-all duration-300 ease-in-out">
     <a href="{{ '/about/' | relative_url }}" class="nav-link text-sm">About</a>
     <a href="{{ '/projects/' | relative_url }}" class="nav-link text-sm">Research</a>
     <a href="{{ '/blog/' | relative_url }}" class="nav-link text-sm">Blog</a>
     <a href="{{ '/resources/' | relative_url }}" class="nav-link text-sm">Resources</a>
     <a href="{{ '/#contact' | relative_url }}" class="nav-link text-sm">Contact</a>
   </div>
+
 </nav>

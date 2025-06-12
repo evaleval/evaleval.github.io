@@ -5,37 +5,7 @@
     {% include navigation.html %}
     {{  content  }}
     {% include footer.html %}
-    
-    <script>
-        // Move footnotes to sidebar dynamically
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all footnotes from the main content
-            const footnotes = document.querySelectorAll('.footnote-item');
-            const footnoteContainer = document.getElementById('dynamic-footnotes');
-            
-            // Clone each footnote and add to sidebar
-            footnotes.forEach(fn => {
-                const clone = fn.cloneNode(true);
-                footnoteContainer.appendChild(clone);
-            });
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // Process LaTeX equations (handled by MathJax automatically)
-            // This is just a placeholder to show we could add custom processing if needed
-            if (typeof MathJax !== 'undefined') {
-                MathJax.typesetPromise();
-            }
-        });
-    </script>
+    {% include script.html %}
+
 </body>
 </html>
