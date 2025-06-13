@@ -1,19 +1,52 @@
-<!-- Navigation -->
-<nav class="fixed w-full z-50 py-6 px-8 bg-white">
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="{{ '/' | relative_url }}" class="flex items-center space-x-3 text-xl font-medium tracking-wide hover:underline">
-            <img src="{{ '/assets/img/logo-square.png' | relative_url }}" alt="EvalEval Logo" class="h-8 w-8 object-contain">
-            <span class="inline-block align-middle">EvalEval Coalition</span>
-        </a>    
-        <div class="hidden md:flex space-x-8">
-            <a href="{{ '/about/' | relative_url }}" class="nav-link text-sm">About</a>
-            <a href="{{ '/projects/' | relative_url }}" class="nav-link text-sm">Research</a>
-            <a href="{{ '/blog/' | relative_url }}" class="nav-link text-sm">Blog</a>
-            <a href="{{ '/resources/' | relative_url }}" class="nav-link text-sm">Resources</a>
-            <a href="{{ '/#contact' | relative_url }}" class="nav-link text-sm">Contact</a>
-        </div>
-        <button class="md:hidden">
-            <i class="fas fa-bars text-xl"></i>
+<header class="w-full bg-white shadow-md fixed top-0 left-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo and Title -->
+      <div class="flex items-center space-x-3">
+        <a href="{{ "/" | relative_url }}" class="flex items-center space-x-2">
+          <img src="{{ '/assets/img/logo-square.png' | relative_url }}" alt="EvalEval Logo" class="h-8 w-8" />
+          <span class="text-lg font-semibold">EvalEval Coalition</span>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-6 text-sm font-medium">
+        <a href="{{ "/about" | relative_url }}" class="hover:text-blue-600">About</a>
+        <a href="{{ "/projects" | relative_url }}" class="hover:text-blue-600">Research</a>
+        <a href="{{ "/blog" | relative_url }}" class="hover:text-blue-600">Blog</a>
+        <a href="{{ "/resources" | relative_url }}" class="hover:text-blue-600">Resources</a>
+        <a href="https://evaleval.github.io/2024workshop/" class="hover:text-blue-600" target="_blank" rel="noopener">NeurIPS 24</a>
+        <a href="{{ '/' | relative_url }}#contact" class="hover:text-blue-600">Join Us</a>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <div class="md:hidden">
+        <button id="menu-toggle" class="p-2 text-black focus:outline-none" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
         </button>
+      </div>
     </div>
-</nav>
+  </div>
+
+  <!-- Fullscreen Mobile Menu -->
+  <div id="mobile-menu"
+    class="hidden fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-8 text-xl font-medium">
+    
+    <!-- Close button -->
+    <button id="menu-close" class="absolute top-6 right-6 text-3xl font-bold focus:outline-none" aria-label="Close menu">
+      &times;
+    </button>
+
+    <!-- Menu links -->
+    <a href="{{ "/about" | relative_url }}" class="hover:text-blue-600">About</a>
+    <a href="{{ "/projects" | relative_url }}" class="hover:text-blue-600">Research</a>
+    <a href="{{ "/blog" | relative_url }}" class="hover:text-blue-600">Blog</a>
+    <a href="{{ "/resources" | relative_url }}" class="hover:text-blue-600">Resources</a>
+    <a href="https://evaleval.github.io/2024workshop/" class="hover:text-blue-600" target="_blank" rel="noopener">NeurIPS 24</a>
+    <a href="{{ '/' | relative_url }}#contact" class="hover:text-blue-600">Join Us</a>
+  </div>
+</header>
