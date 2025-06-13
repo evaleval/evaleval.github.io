@@ -1,14 +1,19 @@
 <!-- Footer -->
 <footer class="py-12 px-8 border-t border-gray-200">
-    <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-            <div class="text-xl mono font-medium tracking-wide mb-6 md:mb-0">Evaluating Evaluations</div>
-            <div class="mono text-sm tracking-wider mb-6 md:mb-0">
-                © 2025 | EvalEval Coalition
-            </div>
-            <div class="flex space-x-6">
-                <a href="https://github.com/evaleval/" class="footer-link mono text-sm">GitHub</a>
-            </div>
-        </div>
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:grid md:grid-cols-3 items-center text-center">
+      <!-- <div class="mb-6 md:mb-0 md:text-left">
+        <div class="text-xl mono font-medium tracking-wide">Evaluating Evaluations</div>
+      </div> -->
+      <div class="mb-6 md:mb-0 md:text-left">
+        <img src="{{ '/assets/img/evaleval-logo.png' | relative_url }}" alt="EvalEval Logo" class="h-12 inline-block" />
+      </div>
+      <div class="mb-6 md:mb-0">
+        <div class="mono text-sm tracking-wider">© 2025 | EvalEval Coalition</div>
+      </div>
+      <div class="flex justify-center md:justify-end space-x-6">
+        <a href="https://github.com/evaleval/" class="footer-link mono text-sm">GitHub</a>
+      </div>
     </div>
+  </div>
 </footer>
