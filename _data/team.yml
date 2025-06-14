@@ -11,7 +11,7 @@
 - name: Zeerak Talat
   lastname: Talat
   role: Host
-  subheading: Responsible ML & AI Chancellor's Fellow at the University of Edinburgh
+  subheading: Chancellor's Fellow at the University of Edinburgh
   link: https://zeerak.org/
   photo: assets/img/team/zeerak-talat.jpg
   affiliations:
@@ -139,7 +139,7 @@
   lastname: Wei
   role: Organizing Chair
   subheading: 
-  link: 
+  link: https://kevinlwei.com/
   photo: assets/img/team/kevin-wei.jpg
   affiliations:
     - org
@@ -161,7 +161,7 @@
   lastname: Paskov
   role: Research Chair
   subheading: 
-  link: https://www.linkedin.com/in/patricia-paskov/
+  link: https://www.prpaskov.com
   photo: assets/img/team/patricia-paskov.jpg
   affiliations:
     - research
