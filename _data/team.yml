@@ -191,18 +191,18 @@
   projects:
     - research-output
 
-- name: Garnett Achieng
-  lastname: Achieng
-  role: Organizing Chair
-  subheading: Policy Manager at TikTok
-  link: https://garnettachieng.notion.site/Hello-I-m-Garnett-Achieng-4401ae2666134b149d8ea407ad41adde
-  photo: assets/img/team/garnett-achieng.jpg
-  affiliations:
-    - infra
-    - org
-  projects:
-    - lm-harness
-    - research-output
+# - name: Garnett Achieng
+#   lastname: Achieng
+#   role: Organizing Chair
+#   subheading: Policy Manager at TikTok
+#   link: https://garnettachieng.notion.site/Hello-I-m-Garnett-Achieng-4401ae2666134b149d8ea407ad41adde
+#   photo: assets/img/team/garnett-achieng.jpg
+#   affiliations:
+#     - infra
+#     - org
+#   projects:
+#     - lm-harness
+#     - research-output
 
 - name: Baber Abbassi
   lastname: Abbassi
@@ -215,3 +215,14 @@
     - host
   projects:
     - lm-harness
+
+- name: Usman Gohar
+  lastname: Gohar
+  role: Organizing Chair
+  subheading: PhD Student at Iowa State University
+  link: https://usmangohar.github.io/
+  photo: assets/img/team/usman-gohar.jpg
+  affiliations:
+    - org
+  projects:
+    - research-output
