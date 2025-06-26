@@ -1,16 +1,37 @@
 ---
-# Layout front matter is optional here
+layout: default
 ---
-<article class="project-card">
+<article class="project-page">
   <h1>{{ page.title }}</h1>
-  <p><strong>Team:</strong> {{ page.team | join: ", " }}</p>
-  <div>{{ content }}</div>
-  {% if page.related_blogs %}
-    <h3>Related Blogs</h3>
-    <ul>
-      {% for blog in page.related_blogs %}
-        <li><a href="{{ blog | prepend: site.baseurl }}">{{ blog }}</a></li>
-      {% endfor %}
-    </ul>
+
+  {% if page.img %}
+    <img src="/assets/images/{{ page.img }}" alt="{{ page.alt }}" class="project-banner">
+  {% endif %}
+
+  {% if page.team %}
+    <p><strong>Team:</strong> {{ page.team }}</p>
+  {% endif %}
+
+  {% if page.category %}
+    <p><strong>Category:</strong> {{ page.category }}</p>
+  {% endif %}
+
+  {% if page.project_status %}
+    <p><strong>Status:</strong> {{ page.project_status }}</p>
+  {% endif %}
+
+  {% if page.tags %}
+    <p><strong>Tags:</strong> {{ page.tags | join: ', ' }}</p>
+  {% endif %}
+
+  {% if page.description %}
+    <div class="project-description">
+      <h2>Description</h2>
+      <p>{{ page.description }}</p>
+    </div>
+  {% endif %}
+
+  {% if page.link %}
+    <p><a href="{{ page.link }}" target="_blank">Learn more</a></p>
   {% endif %}
 </article>
