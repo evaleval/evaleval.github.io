@@ -1,11 +1,11 @@
 ---
-layout: default
-modal-id: 1
+layout: project
 title: Benchmark Saturation
 team: Anka Reuel, Prajna Soni, Mubashara Akhtar
 img: saturation.png
 alt: image-alt
 category: Research
+status: active
 description:  |
   This project aims to investigate how to systematically characterize the complexity and behavior of AI benchmarks over time, with the overarching goal of informing more robust benchmark design. The first core challenge is conceptual -- how can we measure benchmark complexity in a meaningful, reproducible way? We will define and extract a rich set of benchmark properties, ranging from domain and task type to semantic diversity and prompt variability, to facilitate this.
 

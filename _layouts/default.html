@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include head.html %}
-<body>
+  {% include head.html %}
+  <body class="min-h-screen flex flex-col">
     {% include navigation.html %}
-    {% include intro.html %}
-    {% include projects.html %}
-    {% include blogs.html %}
-    {% include resources.html %}
-    {% include joinus.html %}
+
+    <!-- Make sure main grows to fill vertical space -->
+    <main class="flex-grow py-20 px-6 max-w-5xl mx-auto">
+      {{ content }}
+    </main>
+
     {% include footer.html %}
     {% include script.html %}
-    
-</body>
+  </body>
 </html>

@@ -1,11 +1,11 @@
 ---
-layout: default
-modal-id: 2
+layout: project
 title: Evaluation Science
 team: Subho Majumdar, Patricia Paskov
 img: science.png
 alt: image-alt
 category: Research
+status: active
 description: |
     Recognizing the current lack of robustness in GPAI risk evaluations and the resulting limitations for informed decision-making and societal preparedness, this project aims to establish a scientific foundation for more rigorous and reliable evaluations. By bringing together researchers and practitioners, we will take stock of existing evaluation science research, map open questions and evidence gaps, conduct targeted research on select areas of expertise, and ultimately bridge the divide between rigorous best practices and pragmatic implementation to provide actionable insights for the AI evaluation ecosystem.
 

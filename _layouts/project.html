@@ -1,16 +1,60 @@
 ---
-# Layout front matter is optional here
+layout: default
 ---
-<article class="project-card">
-  <h1>{{ page.title }}</h1>
-  <p><strong>Team:</strong> {{ page.team | join: ", " }}</p>
-  <div>{{ content }}</div>
-  {% if page.related_blogs %}
-    <h3>Related Blogs</h3>
-    <ul>
-      {% for blog in page.related_blogs %}
-        <li><a href="{{ blog | prepend: site.baseurl }}">{{ blog }}</a></li>
-      {% endfor %}
-    </ul>
+<main class="max-w-3xl mx-auto px-4 py-12">
+  <!-- Title -->
+  <h1 class="text-3xl font-bold mb-4">{{ page.title }}</h1>
+
+  <!-- Metadata Row -->
+  <div class="flex flex-wrap items-center gap-3 mb-6">
+
+    <!-- Category Tag -->
+    {% if page.category %}
+      <span class="inline-block bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full">
+        {{ page.category }}
+      </span>
+    {% endif %}
+
+    <!-- Status Badge -->
+    {% if page.status %}
+      {% if page.status == "active" %}
+        <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">
+          Currently Active
+        </span>
+      {% else %}
+        <span class="inline-block bg-gray-100 text-gray-600 text-xs font-semibold px-3 py-1 rounded-full">
+          Wrapped Up
+        </span>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  <!-- Team -->
+  {% if page.team %}
+    <p class="text-gray-700 mb-4"><strong>Chairs:</strong> {{ page.team }}</p>
   {% endif %}
-</article>
+
+  <!-- External Link Button -->
+  {% if page.link %}
+    <a href="{{ page.link }}" 
+      class="inline-block px-4 py-2 mb-6 text-white rounded transition hover:brightness-110"
+      style="background-color: #5bacd1;">
+      View Project
+    </a>
+  {% endif %}
+
+  <!-- Description -->
+  {% if page.description %}
+    <div class="mt-6 prose prose-sm md:prose-lg text-gray-800 leading-relaxed">
+      {{ page.description }}
+    </div>
+  {% endif %}
+
+  <!-- Back Button -->
+  {% if page.collection %}
+    <a href="{{ '/' | append: page.collection | relative_url }}"
+       class="inline-block mt-10 px-4 py-2 text-gray-800 border border-gray-400 rounded transition hover:bg-gray-100">
+      ← Back to All {{ page.collection | capitalize }}
+    </a>
+  {% endif %}
+</main>

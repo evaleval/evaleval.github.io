@@ -1,67 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-{% include head.html %}
-<body>
-  {% include navigation.html %}
+---
+layout: default
+---
 
-  <main class="py-20 px-8 bg-gray-50">
-    <div class="max-w-7xl mx-auto">
+<!-- Collection Layout -->
+<section class="py-20 px-6 bg-white">
+  <div class="max-w-7xl mx-auto">
 
-      <!-- Header -->
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-0">{{ page.title }}</h2>
-        <div class="mono text-sm tracking-wider">{{ page.subtitle }}</div>
-      </div>
-
-      <!-- 3×3 Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-        {% assign items = site[page.collection] %}
-        {% for item in items limit:9 %}
-        <a href="{{ item.url | relative_url }}" class="post-card block hover:shadow-lg transition-shadow duration-200">
-          <div class="overflow-hidden mb-4 rounded">
-            {% if item.image %}
-              <img src="{{ item.image | relative_url }}" alt="{{ item.title }}" class="w-full h-48 object-cover">
-            {% endif %}
-          </div>
-          <div class="post-meta mb-2 text-sm text-gray-500">
-            {% if item.date %}
-              {{ item.date | date: "%B %-d, %Y" }}
-            {% endif %}
-            {% if item.reading_time %}
-              • {{ item.reading_time }} min read
-            {% endif %}
-          </div>
-          <h3 class="text-xl font-bold mb-2">{{ item.title }}</h3>
-          {% if item.excerpt %}
-          <p class="text-gray-600 text-sm mb-3">
-            {{ item.excerpt | strip_html | truncate: 120 }}
-          </p>
-          {% endif %}
-          <div class="flex flex-wrap gap-2">
-            {% if item.tags %}
-              {% for tag in item.tags %}
-                <span class="post-tag bg-gray-100 px-2 py-1 text-xs rounded">{{ tag }}</span>
-              {% endfor %}
-            {% endif %}
-          </div>
-        </a>
-        {% endfor %}
-      </div>
-
-      <!-- “View All” Button -->
-      <div class="text-center">
-        <a
-          href="{{ page.permalink }}"
-          class="px-8 py-3 border border-black rounded-sm font-medium text-sm mono hover:bg-gray-100 transition-all duration-300 inline-flex items-center"
-        >
-          View All {{ page.title }}
-          <i class="fas fa-arrow-right ml-2 text-xs"></i>
-        </a>
-      </div>
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-0">{{ page.title }}</h2>
+      {% if page.subtitle %}
+        <div class="mono text-sm tracking-wider text-gray-500">{{ page.subtitle }}</div>
+      {% endif %}
     </div>
-  </main>
 
-  {% include footer.html %}
-  {% include script.html %}
-</body>
-</html>
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% assign items = site[page.collection] | sort: 'title' %}
+      {% for item in items %}
+        <div class="project-card p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+            {% case item.category %}
+              {% when "Infrastructure" %}
+                <i class="fas fa-network-wired"></i>
+              {% when "Research" %}
+                <i class="fas fa-flask"></i>
+              {% when "Organization" %}
+                <i class="fas fa-users"></i>
+              {% when "Tooling" %}
+                <i class="fas fa-tools"></i>
+              {% when "Documentation" %}
+                <i class="fas fa-book"></i>
+              {% when "Datasets" %}
+                <i class="fas fa-database"></i>
+              {% else %}
+                <i class="fas fa-lightbulb"></i> <!-- Default icon -->
+            {% endcase %}
+          </div>
+
+          <!-- Title -->
+          <h3 class="text-xl font-bold">
+            <a href="{{ item.url | relative_url }}" class="hover:text-blue-600">{{ item.title }}</a>
+          </h3>
+
+          <!-- Category Tag (spaced neatly below title) -->
+          {% if item.category %}
+            <div class="mt-2 mb-4">
+              <span class="inline-block bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full">
+                {{ item.category }}
+              </span>
+            </div>
+          {% endif %}
+
+          <!-- Description -->
+          {% if item.description %}
+            <p class="text-gray-600 text-sm mb-4">
+              {{ item.description | strip_html | truncate: 200 }}
+            </p>
+          {% endif %}
+
+          <!-- Link -->
+          <a href="{{ item.url | relative_url }}" class="mono text-xs text-gray-500 hover:text-black">Learn more →</a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
