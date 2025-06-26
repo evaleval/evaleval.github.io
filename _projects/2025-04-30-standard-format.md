@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: default
 modal-id: 4
 title: A Standardized Format for AI Evaluation Data
 team: Jan Batzner, Leshem Choshen, Subho Majumdar
