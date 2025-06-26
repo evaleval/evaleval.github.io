@@ -40,6 +40,9 @@ plugins:
   - jekyll-sitemap
   
 collections:
+  resources:
+    output: true
+    permalink: /resources/:name/
   projects:
     output: true
     permalink: /projects/:name/
