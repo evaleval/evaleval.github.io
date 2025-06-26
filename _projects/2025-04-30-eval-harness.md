@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: default
 modal-id: 5
 title: Evaluation Harness and Tutorials
 team: Baber Abbasi, Stella Biderman, Garnett Achieng
