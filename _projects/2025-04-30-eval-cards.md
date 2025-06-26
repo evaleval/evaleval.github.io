@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: default
 modal-id: 3
 title: Evaluation Cards
 team: Anka Reuel, Cedric Whitney, Avijit Ghosh
