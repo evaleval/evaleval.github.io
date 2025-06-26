@@ -8,6 +8,8 @@ keywords: "artificial intelligence, AI evaluation, machine learning"
 meta_author: EvalEval Coalition
 baseurl: "/website_v2"  # Only include this if your site is in a subdirectory
 url: "https://evaleval.github.io"  # Don't include the trailing slash
+logo: /assets/img/evaleval-logo.png
+image: /assets/img/site-banner.png
 
 # Social media links
 social:
