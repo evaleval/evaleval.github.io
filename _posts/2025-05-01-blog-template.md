@@ -1,15 +1,18 @@
 ---
 layout: post
-title: "TEMPLATE"
-date: 2025-05-01
-published: True
-image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+title: "Template"
+date: 2025-05-15
+published: true
+image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
 authors:
-  - name: "Dr. Sarah Chen"
-    url: "/about/#sarah-chen"
+  - name: "Jane Doe"
+    url: "/about/#research"
+  - name: "John Doe"
+    url: "/about/#research"
 tags:
-  - Metrics
-  - "Generative AI"
-  - Evaluation
-excerpt: 
+  - "Large Language Models"
+  - "Evaluation Metrics"
+  - "Benchmark Design"
+  - "AI Safety"
+excerpt: "Exploring novel approaches to evaluating large language models beyond traditional metrics, with focus on robustness, alignment, and real-world performance."
 ---

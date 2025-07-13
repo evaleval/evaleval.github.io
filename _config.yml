@@ -24,6 +24,9 @@ address:
 
 # Build settings
 markdown: kramdown
+kramdown:
+  input: GFM
+  footnote_nr: 1
 permalink: pretty
 theme: minima  # You can override this with your custom layout or remove if not using
 

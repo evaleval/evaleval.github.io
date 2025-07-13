@@ -128,5 +128,290 @@
         .post-card:hover {
             transform: translateY(-2px);
         }
+
+        /* Enhanced Blog Post Styles */
+        /* Add this to your main CSS file or include it in head.html */
+
+        /* Improved prose styling */
+        .prose {
+            line-height: 1.7;
+            color: #111111;
+            --tw-prose-body: #111111;
+            --tw-prose-headings: #111111;
+            --tw-prose-bold: #111111;
+        }
+
+        .prose h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #111827;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+        }
+
+        .prose h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #111827;
+        }
+
+        .prose h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+
+        .prose p {
+            margin-bottom: 1.25rem;
+        }
+
+        .prose blockquote {
+            border-left: 4px solid #5bacd1;
+            background-color: #f8fafc;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #475569;
+        }
+
+        .prose blockquote p {
+            margin-bottom: 0;
+        }
+
+        .prose code {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+            font-size: 0.875em;
+        }
+
+        .prose pre {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+
+        .prose pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        .prose ul, .prose ol {
+            margin: 1.25rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .prose li {
+            margin-bottom: 0.5rem;
+        }
+
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .prose th, .prose td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .prose th {
+            background-color: #f9fafb;
+            font-weight: 600;
+        }
+        .custom-prose {
+            --tw-prose-body: #111111;
+            --tw-prose-headings: #111111;
+            --tw-prose-bold: #111111;
+            --tw-prose-lead: #111111;
+            --tw-prose-links: #5bacd1;
+            color: #111111;
+        }
+
+        /* Enhanced footnote styling */
+        .footnote-ref {
+            background-color: #5bacd1;
+            color: white;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+            margin-left: 0.125rem;
+            transition: all 0.2s ease;
+        }
+
+        .footnote-ref:hover {
+            background-color: #5bacd1;
+            transform: scale(1.05);
+        }
+
+        .footnote-sidebar-item {
+            transition: all 0.3s ease;
+        }
+
+        .footnote-sidebar-item:hover {
+            background-color: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        /* Math equation styling */
+        .MathJax_Display {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: #f8fafc;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+        }
+
+        /* Table of Contents styling */
+        #toc a {
+            transition: all 0.2s ease;
+        }
+
+        #toc a:hover {
+            background-color: #f1f5f9;
+            transform: translateX(0.25rem);
+        }
+
+        /* Responsive improvements */
+        @media (max-width: 1024px) {
+            .prose {
+                font-size: 1rem;
+            }
+            
+            .prose h2 {
+                font-size: 1.5rem;
+            }
+            
+            .prose h3 {
+                font-size: 1.25rem;
+            }
+            
+            .prose h4 {
+                font-size: 1.125rem;
+            }
+        }
+
+        /* Post meta styling */
+        .post-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .post-meta a {
+            color: #374151;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .post-meta a:hover {
+            color: #5bacd1;
+        }
+
+        /* Enhanced tag styling */
+        .post-tag {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.025em;
+            transition: all 0.2s ease;
+        }
+
+        .post-tag:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Loading states */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        /* Print styles */
+        @media print {
+            .sidebar {
+                display: none;
+            }
+            
+            .prose {
+                max-width: none;
+            }
+            
+            .footnote-ref {
+                background-color: transparent;
+                color: black;
+                border: 1px solid black;
+            }
+        }
+
+        /* Dark mode support (if needed) */
+        @media (prefers-color-scheme: dark) {
+            .prose {
+                color: #d1d5db;
+            }
+            
+            .prose h2, .prose h3, .prose h4 {
+                color: #f9fafb;
+            }
+            
+            .prose blockquote {
+                background-color: #1f2937;
+                border-left-color: #5bacd1;
+                color: #d1d5db;
+            }
+            
+            .prose code {
+                background-color: #374151;
+                color: #e5e7eb;
+            }
+        }
+
+        /* Accessibility improvements */
+        .prose a:focus,
+        .footnote-ref:focus,
+        #toc a:focus {
+            outline: 2px solid #5bacd1;
+            outline-offset: 2px;
+        }
+
+        /* Scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection styling */
+        ::selection {
+            background-color: #5bacd1;
+            color: white;
+        }
+
+        /* Line clamp utility */
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
     </style>
 </head>
