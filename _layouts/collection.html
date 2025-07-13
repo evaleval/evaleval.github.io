@@ -18,50 +18,52 @@ layout: default
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {% assign items = site[page.collection] | sort: 'title' %}
       {% for item in items %}
-        <div class="project-card p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300">
-          <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
-            {% case item.category %}
-              {% when "Infrastructure" %}
-                <i class="fas fa-network-wired"></i>
-              {% when "Research" %}
-                <i class="fas fa-flask"></i>
-              {% when "Organization" %}
-                <i class="fas fa-users"></i>
-              {% when "Tooling" %}
-                <i class="fas fa-tools"></i>
-              {% when "Documentation" %}
-                <i class="fas fa-book"></i>
-              {% when "Datasets" %}
-                <i class="fas fa-database"></i>
-              {% else %}
-                <i class="fas fa-lightbulb"></i> <!-- Default icon -->
-            {% endcase %}
-          </div>
-
-          <!-- Title -->
-          <h3 class="text-xl font-bold">
-            <a href="{{ item.url | relative_url }}" class="hover:text-blue-600">{{ item.title }}</a>
-          </h3>
-
-          <!-- Category Tag (spaced neatly below title) -->
-          {% if item.category %}
-            <div class="mt-2 mb-4">
-              <span class="inline-block bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full">
-                {{ item.category }}
-              </span>
+        {% if item.published != false %}
+          <div class="project-card p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+              {% case item.category %}
+                {% when "Infrastructure" %}
+                  <i class="fas fa-network-wired"></i>
+                {% when "Research" %}
+                  <i class="fas fa-flask"></i>
+                {% when "Organization" %}
+                  <i class="fas fa-users"></i>
+                {% when "Tooling" %}
+                  <i class="fas fa-tools"></i>
+                {% when "Documentation" %}
+                  <i class="fas fa-book"></i>
+                {% when "Datasets" %}
+                  <i class="fas fa-database"></i>
+                {% else %}
+                  <i class="fas fa-lightbulb"></i> <!-- Default icon -->
+              {% endcase %}
             </div>
-          {% endif %}
 
-          <!-- Description -->
-          {% if item.description %}
-            <p class="text-gray-600 text-sm mb-4">
-              {{ item.description | strip_html | truncate: 200 }}
-            </p>
-          {% endif %}
+            <!-- Title -->
+            <h3 class="text-xl font-bold">
+              <a href="{{ item.url | relative_url }}" class="hover:text-blue-600">{{ item.title }}</a>
+            </h3>
 
-          <!-- Link -->
-          <a href="{{ item.url | relative_url }}" class="mono text-xs text-gray-500 hover:text-black">Learn more →</a>
-        </div>
+            <!-- Category Tag (spaced neatly below title) -->
+            {% if item.category %}
+              <div class="mt-2 mb-4">
+                <span class="inline-block bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full">
+                  {{ item.category }}
+                </span>
+              </div>
+            {% endif %}
+
+            <!-- Description -->
+            {% if item.description %}
+              <p class="text-gray-600 text-sm mb-4">
+                {{ item.description | strip_html | truncate: 200 }}
+              </p>
+            {% endif %}
+
+            <!-- Link -->
+            <a href="{{ item.url | relative_url }}" class="mono text-xs text-gray-500 hover:text-black">Learn more →</a>
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
   </div>
