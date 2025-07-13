@@ -16,7 +16,7 @@ tags:
   - "Evaluation Metrics"
   - "Benchmark Design"
   - "AI Safety"
-excerpt: "Exploring novel approaches to evaluating large language models beyond traditional metrics, with focus on robustness, alignment, and real-world performance."
+description: "Exploring novel approaches to evaluating large language models beyond traditional metrics, with focus on robustness, alignment, and real-world performance."
 ---
 
 The evaluation of large language models (LLMs) has become increasingly complex as these systems demonstrate remarkable capabilities across diverse domains. Traditional metrics like perplexity and BLEU scores, while useful, fail to capture the nuanced aspects of model performance that matter most in real-world applications[^1].

@@ -14,7 +14,7 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #ffffff;
-            color: #000000;
+            color: #1a1a1a; /* Changed from #000000 to dark gray for better readability */
             overflow-x: hidden;
         }
         
@@ -40,7 +40,7 @@
             height: 1px;
             bottom: -2px;
             left: 0;
-            background-color: #000000;
+            background-color: #1a1a1a;
             transition: width 0.3s ease;
         }
         
@@ -86,6 +86,9 @@
             vertical-align: super;
             font-size: 0.8em;
             margin-left: 2px;
+            cursor: pointer;
+            color: #5bacd1;
+            text-decoration: none;
         }
         
         .footnote-item {
@@ -130,23 +133,27 @@
         }
 
         /* Enhanced Blog Post Styles */
-        /* Add this to your main CSS file or include it in head.html */
-
-        /* Improved prose styling */
+        /* Improved prose styling with better contrast */
         .prose {
             line-height: 1.7;
-            color: #111111;
-            --tw-prose-body: #111111;
-            --tw-prose-headings: #111111;
-            --tw-prose-bold: #111111;
+            color: #1a1a1a; /* Changed from #111111 to slightly softer black */
+            --tw-prose-body: #1a1a1a;
+            --tw-prose-headings: #1a1a1a;
+            --tw-prose-bold: #1a1a1a;
+            --tw-prose-lead: #1a1a1a;
+            --tw-prose-links: #5bacd1;
+            max-width: none;
+        }
+
+        .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+            color: #1a1a1a; /* Ensure all headings are dark */
+            font-weight: 700;
         }
 
         .prose h2 {
             font-size: 1.875rem;
-            font-weight: 700;
             margin-top: 2rem;
             margin-bottom: 1rem;
-            color: #111827;
             border-bottom: 2px solid #e5e7eb;
             padding-bottom: 0.5rem;
         }
@@ -156,7 +163,6 @@
             font-weight: 600;
             margin-top: 1.5rem;
             margin-bottom: 0.75rem;
-            color: #111827;
         }
 
         .prose h4 {
@@ -164,11 +170,16 @@
             font-weight: 600;
             margin-top: 1.25rem;
             margin-bottom: 0.5rem;
-            color: #111827;
         }
 
         .prose p {
             margin-bottom: 1.25rem;
+            color: #1a1a1a; /* Ensure paragraphs are dark */
+        }
+
+        .prose strong {
+            color: #1a1a1a; /* Ensure bold text is dark */
+            font-weight: 600;
         }
 
         .prose blockquote {
@@ -177,7 +188,7 @@
             padding: 1rem 1.5rem;
             margin: 1.5rem 0;
             font-style: italic;
-            color: #475569;
+            color: #374151; /* Darker color for blockquotes */
         }
 
         .prose blockquote p {
@@ -214,6 +225,7 @@
 
         .prose li {
             margin-bottom: 0.5rem;
+            color: #1a1a1a; /* Ensure list items are dark */
         }
 
         .prose table {
@@ -226,19 +238,21 @@
             border: 1px solid #e5e7eb;
             padding: 0.75rem;
             text-align: left;
+            color: #1a1a1a; /* Ensure table text is dark */
         }
 
         .prose th {
             background-color: #f9fafb;
             font-weight: 600;
         }
+
         .custom-prose {
-            --tw-prose-body: #111111;
-            --tw-prose-headings: #111111;
-            --tw-prose-bold: #111111;
-            --tw-prose-lead: #111111;
+            --tw-prose-body: #1a1a1a;
+            --tw-prose-headings: #1a1a1a;
+            --tw-prose-bold: #1a1a1a;
+            --tw-prose-lead: #1a1a1a;
             --tw-prose-links: #5bacd1;
-            color: #111111;
+            color: #1a1a1a;
         }
 
         /* Enhanced footnote styling */
@@ -253,20 +267,33 @@
             display: inline-block;
             margin-left: 0.125rem;
             transition: all 0.2s ease;
+            cursor: pointer;
         }
 
         .footnote-ref:hover {
-            background-color: #5bacd1;
+            background-color: #4a9bb8;
             transform: scale(1.05);
         }
 
         .footnote-sidebar-item {
             transition: all 0.3s ease;
+            scroll-margin-top: 100px; /* Add scroll margin for better positioning */
         }
 
         .footnote-sidebar-item:hover {
             background-color: #f8fafc;
             border-color: #cbd5e1;
+        }
+
+        .footnote-sidebar-item.highlighted {
+            background-color: #dbeafe !important;
+            border-color: #3b82f6 !important;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
         }
 
         /* Math equation styling */
@@ -281,11 +308,18 @@
         /* Table of Contents styling */
         #toc a {
             transition: all 0.2s ease;
+            color: #4b5563; /* Darker color for TOC links */
         }
 
         #toc a:hover {
             background-color: #f1f5f9;
             transform: translateX(0.25rem);
+            color: #1a1a1a;
+        }
+
+        #toc a.active {
+            color: #5bacd1;
+            border-left-color: #5bacd1;
         }
 
         /* Responsive improvements */
@@ -365,28 +399,6 @@
             }
         }
 
-        /* Dark mode support (if needed) */
-        @media (prefers-color-scheme: dark) {
-            .prose {
-                color: #d1d5db;
-            }
-            
-            .prose h2, .prose h3, .prose h4 {
-                color: #f9fafb;
-            }
-            
-            .prose blockquote {
-                background-color: #1f2937;
-                border-left-color: #5bacd1;
-                color: #d1d5db;
-            }
-            
-            .prose code {
-                background-color: #374151;
-                color: #e5e7eb;
-            }
-        }
-
         /* Accessibility improvements */
         .prose a:focus,
         .footnote-ref:focus,
@@ -412,6 +424,16 @@
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
+        }
+
+        /* Ensure all text elements are properly colored */
+        .prose * {
+            color: inherit;
+        }
+
+        /* Specific overrides for any remaining light text */
+        .text-gray-600, .text-gray-500, .text-gray-400 {
+            color: #4b5563 !important;
         }
     </style>
 </head>
