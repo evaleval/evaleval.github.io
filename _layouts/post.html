@@ -103,13 +103,13 @@
                             <div class="flex flex-wrap gap-3">
                                 <!-- X (formerly Twitter) -->
                                 <a href="https://x.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title | url_encode }}" 
-                                class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all duration-300" 
+                                class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-700 hover:text-white hover:border-gray-700 transition-all duration-300" 
                                 target="_blank" rel="noopener">
                                     <i class="fab fa-twitter text-sm"></i>
                                 </a>
                                 <!-- LinkedIn -->
                                 <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url }}&title={{ page.title | url_encode }}" 
-                                class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-300" 
+                                class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-700 hover:text-white hover:border-gray-700 transition-all duration-300" 
                                 target="_blank" rel="noopener">
                                     <i class="fab fa-linkedin-in text-sm"></i>
                                 </a>
@@ -120,7 +120,7 @@
                                 </a>
                                 <!-- Bluesky -->
                                 <a href="https://bsky.app/compose/post?text={{ page.title | url_encode }}%20{{ page.url | absolute_url }}" 
-                                class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-blue-300 hover:text-white hover:border-blue-300 transition-all duration-300" 
+                                class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-700 hover:text-white hover:border-gray-700 transition-all duration-300" 
                                 target="_blank" rel="noopener">
                                     <i class="fab fa-bluesky text-sm"></i>
                                 </a>
@@ -191,55 +191,29 @@
             hideOriginalFootnotes();
         });
         
+        // Corrected navbar height function
         function getNavbarHeight() {
-            // Try multiple selectors to find the navbar
-            const navbarSelectors = [
-                'nav',
-                'header',
-                '.navbar', 
-                '.navigation',
-                '.header',
-                '.top-bar',
-                '[class*="nav"]',
-                '[class*="header"]'
-            ];
-            
-            for (let selector of navbarSelectors) {
-                const navbar = document.querySelector(selector);
-                if (navbar) {
-                    // Get the computed height including padding and borders
-                    const computedStyle = window.getComputedStyle(navbar);
-                    const height = navbar.offsetHeight;
-                    
-                    // Check if it's positioned fixed or sticky (likely a navbar)
-                    const position = computedStyle.position;
-                    if (position === 'fixed' || position === 'sticky') {
-                        console.log(`Found navbar with selector "${selector}", height: ${height}px`);
-                        return height;
-                    }
+            // Look for the actual fixed header element
+            const header = document.querySelector('header');
+            if (header) {
+                const style = window.getComputedStyle(header);
+                if (style.position === 'fixed' || style.position === 'sticky') {
+                    return header.getBoundingClientRect().height;
                 }
             }
             
-            // Fallback: try to find any fixed/sticky element at the top
-            const fixedElements = document.querySelectorAll('*');
-            for (let element of fixedElements) {
-                const computedStyle = window.getComputedStyle(element);
-                const position = computedStyle.position;
-                const top = computedStyle.top;
-                
-                if ((position === 'fixed' || position === 'sticky') && 
-                    (top === '0px' || top === '0')) {
-                    const height = element.offsetHeight;
-                    if (height > 0 && height < 200) { // Reasonable navbar height
-                        console.log(`Found fixed/sticky element, height: ${height}px`);
-                        return height;
-                    }
-                }
+            // Fallback: find any fixed/sticky element at the top
+            const fixedElements = Array.from(document.querySelectorAll('*')).filter(el => {
+                const style = window.getComputedStyle(el);
+                const rect = el.getBoundingClientRect();
+                return (style.position === 'fixed' || style.position === 'sticky') && rect.top <= 10;
+            });
+            
+            if (fixedElements.length > 0) {
+                return Math.max(...fixedElements.map(el => el.getBoundingClientRect().bottom));
             }
             
-            // Final fallback
-            console.log('No navbar found, using fallback height: 80px');
-            return 80;
+            return 0; // No fixed navbar found
         }
         
         function generateTOC() {
@@ -260,7 +234,7 @@
                 const link = document.createElement('a');
                 link.href = `#${heading.id}`;
                 link.textContent = heading.textContent;
-                link.className = `block py-1 text-sm text-gray-600 hover:text-blue-600 transition-colors border-l-2 border-transparent hover:border-blue-600 pl-3 ${
+                link.className = `block py-1 text-sm hover:text-blue-600 transition-colors border-l-2 border-transparent hover:border-blue-600 pl-3 ${
                     heading.tagName === 'H2' ? 'font-medium' : 
                     heading.tagName === 'H3' ? 'ml-4' : 'ml-8'
                 }`;
@@ -358,7 +332,7 @@
             footnoteNumbers.forEach(footnoteNumber => {
                 const button = document.createElement('button');
                 button.textContent = footnoteNumber;
-                button.className = 'footnote-btn w-8 h-8 rounded-full border border-gray-300 text-sm font-medium hover:bg-blue-100 hover:border-blue-300 transition-all duration-200';
+                button.className = 'footnote-btn w-8 h-8 rounded-full border border-gray-300 text-sm font-medium hover:bg-[#5bacd1] hover:text-gray-900 transition-all duration-200';
                 button.setAttribute('data-footnote', footnoteNumber);
                 
                 button.addEventListener('click', function() {
@@ -393,7 +367,19 @@
                 
                 // Create non-clickable span
                 const span = document.createElement('span');
-                span.className = 'footnote-ref-display inline-block w-5 h-5 text-xs bg-blue-100 text-blue-600 rounded-full text-center leading-5 font-medium mx-1';
+                span.className = [
+                    'footnote-ref-display',    // base styling
+                    'inline-block',            // keep it inline
+                    'w-4', 'h-4',              // smaller circle
+                    'text-[0.65rem]',          // smaller font
+                    'bg-gray-200',             // very light gray bg
+                    'text-gray-500',           // mid gray text
+                    'rounded-full',            // circle shape
+                    'text-center',             // center number
+                    'leading-4',               // vertical centering
+                    'font-medium',             // a bit bolder
+                    'mx-1'                     // small side margin
+                    ].join(' ');
                 span.textContent = footnoteNumber;
                 span.title = `See footnote ${footnoteNumber} in sidebar`;
                 
@@ -415,12 +401,12 @@
         function setActiveButton(activeButton) {
             // Remove active class from all buttons
             document.querySelectorAll('.footnote-btn').forEach(btn => {
-                btn.classList.remove('bg-blue-500', 'text-white', 'border-blue-500');
+                btn.classList.remove('bg-[#5bacd1]', 'text-white', 'border-[#5bacd1]');
                 btn.classList.add('border-gray-300');
             });
             
             // Add active class to clicked button
-            activeButton.classList.add('bg-blue-500', 'text-white', 'border-blue-500');
+            activeButton.classList.add('bg-[#5bacd1]', 'text-white', 'border-[#5bacd1]');
             activeButton.classList.remove('border-gray-300');
         }
         
@@ -437,29 +423,8 @@
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        scrollToElement(target);
-                    }
+                    if (target) target.scrollIntoView({ block: 'start' });
                 });
-            });
-        }
-        
-        function scrollToElement(element) {
-            // Calculate navbar height dynamically at scroll time
-            const navbarHeight = getNavbarHeight();
-            const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
-            const targetPosition = elementTop - navbarHeight - 20; // Extra 20px padding
-            
-            console.log(`Scrolling to element:`, {
-                elementTop,
-                navbarHeight,
-                targetPosition,
-                currentScroll: window.pageYOffset
-            });
-            
-            window.scrollTo({
-                top: Math.max(0, targetPosition), // Ensure we don't scroll to negative position
-                behavior: 'smooth'
             });
         }
         
@@ -478,19 +443,19 @@
                         // Remove active class from all links
                         tocLinks.forEach(link => {
                             link.classList.remove('text-blue-600', 'border-blue-600');
-                            link.classList.add('text-gray-600', 'border-transparent');
+                            link.classList.add('text-[#a8abae]', 'border-transparent');
                         });
                         
                         // Add active class to current link
                         const activeLink = document.querySelector(`#toc a[href="#${entry.target.id}"]`);
                         if (activeLink) {
-                            activeLink.classList.remove('text-gray-600', 'border-transparent');
+                            activeLink.classList.remove('text-[#a8abae]', 'border-transparent');
                             activeLink.classList.add('text-blue-600', 'border-blue-600');
                         }
                     }
                 });
             }, {
-                rootMargin: `-${navbarHeight + 20}px 0% -80% 0%`, // Dynamic navbar height offset
+                rootMargin: `-${navbarHeight + 60}px 0% -80% 0%`, // Dynamic navbar height offset
                 threshold: 0.1
             });
             

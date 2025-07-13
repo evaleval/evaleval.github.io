@@ -17,6 +17,10 @@
             color: #1a1a1a; /* Changed from #000000 to dark gray for better readability */
             overflow-x: hidden;
         }
+        html {
+            scroll-padding-top: 70px;   /* height of your fixed navbar */
+            scroll-behavior: smooth;
+        }
         
         .mono {
             font-family: 'IBM Plex Mono', monospace;
@@ -307,20 +311,21 @@
 
         /* Table of Contents styling */
         #toc a {
-            transition: all 0.2s ease;
-            color: #4b5563; /* Darker color for TOC links */
+        transition: all 0.2s ease;
+        color: #a8abae;        /* Tailwind’s gray-300: lighter grey */
         }
 
         #toc a:hover {
-            background-color: #f1f5f9;
-            transform: translateX(0.25rem);
-            color: #1a1a1a;
+        background-color: #f1f5f9;
+        transform: translateX(0.25rem);
+        color: #6b7280;        /* Tailwind’s gray-500: darker on hover */
         }
 
         #toc a.active {
-            color: #5bacd1;
-            border-left-color: #5bacd1;
+        color: #5bacd1;
+        border-left-color: #5bacd1;
         }
+
 
         /* Responsive improvements */
         @media (max-width: 1024px) {
@@ -402,15 +407,6 @@
         /* Accessibility improvements */
         .prose a:focus,
         .footnote-ref:focus,
-        #toc a:focus {
-            outline: 2px solid #5bacd1;
-            outline-offset: 2px;
-        }
-
-        /* Scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
 
         /* Selection styling */
         ::selection {
