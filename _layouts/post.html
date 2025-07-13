@@ -129,42 +129,6 @@
                     </div>
                 </aside>
             </div>
-            
-            <!-- Post Footer -->
-            <footer class="mt-16 pt-8 border-t border-gray-200">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
-                    <div class="mb-6 md:mb-0">
-                        {% if page.authors and page.authors.size > 0 %}
-                        <div class="flex flex-wrap items-center space-x-2 text-sm text-gray-700">
-                            {% for author in page.authors %}
-                            <span>
-                                {% if author.url %}
-                                <a href="{{ author.url | relative_url }}" class="hover:text-blue-600 transition-colors">
-                                    {{ author.name }}
-                                </a>
-                                {% else %}
-                                {{ author.name }}
-                                {% endif %}
-                            </span>
-                            {% unless forloop.last %}
-                                <span class="text-gray-400">•</span>
-                            {% endunless %}
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div class="flex gap-4">
-                        <a href="{{ '/' | relative_url }}blog" 
-                           class="px-6 py-3 border border-gray-300 rounded-lg font-medium text-sm hover:bg-gray-700 hover:text-white transition-all duration-300">
-                            All Posts
-                        </a>
-                        <a href="{{ '/' | relative_url }}#contact" 
-                           class="px-6 py-3 bg-[#5bacd1] text-white rounded-lg font-medium text-sm hover:bg-gray-700 transition-all duration-300">
-                            Join Discussion
-                        </a>
-                    </div>
-                </div>
-            </footer>
         </div>
     </article>
     
