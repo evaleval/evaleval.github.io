@@ -18,7 +18,7 @@
                 <!-- Featured Image -->
                 {% if page.image %}
                 <div class="mb-8 overflow-hidden rounded-lg shadow-lg">
-                    <img src="{{ page.image }}" alt="{{ page.title }}" class="w-full h-64 md:h-96 object-cover">
+                    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="w-full h-64 md:h-96 object-cover">
                 </div>
                 {% endif %}
                 

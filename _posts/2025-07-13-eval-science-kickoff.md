@@ -4,9 +4,9 @@ title: "The Science of Evaluations: Workstream Kickoff Post"
 date: 2025-07-13
 category: Research
 published: true
-image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+image: assests/img/blogs/eval-sci-kickoff.jpg
 authors:
-  - name: "Subho Majumdar"
+  - name: "Eval Science working group, led by Subho Majumdar"
     url: "https://shubhobm.github.io/"
   - name: "Patricia Paskov"
     url: "https://www.prpaskov.com/"
@@ -14,7 +14,9 @@ tags:
   - "Evaluation Science"
   - "Metrics"
   - "Validity"
-description: "Exploring novel approaches to evaluating large language models beyond traditional metrics, with focus on robustness, alignment, and real-world performance."
+  - "LLMs"
+  - "AI Evaluation"
+description: "Announcing the launch of a research-driven initiative among a community of researchers to strengthen the science of AI evaluations."
 ---
 
 Rigorous evaluations provide decision makers with detailed information about the capabilities, risks, and opportunities of AI systems. At their best, evaluations enhance understanding of the AI systems[^1] and, in turn, increase the window of opportunity for societal preparedness and resilience for an increasingly AI-oriented world[^2]. 
