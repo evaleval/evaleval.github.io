@@ -4,7 +4,7 @@ title: "The Science of Evaluations: Workstream Kickoff Post"
 date: 2025-07-13
 category: Research
 published: true
-image: assets/img/blogs/eval-sci-kickoff.jpg
+image: assets/img/blogs/eval-sci-kickoff.webp
 authors:
   - name: "Eval Science working group, led by Subho Majumdar"
     url: "https://shubhobm.github.io/"
