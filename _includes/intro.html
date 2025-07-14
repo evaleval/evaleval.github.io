@@ -1,8 +1,8 @@
 <!-- About Section -->
-<section id="home" class="min-h-screen px-8 pt-20 flex items-center justify-center" style="background-color: #faf9f8;">
+<section id="home" class="min-h-screen px-8 pt-20 flex items-center justify-center relative" style="background-color: #faf9f8;">
 
     <!-- Container holding your content exactly as is -->
-    <div class="max-w-4xl w-full mx-auto flex flex-col">
+    <div class="max-w-4xl w-full mx-auto flex flex-col justify-center">
 
         <!-- Banner Image -->
         <img src="assets/img/site-banner.png" alt="Long Site Banner" class="w-full object-cover mb-8" />
@@ -28,8 +28,8 @@
 
     </div>
 
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <!-- Scroll Indicator - Hidden on mobile -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
