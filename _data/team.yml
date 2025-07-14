@@ -1,3 +1,62 @@
+# Team Members in order that they should appear on the page
+# Hosts are in custom order, the rest are alphabetical by last name
+
+## HOSTS
+- name: Avijit Ghosh
+  lastname: Ghosh
+  role: Host
+  subheading: Applied Policy Researcher at Hugging Face
+  link: https://www.evijit.io
+  photo: assets/img/team/avijit-ghosh.webp
+  affiliations:
+    - research
+    - host
+  projects:
+    - eval-cards
+
+- name: Irene Solaiman
+  lastname: Solaiman
+  role: Host
+  subheading: Head of Global Policy at Hugging Face
+  link: https://www.irenesolaiman.com/
+  photo: assets/img/team/irene-solaiman.webp
+  affiliations:
+    - host
+  projects:
+
+- name: Zeerak Talat
+  lastname: Talat
+  role: Host
+  subheading: Chancellor's Fellow at the University of Edinburgh
+  link: https://zeerak.org/
+  photo: assets/img/team/zeerak-talat.webp
+  affiliations:
+    - host
+  projects:
+
+- name: Yacine Jernite
+  lastname: Jernite
+  role: Host
+  subheading: ML & Society Lead at Hugging Face
+  link: https://yjernite.github.io/
+  photo: assets/img/team/yacine-jernite.webp
+  affiliations:
+    - host
+  projects:
+
+- name: Stella Biderman
+  lastname: Biderman
+  role: Host
+  subheading: Executive Director at EleutherAI
+  link: https://stella-biderman.com/
+  photo: assets/img/team/stella-biderman.webp
+  affiliations:
+    - infra
+    - host
+  projects:
+    - lm-harness
+    - research-output
+
 - name: Baber Abbassi
   lastname: Abbassi
   role: Infrastructure Chair
@@ -10,6 +69,8 @@
   projects:
     - lm-harness
 
+
+## CHAIRS
 - name: Mubashara Akhtar
   lastname: Akhtar
   role: Research Chair
@@ -32,19 +93,6 @@
   projects:
     - cache
 
-- name: Stella Biderman
-  lastname: Biderman
-  role: Host
-  subheading: Executive Director at EleutherAI
-  link: https://stella-biderman.com/
-  photo: assets/img/team/stella-biderman.webp
-  affiliations:
-    - infra
-    - host
-  projects:
-    - lm-harness
-    - research-output
-
 - name: Leshem Choshen
   lastname: Choshen
   role: Infrastructure Chair
@@ -56,18 +104,6 @@
   projects:
     - cache
 
-- name: Avijit Ghosh
-  lastname: Ghosh
-  role: Host
-  subheading: Applied Policy Researcher at Hugging Face
-  link: https://www.evijit.io
-  photo: assets/img/team/avijit-ghosh.webp
-  affiliations:
-    - research
-    - host
-  projects:
-    - eval-cards
-
 - name: Usman Gohar
   lastname: Gohar
   role: Organizing Chair
@@ -78,16 +114,6 @@
     - org
   projects:
     - research-output
-
-- name: Yacine Jernite
-  lastname: Jernite
-  role: Host
-  subheading: ML & Society Lead at Hugging Face
-  link: https://yjernite.github.io/
-  photo: assets/img/team/yacine-jernite.webp
-  affiliations:
-    - host
-  projects:
 
 - name: Kevin Klyman
   lastname: Klyman
@@ -159,16 +185,6 @@
     - bench-sat
     - eval-cards
 
-- name: Irene Solaiman
-  lastname: Solaiman
-  role: Host
-  subheading: Head of Global Policy at Hugging Face
-  link: https://www.irenesolaiman.com/
-  photo: assets/img/team/irene-solaiman.webp
-  affiliations:
-    - host
-  projects:
-
 - name: Prajna Soni
   lastname: Soni
   role: Research Chair
@@ -181,16 +197,6 @@
   projects:
     - bench-sat
     - research-output
-
-- name: Zeerak Talat
-  lastname: Talat
-  role: Host
-  subheading: Chancellor's Fellow at the University of Edinburgh
-  link: https://zeerak.org/
-  photo: assets/img/team/zeerak-talat.webp
-  affiliations:
-    - host
-  projects:
 
 - name: Kevin Wei
   lastname: Wei
