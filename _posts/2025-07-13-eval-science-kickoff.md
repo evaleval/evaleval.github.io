@@ -29,8 +29,7 @@ Many researchers and practitioners in the evaluation ecosystem have accordingly 
 
 1. **Assess the current state of evaluation science.** We will systematically review published research and preprints on the science of evaluations. This assessment will include scoping reviews, meta-analyses, and critiques[^3] of current approaches. We plan to do this assessment through a sociotechnical lens—with focus on (a) open and reproducible scientific methods to implement evaluations of AI systems, and (b)  governance mechanisms for independent third-party audits, such as red teaming, certification frameworks, data access protocols, and disclosure standards.
 2. **Identify critical gaps and priorities in evaluations science.** Through literature synthesis and stakeholder interviews with a diverse group of researchers, practitioners, and policymakers, we will map open research questions, missing methodological tools, under-addressed areas of capabilities and risks, and validity-related challenges in existing evaluations.
-
-Design and execute research to tackle a prioritized subset of these gaps where our coalition has relevant expertise.
+3. **Design and execute research** to tackle a prioritized subset of these gaps where our coalition has relevant expertise.
 
 In carrying out this work we will aim to bridge the gap between rigorous best practices and pragmatic implementation details, producing impactful research and tools that improve the AI evaluation ecosystem. If you’d like to join us, join the slack community!
 
