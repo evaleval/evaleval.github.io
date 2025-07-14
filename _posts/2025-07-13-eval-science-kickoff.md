@@ -16,6 +16,8 @@ tags:
   - "Validity"
   - "LLMs"
   - "AI Evaluation"
+  - "Reliability"
+  - "Robustness"
 description: "Announcing the launch of a research-driven initiative among a community of researchers to strengthen the science of AI evaluations."
 ---
 
