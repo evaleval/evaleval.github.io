@@ -14,7 +14,17 @@
 
       <!-- Form spans columns 2 & 3 -->
       <div class="md:col-start-2 md:col-span-2 flex justify-center">
-        <iframe
+        <div class="w-full max-w-lg text-center p-8 bg-gray-50 rounded-lg">
+          <h3 class="text-xl font-semibold mb-4">Interested in Joining?</h3>
+          <p class="text-gray-600 mb-6">
+            Send us an email to learn more about getting involved with our community and working groups.
+          </p>
+          <a href="mailto:evalevalpc@googlegroups.com" 
+             class="inline-block bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition-colors duration-300">
+            Email Us
+          </a>
+        </div>
+        <!-- <iframe
           src="https://docs.google.com/forms/d/e/1FAIpQLSe3Zks5jyCfmBYCyQl4lgLVXCAXfxxtXTPlCxJpIbhBnmptjg/viewform?embedded=true"
           class="w-full h-[720px] border-0 rounded-sm shadow"
           frameborder="0"
@@ -22,7 +32,7 @@
           marginwidth="0"
         >
           Loading…
-        </iframe>
+        </iframe> -->
       </div>
 
       <!-- Info column -->
@@ -68,7 +78,7 @@
               <i class="fa-brands fa-bluesky"></i>
             </a>
             <a href="https://huggingface.co/evaleval" 
-              class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:border-black transition-all duration-300 group">
+              class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:border-black transition-all duration-300 group">
               <img src="{{ '/assets/img/icon/hf-logo-pirate.svg' | relative_url }}" alt="Hugging Face" class="w-4 h-4 group-hover:invert transition duration-300" />
             </a>
           </div>
