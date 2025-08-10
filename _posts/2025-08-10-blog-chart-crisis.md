@@ -29,7 +29,7 @@ Following Thursday’s release of GPT-5, social media was [ablaze](https://x.com
 
 While AI model capabilities continue to grow, the field could benefit from clear presentations that maintain users’ excitement about new capabilities, rather than second-guessing what is presented to them. However, skepticism has followed many recent releases, including those from other major AI labs.
 
-![ChatGPT conversation failing to identify chart error](path-to-img)
+![ChatGPT conversation failing to identify chart error](/assets/img/blogs/gpt_chart_errors.png)
 
 OpenAI has been in the spotlight for its lack of transparency and rigor in the evaluations it uses during major launches. For the launch of GPT-4, for example, [OpenAI](https://x.com/cHHillee/status/1635790330854526981) claimed perfect performance on Codeforces tasks released before 2021 and failed each task released afterwards, a [result](https://www.aisnakeoil.com/p/gpt-4-and-professional-benchmarks) of train-test contamination. While OpenAI has disputed these claims and undertaken notable efforts to improve transparency by releasing system cards and publishing a Safety Evaluations Hub, concerns remain over the [lack of transparency](https://arxiv.org/abs/2407.12929) around evaluations. 
 
