@@ -4,7 +4,7 @@ title: "The AI Evaluation Chart Crisis"
 date: 2025-08-09
 published: true
 category: Documentation
-image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+image: "assets/img/blogs/gpt_chart_errors.webp"
 authors:
   - name: "Andrew Tran"
   - name: "Leshem Choshen"
