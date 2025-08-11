@@ -1,10 +1,11 @@
+
 {% seo %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EvalEval Coalition | Research Community</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/3.37.1/minified.js" integrity="sha512-U4FQp6xhb4Td3Upi3FYbsjmR7dMyU7a5W6ldSm5XXdFvL9m2eLOiSvOwUM24gjRjPNCQK+v8tHnTSu8DGuTk0w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
@@ -158,6 +159,18 @@
             --tw-prose-lead: #1a1a1a;
             --tw-prose-links: #5bacd1;
             max-width: none;
+        }
+
+        /* FIXED: Ensure all prose links are properly styled */
+        .prose a {
+            color: #5bacd1 !important;
+            text-decoration: underline !important;
+            transition: color 0.2s ease;
+        }
+
+        .prose a:hover {
+            color: #4a9bb8 !important;
+            text-decoration: underline !important;
         }
 
         .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
@@ -330,13 +343,13 @@
         /* Table of Contents styling */
         #toc a {
         transition: all 0.2s ease;
-        color: #a8abae;        /* Tailwind’s gray-300: lighter grey */
+        color: #a8abae;        /* Tailwind's gray-300: lighter grey */
         }
 
         #toc a:hover {
         background-color: #f1f5f9;
         transform: translateX(0.25rem);
-        color: #6b7280;        /* Tailwind’s gray-500: darker on hover */
+        color: #6b7280;        /* Tailwind's gray-500: darker on hover */
         }
 
         #toc a.active {
@@ -424,7 +437,10 @@
 
         /* Accessibility improvements */
         .prose a:focus,
-        .footnote-ref:focus,
+        .footnote-ref:focus {
+            outline: 2px solid #5bacd1;
+            outline-offset: 2px;
+        }
 
         /* Selection styling */
         ::selection {
