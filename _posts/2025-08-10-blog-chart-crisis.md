@@ -12,8 +12,18 @@ authors:
   - name: "Avijit Ghosh (for the EvalEval Coalition)"
 
 tags:
-  - "Tag1"
-  - "Tag2"
+  - "Evaluation Science"
+  - "Metrics"
+  - "Transparency"
+  - "LLMs"
+  - "Reliability"
+  - "Benchmarking"
+  - "Ethics"
+  - "Integrity"
+  - "Product"
+  - "Business"
+  - "Visualization"
+  - "Documentation"
 description: "A brief excerpt of your post goes here."
 ---
 
