@@ -16,7 +16,9 @@ layout: default
 
     <!-- Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {% assign items = site[page.collection] | sort: 'title' %}
+      {% assign ordered_items = site[page.collection] | where_exp: "item", "item.order" | sort: 'order' %}
+      {% assign unordered_items = site[page.collection] | where_exp: "item", "item.order == nil" | sort: 'title' %}
+      {% assign items = ordered_items | concat: unordered_items %}
       {% for item in items %}
         {% if item.published != false %}
           <div class="project-card p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300">
@@ -41,7 +43,7 @@ layout: default
 
             <!-- Title -->
             <h3 class="text-xl font-bold">
-              <a href="{{ item.url | relative_url }}" class="hover:text-blue-600">{{ item.title }}</a>
+              <a href="{% if item.custom_url %}{{ item.custom_url | relative_url }}{% else %}{{ item.url | relative_url }}{% endif %}" class="hover:text-blue-600">{{ item.title }}</a>
             </h3>
 
             <!-- Category Tag (spaced neatly below title) -->
@@ -61,7 +63,7 @@ layout: default
             {% endif %}
 
             <!-- Link -->
-            <a href="{{ item.url | relative_url }}" class="mono text-xs text-gray-500 hover:text-black">Learn more →</a>
+            <a href="{% if item.custom_url %}{{ item.custom_url | relative_url }}{% else %}{{ item.url | relative_url }}{% endif %}" class="mono text-xs text-gray-500 hover:text-black">Learn more →</a>
           </div>
         {% endif %}
       {% endfor %}

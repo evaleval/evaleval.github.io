@@ -51,3 +51,6 @@ collections:
   projects:
     output: true
     permalink: /projects/:name/
+  events:
+    output: true
+    permalink: /events/:name/

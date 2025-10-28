@@ -1,0 +1,46 @@
+<!-- Events Section -->
+<section id="events" class="py-20 px-8">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-0">Events</h2>
+      <!--<div class="mono text-sm tracking-wider"></div>-->
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% assign ordered_events = site.events | where: "status", "active" | where_exp: "item", "item.order" | sort: 'order' %}
+      {% assign unordered_events = site.events | where: "status", "active" | where_exp: "item", "item.order == nil" | sort: 'title' %}
+      {% assign all_events = ordered_events | concat: unordered_events %}
+      {% assign featured_events = all_events | slice: 0, 3 %}
+      {% for event in featured_events %}
+      <div class="project-card p-6">
+        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+          {% case project.category %}
+              {% when "Infrastructure" %}
+                  <i class="fas fa-network-wired"></i>
+              {% when "Research" %}
+                  <i class="fas fa-flask"></i>
+              {% when "Organizing" %}
+                  <i class="fas fa-users"></i>
+              {% else %}
+                  <i class="fas fa-lightbulb"></i> <!-- Default icon -->
+          {% endcase %}
+        </div>
+          <h3 class="text-xl font-bold mb-4">{{ event.title }}</h3>
+          <p class="text-gray-600 text-sm mb-4">
+            {{ event.description | strip_html | truncate: 200 }}
+          </p>
+          <a href="{% if event.custom_url %}{{ event.custom_url | relative_url }}{% else %}{{ event.url | relative_url }}{% endif %}" class="mono text-xs text-gray-500 hover:text-black">Learn more →</a>
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- “View All Events Button -->
+    <div class="text-center mt-6">
+      <a href="{{ site.baseurl }}/events/"
+        class="px-8 py-3 border border-black rounded-sm font-medium text-sm mono hover:bg-gray-100 transition-all duration-300 inline-flex items-center">
+        View All Events
+        <i class="fas fa-arrow-right ml-2 text-xs"></i>
+      </a>
+    </div>
+  </div>
+</section>
