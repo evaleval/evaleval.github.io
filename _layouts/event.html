@@ -1,68 +1,457 @@
----
-layout: default
----
-{% if page.custom_url %}
-<script>
-  window.location.replace("{{ page.custom_url | relative_url }}");
-</script>
-<noscript>
-  <meta http-equiv="refresh" content="0; url={{ page.custom_url | relative_url }}">
-</noscript>
-{% endif %}
-<main class="max-w-3xl mx-auto px-4 py-12">
-  <!-- Title -->
-  <h1 class="text-3xl font-bold mb-4">{{ page.title }}</h1>
-
-  <!-- Metadata Row -->
-  <div class="flex flex-wrap items-center gap-3 mb-6">
-
-    <!-- Category Tag -->
-    {% if page.category %}
-      <span class="inline-block bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full">
-        {{ page.category }}
-      </span>
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+<body>
+    <!-- Custom URL Redirect (if specified) -->
+    {% if page.custom_url %}
+    <script>
+      window.location.replace("{{ page.custom_url | relative_url }}");
+    </script>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url={{ page.custom_url | relative_url }}">
+    </noscript>
     {% endif %}
+    
+    {% include navigation.html %}
+    
+    <!-- Event Content -->
+    <article class="py-20 px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <!-- Event Header -->
+            <header class="mb-12">
+                <div class="mb-6">
+                    <a href="{{ '/' | relative_url }}events" class="text-sm mono tracking-wider text-gray-600 hover:text-black transition-colors">
+                        ← BACK TO EVENTS
+                    </a>
+                </div>
+                
+                <!-- Featured Image -->
+                {% if page.image %}
+                <div class="mb-8 overflow-hidden rounded-lg shadow-lg">
+                    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="w-full h-64 md:h-96 object-cover">
+                </div>
+                {% endif %}
+                
+                <!-- Event Meta -->
+                <div class="post-meta mb-6 text-sm text-gray-500">
+                    {% if page.authors and page.authors.size > 0 %}
+                        <span class="mx-2">•</span>
+                        <span>by</span>
+                        {% for author in page.authors %}
+                        {% if forloop.first %} {% elsif forloop.last %} and {% else %}, {% endif %}
+                        {% if author.url %}
+                            <a href="{{ author.url | relative_url }}" class="text-gray-700 hover:text-black transition-colors">
+                            {{ author.name }}
+                            </a>
+                        {% else %}
+                            <span class="text-gray-700">{{ author.name }}</span>
+                        {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                
+                <!-- Title -->
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-gray-900">{{ page.title }}</h1>
 
-    <!-- Status Badge -->
-    {% if page.status %}
-      {% if page.status == "active" %}
-        <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">
-          Currently Active
-        </span>
-      {% else %}
-        <span class="inline-block bg-gray-100 text-gray-600 text-xs font-semibold px-3 py-1 rounded-full">
-          Wrapped Up
-        </span>
-      {% endif %}
-    {% endif %}
-  </div>
-
-  <!-- Team -->
-  {% if page.team %}
-    <p class="text-gray-700 mb-4"><strong>Chairs:</strong> {{ page.team }}</p>
-  {% endif %}
-
-  <!-- External Link Button -->
-  {% if page.link %}
-    <a href="{{ page.link }}" 
-      class="inline-block px-4 py-2 mb-6 text-white rounded transition hover:brightness-110"
-      style="background-color: #5bacd1;">
-      View Event
-    </a>
-  {% endif %}
-
-  <!-- Description -->
-  {% if page.description %}
-    <div class="mt-6 prose prose-sm md:prose-lg text-gray-800 leading-relaxed">
-      {{ page.description }}
-    </div>
-  {% endif %}
-
-  <!-- Back Button -->
-  {% if page.collection %}
-    <a href="{{ '/' | append: page.collection | relative_url }}"
-       class="inline-block mt-10 px-4 py-2 text-gray-800 border border-gray-400 rounded transition hover:bg-gray-100">
-      ← Back to All {{ page.collection | capitalize }}
-    </a>
-  {% endif %}
-</main>
+                <!-- Subtitle  -->
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-bold mb-6 leading-tight text-gray-900">{{ page.subtitle }}</h2>
+                
+                <!-- Tags -->
+                {% if page.tags.size > 0 %}
+                <div class="flex flex-wrap gap-2 mb-8">
+                    {% for tag in page.tags %}
+                    <span
+                        class="post-tag bg-[#ffffff] text-[#5bacd1] border border-[#5bacd1] px-3 py-1 rounded-full text-sm font-medium"
+                        >
+                        {{ tag }}
+                    </span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </header>
+            
+            <!-- Main Content Area with Sidebar -->
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Event Content -->
+                <div class="flex-1 max-w-4xl">
+                    <div class="prose prose-lg max-w-none">
+                        {{ content }}
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <aside class="w-full lg:w-80 lg:sticky lg:top-24 lg:self-start">
+                    <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                        <!-- Table of Contents -->
+                        <div class="mb-8">
+                            <h3 class="mono text-sm font-semibold mb-4 text-gray-900 tracking-wider">TABLE OF CONTENTS</h3>
+                            <nav id="toc" class="space-y-2">
+                                <!-- TOC will be populated by JavaScript -->
+                            </nav>
+                        </div>
+                        
+                        <!-- Footnotes -->
+                        <div class="mb-8">
+                            <h3 class="mono text-sm font-semibold mb-4 text-gray-900 tracking-wider">FOOTNOTES</h3>
+                            
+                            <!-- Footnote Navigation Buttons -->
+                            <div id="footnote-nav" class="flex flex-wrap gap-2 mb-4">
+                                <!-- Footnote buttons will be populated by JavaScript -->
+                            </div>
+                            
+                            <!-- Footnote Display Area -->
+                            <div id="footnote-display" class="bg-white rounded border border-gray-200 p-4 min-h-[100px]">
+                                <div id="footnote-content" class="text-sm text-gray-600">
+                                    <p class="text-gray-400 italic">Click a footnote number to view its content</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Share Section -->
+                        <div>
+                            <h3 class="mono text-sm font-semibold mb-4 text-gray-900 tracking-wider">SHARE</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <!-- X (formerly Twitter) -->
+                                <a href="https://x.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title | url_encode }}" 
+                                class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-700 hover:text-white hover:border-gray-700 transition-all duration-300" 
+                                target="_blank" rel="noopener">
+                                    <i class="fab fa-twitter text-sm"></i>
+                                </a>
+                                <!-- LinkedIn -->
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url }}&title={{ page.title | url_encode }}" 
+                                class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-700 hover:text-white hover:border-gray-700 transition-all duration-300" 
+                                target="_blank" rel="noopener">
+                                    <i class="fab fa-linkedin-in text-sm"></i>
+                                </a>
+                                <!-- Email -->
+                                <a href="mailto:?subject={{ page.title | url_encode }}&body={{ page.url | absolute_url }}" 
+                                class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-700 hover:text-white hover:border-gray-700 transition-all duration-300">
+                                    <i class="fas fa-envelope text-sm"></i>
+                                </a>
+                                <!-- Bluesky -->
+                                <a href="https://bsky.app/compose/post?text={{ page.title | url_encode }}%20{{ page.url | absolute_url }}" 
+                                class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-700 hover:text-white hover:border-gray-700 transition-all duration-300" 
+                                target="_blank" rel="noopener">
+                                    <i class="fab fa-bluesky text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </article>
+    
+    {% include footer.html %}
+    
+    <!-- Enhanced JavaScript -->
+    <script>
+      let footnoteData = {};
+      
+      document.addEventListener('DOMContentLoaded', function() {
+          // Generate Table of Contents
+          generateTOC();
+          
+          // Setup footnote system
+          setupFootnoteSystem();
+          
+          // Setup smooth scrolling
+          setupSmoothScrolling();
+          
+          // Setup scroll spy for TOC
+          setupScrollSpy();
+          
+          // Hide original footnotes section at bottom
+          hideOriginalFootnotes();
+      });
+      
+      // Corrected navbar height function
+      function getNavbarHeight() {
+          // Look for the actual fixed header element
+          const header = document.querySelector('header');
+          if (header) {
+              const style = window.getComputedStyle(header);
+              if (style.position === 'fixed' || style.position === 'sticky') {
+                  return header.getBoundingClientRect().height;
+              }
+          }
+          
+          // Fallback: find any fixed/sticky element at the top
+          const fixedElements = Array.from(document.querySelectorAll('*')).filter(el => {
+              const style = window.getComputedStyle(el);
+              const rect = el.getBoundingClientRect();
+              return (style.position === 'fixed' || style.position === 'sticky') && rect.top <= 10;
+          });
+          
+          if (fixedElements.length > 0) {
+              return Math.max(...fixedElements.map(el => el.getBoundingClientRect().bottom));
+          }
+          
+          return 0; // No fixed navbar found
+      }
+      
+      function generateTOC() {
+          const tocContainer = document.getElementById('toc');
+          const headings = document.querySelectorAll('.prose h2, .prose h3, .prose h4');
+          
+          if (headings.length === 0) {
+              tocContainer.innerHTML = '<p class="text-gray-500 text-sm">No headings found</p>';
+              return;
+          }
+          
+          headings.forEach((heading, index) => {
+              // Add ID if not present
+              if (!heading.id) {
+                  heading.id = `heading-${index}`;
+              }
+              
+              const link = document.createElement('a');
+              link.href = `#${heading.id}`;
+              link.textContent = heading.textContent;
+              link.className = `block py-1 text-sm hover:text-blue-600 transition-colors border-l-2 border-transparent hover:border-blue-600 pl-3 ${
+                  heading.tagName === 'H2' ? 'font-medium' : 
+                  heading.tagName === 'H3' ? 'ml-4' : 'ml-8'
+              }`;
+              
+              tocContainer.appendChild(link);
+          });
+      }
+      
+      function setupFootnoteSystem() {
+          // Find all footnotes in the content (Jekyll/Markdown format)
+          const footnotes = document.querySelectorAll('.footnotes li, .footnote-item, .footnote, [id^="fn:"]');
+          const footnoteRefs = document.querySelectorAll('a[href^="#fn:"], .footnote-ref, a[href^="#footnote"]');
+          
+          // Extract footnote data from Jekyll-generated footnotes
+          footnotes.forEach((footnote) => {
+              // Extract footnote number from ID (e.g., "fn:1" -> "1")
+              let footnoteId = footnote.id;
+              let footnoteNumber;
+              
+              if (footnoteId && footnoteId.startsWith('fn:')) {
+                  footnoteNumber = parseInt(footnoteId.replace('fn:', ''));
+              } else if (footnoteId && footnoteId.match(/\d+/)) {
+                  footnoteNumber = parseInt(footnoteId.match(/\d+/)[0]);
+              } else {
+                  // If no ID, try to find footnote number from content or position
+                  const footnoteList = Array.from(footnotes);
+                  footnoteNumber = footnoteList.indexOf(footnote) + 1;
+              }
+              
+              if (footnoteNumber && footnoteNumber > 0) {
+                  let footnoteContent = footnote.innerHTML || footnote.textContent;
+                  
+                  // Clean up content - remove back-reference links and symbols
+                  footnoteContent = footnoteContent.replace(/<a[^>]*class="footnote-backref"[^>]*>.*?<\/a>/g, '');
+                  footnoteContent = footnoteContent.replace(/<a[^>]*href="[^"]*fnref:[^"]*"[^>]*>.*?<\/a>/g, '');
+                  footnoteContent = footnoteContent.replace(/↩/g, '');
+                  footnoteContent = footnoteContent.replace(/\s+/g, ' ').trim();
+                  
+                  footnoteData[footnoteNumber] = {
+                      content: footnoteContent,
+                      element: footnote
+                  };
+              }
+          });
+          
+          // If no footnotes found in the standard way, try to extract from references
+          if (Object.keys(footnoteData).length === 0) {
+              footnoteRefs.forEach((ref, index) => {
+                  const footnoteNumber = index + 1;
+                  const href = ref.getAttribute('href');
+                  
+                  // Try to extract footnote number from href
+                  let actualNumber = footnoteNumber;
+                  if (href && href.includes('fn:')) {
+                      const match = href.match(/fn:(\d+)/);
+                      if (match) {
+                          actualNumber = parseInt(match[1]);
+                      }
+                  }
+                  
+                  footnoteData[actualNumber] = {
+                      content: `Footnote ${actualNumber} content not found`,
+                      element: ref
+                  };
+              });
+          }
+          
+          // If still no footnotes found, show appropriate message
+          if (Object.keys(footnoteData).length === 0) {
+              document.getElementById('footnote-nav').innerHTML = '<p class="text-gray-500 text-sm">No footnotes found</p>';
+              return;
+          }
+          
+          // Create footnote navigation buttons
+          createFootnoteButtons();
+          
+          // Convert footnote references to non-clickable spans
+          convertFootnoteReferences();
+          
+          // Show first footnote by default
+          if (Object.keys(footnoteData).length > 0) {
+              showFootnote(1);
+          }
+      }
+      
+      function createFootnoteButtons() {
+          const navContainer = document.getElementById('footnote-nav');
+          const footnoteNumbers = Object.keys(footnoteData).map(Number).sort((a, b) => a - b);
+          
+          if (footnoteNumbers.length === 0) {
+              navContainer.innerHTML = '<p class="text-gray-500 text-sm">No footnotes found</p>';
+              return;
+          }
+          
+          footnoteNumbers.forEach(footnoteNumber => {
+              const button = document.createElement('button');
+              button.textContent = footnoteNumber;
+              button.className = 'footnote-btn w-8 h-8 rounded-full border border-gray-300 text-sm font-medium hover:bg-[#5bacd1] hover:text-gray-900 transition-all duration-200';
+              button.setAttribute('data-footnote', footnoteNumber);
+              
+              button.addEventListener('click', function() {
+                  showFootnote(footnoteNumber);
+                  setActiveButton(this);
+              });
+              
+              navContainer.appendChild(button);
+          });
+          
+          // Set first button as active
+          const firstButton = navContainer.querySelector('.footnote-btn');
+          if (firstButton) {
+              setActiveButton(firstButton);
+          }
+      }
+      
+      function convertFootnoteReferences() {
+          const footnoteRefs = document.querySelectorAll('a[href^="#fn:"], .footnote-ref, a[href^="#footnote"]');
+          
+          footnoteRefs.forEach(ref => {
+              // Extract footnote number from href or text content
+              let footnoteNumber = ref.textContent;
+              const href = ref.getAttribute('href');
+              
+              if (href && href.includes('fn:')) {
+                  const match = href.match(/fn:(\d+)/);
+                  if (match) {
+                      footnoteNumber = match[1];
+                  }
+              }
+              
+              // Create non-clickable span
+              const span = document.createElement('span');
+              span.className = [
+                  'footnote-ref-display',    // base styling
+                  'inline-block',            // keep it inline
+                  'w-4', 'h-4',              // smaller circle
+                  'text-[0.65rem]',          // smaller font
+                  'bg-gray-200',             // very light gray bg
+                  'text-gray-500',           // mid gray text
+                  'rounded-full',            // circle shape
+                  'text-center',             // center number
+                  'leading-4',               // vertical centering
+                  'font-medium',             // a bit bolder
+                  'mx-1'                     // small side margin
+                  ].join(' ');
+              span.textContent = footnoteNumber;
+              span.title = `See footnote ${footnoteNumber} in sidebar`;
+              
+              ref.parentNode.replaceChild(span, ref);
+          });
+      }
+      
+      function showFootnote(footnoteNumber) {
+          const contentDiv = document.getElementById('footnote-content');
+          const footnote = footnoteData[footnoteNumber];
+          
+          if (footnote && footnote.content) {
+              contentDiv.innerHTML = footnote.content;
+          } else {
+              contentDiv.innerHTML = `<p class="text-gray-400 italic">Footnote ${footnoteNumber} not found</p>`;
+          }
+      }
+      
+      function setActiveButton(activeButton) {
+          // Remove active class from all buttons
+          document.querySelectorAll('.footnote-btn').forEach(btn => {
+              btn.classList.remove('bg-[#5bacd1]', 'text-white', 'border-[#5bacd1]');
+              btn.classList.add('border-gray-300');
+          });
+          
+          // Add active class to clicked button
+          activeButton.classList.add('bg-[#5bacd1]', 'text-white', 'border-[#5bacd1]');
+          activeButton.classList.remove('border-gray-300');
+      }
+      
+      function hideOriginalFootnotes() {
+          // Hide original footnotes section at the bottom of the page
+          const footnotesSections = document.querySelectorAll('.footnotes, #footnotes, .footnote-section');
+          footnotesSections.forEach(section => {
+              section.style.display = 'none';
+          });
+      }
+      
+      function setupSmoothScrolling() {
+          document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+              anchor.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  const target = document.querySelector(this.getAttribute('href'));
+                  if (target) target.scrollIntoView({ block: 'start' });
+              });
+          });
+      }
+      
+      function setupScrollSpy() {
+          const tocLinks = document.querySelectorAll('#toc a');
+          const headings = document.querySelectorAll('.prose h2, .prose h3, .prose h4');
+          
+          if (headings.length === 0) return;
+          
+          // Get navbar height for proper offset calculation
+          const navbarHeight = getNavbarHeight();
+          
+          const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      // Remove active class from all links
+                      tocLinks.forEach(link => {
+                          link.classList.remove('text-blue-600', 'border-blue-600');
+                          link.classList.add('text-[#a8abae]', 'border-transparent');
+                      });
+                      
+                      // Add active class to current link
+                      const activeLink = document.querySelector(`#toc a[href="#${entry.target.id}"]`);
+                      if (activeLink) {
+                          activeLink.classList.remove('text-[#a8abae]', 'border-transparent');
+                          activeLink.classList.add('text-blue-600', 'border-blue-600');
+                      }
+                  }
+              });
+          }, {
+              rootMargin: `-${navbarHeight + 60}px 0% -80% 0%`, // Dynamic navbar height offset
+              threshold: 0.1
+          });
+          
+          headings.forEach(heading => observer.observe(heading));
+      }
+  </script>
+  
+  <!-- MathJax Configuration -->
+  <script>
+      MathJax = {
+          tex: {
+              inlineMath: [['$', '$'], ['\\(', '\\)']],
+              displayMath: [['$$', '$$'], ['\\[', '\\]']],
+              processEscapes: true,
+              processEnvironments: true
+          },
+          options: {
+              skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+          }
+      };
+  </script>
+  
+  {% include script.html %}
+</body>
+</html>
