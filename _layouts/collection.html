@@ -55,6 +55,25 @@ layout: default
               </div>
             {% endif %}
 
+            <!-- Event-specific fields (only for events collection) -->
+            {% if page.collection == "events" %}
+              {% if item.event_date %}
+                <p class="text-gray-600 text-sm mb-2">
+                  &#128197; {{ item.event_date | date: "%B %-d, %Y" }}
+                </p>
+              {% endif %}
+              {% if item.location %}
+                <p class="text-gray-600 text-sm mb-2">
+                  &#128205; {{ item.location }}
+                </p>
+              {% endif %}
+              {% if item.host %}
+                <p class="text-gray-600 text-sm mb-4">
+                  &#128101; {{ item.host }}
+                </p>
+              {% endif %}
+            {% endif %}
+
             <!-- Description -->
             {% if item.description %}
               <p class="text-gray-600 text-sm mb-4">
@@ -62,8 +81,19 @@ layout: default
               </p>
             {% endif %}
 
+            <!-- Event-specific link (only for events collection) -->
+            {% if page.collection == "events" %}
+              {% if item.rsvp_url and item.event_date %}
+                {% assign event_date = item.event_date | date: "%s" %}
+                {% assign current_date = site.time | date: "%s" %}
+                {% if current_date <= event_date %}
+                  <p><a href="{{ item.rsvp_url }}" class="mono text-xs text-gray-500 hover:text-black">RSVP →</a></p>
+                {% endif %}
+              {% endif %}
+            {% endif %}
+
             <!-- Link -->
-            <a href="{% if item.custom_url %}{{ item.custom_url | relative_url }}{% else %}{{ item.url | relative_url }}{% endif %}" class="mono text-xs text-gray-500 hover:text-black">Learn more →</a>
+            <p><a href="{% if item.custom_url %}{{ item.custom_url | relative_url }}{% else %}{{ item.url | relative_url }}{% endif %}" class="mono text-xs text-gray-500 hover:text-black">Learn more →</a></p>
           </div>
         {% endif %}
       {% endfor %}

@@ -2,39 +2,61 @@
 <section id="events" class="py-20 px-8">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-0">Events</h2>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-0">Upcoming Events</h2>
       <!--<div class="mono text-sm tracking-wider"></div>-->
+      <div class="mono text-sm tracking-wider">WORKSHOPS, MEETUPS, & MORE</div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {% assign current_timestamp = site.time | date: "%s" %}
       {% assign ordered_events = site.events | where: "status", "active" | where_exp: "item", "item.order" | sort: 'order' %}
       {% assign unordered_events = site.events | where: "status", "active" | where_exp: "item", "item.order == nil" | sort: 'title' %}
       {% assign all_events = ordered_events | concat: unordered_events %}
-      {% assign featured_events = all_events | slice: 0, 3 %}
-      {% for event in featured_events %}
+      
+      <!-- Filter to only show future events -->
+      {% assign future_events = "" | split: "" %}
+      {% for event in all_events %}
+        {% if event.event_date %}
+          {% assign event_timestamp = event.event_date | date: "%s" %}
+          {% if event_timestamp >= current_timestamp %}
+            {% assign future_events = future_events | push: event %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      
+      {% if include.show_all %}
+        {% assign events_to_show = future_events %}
+      {% else %}
+        {% assign events_to_show = future_events | slice: 0, 3 %}
+      {% endif %}
+      {% for event in events_to_show %}
       <div class="project-card p-6">
-        <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
-          {% case project.category %}
-              {% when "Infrastructure" %}
-                  <i class="fas fa-network-wired"></i>
-              {% when "Research" %}
-                  <i class="fas fa-flask"></i>
-              {% when "Organizing" %}
-                  <i class="fas fa-users"></i>
-              {% else %}
-                  <i class="fas fa-lightbulb"></i> <!-- Default icon -->
-          {% endcase %}
-        </div>
+        
           <h3 class="text-xl font-bold mb-4">{{ event.title }}</h3>
+          <p class="text-gray-600 text-sm mb-4">&#128197; {{ event.event_date | date: "%B %-d, %Y" }}</p>
+          <p class="text-gray-600 text-sm mb-4">&#128205; {{ event.location }}</p>
+          <p class="text-gray-600 text-sm mb-4">&#128101; {{ event.host }}</p>
           <p class="text-gray-600 text-sm mb-4">
             {{ event.description | strip_html | truncate: 200 }}
           </p>
-          <a href="{% if event.custom_url %}{{ event.custom_url | relative_url }}{% else %}{{ event.url | relative_url }}{% endif %}" class="mono text-xs text-gray-500 hover:text-black">Learn more →</a>
+
+          <!-- RSVP link -->
+          {% if event.rsvp_url and event.event_date %}
+            {% assign event_date = event.event_date | date: "%s" %}
+            {% assign current_date = site.time | date: "%s" %}
+            {% if current_date <= event_date %}
+              <p><a href="{{ event.rsvp_url }}" class="mono text-xs text-gray-500 hover:text-black">RSVP →</a></p>
+            {% endif %}
+          {% endif %}
+
+          <!-- Learn more link -->
+          <p><a href="{% if event.custom_url %}{{ event.custom_url | relative_url }}{% else %}{{ event.url | relative_url }}{% endif %}" class="mono text-xs text-gray-500 hover:text-black">Learn more →</a></p>
         </div>
       {% endfor %}
     </div>
 
-    <!-- “View All Events Button -->
+    <!-- "View All Events Button -->
+    {% unless include.show_all %}
     <div class="text-center mt-6">
       <a href="{{ site.baseurl }}/events/"
         class="px-8 py-3 border border-black rounded-sm font-medium text-sm mono hover:bg-gray-100 transition-all duration-300 inline-flex items-center">
@@ -42,5 +64,6 @@
         <i class="fas fa-arrow-right ml-2 text-xs"></i>
       </a>
     </div>
+    {% endunless %}
   </div>
 </section>
