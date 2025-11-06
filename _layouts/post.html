@@ -81,7 +81,7 @@
                         </div>
                         
                         <!-- Footnotes -->
-                        <div class="mb-8">
+                        <div id="footnote-section" class="mb-8">
                             <h3 class="mono text-sm font-semibold mb-4 text-gray-900 tracking-wider">FOOTNOTES</h3>
                             
                             <!-- Footnote Navigation Buttons -->
@@ -266,10 +266,18 @@
                 });
             }
             
-            // If still no footnotes found, show appropriate message
+            // If still no footnotes found, hide the entire footnote section
+            const footnoteSection = document.getElementById('footnote-section');
             if (Object.keys(footnoteData).length === 0) {
-                document.getElementById('footnote-nav').innerHTML = '<p class="text-gray-500 text-sm">No footnotes found</p>';
+                if (footnoteSection) {
+                    footnoteSection.style.display = 'none';
+                }
                 return;
+            }
+            
+            // Show the footnote section if footnotes exist
+            if (footnoteSection) {
+                footnoteSection.style.display = 'block';
             }
             
             // Create footnote navigation buttons
