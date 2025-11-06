@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Evaluation Cards
-team: Anka Reuel, Cedric Whitney, Avijit Ghosh
+team: Anka Reuel, Avijit Ghosh
 img: cards.png
 alt: image-alt
 category: Research
