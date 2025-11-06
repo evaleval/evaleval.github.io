@@ -201,7 +201,7 @@
 - name: Kevin Wei
   lastname: Wei
   role: Organizing Chair
-  subheading: 
+  subheading: JD Candidate at Harvard Law School
   link: https://kevinlwei.com/
   photo: assets/img/team/kevin-wei.webp
   affiliations:
@@ -209,16 +209,16 @@
   projects:
     - research-output
 
-- name: Cedric Deslandes Whitney
-  lastname: Whitney
-  role: Research Chair
-  subheading: PhD Candidate at UC Berkeley, School of Information
-  link: https://scholar.google.com/citations?hl=en&user=-hx7ClMAAAAJ
-  photo: assets/img/team/cedric-whitney.webp
-  affiliations:
-    - research
-  projects:
-    - eval-cards
+# - name: Cedric Deslandes Whitney
+#   lastname: Whitney
+#   role: Research Chair
+#   subheading: PhD Candidate at UC Berkeley, School of Information
+#   link: https://scholar.google.com/citations?hl=en&user=-hx7ClMAAAAJ
+#   photo: assets/img/team/cedric-whitney.webp
+#   affiliations:
+#     - research
+#   projects:
+#     - eval-cards
 
 # - name: Garnett Achieng
 #   lastname: Achieng
