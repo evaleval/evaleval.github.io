@@ -23,7 +23,7 @@ While still far from reaching universal adoption, many organizations post 'relea
 
 Our paper, *[Who Evaluates AI’s Social Impacts? Mapping Coverage And Gaps In First And Third Party Evaluations](https://arxiv.org/abs/2511.05613)*, argues for more transparent and consistent reporting standards that document and put greater emphasis on social impact issues.
 
-In our study, we analyze 186 first-party reports released at the time of an AI model’s release, 183 post-release reports, and incorporate developer interviews to understand the incentives behind model reporting. Release reports were analyzed based on seven social impact dimensions: Bias and Harm, Sensitive Content, Performance Disparity, Environmental Costs and Emissions, Privacy and Data, Financial Costs, and Moderation Labor (Solaiman et. al.). 
+In our study, we analyze 186 first-party reports released at the time of an AI model’s release, 183 post-release reports, and incorporate developer interviews to understand the incentives behind model reporting. Release reports were analyzed based on seven social impact dimensions: Bias and Harm, Sensitive Content, Performance Disparity, Environmental Costs and Emissions, Privacy and Data, Financial Costs, and Moderation Labor ([Solaiman et. al. 2023](https://arxiv.org/abs/2306.05949v1)). 
 
 Our findings showed that there was a significant gap between release-time and post-release reports of social impact in AI evaluations.
 
