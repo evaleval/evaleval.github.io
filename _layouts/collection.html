@@ -17,7 +17,11 @@ layout: default
     <!-- Projects Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {% assign ordered_items = site[page.collection] | where_exp: "item", "item.order" | sort: 'order' %}
-      {% assign unordered_items = site[page.collection] | where_exp: "item", "item.order == nil" | sort: 'title' %}
+      {% if page.collection == "posts" %}
+        {% assign unordered_items = site[page.collection] | where_exp: "item", "item.order == nil" | sort: 'date' | reverse %}
+      {% else %}
+        {% assign unordered_items = site[page.collection] | where_exp: "item", "item.order == nil" | sort: 'title' %}
+      {% endif %}
       {% assign items = ordered_items | concat: unordered_items %}
       {% for item in items %}
         {% if item.published != false %}
