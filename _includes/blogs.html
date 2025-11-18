@@ -10,16 +10,18 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
       {% for post in site.posts limit:3 %}
       <a href="{{ post.url | relative_url }}" class="post-card block hover:shadow-lg transition-shadow duration-200 rounded overflow-hidden bg-white">
+        {% if post.image %}
         <div class="overflow-hidden mb-4">
           <img
-            src="{{ post.image | default: '/assets/images/default-blog.jpg' | relative_url }}"
+            src="{{ post.image | relative_url }}"
             alt="{{ post.title }}"
             class="w-full h-48 object-cover"
           >
         </div>
+        {% endif %}
         
         <!-- Add padding here -->
-        <div class="px-4 pb-4">
+        <div class="px-4 {% if post.image %}pb-4{% else %}py-4{% endif %}">
           <div class="post-meta mb-2 text-sm text-gray-500">
             {{ post.date | date: "%B %-d, %Y" }}
           </div>
