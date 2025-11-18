@@ -6,10 +6,10 @@ published: true
 category: Research 
 image: 
 authors:
-  - name: "Abdul"
+  - name: "Abdul Hameed"
   - name: "Afifah Kashif"
   - name: "Andrew Tran"
-  - name: "Usman Goshar"
+  - name: "Usman Gohar"
 tags:
   - "AI Evaluation"
   - "LLMs"
