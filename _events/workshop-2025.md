@@ -18,7 +18,7 @@ description:  |
 
 **Date**: December 8, 2025
 
-**Location**: UCSD, San Diego, California
+**Location**: UCSD, San Diego, California, Social Sciences Public Engagement Building Rooms 721 (Overflow room 520)
 
 **Hosted by**: Eval Eval, UK AISI, and UC San Diego (UCSD)
 
