@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | EvalEval Coalition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0a0a0a',
+                            dark: '#1a1a1a',
+                            gray: '#2a2a2a',
+                            light: '#f5f5f5',
+                            accent: '#3b82f6', 
+                        }
+                    },
+                    fontFamily: {
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
+                        sans: ['ui-sans-serif', 'system-ui', '-apple-system', "Segoe UI", 'Roboto', "Helvetica Neue", 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for code blocks */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+    </style>
+</head>
+<body class="bg-white text-brand-black antialiased font-sans selection:bg-black selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-xl tracking-tight">every_eval_ever</span>
+                    <span class="px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600">v0.0.1</span>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="#schema" class="hidden sm:block text-sm font-medium text-gray-600 hover:text-black transition-colors">Schema</a>
+                    <a href="#structure" class="hidden sm:block text-sm font-medium text-gray-600 hover:text-black transition-colors">Structure</a>
+                    <a href="#community" class="hidden sm:block text-sm font-medium text-gray-600 hover:text-black transition-colors">Community</a>
+                    <a href="https://github.com/evaleval/every_eval_ever" target="_blank" class="flex items-center gap-2 text-sm font-medium bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 sm:pt-40 sm:pb-32 px-4 border-b border-gray-100">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 mb-8">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span class="text-xs font-medium text-gray-600 uppercase tracking-wide">Infrastructure @EvalEval</span>
+            </div>
+            
+            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+                One schema for <br class="hidden sm:block" />
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900">every eval ever.</span>
+            </h1>
+            
+            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                A unified, open metadata standard for AI evaluation results. 
+                We're building the infrastructure to store, search, and combine data from leaderboards, research papers, and local runs.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#schema" class="w-full sm:w-auto px-8 py-3.5 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-all flex items-center justify-center gap-2 shadow-lg shadow-gray-200">
+                    Explore Schema
+                    <i data-lucide="arrow-down" class="w-4 h-4"></i>
+                </a>
+                <a href="https://github.com/evaleval/every_eval_ever" target="_blank" class="w-full sm:w-auto px-8 py-3.5 bg-gray-100 text-gray-900 rounded-lg font-medium hover:bg-gray-200 transition-all flex items-center justify-center gap-2 border border-gray-200">
+                    <i data-lucide="github" class="w-4 h-4"></i>
+                    View Repo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Section -->
+    <section class="py-20 bg-gray-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Card 1 -->
+                <div>
+                    <div class="w-12 h-12 bg-white rounded-xl border border-gray-200 flex items-center justify-center mb-6 shadow-sm">
+                        <i data-lucide="database" class="w-6 h-6 text-gray-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Unified Data</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Currently, eval data is scattered across PDFs, disparate JSON formats, and proprietary APIs. We parse metadata from different harnesses into a single, queryable schema.
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div>
+                    <div class="w-12 h-12 bg-white rounded-xl border border-gray-200 flex items-center justify-center mb-6 shadow-sm">
+                        <i data-lucide="search" class="w-6 h-6 text-gray-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Search & Retrieve</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Host the data to allow researchers to search, filter, and combine evaluation results. Compare models across timestamps, architectures, and varying compute levels.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div>
+                    <div class="w-12 h-12 bg-white rounded-xl border border-gray-200 flex items-center justify-center mb-6 shadow-sm">
+                        <i data-lucide="microscope" class="w-6 h-6 text-gray-700"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Rigorous Science</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Backed by the EvalEval Coalition, we are developing scientifically grounded research outputs and robust deployment infrastructure for broader impact.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Schema Section -->
+    <section id="schema" class="py-20 bg-brand-black text-white overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-start gap-12">
+                <div class="md:w-1/3">
+                    <h2 class="text-3xl font-bold mb-6">The Standard</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Data for each model is stored using a standardized JSON Schema. This ensures consistency whether the data comes from Hugging Face, LiveCodeBench, or a local run.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium text-white">UUID Based</h4>
+                                <p class="text-sm text-gray-500">Conflict-free storage for multiple runs.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium text-white">Timestamped</h4>
+                                <p class="text-sm text-gray-500">Track model performance evolution over time.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium text-white">Flexible Metrics</h4>
+                                <p class="text-sm text-gray-500">Supports both continuous scores and level-based ratings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:w-2/3 w-full">
+                    <div class="rounded-xl overflow-hidden bg-[#1e1e1e] border border-gray-800 shadow-2xl">
+                        <div class="flex items-center justify-between px-4 py-3 bg-[#252525] border-b border-gray-800">
+                            <div class="flex gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <span class="text-xs text-gray-500 font-mono">Qwen2.5-Math-72B-Instruct.json</span>
+                        </div>
+                        <div class="p-6 overflow-x-auto custom-scrollbar">
+                            <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500">{</span>
+  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"0.0.1"</span>,
+  <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"hfopenllm_v2/Qwen_Qwen2.5-Math.../17626..."</span>,
+  <span class="text-purple-400">"retrieved_timestamp"</span>: <span class="text-green-400">"1762652579.847775"</span>,
+  <span class="text-purple-400">"source_data"</span>: <span class="text-gray-500">[</span>
+    <span class="text-green-400">"https://open-llm-leaderboard..."</span>
+  <span class="text-gray-500">]</span>,
+  <span class="text-purple-400">"evaluation_source"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"evaluation_source_name"</span>: <span class="text-green-400">"HF Open LLM v2"</span>,
+    <span class="text-purple-400">"evaluation_source_type"</span>: <span class="text-green-400">"leaderboard"</span>
+  <span class="text-gray-500">}</span>,
+  <span class="text-purple-400">"model_info"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"name"</span>: <span class="text-green-400">"Qwen/Qwen2.5-Math-72B-Instruct"</span>,
+    <span class="text-purple-400">"developer"</span>: <span class="text-green-400">"Qwen"</span>,
+    <span class="text-purple-400">"additional_details"</span>: <span class="text-gray-500">{</span>
+        <span class="text-purple-400">"precision"</span>: <span class="text-green-400">"bfloat16"</span>,
+        <span class="text-purple-400">"params_billions"</span>: <span class="text-blue-400">72.706</span>
+    <span class="text-gray-500">}</span>
+  <span class="text-gray-500">}</span>,
+  <span class="text-purple-400">"evaluation_results"</span>: <span class="text-gray-500">[</span>
+    <span class="text-gray-500">{</span>
+      <span class="text-purple-400">"evaluation_name"</span>: <span class="text-green-400">"IFEval"</span>,
+      <span class="text-purple-400">"metric_config"</span>: <span class="text-gray-500">{</span>
+        <span class="text-purple-400">"score_type"</span>: <span class="text-green-400">"continuous"</span>,
+        <span class="text-purple-400">"min_score"</span>: <span class="text-blue-400">0</span>,
+        <span class="text-purple-400">"max_score"</span>: <span class="text-blue-400">1</span>
+      <span class="text-gray-500">}</span>,
+      <span class="text-purple-400">"score_details"</span>: <span class="text-gray-500">{</span>
+        <span class="text-purple-400">"score"</span>: <span class="text-blue-400">0.4003466</span>
+      <span class="text-gray-500">}</span>
+    <span class="text-gray-500">}</span>
+  <span class="text-gray-500">]</span>
+<span class="text-gray-500">}</span></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Structure Section -->
+    <section id="structure" class="py-20 border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Repository Structure</h2>
+                <p class="text-gray-600">
+                    Organized by eval name, developer, and model. Timestamps and runs are handled via UUID files.
+                </p>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl border border-gray-200 p-8 font-mono text-sm">
+                <div class="flex items-center gap-2 mb-2 text-gray-500">
+                    <i data-lucide="folder" class="w-4 h-4"></i> data/
+                </div>
+                <div class="pl-6 border-l border-gray-200 ml-2 space-y-4">
+                    <div>
+                        <div class="flex items-center gap-2 text-blue-600 font-semibold">
+                            <i data-lucide="folder-open" class="w-4 h-4"></i> {eval_name}/
+                        </div>
+                        <div class="pl-6 border-l border-gray-200 ml-2 mt-2 space-y-3">
+                            <div>
+                                <div class="flex items-center gap-2 text-gray-700">
+                                    <i data-lucide="folder" class="w-4 h-4"></i> {developer_name}/
+                                </div>
+                                <div class="pl-6 border-l border-gray-200 ml-2 mt-2 space-y-2">
+                                    <div class="flex items-center gap-2 text-gray-700">
+                                        <i data-lucide="folder-open" class="w-4 h-4"></i> {model_name}/
+                                    </div>
+                                    <div class="pl-6 border-l border-gray-200 ml-2 mt-2 space-y-2">
+                                        <div class="flex items-center gap-2 text-gray-500">
+                                            <i data-lucide="file-json" class="w-4 h-4"></i>
+                                            <span>e70acf51-30ef...json</span>
+                                            <span class="text-xs bg-gray-200 px-1.5 py-0.5 rounded text-gray-500">Run #1</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-gray-500">
+                                            <i data-lucide="file-json" class="w-4 h-4"></i>
+                                            <span>a1b2c3d4-5678...json</span>
+                                            <span class="text-xs bg-gray-200 px-1.5 py-0.5 rounded text-gray-500">Run #2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-black text-white rounded-2xl p-8 sm:p-12 relative overflow-hidden">
+                <!-- Background decorative elements -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-gray-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -mr-16 -mt-16"></div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="max-w-xl">
+                        <div class="inline-block px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs font-semibold mb-4 border border-blue-600/30">
+                            COMING SOON
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4">Join the Shared Task</h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed">
+                            We are offering a Shared Task on Infra in conjunction with our <strong>ACL 2026 EvalEval Workshop</strong>. 
+                            Join researchers like Jan, Leshem, Avijit, and the entire coalition in defining the future of AI evaluation.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                             <a href="https://github.com/evaleval/every_eval_ever" class="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center gap-2">
+                                Start Contributing
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            </a>
+                            <a href="https://evalevalai.com" target="_blank" class="px-6 py-3 border border-gray-700 text-white rounded-lg font-medium hover:bg-gray-900 transition-colors">
+                                Visit EvalEval.ai
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Contributors Grid Visual -->
+                    <div class="hidden md:grid grid-cols-3 gap-3 opacity-80">
+                         <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 text-xs text-gray-500">JD</div>
+                         <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 text-xs text-gray-500">SA</div>
+                         <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 text-xs text-gray-500">JB</div>
+                         <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 text-xs text-gray-500">YM</div>
+                         <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 text-xs text-gray-500">AK</div>
+                         <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700 text-xs text-gray-500">EG</div>
+                         <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white border border-blue-500 shadow-lg shadow-blue-900/50">
+                             <i data-lucide="plus" class="w-5 h-5"></i>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div>
+                <span class="font-bold text-lg tracking-tight">every_eval_ever</span>
+                <p class="text-sm text-gray-500 mt-1">Infrastructure @EvalEval Coalition</p>
+            </div>
+            
+            <div class="flex gap-8 text-sm text-gray-600">
+                <a href="https://github.com/evaleval/every_eval_ever" class="hover:text-black transition-colors">GitHub</a>
+                <a href="https://evalevalai.com" class="hover:text-black transition-colors">EvalEval Website</a>
+                <a href="#" class="hover:text-black transition-colors">Schema Docs</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
