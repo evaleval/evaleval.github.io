@@ -67,7 +67,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 sm:pt-40 sm:pb-32 px-4 border-b border-gray-100">
+    <section class="pt-40 pb-32 sm:pt-52 sm:pb-40 px-4 border-b border-gray-100">
         <div class="max-w-4xl mx-auto text-center">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 mb-8">
                 <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
@@ -97,43 +97,48 @@
         </div>
     </section>
 
-    <!-- Why Section -->
-    <section class="py-20 bg-gray-50 border-b border-gray-100">
+    <!-- Why This Schema Section -->
+    <section class="py-24 bg-gray-50 border-b border-gray-100">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Why this Schema?</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Addressing the fragmentation in AI evaluation to enable trust and comparability.
+                </p>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <!-- Card 1 -->
-                <div>
-                    <div class="w-12 h-12 bg-white rounded-xl border border-gray-200 flex items-center justify-center mb-6 shadow-sm">
-                        <i data-lucide="database" class="w-6 h-6 text-gray-700"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Massive Public Dataset</h3>
+                <!-- Point 1 -->
+                <div class="relative">
+                    <div class="absolute -left-4 -top-4 text-6xl font-bold text-gray-100 -z-10">1</div>
+                    <h3 class="text-xl font-bold mb-3">The Need for 3rd Party Evals</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        We are actively collecting results from major leaderboards (Open LLM, LiveCodeBench) and research papers into a centralized, open-source repository.
+                        As highlighted in our <a href="https://arxiv.org/pdf/2511.05613v1" target="_blank" class="text-blue-600 hover:underline">recent paper</a>, independent third-party evaluations are crucial. Self-reported metrics often lack the rigor and transparency needed for true accountability.
                     </p>
                 </div>
-                <!-- Card 2 -->
-                <div>
-                    <div class="w-12 h-12 bg-white rounded-xl border border-gray-200 flex items-center justify-center mb-6 shadow-sm">
-                        <i data-lucide="search" class="w-6 h-6 text-gray-700"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Search & Retrieve</h3>
+                
+                <!-- Point 2 -->
+                <div class="relative">
+                    <div class="absolute -left-4 -top-4 text-6xl font-bold text-gray-100 -z-10">2</div>
+                    <h3 class="text-xl font-bold mb-3">The Standardization Gap</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        The structured JSON format allows for easy SQL querying. Download the dataset and run your own analysis across timestamps and architectures.
+                        Currently, third-party evaluation reports are scattered across PDFs, blog posts, and custom tables. They are not standardized, making it nearly impossible to compare results across different evaluators or reproduce findings.
                     </p>
                 </div>
-                <!-- Card 3 -->
-                <div>
-                    <div class="w-12 h-12 bg-white rounded-xl border border-gray-200 flex items-center justify-center mb-6 shadow-sm">
-                        <i data-lucide="microscope" class="w-6 h-6 text-gray-700"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Rigorous Science</h3>
+
+                <!-- Point 3 -->
+                <div class="relative">
+                    <div class="absolute -left-4 -top-4 text-6xl font-bold text-gray-100 -z-10">3</div>
+                    <h3 class="text-xl font-bold mb-3">A Unified Opportunity</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Backed by the EvalEval Coalition, we are developing scientifically grounded research outputs and robust deployment infrastructure for broader impact.
+                        This schema offers an opportunity for evaluators: have your results advertised in a standardized format and bucketed together. This helps the community digest results and gives your evaluation broader reach and utility.
                     </p>
                 </div>
             </div>
         </div>
     </section>
+
+
 
     <!-- The Schema Section -->
         <!-- The Schema Section -->
@@ -157,9 +162,9 @@
                         <span class="text-xs text-gray-500 font-mono">59ee0934-f60d-4d4b-b986-844fc51e89a3.json</span>
                     </div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-0">
                         <!-- Code Side -->
-                        <div class="p-6 md:p-8 overflow-x-auto custom-scrollbar border-b lg:border-b-0 lg:border-r border-gray-800 bg-[#1e1e1e]">
+                        <div class="lg:col-span-3 p-6 md:p-8 overflow-auto custom-scrollbar border-b lg:border-b-0 lg:border-r border-gray-800 bg-[#1e1e1e] h-[600px]">
                             <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500">{</span>
 <span id="code-metadata" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"0.0.1"</span>,
   <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"helm_capabilities/moonshotai.../17642..."</span>,
@@ -227,7 +232,7 @@
 <span class="text-gray-500">}</span></code></pre>
                         </div>                <!-- Annotations Side -->
                         <!-- Annotations Side -->
-                        <div class="bg-[#252525] p-6 md:p-8 space-y-4 text-sm">
+                        <div class="lg:col-span-2 bg-[#252525] p-6 md:p-8 space-y-4 text-sm h-[600px] overflow-y-auto custom-scrollbar">
                             
                             <!-- Item 1 -->
                             <div class="annotation-item group cursor-pointer border-l-2 border-blue-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-metadata">
@@ -394,6 +399,26 @@
                         <h3 class="text-lg font-bold mb-2">Universal Metrics</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">
                             The schema accommodates both numeric and level-based metrics. Level-based metrics (Low, Medium, High) are mapped to integers for consistent analysis.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                        <div class="w-10 h-10 bg-red-100 text-red-600 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="search" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Search & Retrieve</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            The structured JSON format allows for easy SQL querying. Download the dataset and run your own analysis across timestamps and architectures.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                        <div class="w-10 h-10 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="microscope" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Rigorous Science</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Backed by the EvalEval Coalition, we are developing scientifically grounded research outputs and robust deployment infrastructure for broader impact.
                         </p>
                     </div>
                 </div>
@@ -593,6 +618,7 @@
                         if (targetCode) {
                             targetCode.classList.remove('opacity-30');
                             targetCode.classList.add('bg-white/10', '-mx-4', 'px-4', 'rounded');
+                            targetCode.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         }
                     } else {
                         // If deactivating, show all code
