@@ -56,9 +56,7 @@
                     <span class="px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600">v0.0.1</span>
                 </div>
                 <div class="flex items-center gap-6">
-                    <a href="#schema" class="hidden sm:block text-sm font-medium text-gray-600 hover:text-black transition-colors">Schema</a>
-                    <a href="#structure" class="hidden sm:block text-sm font-medium text-gray-600 hover:text-black transition-colors">Structure</a>
-                    <a href="#community" class="hidden sm:block text-sm font-medium text-gray-600 hover:text-black transition-colors">Community</a>
+
                     <a href="https://github.com/evaleval/every_eval_ever" target="_blank" class="flex items-center gap-2 text-sm font-medium bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
                         <i data-lucide="github" class="w-4 h-4"></i>
                         <span>GitHub</span>
@@ -82,8 +80,8 @@
             </h1>
             
             <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-                A unified, open metadata standard for AI evaluation results. 
-                We're building the infrastructure to store, search, and combine data from leaderboards, research papers, and local runs.
+                A <strong>unified, open data format</strong> and <strong>public dataset</strong> for AI evaluation results. 
+                We are collecting all evaluation results in a standardized schema to enable rigorous research and broader impact.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -108,9 +106,9 @@
                     <div class="w-12 h-12 bg-white rounded-xl border border-gray-200 flex items-center justify-center mb-6 shadow-sm">
                         <i data-lucide="database" class="w-6 h-6 text-gray-700"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Unified Data</h3>
+                    <h3 class="text-xl font-bold mb-3">Massive Public Dataset</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Currently, eval data is scattered across PDFs, disparate JSON formats, and proprietary APIs. We parse metadata from different harnesses into a single, queryable schema.
+                        We are actively collecting results from major leaderboards (Open LLM, LiveCodeBench) and research papers into a centralized, open-source repository.
                     </p>
                 </div>
                 <!-- Card 2 -->
@@ -120,7 +118,7 @@
                     </div>
                     <h3 class="text-xl font-bold mb-3">Search & Retrieve</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Host the data to allow researchers to search, filter, and combine evaluation results. Compare models across timestamps, architectures, and varying compute levels.
+                        The structured JSON format allows for easy SQL querying. Download the dataset and run your own analysis across timestamps and architectures.
                     </p>
                 </div>
                 <!-- Card 3 -->
@@ -138,136 +136,352 @@
     </section>
 
     <!-- The Schema Section -->
-    <section id="schema" class="py-20 bg-brand-black text-white overflow-hidden">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-start gap-12">
-                <div class="md:w-1/3">
-                    <h2 class="text-3xl font-bold mb-6">The Standard</h2>
-                    <p class="text-gray-400 mb-6 leading-relaxed">
-                        Data for each model is stored using a standardized JSON Schema. This ensures consistency whether the data comes from Hugging Face, LiveCodeBench, or a local run.
+        <!-- The Schema Section -->
+        <section id="schema" class="py-20 bg-brand-black text-white overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-4">The Schema</h2>
+                    <p class="text-gray-400 max-w-2xl mx-auto">
+                        A granular, line-by-line breakdown of the standardized format.
                     </p>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1"></i>
-                            <div>
-                                <h4 class="font-medium text-white">UUID Based</h4>
-                                <p class="text-sm text-gray-500">Conflict-free storage for multiple runs.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1"></i>
-                            <div>
-                                <h4 class="font-medium text-white">Timestamped</h4>
-                                <p class="text-sm text-gray-500">Track model performance evolution over time.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mt-1"></i>
-                            <div>
-                                <h4 class="font-medium text-white">Flexible Metrics</h4>
-                                <p class="text-sm text-gray-500">Supports both continuous scores and level-based ratings.</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-                <div class="md:w-2/3 w-full">
-                    <div class="rounded-xl overflow-hidden bg-[#1e1e1e] border border-gray-800 shadow-2xl">
-                        <div class="flex items-center justify-between px-4 py-3 bg-[#252525] border-b border-gray-800">
-                            <div class="flex gap-2">
-                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            </div>
-                            <span class="text-xs text-gray-500 font-mono">Qwen2.5-Math-72B-Instruct.json</span>
+                <div class="border border-gray-800 rounded-xl overflow-hidden bg-[#1e1e1e] shadow-2xl">
+                    <!-- Mac Window Header -->
+                    <div class="flex items-center justify-between px-4 py-3 bg-[#252525] border-b border-gray-800">
+                        <div class="flex gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
                         </div>
-                        <div class="p-6 overflow-x-auto custom-scrollbar">
+                        <span class="text-xs text-gray-500 font-mono">59ee0934-f60d-4d4b-b986-844fc51e89a3.json</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                        <!-- Code Side -->
+                        <div class="p-6 md:p-8 overflow-x-auto custom-scrollbar border-b lg:border-b-0 lg:border-r border-gray-800 bg-[#1e1e1e]">
                             <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500">{</span>
-  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"0.0.1"</span>,
-  <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"hfopenllm_v2/Qwen_Qwen2.5-Math.../17626..."</span>,
-  <span class="text-purple-400">"retrieved_timestamp"</span>: <span class="text-green-400">"1762652579.847775"</span>,
-  <span class="text-purple-400">"source_data"</span>: <span class="text-gray-500">[</span>
-    <span class="text-green-400">"https://open-llm-leaderboard..."</span>
-  <span class="text-gray-500">]</span>,
-  <span class="text-purple-400">"evaluation_source"</span>: <span class="text-gray-500">{</span>
-    <span class="text-purple-400">"evaluation_source_name"</span>: <span class="text-green-400">"HF Open LLM v2"</span>,
-    <span class="text-purple-400">"evaluation_source_type"</span>: <span class="text-green-400">"leaderboard"</span>
-  <span class="text-gray-500">}</span>,
-  <span class="text-purple-400">"model_info"</span>: <span class="text-gray-500">{</span>
-    <span class="text-purple-400">"name"</span>: <span class="text-green-400">"Qwen/Qwen2.5-Math-72B-Instruct"</span>,
-    <span class="text-purple-400">"developer"</span>: <span class="text-green-400">"Qwen"</span>,
-    <span class="text-purple-400">"additional_details"</span>: <span class="text-gray-500">{</span>
-        <span class="text-purple-400">"precision"</span>: <span class="text-green-400">"bfloat16"</span>,
-        <span class="text-purple-400">"params_billions"</span>: <span class="text-blue-400">72.706</span>
-    <span class="text-gray-500">}</span>
-  <span class="text-gray-500">}</span>,
-  <span class="text-purple-400">"evaluation_results"</span>: <span class="text-gray-500">[</span>
+<span id="code-metadata" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"0.0.1"</span>,
+  <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"helm_capabilities/moonshotai.../17642..."</span>,
+  <span class="text-purple-400">"retrieved_timestamp"</span>: <span class="text-green-400">"1764204739.50717"</span>,</span>
+  
+<span id="code-source" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"source_data"</span>: <span class="text-gray-500">[</span>
     <span class="text-gray-500">{</span>
-      <span class="text-purple-400">"evaluation_name"</span>: <span class="text-green-400">"IFEval"</span>,
+      <span class="text-purple-400">"dataset_name"</span>: <span class="text-green-400">"MMLU-Pro"</span>,
+      <span class="text-purple-400">"hf_repo"</span>: <span class="text-green-400">"TIGER-Lab/MMLU-Pro"</span>,
+      <span class="text-purple-400">"hf_split"</span>: <span class="text-green-400">"test"</span>,
+      <span class="text-purple-400">"samples_number"</span>: <span class="text-blue-400">12032</span>
+    <span class="text-gray-500">}</span>
+  <span class="text-gray-500">]</span>,
+  <span class="text-purple-400">"source_metadata"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"source_organization_name"</span>: <span class="text-green-400">"crfm"</span>,
+    <span class="text-purple-400">"source_organization_url"</span>: <span class="text-green-400">"https://crfm.stanford.edu"</span>,
+    <span class="text-purple-400">"evaluator_relationship"</span>: <span class="text-green-400">"third_party"</span>
+  <span class="text-gray-500">}</span>,</span>
+
+<span id="code-model" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"model_info"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"name"</span>: <span class="text-green-400">"Kimi K2 Instruct"</span>,
+    <span class="text-purple-400">"id"</span>: <span class="text-green-400">"moonshotai/kimi-k2-instruct"</span>,
+    <span class="text-purple-400">"developer"</span>: <span class="text-green-400">"moonshotai"</span>,
+    <span class="text-purple-400">"inference_platform"</span>: <span class="text-green-400">"HuggingFace"</span>,
+    <span class="text-purple-400">"inference_engine"</span>: <span class="text-green-400">"vLLM"</span>
+  <span class="text-gray-500">}</span>,</span>
+
+<span id="code-metrics" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"evaluation_results"</span>: <span class="text-gray-500">[</span>
+    <span class="text-gray-500">{</span>
+      <span class="text-purple-400">"evaluation_name"</span>: <span class="text-green-400">"MMLU-Pro - COT correct"</span>,
       <span class="text-purple-400">"metric_config"</span>: <span class="text-gray-500">{</span>
+        <span class="text-purple-400">"evaluation_description"</span>: <span class="text-green-400">"Fraction of correct answers after chain of thought"</span>,
+        <span class="text-purple-400">"lower_is_better"</span>: <span class="text-blue-400">false</span>,
         <span class="text-purple-400">"score_type"</span>: <span class="text-green-400">"continuous"</span>,
-        <span class="text-purple-400">"min_score"</span>: <span class="text-blue-400">0</span>,
-        <span class="text-purple-400">"max_score"</span>: <span class="text-blue-400">1</span>
+        <span class="text-purple-400">"min_score"</span>: <span class="text-blue-400">0.0</span>,
+        <span class="text-purple-400">"max_score"</span>: <span class="text-blue-400">1.0</span>
       <span class="text-gray-500">}</span>,
       <span class="text-purple-400">"score_details"</span>: <span class="text-gray-500">{</span>
-        <span class="text-purple-400">"score"</span>: <span class="text-blue-400">0.4003466</span>
+        <span class="text-purple-400">"score"</span>: <span class="text-blue-400">0.819</span>,
+        <span class="text-purple-400">"details"</span>: <span class="text-gray-500">{</span>
+          <span class="text-purple-400">"tab"</span>: <span class="text-green-400">"Accuracy"</span>
+        <span class="text-gray-500">}</span>
+      <span class="text-gray-500">}</span>,</span>
+<span id="code-generation" class="code-section transition-opacity duration-300 block">      <span class="text-purple-400">"generation_config"</span>: <span class="text-gray-500">{</span>
+        <span class="text-purple-400">"generation_args"</span>: <span class="text-gray-500">{</span>
+          <span class="text-purple-400">"temperature"</span>: <span class="text-blue-400">0.0</span>,
+          <span class="text-purple-400">"top_p"</span>: <span class="text-blue-400">1.0</span>,
+          <span class="text-purple-400">"top_k"</span>: <span class="text-blue-400">-1</span>,
+          <span class="text-purple-400">"max_tokens"</span>: <span class="text-blue-400">2048</span>
+        <span class="text-gray-500">}</span>,
+        <span class="text-purple-400">"additional_details"</span>: <span class="text-green-400">"Chain of thought prompting used."</span>
       <span class="text-gray-500">}</span>
     <span class="text-gray-500">}</span>
-  <span class="text-gray-500">]</span>
+  <span class="text-gray-500">]</span>,</span>
+
+<span id="code-samples" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"detailed_evaluation_results_per_samples"</span>: <span class="text-gray-500">[</span>
+    <span class="text-gray-500">{</span>
+      <span class="text-purple-400">"sample_id"</span>: <span class="text-green-400">"test_123"</span>,
+      <span class="text-purple-400">"input"</span>: <span class="text-green-400">"Question: ..."</span>,
+      <span class="text-purple-400">"ground_truth"</span>: <span class="text-green-400">"B"</span>,
+      <span class="text-purple-400">"response"</span>: <span class="text-green-400">"The answer is B."</span>,
+      <span class="text-purple-400">"choices"</span>: <span class="text-gray-500">[</span><span class="text-green-400">"A"</span>, <span class="text-green-400">"B"</span>, <span class="text-green-400">"C"</span>, <span class="text-green-400">"D"</span><span class="text-gray-500">]</span>
+    <span class="text-gray-500">}</span>
+  <span class="text-gray-500">]</span></span>
 <span class="text-gray-500">}</span></code></pre>
+                        </div>                <!-- Annotations Side -->
+                        <!-- Annotations Side -->
+                        <div class="bg-[#252525] p-6 md:p-8 space-y-4 text-sm">
+                            
+                            <!-- Item 1 -->
+                            <div class="annotation-item group cursor-pointer border-l-2 border-blue-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-metadata">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="text-white font-semibold group-hover:text-blue-400 transition-colors">Metadata & ID</h4>
+                                    <div class="icon-wrapper transition-transform duration-300">
+                                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                    </div>
+                                </div>
+                                <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                                    <p>Every file starts with versioning and a unique identifier.</p>
+                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                        <li><span class="text-purple-400">schema_version</span>: Version of the schema used.</li>
+                                        <li><span class="text-purple-400">evaluation_id</span>: Unique ID (eval_name/model_id/timestamp).</li>
+                                        <li><span class="text-purple-400">retrieved_timestamp</span>: Unix Epoch time of creation.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="annotation-item group cursor-pointer border-l-2 border-green-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-source">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="text-white font-semibold group-hover:text-green-400 transition-colors">Source Provenance</h4>
+                                    <div class="icon-wrapper transition-transform duration-300">
+                                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                    </div>
+                                </div>
+                                <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                                    <p>Links to original data and distinguishes source types.</p>
+                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                        <li><span class="text-purple-400">source_data</span>: Link to dataset or URL.</li>
+                                        <li><span class="text-purple-400">hf_split</span>: Dataset split (train/test/val).</li>
+                                        <li><span class="text-purple-400">samples_number</span>: Total count of examples.</li>
+                                        <li><span class="text-purple-400">source_metadata</span>: Organization & relationship info.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="annotation-item group cursor-pointer border-l-2 border-purple-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-model">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="text-white font-semibold group-hover:text-purple-400 transition-colors">Model Specification</h4>
+                                    <div class="icon-wrapper transition-transform duration-300">
+                                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                    </div>
+                                </div>
+                                <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                                    <p>Complete model specification using HuggingFace format.</p>
+                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                        <li><span class="text-purple-400">name</span>: Human-readable model name.</li>
+                                        <li><span class="text-purple-400">id</span>: HuggingFace model ID.</li>
+                                        <li><span class="text-purple-400">inference_platform</span>: API provider (e.g., OpenAI).</li>
+                                        <li><span class="text-purple-400">inference_engine</span>: Local runner (e.g., vLLM).</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Item 4 -->
+                            <div class="annotation-item group cursor-pointer border-l-2 border-yellow-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-metrics">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="text-white font-semibold group-hover:text-yellow-400 transition-colors">Flexible Metrics</h4>
+                                    <div class="icon-wrapper transition-transform duration-300">
+                                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                    </div>
+                                </div>
+                                <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                                    <p>Supports continuous scores and level-based ratings.</p>
+                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                        <li><span class="text-purple-400">evaluation_description</span>: What is being measured.</li>
+                                        <li><span class="text-purple-400">lower_is_better</span>: Direction of improvement.</li>
+                                        <li><span class="text-purple-400">score_type</span>: 'continuous', 'binary', or 'levels'.</li>
+                                        <li><span class="text-purple-400">min/max_score</span>: Range for continuous metrics.</li>
+                                        <li><span class="text-purple-400">score_details</span>: The actual score value.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Item 5 -->
+                            <div class="annotation-item group cursor-pointer border-l-2 border-pink-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-generation">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="text-white font-semibold group-hover:text-pink-400 transition-colors">Generation Config</h4>
+                                    <div class="icon-wrapper transition-transform duration-300">
+                                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                    </div>
+                                </div>
+                                <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                                    <p>Reproducibility parameters for the generation.</p>
+                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                        <li><span class="text-purple-400">temperature</span>: Sampling temperature.</li>
+                                        <li><span class="text-purple-400">top_p</span>: Nucleus sampling parameter.</li>
+                                        <li><span class="text-purple-400">top_k</span>: Top-k sampling parameter.</li>
+                                        <li><span class="text-purple-400">max_tokens</span>: Output length limit.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Item 6 -->
+                            <div class="annotation-item group cursor-pointer border-l-2 border-cyan-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-samples">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="text-white font-semibold group-hover:text-cyan-400 transition-colors">Sample Level Data</h4>
+                                    <div class="icon-wrapper transition-transform duration-300">
+                                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                    </div>
+                                </div>
+                                <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                                    <p>Granular results for every single test instance.</p>
+                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                        <li><span class="text-purple-400">input</span>: The prompt given to the model.</li>
+                                        <li><span class="text-purple-400">ground_truth</span>: The expected answer.</li>
+                                        <li><span class="text-purple-400">response</span>: The model's actual output.</li>
+                                        <li><span class="text-purple-400">choices</span>: Multiple choice options (if applicable).</li>
+                                    </ul>
+                                </div>
+                            </div>                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Decisions Section -->
+        <section class="py-20 bg-gray-50 border-b border-gray-100">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-4">Design Decisions</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Built for scale, reproducibility, and scientific rigor.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                        <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="fingerprint" class="w-5 h-5"></i>
                         </div>
+                        <h3 class="text-lg font-bold mb-2">UUID Naming Convention</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Each JSON file is named with a UUID (e.g., <code>e70acf51-....json</code>). This ensures multiple evaluations of the same model can exist without conflicts, and different timestamps are stored as separate files.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                        <div class="w-10 h-10 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Timestamped Evolution</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            We track <code>retrieved_timestamp</code> to monitor model performance evolution. A model may have multiple result files representing different iterations or runs.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                        <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="server" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Platform vs. Engine</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            We explicitly distinguish between <code>inference_platform</code> (remote APIs like OpenAI, Anthropic) and <code>inference_engine</code> (local runners like vLLM, Ollama) to capture the exact evaluation environment.
+                        </p>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                        <div class="w-10 h-10 bg-yellow-100 text-yellow-600 rounded-lg flex items-center justify-center mb-4">
+                            <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Universal Metrics</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            The schema accommodates both numeric and level-based metrics. Level-based metrics (Low, Medium, High) are mapped to integers for consistent analysis.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Structure Section -->
-    <section id="structure" class="py-20 border-b border-gray-100">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4">Repository Structure</h2>
-                <p class="text-gray-600">
-                    Organized by eval name, developer, and model. Timestamps and runs are handled via UUID files.
+        <!-- The Public Dataset Section -->
+        <section class="py-20 bg-white border-b border-gray-100">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
+                <h2 class="text-3xl font-bold mb-6">The Public Dataset</h2>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    We are collecting all evaluation results in our schema in a public dataset. 
+                    This repository serves as a standardized metadata store for results from various leaderboards, research papers, and local evaluations.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://github.com/evaleval/every_eval_ever/tree/main/data" target="_blank" class="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+                        <i data-lucide="folder-open" class="w-4 h-4"></i>
+                        Browse Data Folder
+                    </a>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <p class="text-center text-gray-500 mb-6 font-medium">Explore the dataset via this interactive space</p>
+                <div class="w-full h-[800px] bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                    <iframe
+                        src="https://deepmage121-eee-viz.hf.space"
+                        frameborder="0"
+                        width="100%"
+                        height="100%"
+                    ></iframe>
+                </div>
+            </div>
+        </section>
+
+    <!-- Contributor Guide Section -->
+    <section class="py-20 bg-gray-50 border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Contributor Guide</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    How we organize and validate the data.
                 </p>
             </div>
 
-            <div class="bg-gray-50 rounded-xl border border-gray-200 p-8 font-mono text-sm">
-                <div class="flex items-center gap-2 mb-2 text-gray-500">
-                    <i data-lucide="folder" class="w-4 h-4"></i> data/
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Structure -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="folder-tree" class="w-5 h-5"></i>
+                        Repository Structure
+                    </h3>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 font-mono text-sm text-gray-600 mb-6">
+                        data/<br>
+                        ├── {eval_name}/<br>
+                        │   └── {developer_name}/<br>
+                        │       └── {model_name}/<br>
+                        │           └── {uuid}.json
+                    </div>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Data is split by individual model. Each file is named with a <strong>UUID</strong> (e.g., <code>e70acf51-....json</code>) to ensure multiple evaluations of the same model can exist without conflicts.
+                    </p>
                 </div>
-                <div class="pl-6 border-l border-gray-200 ml-2 space-y-4">
-                    <div>
-                        <div class="flex items-center gap-2 text-blue-600 font-semibold">
-                            <i data-lucide="folder-open" class="w-4 h-4"></i> {eval_name}/
-                        </div>
-                        <div class="pl-6 border-l border-gray-200 ml-2 mt-2 space-y-3">
-                            <div>
-                                <div class="flex items-center gap-2 text-gray-700">
-                                    <i data-lucide="folder" class="w-4 h-4"></i> {developer_name}/
-                                </div>
-                                <div class="pl-6 border-l border-gray-200 ml-2 mt-2 space-y-2">
-                                    <div class="flex items-center gap-2 text-gray-700">
-                                        <i data-lucide="folder-open" class="w-4 h-4"></i> {model_name}/
-                                    </div>
-                                    <div class="pl-6 border-l border-gray-200 ml-2 mt-2 space-y-2">
-                                        <div class="flex items-center gap-2 text-gray-500">
-                                            <i data-lucide="file-json" class="w-4 h-4"></i>
-                                            <span>e70acf51-30ef...json</span>
-                                            <span class="text-xs bg-gray-200 px-1.5 py-0.5 rounded text-gray-500">Run #1</span>
-                                        </div>
-                                        <div class="flex items-center gap-2 text-gray-500">
-                                            <i data-lucide="file-json" class="w-4 h-4"></i>
-                                            <span>a1b2c3d4-5678...json</span>
-                                            <span class="text-xs bg-gray-200 px-1.5 py-0.5 rounded text-gray-500">Run #2</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                <!-- Validation -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                        Data Validation
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        We use a strict JSON schema to ensure data quality. Our CI/CD pipeline validates every pull request.
+                    </p>
+                    <div class="bg-brand-black text-gray-300 p-6 rounded-xl font-mono text-sm">
+                        <p class="text-gray-500"># Run validation locally</p>
+                        <p><span class="text-purple-400">uv</span> run pre-commit run --all-files</p>
                     </div>
                 </div>
+            </div>
+            
+            <div class="mt-12 bg-blue-50 border border-blue-100 rounded-xl p-8">
+                <h3 class="text-lg font-bold text-blue-900 mb-4">How to add a new leaderboard?</h3>
+                <ol class="list-decimal list-inside space-y-2 text-blue-800">
+                    <li>Add a new folder under <code>/data</code> with a codename for your leaderboard.</li>
+                    <li>Create a 2-tier folder structure: <code>developer_name/model_name</code>.</li>
+                    <li>Add a JSON file with results for each model named <code>{uuid}.json</code>.</li>
+                    <li>Run the validation script to check against the schema.</li>
+                </ol>
             </div>
         </div>
     </section>
@@ -284,10 +498,10 @@
                         <div class="inline-block px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs font-semibold mb-4 border border-blue-600/30">
                             COMING SOON
                         </div>
-                        <h2 class="text-3xl font-bold mb-4">Join the Shared Task</h2>
+                        <h2 class="text-3xl font-bold mb-4">Open Standard & Community</h2>
                         <p class="text-gray-400 mb-6 leading-relaxed">
-                            We are offering a Shared Task on Infra in conjunction with our <strong>ACL 2026 EvalEval Workshop</strong>. 
-                            Join researchers like Jan, Leshem, Avijit, and the entire coalition in defining the future of AI evaluation.
+                            We are launching <strong>every_eval_ever</strong> as an open standard and actively soliciting feedback and contributions.
+                            Join the EvalEval coalition in defining the future of AI evaluation.
                         </p>
                         <div class="flex flex-wrap gap-4">
                              <a href="https://github.com/evaleval/every_eval_ever" class="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center gap-2">
@@ -295,7 +509,7 @@
                                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             </a>
                             <a href="https://evalevalai.com" target="_blank" class="px-6 py-3 border border-gray-700 text-white rounded-lg font-medium hover:bg-gray-900 transition-colors">
-                                Visit EvalEval.ai
+                                Learn about EvalEval
                             </a>
                         </div>
                     </div>
@@ -343,6 +557,47 @@
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('.annotation-item');
+            const codeSections = document.querySelectorAll('.code-section');
+
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+                    const targetId = item.dataset.target;
+
+                    // Reset all
+                    items.forEach(i => {
+                        i.classList.remove('active');
+                        i.querySelector('.details').classList.add('hidden');
+                        i.querySelector('.icon-wrapper').classList.remove('rotate-180');
+                    });
+                    codeSections.forEach(s => {
+                        s.classList.remove('bg-white/10', '-mx-4', 'px-4', 'rounded');
+                        s.classList.add('opacity-30');
+                    });
+
+                    if (!isActive) {
+                        // Activate clicked
+                        item.classList.add('active');
+                        item.querySelector('.details').classList.remove('hidden');
+                        item.querySelector('.icon-wrapper').classList.add('rotate-180');
+                        
+                        // Highlight code
+                        const targetCode = document.getElementById(targetId);
+                        if (targetCode) {
+                            targetCode.classList.remove('opacity-30');
+                            targetCode.classList.add('bg-white/10', '-mx-4', 'px-4', 'rounded');
+                        }
+                    } else {
+                        // If deactivating, show all code
+                        codeSections.forEach(s => s.classList.remove('opacity-30'));
+                    }
                 });
             });
         });
