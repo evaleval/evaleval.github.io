@@ -53,7 +53,7 @@
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center gap-2">
                     <span class="font-bold text-xl tracking-tight">Every Eval Ever</span>
-                    <span class="px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600">v0.0.1</span>
+                    <span class="px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600">v0.1</span>
                 </div>
                 <div class="flex items-center gap-6">
 
@@ -166,28 +166,23 @@
                         <!-- Code Side -->
                         <div class="lg:col-span-3 p-6 md:p-8 overflow-auto custom-scrollbar border-b lg:border-b-0 lg:border-r border-gray-800 bg-[#1e1e1e] h-[600px]">
                             <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500">{</span>
-<span id="code-metadata" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"0.0.1"</span>,
+<span id="code-metadata" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"0.1"</span>,
   <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"helm_capabilities/moonshotai.../17642..."</span>,
   <span class="text-purple-400">"retrieved_timestamp"</span>: <span class="text-green-400">"1764204739.50717"</span>,</span>
   
-<span id="code-source" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"source_data"</span>: <span class="text-gray-500">[</span>
-    <span class="text-gray-500">{</span>
-      <span class="text-purple-400">"dataset_name"</span>: <span class="text-green-400">"MMLU-Pro"</span>,
-      <span class="text-purple-400">"hf_repo"</span>: <span class="text-green-400">"TIGER-Lab/MMLU-Pro"</span>,
-      <span class="text-purple-400">"hf_split"</span>: <span class="text-green-400">"test"</span>,
-      <span class="text-purple-400">"samples_number"</span>: <span class="text-blue-400">12032</span>
-    <span class="text-gray-500">}</span>
-  <span class="text-gray-500">]</span>,
+<span id="code-source" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"source_data"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"dataset_name"</span>: <span class="text-green-400">"MMLU-Pro"</span>,
+    <span class="text-purple-400">"hf_repo"</span>: <span class="text-green-400">"TIGER-Lab/MMLU-Pro"</span>,
+    <span class="text-purple-400">"hf_split"</span>: <span class="text-green-400">"test"</span>,
+    <span class="text-purple-400">"samples_number"</span>: <span class="text-blue-400">12032</span>
+  <span class="text-gray-500">}</span>,
 
   <span class="text-purple-400">"source_metadata"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"source_name"</span>: <span class="text-green-400">"HELM"</span>,
+    <span class="text-purple-400">"source_type"</span>: <span class="text-green-400">"evaluation_run"</span>,
     <span class="text-purple-400">"source_organization_name"</span>: <span class="text-green-400">"crfm"</span>,
     <span class="text-purple-400">"source_organization_url"</span>: <span class="text-green-400">"https://crfm.stanford.edu"</span>,
     <span class="text-purple-400">"evaluator_relationship"</span>: <span class="text-green-400">"third_party"</span>
-  <span class="text-gray-500">}</span>,</span>
-
-<span id="code-eval-source" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"evaluation_source"</span>: <span class="text-gray-500">{</span>
-    <span class="text-purple-400">"evaluation_source_name"</span>: <span class="text-green-400">"HF Open LLM v2"</span>,
-    <span class="text-purple-400">"evaluation_source_type"</span>: <span class="text-green-400">"leaderboard"</span>
   <span class="text-gray-500">}</span>,</span>
 
 <span id="code-model" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"model_info"</span>: <span class="text-gray-500">{</span>
@@ -201,6 +196,7 @@
 <span id="code-metrics" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"evaluation_results"</span>: <span class="text-gray-500">[</span>
     <span class="text-gray-500">{</span>
       <span class="text-purple-400">"evaluation_name"</span>: <span class="text-green-400">"MMLU-Pro - COT correct"</span>,
+      <span class="text-purple-400">"evaluation_timestamp"</span>: <span class="text-green-400">"1764204739.50717"</span>,
       <span class="text-purple-400">"metric_config"</span>: <span class="text-gray-500">{</span>
         <span class="text-purple-400">"evaluation_description"</span>: <span class="text-green-400">"Fraction of correct answers after chain of thought"</span>,
         <span class="text-purple-400">"lower_is_better"</span>: <span class="text-blue-400">false</span>,
@@ -213,13 +209,15 @@
         <span class="text-purple-400">"details"</span>: <span class="text-gray-500">{</span>
           <span class="text-purple-400">"tab"</span>: <span class="text-green-400">"Accuracy"</span>
         <span class="text-gray-500">}</span>
-      <span class="text-gray-500">}</span>,</span>
+      <span class="text-gray-500">}</span>,
+      <span class="text-purple-400">"detailed_evaluation_results_url"</span>: <span class="text-green-400">"https://huggingface.co/datasets/..."</span>,</span>
 <span id="code-generation" class="code-section transition-opacity duration-300 block">      <span class="text-purple-400">"generation_config"</span>: <span class="text-gray-500">{</span>
         <span class="text-purple-400">"generation_args"</span>: <span class="text-gray-500">{</span>
           <span class="text-purple-400">"temperature"</span>: <span class="text-blue-400">0.0</span>,
           <span class="text-purple-400">"top_p"</span>: <span class="text-blue-400">1.0</span>,
           <span class="text-purple-400">"top_k"</span>: <span class="text-blue-400">-1</span>,
-          <span class="text-purple-400">"max_tokens"</span>: <span class="text-blue-400">2048</span>
+          <span class="text-purple-400">"max_tokens"</span>: <span class="text-blue-400">2048</span>,
+          <span class="text-purple-400">"reasoning"</span>: <span class="text-blue-400">true</span>
         <span class="text-gray-500">}</span>,
         <span class="text-purple-400">"additional_details"</span>: <span class="text-green-400">"Chain of thought prompting used."</span>
       <span class="text-gray-500">}</span>
@@ -269,27 +267,10 @@
                                 <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
                                     <p>Links to original data and distinguishes source types.</p>
                                     <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
-                                        <li><span class="text-purple-400">source_data</span>: Link to dataset or URL.</li>
-                                        <li><span class="text-purple-400">hf_split</span>: Dataset split (train/test/val).</li>
-                                        <li><span class="text-purple-400">samples_number</span>: Total count of examples.</li>
+                                        <li><span class="text-purple-400">source_data</span>: HF Dataset object OR list of URLs.</li>
                                         <li><span class="text-purple-400">source_metadata</span>: Organization & relationship info.</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Item 2.5 -->
-                            <div class="annotation-item group cursor-pointer border-l-2 border-orange-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-eval-source">
-                                <div class="flex items-center justify-between">
-                                    <h4 class="text-white font-semibold group-hover:text-orange-400 transition-colors">Evaluation Source</h4>
-                                    <div class="icon-wrapper transition-transform duration-300">
-                                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
-                                    </div>
-                                </div>
-                                <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                                    <p>Identifies the origin of the evaluation results.</p>
-                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
-                                        <li><span class="text-purple-400">evaluation_source_name</span>: Name of leaderboard or platform.</li>
-                                        <li><span class="text-purple-400">evaluation_source_type</span>: 'leaderboard' or 'evaluation_platform'.</li>
+                                        <li><span class="text-purple-400">source_name</span>: Name of the source.</li>
+                                        <li><span class="text-purple-400">source_type</span>: 'documentation' or 'evaluation_run'.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -324,11 +305,11 @@
                                 <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
                                     <p>Supports continuous scores and level-based ratings.</p>
                                     <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
-                                        <li><span class="text-purple-400">evaluation_description</span>: What is being measured.</li>
-                                        <li><span class="text-purple-400">lower_is_better</span>: Direction of improvement.</li>
+                                        <li><span class="text-purple-400">evaluation_timestamp</span>: When the eval was run.</li>
+                                        <li><span class="text-purple-400">metric_config</span>: Configuration for the metric.</li>
                                         <li><span class="text-purple-400">score_type</span>: 'continuous', 'binary', or 'levels'.</li>
-                                        <li><span class="text-purple-400">min/max_score</span>: Range for continuous metrics.</li>
                                         <li><span class="text-purple-400">score_details</span>: The actual score value.</li>
+                                        <li><span class="text-purple-400">detailed_evaluation_results_url</span>: Link to full data.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -348,6 +329,7 @@
                                         <li><span class="text-purple-400">top_p</span>: Nucleus sampling parameter.</li>
                                         <li><span class="text-purple-400">top_k</span>: Top-k sampling parameter.</li>
                                         <li><span class="text-purple-400">max_tokens</span>: Output length limit.</li>
+                                        <li><span class="text-purple-400">reasoning</span>: Whether CoT was used.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -454,7 +436,10 @@
                 <h2 class="text-3xl font-bold mb-6">The Public Dataset</h2>
                 <p class="text-gray-600 mb-8 leading-relaxed">
                     We are collecting all evaluation results in our schema in a public dataset. 
-                    This repository serves as a standardized metadata store for results from various leaderboards, research papers, and local evaluations. If you are an eval provider or leaderboard maintainer, we are looking for your generous data contibutions via pull requests!
+                    This repository serves as a standardized metadata store for results from various leaderboards, research papers, and local evaluations. 
+                    
+                    
+                    If you are an eval provider or leaderboard maintainer, we are looking for your generous data contibutions via pull requests!
                 </p>
 
                 <!-- Live Stats -->
@@ -485,7 +470,7 @@
                 <p class="text-center text-gray-500 mb-6 font-medium">Explore the dataset via this interactive space</p>
                 <div class="w-full h-[800px] bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
                     <iframe
-                        src="https://deepmage121-eee-viz.hf.space"
+                        src="https://evaleval-every-eval-ever-space.hf.space"
                         frameborder="0"
                         width="100%"
                         height="100%"
