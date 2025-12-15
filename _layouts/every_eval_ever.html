@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | EvalEval Coalition</title>
+    <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
@@ -486,6 +487,83 @@
             </div>
         </section>
 
+    <!-- Eval Factsheets Section -->
+    <section class="py-20 bg-white border-b border-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100 mb-6">
+                        <span class="w-2 h-2 rounded-full bg-purple-500"></span>
+                        <span class="text-xs font-medium text-purple-700 uppercase tracking-wide">New Tool</span>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-6">Eval Factsheets</h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Standardized documentation for AI model evaluations. While <strong>Every Eval Ever</strong> stores the results, <strong>Eval Factsheets</strong> captures the methodology, context, and alignment details of the evaluation itself.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 bg-green-100 p-1 rounded">
+                                <i data-lucide="file-json" class="w-4 h-4 text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Standardized Metadata</h4>
+                                <p class="text-sm text-gray-500">Generate a <code>factsheet.json</code> that describes your evaluation's purpose, data sources, and metrics.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 bg-blue-100 p-1 rounded">
+                                <i data-lucide="check-circle" class="w-4 h-4 text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Reproducibility</h4>
+                                <p class="text-sm text-gray-500">Ensure others can understand and replicate your evaluation setup.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="https://evalevalai.com/EvalFactsheets/" target="_blank" class="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors flex items-center gap-2">
+                            Open Factsheet Generator
+                            <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://github.com/evaleval/EvalFactsheets" target="_blank" class="px-6 py-3 border border-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors flex items-center gap-2">
+                            <i data-lucide="github" class="w-4 h-4"></i>
+                            View Repo
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="flex-1 w-full">
+                    <div class="bg-gray-900 rounded-xl p-1 shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                        <div class="bg-gray-800 rounded-lg overflow-hidden">
+                            <div class="flex items-center gap-2 px-4 py-3 border-b border-gray-700">
+                                <div class="flex gap-1.5">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                                <div class="flex-1 text-center text-xs font-mono text-gray-400">factsheet.json</div>
+                            </div>
+                            <div class="p-6 font-mono text-xs sm:text-sm text-gray-300 overflow-x-auto">
+<pre><code>{
+  <span class="text-purple-400">"title"</span>: <span class="text-green-400">"MMLU-Pro"</span>,
+  <span class="text-purple-400">"description"</span>: <span class="text-green-400">"Massive Multitask..."</span>,
+  <span class="text-purple-400">"creator"</span>: <span class="text-green-400">"TIGER Lab"</span>,
+  <span class="text-purple-400">"evaluation_type"</span>: <span class="text-green-400">"multiple_choice"</span>,
+  <span class="text-purple-400">"metrics"</span>: [<span class="text-green-400">"accuracy"</span>],
+  <span class="text-purple-400">"links"</span>: {
+    <span class="text-purple-400">"paper"</span>: <span class="text-green-400">"https://arxiv.org/..."</span>
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contributor Guide Section -->
     <section class="py-20 bg-gray-50 border-b border-gray-100">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -506,6 +584,7 @@
                     <div class="bg-white p-6 rounded-xl border border-gray-200 font-mono text-sm text-gray-600 mb-6">
                         data/<br>
                         ├── {eval_name}/<br>
+                        │   ├── <span class="text-purple-600 font-bold">factsheet.json</span><br>
                         │   └── {developer_name}/<br>
                         │       └── {model_name}/<br>
                         │           └── {uuid}.json
@@ -535,6 +614,7 @@
                 <h3 class="text-lg font-bold text-blue-900 mb-4">How to add data for a new evak?</h3>
                 <ol class="list-decimal list-inside space-y-2 text-blue-800">
                     <li>Add a new folder under <code>/data</code> with a codename for your eval.</li>
+                    <li>Generate a <code>factsheet.json</code> using the <a href="https://evalevalai.com/EvalFactsheets/" class="underline hover:text-blue-600">Eval Factsheets tool</a> and place it in the eval folder.</li>
                     <li>Create a 2-tier folder structure: <code>developer_name/model_name</code>.</li>
                     <li>Add a JSON file with results for each model named <code>{uuid}.json</code>.</li>
                     <li>Run the validation script to check against the schema.</li>
