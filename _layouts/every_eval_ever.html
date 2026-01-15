@@ -583,11 +583,11 @@
                     </h3>
                     <div class="bg-white p-6 rounded-xl border border-gray-200 font-mono text-sm text-gray-600 mb-6">
                         data/<br>
-                        ├── {eval_name}/<br>
-                        │   ├── <span class="text-purple-600 font-bold">factsheet.json</span><br>
-                        │   └── {developer_name}/<br>
-                        │       └── {model_name}/<br>
-                        │           └── {uuid}.json
+                        └── <span class="font-bold text-blue-700">{eval_name}</span>/<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;├── <span class="text-purple-600 font-bold">factsheet.json</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;└── <span class="font-bold text-blue-700">{developer_name}</span>/<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="font-bold text-blue-700">{model_name}</span>/<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {uuid}.json
                     </div>
                     <p class="text-gray-600 leading-relaxed mb-4">
                         Data is split by individual model. Each file is named with a <strong>UUID</strong> (e.g., <code>e70acf51-....json</code>) to ensure multiple evaluations of the same model can exist without conflicts.
@@ -611,8 +611,8 @@
             </div>
             
             <div class="mt-12 bg-blue-50 border border-blue-100 rounded-xl p-8">
-                <h3 class="text-lg font-bold text-blue-900 mb-4">How to add data for a new evak?</h3>
-                <ol class="list-decimal list-inside space-y-2 text-blue-800">
+                <h3 class="text-lg font-bold text-blue-900 mb-4">How to add data for a new eval?</h3>
+                <ol class="list-decimal list-inside space-y-4 text-blue-800">
                     <li>Add a new folder under <code>/data</code> with a codename for your eval.</li>
                     <li>Generate a <code>factsheet.json</code> using the <a href="https://evalevalai.com/EvalFactsheets/" class="underline hover:text-blue-600">Eval Factsheets tool</a> and place it in the eval folder.</li>
                     <li>Create a 2-tier folder structure: <code>developer_name/model_name</code>.</li>
