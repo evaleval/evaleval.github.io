@@ -641,8 +641,15 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {uuid}.jsonl
                     </div>
                     <p class="text-gray-600 leading-relaxed mb-4">
-                        Data is split by individual model. Each evaluation consists of an <strong>aggregate result</strong> (JSON) and a <strong>detailed results file</strong> (JSONL). Both share the same <strong>UUID</strong> (e.g., <code>e70acf51-....json</code> and <code>e70acf51-....jsonl</code>) to ensure clean organization.
+                        Data is split by individual model. Each evaluation consists of an <strong>aggregate result</strong> (JSON) and a <strong>detailed results file</strong> (JSONL). Both share the same <strong>UUID</strong> to ensure clean organization.
                     </p>
+                    
+                    <div class="bg-yellow-50 border border-yellow-100 rounded-lg p-4 text-sm text-yellow-800 flex gap-3 mb-4">
+                         <i data-lucide="hard-drive" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
+                         <div>
+                             <strong>Cold Storage Option:</strong> For massive datasets, the detailed JSONL file can be stored externally (e.g., S3, HuggingFace Dataset) and referenced via URL in the aggregate JSON. This keeps the repository lightweight while preserving data access.
+                         </div>
+                    </div>
                 </div>
 
                 <!-- Validation -->
@@ -667,7 +674,7 @@
                     <li>Add a new folder under <code>/data</code> with a codename for your eval.</li>
                     <li>Generate a <code>factsheet.json</code> using the <a href="https://evalevalai.com/EvalFactsheets/" class="underline hover:text-blue-600">Eval Factsheets tool</a> and place it in the eval folder.</li>
                     <li>Create a 2-tier folder structure: <code>developer_name/model_name</code>.</li>
-                    <li>Add your results: one aggregate JSON file and one detailed JSONL file, both named with the same <code>{uuid}</code>.</li>
+                    <li>Add your results: one aggregate JSON file and one detailed JSONL file. (For large files, host the JSONL externally and provide the URL).</li>
                     <li>Run the validation script to check against the schema.</li>
                 </ol>
             </div>
