@@ -54,7 +54,7 @@
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center gap-2">
                     <span class="font-bold text-xl tracking-tight">Every Eval Ever</span>
-                    <span class="px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600">v0.1</span>
+                    <span class="px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600">v0.2</span>
                 </div>
                 <div class="flex items-center gap-6">
 
@@ -142,14 +142,20 @@
 
 
     <!-- The Schema Section -->
-        <!-- The Schema Section -->
         <section id="schema" class="py-20 bg-brand-black text-white overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
+                <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold mb-4">The Schema</h2>
                     <p class="text-gray-400 max-w-2xl mx-auto">
                         A granular, line-by-line breakdown of the standardized format.
                     </p>
+                </div>
+
+                <div class="flex justify-center mb-8">
+                    <div class="inline-flex bg-[#1e1e1e] rounded-lg p-1 border border-gray-800">
+                        <button id="tab-btn-aggregate" class="px-6 py-2 rounded-md text-sm font-medium transition-all bg-white text-black shadow-sm" onclick="switchSchemaTab('aggregate')">Aggregate Schema</button>
+                        <button id="tab-btn-instance" class="px-6 py-2 rounded-md text-sm font-medium transition-all text-gray-400 hover:text-white" onclick="switchSchemaTab('instance')">Instance Schema</button>
+                    </div>
                 </div>
 
                 <div class="border border-gray-800 rounded-xl overflow-hidden bg-[#1e1e1e] shadow-2xl">
@@ -160,25 +166,19 @@
                             <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
                             <div class="w-3 h-3 rounded-full bg-green-500"></div>
                         </div>
-                        <span class="text-xs text-gray-500 font-mono">59ee0934-f60d-4d4b-b986-844fc51e89a3.json</span>
+                        <span class="text-xs text-gray-500 font-mono" id="filename-display">59ee0934-f60d-4d4b-b986-844fc51e89a3.json</span>
                     </div>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-5 gap-0">
+                    <!-- Aggregate View -->
+                    <div id="view-aggregate" class="grid grid-cols-1 lg:grid-cols-5 gap-0">
                         <!-- Code Side -->
                         <div class="lg:col-span-3 p-6 md:p-8 overflow-auto custom-scrollbar border-b lg:border-b-0 lg:border-r border-gray-800 bg-[#1e1e1e] h-[600px]">
                             <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500">{</span>
-<span id="code-metadata" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"0.1"</span>,
+<span id="agg-code-metadata" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"0.2.0"</span>,
   <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"helm_capabilities/moonshotai.../17642..."</span>,
   <span class="text-purple-400">"retrieved_timestamp"</span>: <span class="text-green-400">"1764204739.50717"</span>,</span>
   
-<span id="code-source" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"source_data"</span>: <span class="text-gray-500">{</span>
-    <span class="text-purple-400">"dataset_name"</span>: <span class="text-green-400">"MMLU-Pro"</span>,
-    <span class="text-purple-400">"hf_repo"</span>: <span class="text-green-400">"TIGER-Lab/MMLU-Pro"</span>,
-    <span class="text-purple-400">"hf_split"</span>: <span class="text-green-400">"test"</span>,
-    <span class="text-purple-400">"samples_number"</span>: <span class="text-blue-400">12032</span>
-  <span class="text-gray-500">}</span>,
-
-  <span class="text-purple-400">"source_metadata"</span>: <span class="text-gray-500">{</span>
+<span id="agg-code-source" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"source_metadata"</span>: <span class="text-gray-500">{</span>
     <span class="text-purple-400">"source_name"</span>: <span class="text-green-400">"HELM"</span>,
     <span class="text-purple-400">"source_type"</span>: <span class="text-green-400">"evaluation_run"</span>,
     <span class="text-purple-400">"source_organization_name"</span>: <span class="text-green-400">"crfm"</span>,
@@ -186,7 +186,7 @@
     <span class="text-purple-400">"evaluator_relationship"</span>: <span class="text-green-400">"third_party"</span>
   <span class="text-gray-500">}</span>,</span>
 
-<span id="code-model" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"model_info"</span>: <span class="text-gray-500">{</span>
+<span id="agg-code-model" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"model_info"</span>: <span class="text-gray-500">{</span>
     <span class="text-purple-400">"name"</span>: <span class="text-green-400">"Kimi K2 Instruct"</span>,
     <span class="text-purple-400">"id"</span>: <span class="text-green-400">"moonshotai/kimi-k2-instruct"</span>,
     <span class="text-purple-400">"developer"</span>: <span class="text-green-400">"moonshotai"</span>,
@@ -194,10 +194,17 @@
     <span class="text-purple-400">"inference_engine"</span>: <span class="text-green-400">"vLLM"</span>
   <span class="text-gray-500">}</span>,</span>
 
-<span id="code-metrics" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"evaluation_results"</span>: <span class="text-gray-500">[</span>
+<span id="agg-code-metrics" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"evaluation_results"</span>: <span class="text-gray-500">[</span>
     <span class="text-gray-500">{</span>
       <span class="text-purple-400">"evaluation_name"</span>: <span class="text-green-400">"MMLU-Pro - COT correct"</span>,
       <span class="text-purple-400">"evaluation_timestamp"</span>: <span class="text-green-400">"1764204739.50717"</span>,
+      <span class="text-purple-400">"source_data"</span>: <span class="text-gray-500">{</span>
+        <span class="text-purple-400">"source_type"</span>: <span class="text-green-400">"hf_dataset"</span>,
+        <span class="text-purple-400">"dataset_name"</span>: <span class="text-green-400">"MMLU-Pro"</span>,
+        <span class="text-purple-400">"hf_repo"</span>: <span class="text-green-400">"TIGER-Lab/MMLU-Pro"</span>,
+        <span class="text-purple-400">"hf_split"</span>: <span class="text-green-400">"test"</span>,
+        <span class="text-purple-400">"samples_number"</span>: <span class="text-blue-400">12032</span>
+      <span class="text-gray-500">}</span>,
       <span class="text-purple-400">"metric_config"</span>: <span class="text-gray-500">{</span>
         <span class="text-purple-400">"evaluation_description"</span>: <span class="text-green-400">"Fraction of correct answers after chain of thought"</span>,
         <span class="text-purple-400">"lower_is_better"</span>: <span class="text-blue-400">false</span>,
@@ -210,9 +217,8 @@
         <span class="text-purple-400">"details"</span>: <span class="text-gray-500">{</span>
           <span class="text-purple-400">"tab"</span>: <span class="text-green-400">"Accuracy"</span>
         <span class="text-gray-500">}</span>
-      <span class="text-gray-500">}</span>,
-      <span class="text-purple-400">"detailed_evaluation_results_url"</span>: <span class="text-green-400">"https://huggingface.co/datasets/..."</span>,</span>
-<span id="code-generation" class="code-section transition-opacity duration-300 block">      <span class="text-purple-400">"generation_config"</span>: <span class="text-gray-500">{</span>
+      <span class="text-gray-500">}</span>,</span>
+<span id="agg-code-generation" class="code-section transition-opacity duration-300 block">      <span class="text-purple-400">"generation_config"</span>: <span class="text-gray-500">{</span>
         <span class="text-purple-400">"generation_args"</span>: <span class="text-gray-500">{</span>
           <span class="text-purple-400">"temperature"</span>: <span class="text-blue-400">0.0</span>,
           <span class="text-purple-400">"top_p"</span>: <span class="text-blue-400">1.0</span>,
@@ -225,141 +231,185 @@
     <span class="text-gray-500">}</span>
   <span class="text-gray-500">]</span>,</span>
 
-<span id="code-samples" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"detailed_evaluation_results_per_samples"</span>: <span class="text-gray-500">[</span>
-    <span class="text-gray-500">{</span>
-      <span class="text-purple-400">"sample_id"</span>: <span class="text-green-400">"test_1042"</span>,
-      <span class="text-purple-400">"input"</span>: <span class="text-green-400">"Question: Which of the following is a scalar quantity?"</span>,
-      <span class="text-purple-400">"ground_truth"</span>: <span class="text-green-400">"C"</span>,
-      <span class="text-purple-400">"response"</span>: <span class="text-green-400">"Scalar quantities have magnitude only. Speed is a scalar. The answer is C."</span>,
-      <span class="text-purple-400">"choices"</span>: <span class="text-gray-500">[</span><span class="text-green-400">"Velocity"</span>, <span class="text-green-400">"Force"</span>, <span class="text-green-400">"Speed"</span>, <span class="text-green-400">"Acceleration"</span><span class="text-gray-500">]</span>
-    <span class="text-gray-500">}</span>,
-    <span class="text-gray-500">{</span>
-      <span class="text-purple-400">"sample_id"</span>: <span class="text-green-400">"test_1043"</span>,
-      <span class="text-purple-400">"input"</span>: <span class="text-green-400">"Question: The Treaty of Versailles was signed in which year?"</span>,
-      <span class="text-purple-400">"ground_truth"</span>: <span class="text-green-400">"C"</span>,
-      <span class="text-purple-400">"response"</span>: <span class="text-green-400">"The Treaty of Versailles was signed in 1919. The answer is C."</span>,
-      <span class="text-purple-400">"choices"</span>: <span class="text-gray-500">[</span><span class="text-green-400">"1914"</span>, <span class="text-green-400">"1918"</span>, <span class="text-green-400">"1919"</span>, <span class="text-green-400">"1939"</span><span class="text-gray-500">]</span>
-    <span class="text-gray-500">}</span>
-  <span class="text-gray-500">]</span></span>
+<span id="agg-code-detailed" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"detailed_evaluation_results"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"file_path"</span>: <span class="text-green-400">"detailed_results/e70acf51....jsonl"</span>,
+    <span class="text-purple-400">"format"</span>: <span class="text-green-400">"jsonl"</span>,
+    <span class="text-purple-400">"checksum"</span>: <span class="text-green-400">"a1b2c3d4..."</span>
+  <span class="text-gray-500">}</span></span>
 <span class="text-gray-500">}</span></code></pre>
-                        </div>                <!-- Annotations Side -->
+                        </div>
+                        
                         <!-- Annotations Side -->
                         <div class="lg:col-span-2 bg-[#252525] p-6 md:p-8 space-y-4 text-sm h-[600px] overflow-y-auto custom-scrollbar">
-                            
-                            <!-- Item 1 -->
-                            <div class="annotation-item group cursor-pointer border-l-2 border-blue-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-metadata">
-                                <div class="flex items-center justify-between">
-                                    <h4 class="text-white font-semibold group-hover:text-blue-400 transition-colors">Metadata & ID</h4>
-                                    <div class="icon-wrapper transition-transform duration-300">
-                                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
-                                    </div>
-                                </div>
-                                <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                                    <p>Every file starts with versioning and a unique identifier.</p>
-                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
-                                        <li><span class="text-purple-400">schema_version</span>: Version of the schema used.</li>
-                                        <li><span class="text-purple-400">evaluation_id</span>: Unique ID (eval_name/model_id/timestamp).</li>
-                                        <li><span class="text-purple-400">retrieved_timestamp</span>: Unix Epoch time of creation.</li>
-                                    </ul>
-                                </div>
-                            </div>
+                           <!-- Annotations for Aggregate (IDs agg-...) -->
+                           <div class="annotation-item group cursor-pointer border-l-2 border-blue-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-code-metadata">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-blue-400 transition-colors">Metadata & ID</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Every file starts with versioning and a unique identifier.</p>
+                                   <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                       <li><span class="text-purple-400">schema_version</span>: Now v0.2.0.</li>
+                                       <li><span class="text-purple-400">evaluation_id</span>: Unique ID.</li>
+                                       <li><span class="text-purple-400">retrieved_timestamp</span>: Unix Time.</li>
+                                   </ul>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-green-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-code-source">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-green-400 transition-colors">Source Provenance</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Links to original data and distinguishes source types.</p>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-purple-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-code-model">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-purple-400 transition-colors">Model Specification</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Complete model specification using HuggingFace format.</p>
+                                   <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                       <li><span class="text-purple-400">name</span>: Human-readable model name.</li>
+                                       <li><span class="text-purple-400">id</span>: HuggingFace model ID.</li>
+                                       <li><span class="text-purple-400">inference_platform</span>: API provider.</li>
+                                       <li><span class="text-purple-400">inference_engine</span>: Local runner.</li>
+                                   </ul>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-yellow-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-code-metrics">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-yellow-400 transition-colors">Flexible Metrics</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Supports continuous scores and level-based ratings.</p>
+                                   <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                       <li><span class="text-purple-400">metric_config</span>: Configuration for the metric.</li>
+                                       <li><span class="text-purple-400">score_details</span>: The actual score value.</li>
+                                   </ul>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-pink-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-code-generation">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-pink-400 transition-colors">Generation Config</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Reproducibility parameters for the generation.</p>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-cyan-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-code-detailed">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-cyan-400 transition-colors">Detailed Results</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>This links to the separate Instance Level file.</p>
+                                   <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                       <li><span class="text-purple-400">detailed_evaluation_results</span>: Object with file path.</li>
+                                       <li><span class="text-purple-400">checksum</span>: Verification hash.</li>
+                                   </ul>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
 
-                            <!-- Item 2 -->
-                            <div class="annotation-item group cursor-pointer border-l-2 border-green-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-source">
-                                <div class="flex items-center justify-between">
-                                    <h4 class="text-white font-semibold group-hover:text-green-400 transition-colors">Source Provenance</h4>
-                                    <div class="icon-wrapper transition-transform duration-300">
-                                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
-                                    </div>
-                                </div>
-                                <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                                    <p>Links to original data and distinguishes source types.</p>
-                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
-                                        <li><span class="text-purple-400">source_data</span>: HF Dataset object OR list of URLs.</li>
-                                        <li><span class="text-purple-400">source_metadata</span>: Organization & relationship info.</li>
-                                        <li><span class="text-purple-400">source_name</span>: Name of the source.</li>
-                                        <li><span class="text-purple-400">source_type</span>: 'documentation' or 'evaluation_run'.</li>
-                                    </ul>
-                                </div>
-                            </div>
+                    <!-- Instance View (Hidden by default) -->
+                    <div id="view-instance" class="grid grid-cols-1 lg:grid-cols-5 gap-0 hidden">
+                        <!-- Code Side -->
+                        <div class="lg:col-span-3 p-6 md:p-8 overflow-auto custom-scrollbar border-b lg:border-b-0 lg:border-r border-gray-800 bg-[#1e1e1e] h-[600px]">
+                            <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500">{</span>
+<span id="inst-code-meta" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"instance_level_eval_0.2.0"</span>,
+  <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"helm_capabilities/moonshotai..."</span>,
+  <span class="text-purple-400">"sample_id"</span>: <span class="text-green-400">"test_1042"</span>,
+  <span class="text-purple-400">"interaction_type"</span>: <span class="text-green-400">"single_turn"</span>,</span>
 
-                            <!-- Item 3 -->
-                            <div class="annotation-item group cursor-pointer border-l-2 border-purple-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-model">
-                                <div class="flex items-center justify-between">
-                                    <h4 class="text-white font-semibold group-hover:text-purple-400 transition-colors">Model Specification</h4>
-                                    <div class="icon-wrapper transition-transform duration-300">
-                                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
-                                    </div>
-                                </div>
-                                <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                                    <p>Complete model specification using HuggingFace format.</p>
-                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
-                                        <li><span class="text-purple-400">name</span>: Human-readable model name.</li>
-                                        <li><span class="text-purple-400">id</span>: HuggingFace model ID.</li>
-                                        <li><span class="text-purple-400">inference_platform</span>: API provider (e.g., OpenAI).</li>
-                                        <li><span class="text-purple-400">inference_engine</span>: Local runner (e.g., vLLM).</li>
-                                    </ul>
-                                </div>
-                            </div>
+<span id="inst-code-input" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"input"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"raw"</span>: <span class="text-green-400">"Question: Which is a scalar?..."</span>,
+    <span class="text-purple-400">"reference"</span>: <span class="text-green-400">"C"</span>,
+    <span class="text-purple-400">"choices"</span>: <span class="text-gray-500">[</span><span class="text-green-400">"Velocity"</span>, <span class="text-green-400">"Force"</span>, <span class="text-green-400">"Speed"</span><span class="text-gray-500">]</span>
+  <span class="text-gray-500">}</span>,</span>
 
-                            <!-- Item 4 -->
-                            <div class="annotation-item group cursor-pointer border-l-2 border-yellow-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-metrics">
-                                <div class="flex items-center justify-between">
-                                    <h4 class="text-white font-semibold group-hover:text-yellow-400 transition-colors">Flexible Metrics</h4>
-                                    <div class="icon-wrapper transition-transform duration-300">
-                                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
-                                    </div>
-                                </div>
-                                <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                                    <p>Supports continuous scores and level-based ratings.</p>
-                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
-                                        <li><span class="text-purple-400">evaluation_timestamp</span>: When the eval was run.</li>
-                                        <li><span class="text-purple-400">metric_config</span>: Configuration for the metric.</li>
-                                        <li><span class="text-purple-400">score_type</span>: 'continuous', 'binary', or 'levels'.</li>
-                                        <li><span class="text-purple-400">score_details</span>: The actual score value.</li>
-                                        <li><span class="text-purple-400">detailed_evaluation_results_url</span>: Link to full data.</li>
-                                    </ul>
-                                </div>
-                            </div>
+<span id="inst-code-output" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"output"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"raw"</span>: <span class="text-green-400">"Speed is a scalar. The answer is C."</span>,
+    <span class="text-purple-400">"reasoning_trace"</span>: <span class="text-green-400">"Velocity has direction..."</span>
+  <span class="text-gray-500">}</span>,</span>
 
-                            <!-- Item 5 -->
-                            <div class="annotation-item group cursor-pointer border-l-2 border-pink-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-generation">
-                                <div class="flex items-center justify-between">
-                                    <h4 class="text-white font-semibold group-hover:text-pink-400 transition-colors">Generation Config</h4>
-                                    <div class="icon-wrapper transition-transform duration-300">
-                                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
-                                    </div>
-                                </div>
-                                <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                                    <p>Reproducibility parameters for the generation.</p>
-                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
-                                        <li><span class="text-purple-400">temperature</span>: Sampling temperature.</li>
-                                        <li><span class="text-purple-400">top_p</span>: Nucleus sampling parameter.</li>
-                                        <li><span class="text-purple-400">top_k</span>: Top-k sampling parameter.</li>
-                                        <li><span class="text-purple-400">max_tokens</span>: Output length limit.</li>
-                                        <li><span class="text-purple-400">reasoning</span>: Whether CoT was used.</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Item 6 -->
-                            <div class="annotation-item group cursor-pointer border-l-2 border-cyan-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="code-samples">
-                                <div class="flex items-center justify-between">
-                                    <h4 class="text-white font-semibold group-hover:text-cyan-400 transition-colors">Sample Level Data</h4>
-                                    <div class="icon-wrapper transition-transform duration-300">
-                                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
-                                    </div>
-                                </div>
-                                <div class="details hidden mt-3 text-gray-400 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200">
-                                    <p>Granular results for every single test instance.</p>
-                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
-                                        <li><span class="text-purple-400">input</span>: The prompt given to the model.</li>
-                                        <li><span class="text-purple-400">ground_truth</span>: The expected answer.</li>
-                                        <li><span class="text-purple-400">response</span>: The model's actual output.</li>
-                                        <li><span class="text-purple-400">choices</span>: Multiple choice options (if applicable).</li>
-                                    </ul>
-                                </div>
-                            </div>                </div>
+<span id="inst-code-eval" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"evaluation"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"score"</span>: <span class="text-blue-400">1.0</span>,
+    <span class="text-purple-400">"is_correct"</span>: <span class="text-blue-400">true</span>
+  <span class="text-gray-500">}</span>,
+  <span class="text-purple-400">"token_usage"</span>: <span class="text-gray-500">{</span> ... <span class="text-gray-500">}</span></span>
+<span class="text-gray-500">}</span></code></pre>
+                        </div>
+                        
+                        <!-- Annotations Side -->
+                        <div class="lg:col-span-2 bg-[#252525] p-6 md:p-8 space-y-4 text-sm h-[600px] overflow-y-auto custom-scrollbar">
+                           <div class="annotation-item group cursor-pointer border-l-2 border-red-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="inst-code-meta">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-red-400 transition-colors">Instance Meta</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Identifier for this specific sample and interaction type.</p>
+                                   <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                       <li><span class="text-purple-400">interaction_type</span>: single_turn, multi_turn, or agentic.</li>
+                                   </ul>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-orange-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="inst-code-input">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-orange-400 transition-colors">Input Data</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>The prompt and ground truth info.</p>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-lime-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="inst-code-output">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-lime-400 transition-colors">Output</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>The models raw response and optional reasoning trace.</p>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-indigo-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="inst-code-eval">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-indigo-400 transition-colors">Evaluation & Usage</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Instance level score, correctness and token stats.</p>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -587,10 +637,11 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;├── <span class="text-purple-600 font-bold">factsheet.json</span><br>
                         &nbsp;&nbsp;&nbsp;&nbsp;└── <span class="font-bold text-blue-700">{developer_name}</span>/<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="font-bold text-blue-700">{model_name}</span>/<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {uuid}.json
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── {uuid}.json<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── {uuid}.jsonl
                     </div>
                     <p class="text-gray-600 leading-relaxed mb-4">
-                        Data is split by individual model. Each file is named with a <strong>UUID</strong> (e.g., <code>e70acf51-....json</code>) to ensure multiple evaluations of the same model can exist without conflicts.
+                        Data is split by individual model. Each evaluation consists of an <strong>aggregate result</strong> (JSON) and a <strong>detailed results file</strong> (JSONL). Both share the same <strong>UUID</strong> (e.g., <code>e70acf51-....json</code> and <code>e70acf51-....jsonl</code>) to ensure clean organization.
                     </p>
                 </div>
 
@@ -616,7 +667,7 @@
                     <li>Add a new folder under <code>/data</code> with a codename for your eval.</li>
                     <li>Generate a <code>factsheet.json</code> using the <a href="https://evalevalai.com/EvalFactsheets/" class="underline hover:text-blue-600">Eval Factsheets tool</a> and place it in the eval folder.</li>
                     <li>Create a 2-tier folder structure: <code>developer_name/model_name</code>.</li>
-                    <li>Add a JSON file with results for each model named <code>{uuid}.json</code>.</li>
+                    <li>Add your results: one aggregate JSON file and one detailed JSONL file, both named with the same <code>{uuid}</code>.</li>
                     <li>Run the validation script to check against the schema.</li>
                 </ol>
             </div>
@@ -739,6 +790,41 @@
                 });
             });
         });
+    </script>
+    <script>
+        function switchSchemaTab(tab) {
+            const aggBtn = document.getElementById('tab-btn-aggregate');
+            const instBtn = document.getElementById('tab-btn-instance');
+            const aggView = document.getElementById('view-aggregate');
+            const instView = document.getElementById('view-instance');
+            const filename = document.getElementById('filename-display');
+
+            const activeClasses = ['bg-white', 'text-black', 'shadow-sm'];
+            const inactiveClasses = ['text-gray-400', 'hover:text-white'];
+
+            const removeActive = (btn) => {
+                activeClasses.forEach(c => btn.classList.remove(c));
+                inactiveClasses.forEach(c => btn.classList.add(c));
+            };
+            const addActive = (btn) => {
+                inactiveClasses.forEach(c => btn.classList.remove(c));
+                activeClasses.forEach(c => btn.classList.add(c));
+            };
+
+            if (tab === 'aggregate') {
+                addActive(aggBtn);
+                removeActive(instBtn);
+                aggView.classList.remove('hidden');
+                instView.classList.add('hidden');
+                filename.textContent = '59ee0934-f60d-4d4b-b986-844fc51e89a3.json';
+            } else {
+                addActive(instBtn);
+                removeActive(aggBtn);
+                instView.classList.remove('hidden');
+                aggView.classList.add('hidden');
+                filename.textContent = 'detailed_results/e70acf51...jsonl';
+            }
+        }
     </script>
     <script>
         // Fetch Repo Stats
