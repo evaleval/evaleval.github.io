@@ -43,7 +43,7 @@ Themes for submission include, but are not limited to:
 - AI sovereignty and the Global South 
 
 
-**1. Evaluation Costs and Infrastructure**
+**2. Evaluation Costs and Infrastructure**
 
 - Financial costs of evaluations;
 - Environmental costs and carbon emissions;
@@ -51,7 +51,7 @@ Themes for submission include, but are not limited to:
 - Data and content moderation labor and well-being;
 - Infrastructure for evaluations, including evaluation harnesses and tooling.
 
-**1. Second-Order and Community-Centered Impacts**
+**3. Second-Order and Community-Centered Impacts**
 
 - Second-order harms, including representational, economic, and cultural impacts;
 - Linguistic and cultural values in evaluation design;
@@ -79,41 +79,42 @@ Papers should be submitted in the conference-provided format. The review process
 Submissions may include unpublished work as well as previously published or accepted papers, provided they do not violate dual-submission policies. Contributions are non-archival, and accepted papers will be made publicly available.
 
 ## Important Dates 
-**Submission Deadline**: March 12th, 2026
-**Notification of Acceptance**: April 28, 2026
-**Camera-ready paper due**: May 14, 2026
-**Pre-recorded video due (hard deadline)**: June 4, 2026
-**Workshop at ACL in San Diego**: July 3-4, 2026 
+- **Submission Deadline**: March 12th, 2026
+- **Notification of Acceptance**: April 28, 2026
+- **Camera-ready paper due**: May 14, 2026
+- **Pre-recorded video due (hard deadline)**: June 4, 2026
+- **Workshop at ACL in San Diego**: July 3-4, 2026 
 
 All deadlines are specified in Anywhere on Earth (AoE).
 
 
 ## Submission Site 
-[Open review submission portal][3]
+
+Submissions may be made via [OpenReview][3]
 
 
 ## Reviewer Recruitment
 To support a fair, high-quality, and sustainable review process, we adopt a reciprocal reviewer recruitment expectation. Authors submitting papers to the workshop will be expected to serve as reviewers, helping ensure sufficient reviewing capacity and timely feedback for all submissions. This expectation must be clearly indicated during paper submission through the OpenReview system.
 
 ## Program Chairs 
-Mubashara Akhtar, ETH Zurich & ETH AI Center
-Jan Batzner, Weizenbaum Institute, Technical University Munich
-Leshem Choshen, MIT, IBM Research, MIT-IBM Watson AI Lab
-Avijit Ghosh, Hugging Face
-Usman Gohar, Iowa State University
-Jennifer Mickel, Eleuther AI 
-Ichhya Pant, Independent 
-Zeerak Talat, University of Edinburgh
+- Mubashara Akhtar, ETH Zurich & ETH AI Center
+- Jan Batzner, Weizenbaum Institute, Technical University Munich
+- Leshem Choshen, MIT, IBM Research, MIT-IBM Watson AI Lab
+- Avijit Ghosh, Hugging Face
+- Usman Gohar, Iowa State University
+- Jennifer Mickel, Eleuther AI 
+- Ichhya Pant, Independent 
+- Zeerak Talat, University of Edinburgh
 
 
 ## Organizers 
-Eval Eval Coalition 
+EvalEval Coalition 
 
 
 ## Workshop Contact 
-Ichhya Pant: ipant@gwu.edu 
-Jennifer Mickel: jamickel@utexas.edu 
-Jan Batzner: jan.batzner@weizenbaum-institut.de 
+- Ichhya Pant: ipant@gwu.edu 
+- Jennifer Mickel: jamickel@utexas.edu 
+- Jan Batzner: jan.batzner@weizenbaum-institut.de 
 
 
 [1]: https://arxiv.org/abs/2511.05613
