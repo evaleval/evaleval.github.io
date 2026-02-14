@@ -9,7 +9,6 @@ category: Organization
 event_date: 2026-7-03
 location: ACL in San Diego
 host: EvalEval
-custom_url: "/2026-acl-workshop/" 
 description:  |
   This workshop focuses on AI evaluation in practice, centering the tensions and collaborations between model developers and evaluation researchers and aims to surface practical insights from across the evaluation ecosystem.
 ---
