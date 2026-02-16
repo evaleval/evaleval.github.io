@@ -52,21 +52,23 @@
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
+                <!-- Left side -->
                 <div class="flex items-center gap-2">
                     <img src="{{ '/assets/img/logo-square.png' | relative_url }}" alt="EvalEval Logo" class="w-8 h-8 rounded-lg">
-                    <span class="font-bold text-xl tracking-tight">Every Eval Ever</span>
-                    <span class="px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600">v0.2</span>
+                    <span class="font-bold text-sm sm:text-xl tracking-tight whitespace-nowrap">Every Eval Ever</span>
+                    <span class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600">v0.2</span>
                 </div>
-                <div class="flex items-center gap-6">
 
-                    <a href="https://huggingface.co/datasets/evaleval/EEE_datastore" target="_blank" class="flex items-center gap-2 text-sm font-medium hover:text-gray-600 transition-colors">
-                        <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-pirate.svg" alt="Hugging Face Logo" class="w-6 h-6">
-                        <span>Dataset</span>
+                <!-- Right side -->
+                <div class="flex items-center gap-3 sm:gap-6">
+                    <a href="https://huggingface.co/datasets/evaleval/EEE_datastore" target="_blank" class="flex items-center gap-2 text-sm font-medium hover:text-gray-600 transition-colors group">
+                        <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-pirate.svg" alt="Hugging Face Logo" class="w-6 h-6 opacity-80 group-hover:opacity-100">
+                        <span class="hidden sm:inline">Dataset</span>
                     </a>
 
-                    <a href="https://github.com/evaleval/every_eval_ever" target="_blank" class="flex items-center gap-2 text-sm font-medium bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+                    <a href="https://github.com/evaleval/every_eval_ever" target="_blank" class="flex items-center gap-2 text-sm font-medium bg-black text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg hover:bg-gray-800 transition-colors">
                         <i data-lucide="github" class="w-4 h-4"></i>
-                        <span>GitHub</span>
+                        <span class="hidden sm:inline">GitHub</span>
                     </a>
                 </div>
             </div>
