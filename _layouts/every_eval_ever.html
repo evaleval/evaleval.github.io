@@ -53,10 +53,16 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center gap-2">
+                    <img src="{{ '/assets/img/logo-square.png' | relative_url }}" alt="EvalEval Logo" class="w-8 h-8 rounded-lg">
                     <span class="font-bold text-xl tracking-tight">Every Eval Ever</span>
                     <span class="px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600">v0.2</span>
                 </div>
                 <div class="flex items-center gap-6">
+
+                    <a href="https://huggingface.co/datasets/evaleval/EEE_datastore" target="_blank" class="flex items-center gap-2 text-sm font-medium hover:text-gray-600 transition-colors">
+                        <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-pirate.svg" alt="Hugging Face Logo" class="w-6 h-6">
+                        <span>Dataset</span>
+                    </a>
 
                     <a href="https://github.com/evaleval/every_eval_ever" target="_blank" class="flex items-center gap-2 text-sm font-medium bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
                         <i data-lucide="github" class="w-4 h-4"></i>
@@ -68,19 +74,19 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-40 pb-32 sm:pt-52 sm:pb-40 px-4 border-b border-gray-100">
+    <section class="pt-24 pb-16 sm:pt-32 sm:pb-20 px-4">
         <div class="max-w-4xl mx-auto text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 mb-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 mb-6">
                 <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                 <span class="text-xs font-medium text-gray-600 uppercase tracking-wide">Infrastructure @EvalEval</span>
             </div>
             
-            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-8 leading-tight">
+            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
                 One schema for <br class="hidden sm:block" />
-                <span class="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900">every eval ever.</span>
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900">Every Eval Ever.</span>
             </h1>
             
-            <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
                 A <strong>unified, open data format</strong> and <strong>public dataset</strong> for AI evaluation results. 
                 We are collecting all evaluation results in a standardized schema to enable rigorous research and broader impact.
             </p>
@@ -90,9 +96,92 @@
                     Explore Schema
                     <i data-lucide="arrow-down" class="w-4 h-4"></i>
                 </a>
-                <a href="https://github.com/evaleval/every_eval_ever" target="_blank" class="w-full sm:w-auto px-8 py-3.5 bg-gray-100 text-gray-900 rounded-lg font-medium hover:bg-gray-200 transition-all flex items-center justify-center gap-2 border border-gray-200">
-                    <i data-lucide="github" class="w-4 h-4"></i>
-                    Code and Data 
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners & Feedback Section -->
+    <section class="py-10 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-8">
+                <p class="text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Developed by the EvalEval Coalition</p>
+                <p class="text-xs font-medium text-gray-500 uppercase tracking-widest">with feedback from researchers at</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-8 opacity-80 max-w-7xl mx-auto">
+                <!-- NIST CAISI -->
+                <a href="https://www.nist.gov/caisi" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://www.nist.gov/sites/default/files/images/2025/09/25/F_NIST_Lockup_AISafetyInstitute-2c.png" alt="US CAISI" class="h-10 w-auto object-contain">
+                </a>
+
+                <!-- Hugging Face -->
+                <a href="https://huggingface.co" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-with-title.svg?download=true" alt="Hugging Face" class="h-9 w-auto object-contain">
+                </a>
+                
+                <!-- EleutherAI -->
+                <a href="https://www.eleuther.ai/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://i0.wp.com/opensource.org/wp-content/uploads/2023/06/eleutherai.png?quality=80&ssl=1" alt="EleutherAI" class="h-9 w-auto object-contain">
+                </a>
+
+                <!-- Inspect (Text Representation) -->
+                <a href="https://inspect.aisi.org.uk/" target="_blank" class="hover:opacity-100 transition-opacity group">
+                     <span class="font-bold text-2xl text-gray-700 group-hover:text-black tracking-tighter font-sans">Inspect</span>
+                </a>
+
+                <!-- HELM -->
+                <a href="https://crfm.stanford.edu/helm/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://crfm.stanford.edu/helm/assets/helm-logo-simple-DzOhNN41.png" alt="HELM" class="h-9 w-auto object-contain">
+                </a>
+
+                <!-- TUM -->
+                <a href="https://www.tum.de/en/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://avatars.githubusercontent.com/u/169093022?s=280&v=4" alt="TUM" class="h-11 w-auto object-contain mix-blend-multiply"> 
+                </a>
+
+                <!-- MIT -->
+                <a href="https://www.mit.edu/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/MIT_2023_red_logo.svg/3840px-MIT_2023_red_logo.svg.png" alt="MIT" class="h-7 w-auto object-contain">
+                </a>
+
+                <!-- IBM -->
+                <a href="https://research.ibm.com/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://cdn.freebiesupply.com/images/large/2x/ibm-logo-black-transparent.png" alt="IBM" class="h-7 w-auto object-contain">
+                </a>
+
+                <!-- Noma -->
+                <a href="https://noma.security/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://noma.security/wp-content/uploads/Frame-2085668489.svg" alt="Noma Security" class="h-6 w-auto object-contain">
+                </a>
+
+                <!-- Trustible -->
+                <a href="https://trustible.ai/" target="_blank" class="hover:opacity-100 transition-opacity">
+                    <img src="https://cdn-ileejkk.nitrocdn.com/bPwaprNAGNKdgTvHORUKqixWWIooMBOc/assets/images/optimized/rev-2bdc7c9/trustible.ai/wp-content/uploads/2025/09/trustible-logo-white-1080-e1759498948298.png" alt="Trustible" class="h-4 w-auto object-contain invert">
+                </a>
+
+                <!-- Meridian -->
+                <a href="https://meridianlabs.ai/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://meridianlabs.ai/images/meridian-logo-black.svg" alt="Meridian" class="h-8 w-auto object-contain">
+                </a>
+
+                <!-- AVERI -->
+                <a href="https://www.averi.org/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://images.squarespace-cdn.com/content/v1/685262a5f3a19135202ed5b6/4fd39741-3604-4cca-a7d1-e54416921953/AV_L-ezgif.com-optimize+%281%29.gif?format=1500w" alt="AVERI" class="h-10 w-auto object-contain">
+                </a>
+
+                <!-- CIP -->
+                <a href="https://www.cip.org/" target="_blank" class="hover:opacity-100 transition-opacity">
+                     <img src="https://images.squarespace-cdn.com/content/v1/631d02b2dfa9482a32db47ec/6590d845-8b5d-46f0-bc87-25416e6b40c4/HS409+%E2%80%93%C2%A0CIP+Logo_AW_White.png?format=1500w" alt="CIP" class="h-12 w-auto object-contain invert">
+                </a>
+
+                <!-- Weizenbaum -->
+                <a href="https://www.weizenbaum-institut.de/en/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://www.weizenbaum-institut.de/typo3conf/ext/nn_wzb_base/Resources/Public/Icons/wzb_logo.svg" alt="Weizenbaum" class="h-8 w-auto object-contain">
+                </a>
+
+                <!-- Evidence Prime -->
+                <a href="https://www.evidenceprime.com/" target="_blank" class="hover:opacity-100 transition-opacity grayscale hover:grayscale-0">
+                    <img src="https://cdn.prod.website-files.com/5fda83f8102b8fcbf966defc/5fda83f8102b8f3cb066dfd6_logo3.svg" alt="Evidence Prime" class="h-7 w-auto object-contain">
                 </a>
             </div>
         </div>
@@ -110,29 +199,35 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <!-- Point 1 -->
-                <div class="relative">
-                    <div class="absolute -left-4 -top-4 text-6xl font-bold text-gray-100 -z-10">1</div>
-                    <h3 class="text-xl font-bold mb-3">The Need for 3rd Party Evals</h3>
+                <div class="flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:shadow-md transition-all">
+                        <i data-lucide="network" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Unifying the Ecosystem</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        As highlighted in our <a href="https://arxiv.org/pdf/2511.05613v1" target="_blank" class="text-blue-600 hover:underline">recent paper</a>, independent third-party evaluations are crucial. Self-reported metrics often lack the rigor and transparency needed for true accountability.
+                        Evaluation results are currently siloed by framework. This schema creates a common interchange format, allowing results from HELM, EleutherAI, Inspect, and custom scripts to co-exist and be compared directly without complex mapping.
                     </p>
                 </div>
                 
                 <!-- Point 2 -->
-                <div class="relative">
-                    <div class="absolute -left-4 -top-4 text-6xl font-bold text-gray-100 -z-10">2</div>
-                    <h3 class="text-xl font-bold mb-3">The Standardization Gap</h3>
+                <div class="flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:shadow-md transition-all">
+                        <i data-lucide="scroll-text" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Trust through Provenance</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Currently, third-party evaluation reports are scattered across PDFs, blog posts, and custom tables. They are not standardized, making it nearly impossible to compare results across different evaluators or reproduce findings.
+                        A score without configuration is just noise. We go beyond the metric to capture the full experimental context—prompt templates, inference parameters, and system states—making every result traceable, transparent, and reproducible.
                     </p>
                 </div>
 
                 <!-- Point 3 -->
-                <div class="relative">
-                    <div class="absolute -left-4 -top-4 text-6xl font-bold text-gray-100 -z-10">3</div>
-                    <h3 class="text-xl font-bold mb-3">A Unified Opportunity</h3>
+                <div class="flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-300">
+                    <div class="w-16 h-16 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:shadow-md transition-all">
+                        <i data-lucide="flask-conical" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Actionable Meta-Science</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        This schema offers an opportunity for evaluators: have your results advertised in a standardized format and bucketed together. This helps the community digest results and gives your evaluation broader reach and utility.
+                        Liberating evaluation results from static PDFs and closed leaderboards. We transform scattered metrics into a structured, queryable global dataset, powering the next generation of meta-analysis and automated leaderboard construction.
                     </p>
                 </div>
             </div>
@@ -191,7 +286,10 @@
     <span class="text-purple-400">"id"</span>: <span class="text-green-400">"moonshotai/kimi-k2-instruct"</span>,
     <span class="text-purple-400">"developer"</span>: <span class="text-green-400">"moonshotai"</span>,
     <span class="text-purple-400">"inference_platform"</span>: <span class="text-green-400">"HuggingFace"</span>,
-    <span class="text-purple-400">"inference_engine"</span>: <span class="text-green-400">"vLLM"</span>
+    <span class="text-purple-400">"inference_engine"</span>: <span class="text-gray-500">{</span>
+        <span class="text-purple-400">"name"</span>: <span class="text-green-400">"vLLM"</span>,
+        <span class="text-purple-400">"version"</span>: <span class="text-green-400">"0.6.3"</span>
+    <span class="text-gray-500">}</span>
   <span class="text-gray-500">}</span>,</span>
 
 <span id="agg-code-metrics" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"evaluation_results"</span>: <span class="text-gray-500">[</span>
@@ -226,7 +324,9 @@
           <span class="text-purple-400">"max_tokens"</span>: <span class="text-blue-400">2048</span>,
           <span class="text-purple-400">"reasoning"</span>: <span class="text-blue-400">true</span>
         <span class="text-gray-500">}</span>,
-        <span class="text-purple-400">"additional_details"</span>: <span class="text-green-400">"Chain of thought prompting used."</span>
+        <span class="text-purple-400">"additional_details"</span>: <span class="text-gray-500">{</span>
+            <span class="text-purple-400">"description"</span>: <span class="text-green-400">"Chain of thought prompting used."</span>
+        <span class="text-gray-500">}</span>
       <span class="text-gray-500">}</span>
     <span class="text-gray-500">}</span>
   <span class="text-gray-500">]</span>,</span>
@@ -337,6 +437,8 @@
                             <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500">{</span>
 <span id="inst-code-meta" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"instance_level_eval_0.2.0"</span>,
   <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"helm_capabilities/moonshotai..."</span>,
+  <span class="text-purple-400">"model_id"</span>: <span class="text-green-400">"moonshotai/kimi-k2-instruct"</span>,
+  <span class="text-purple-400">"evaluation_name"</span>: <span class="text-green-400">"mmlu_pro"</span>,
   <span class="text-purple-400">"sample_id"</span>: <span class="text-green-400">"test_1042"</span>,
   <span class="text-purple-400">"interaction_type"</span>: <span class="text-green-400">"single_turn"</span>,</span>
 
@@ -350,6 +452,16 @@
     <span class="text-purple-400">"raw"</span>: <span class="text-green-400">"Speed is a scalar. The answer is C."</span>,
     <span class="text-purple-400">"reasoning_trace"</span>: <span class="text-green-400">"Velocity has direction..."</span>
   <span class="text-gray-500">}</span>,</span>
+
+  <span class="text-purple-400">"answer_attribution"</span>: <span class="text-gray-500">[</span>
+    <span class="text-gray-500">{</span>
+      <span class="text-purple-400">"turn_idx"</span>: <span class="text-blue-400">0</span>,
+      <span class="text-purple-400">"source"</span>: <span class="text-green-400">"output.raw"</span>,
+      <span class="text-purple-400">"extracted_value"</span>: <span class="text-green-400">"C"</span>,
+      <span class="text-purple-400">"extraction_method"</span>: <span class="text-green-400">"regex"</span>,
+      <span class="text-purple-400">"is_terminal"</span>: <span class="text-blue-400">true</span>
+    <span class="text-gray-500">}</span>
+  <span class="text-gray-500">]</span>,
 
 <span id="inst-code-eval" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"evaluation"</span>: <span class="text-gray-500">{</span>
     <span class="text-purple-400">"score"</span>: <span class="text-blue-400">1.0</span>,
@@ -425,63 +537,63 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-shadow hover:shadow-md">
                         <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-4">
                             <i data-lucide="fingerprint" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="text-lg font-bold mb-2">UUID Naming Convention</h3>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900">Conflict-Free Identity</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">
-                            Each JSON file is named with a UUID (e.g., <code>e70acf51-....json</code>). This ensures multiple evaluations of the same model can exist without conflicts, and different timestamps are stored as separate files.
+                            We assign every evaluation a unique UUID. This prevents filename collisions and allows multiple runs of the same model—from different dates or configurations—to coexist safely.
                         </p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-shadow hover:shadow-md">
                         <div class="w-10 h-10 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-4">
                             <i data-lucide="clock" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="text-lg font-bold mb-2">Timestamped Evolution</h3>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900">Temporal Versioning</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">
-                            We track <code>retrieved_timestamp</code> to monitor model performance evolution. A model may have multiple result files representing different iterations or runs.
+                            Models change silently. We mandate <code class="bg-gray-100 px-1 py-0.5 rounded text-xs">retrieved_timestamp</code> to capture the exact moment of inference, enabling precise studies on API drift and model versioning.
                         </p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-shadow hover:shadow-md">
                         <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-4">
                             <i data-lucide="server" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="text-lg font-bold mb-2">Platform vs. Engine</h3>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900">Full Stack Provenance</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">
-                            We explicitly distinguish between <code>inference_platform</code> (remote APIs like OpenAI, Anthropic) and <code>inference_engine</code> (local runners like vLLM, Ollama) to capture the exact evaluation environment.
+                            Performance depends on the runner. We explicitly separate <code class="bg-gray-100 px-1 py-0.5 rounded text-xs">platform</code> (provider) from <code class="bg-gray-100 px-1 py-0.5 rounded text-xs">engine</code> (inference system), isolating hardware and software variables in your analysis.
                         </p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-shadow hover:shadow-md">
                         <div class="w-10 h-10 bg-yellow-100 text-yellow-600 rounded-lg flex items-center justify-center mb-4">
                             <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="text-lg font-bold mb-2">Universal Metrics</h3>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900">Unified Metrics</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">
-                            The schema accommodates both numeric and level-based metrics. Level-based metrics (Low, Medium, High) are mapped to integers for consistent analysis.
+                            From simple accuracy to complex LLM-as-a-Judge scores, our schema standardizes all outputs. Compare results across different evaluation libraries without writing custom parsers.
                         </p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-shadow hover:shadow-md">
                         <div class="w-10 h-10 bg-red-100 text-red-600 rounded-lg flex items-center justify-center mb-4">
-                            <i data-lucide="search" class="w-5 h-5"></i>
+                            <i data-lucide="database" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="text-lg font-bold mb-2">Search & Retrieve</h3>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900">Analysis-First Design</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">
-                            The structured JSON format allows for easy SQL querying. Download the dataset and run your own analysis across timestamps and architectures.
+                            Built for data science. Flat, structured JSON files mean you can ingest millions of results into Pandas or SQL in seconds, slicing by architecture, date, or task immediately.
                         </p>
                     </div>
 
-                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+                    <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm transition-shadow hover:shadow-md">
                         <div class="w-10 h-10 bg-teal-100 text-teal-600 rounded-lg flex items-center justify-center mb-4">
                             <i data-lucide="microscope" class="w-5 h-5"></i>
                         </div>
-                        <h3 class="text-lg font-bold mb-2">Rigorous Science</h3>
+                        <h3 class="text-lg font-bold mb-2 text-gray-900">Reproducibility Standard</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">
-                            Backed by the EvalEval Coalition, we are developing scientifically grounded research outputs and robust deployment infrastructure for broader impact.
+                            Science requires receipts. By linking every score to its exact prompt template and generation parameters, we ensure that every result in the dataset is fully reproducible.
                         </p>
                     </div>
                 </div>
@@ -501,7 +613,7 @@
                 </p>
 
                 <!-- Live Stats -->
-                <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
+                <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto mb-8 hidden">
                     <div class="bg-gray-50 p-4 rounded-lg border border-gray-100">
                         <div class="text-3xl font-bold text-blue-600 mb-1" id="benchmark-count">-</div>
                         <div class="text-sm text-gray-500">Benchmarks</div>
@@ -517,102 +629,24 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://github.com/evaleval/every_eval_ever/tree/main/data" target="_blank" class="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
-                        <i data-lucide="folder-open" class="w-4 h-4"></i>
-                        Browse Data Folder
+                    <a href="https://huggingface.co/datasets/evaleval/EEE_datastore" target="_blank" class="px-6 py-3 bg-black text-white rounded-lg font-medium hover:bg-gray-800 transition-colors flex items-center justify-center gap-2">
+                        <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-pirate.svg" alt="Hugging Face" class="w-5 h-5 invert">
+                        Browse HuggingFace Dataset
                     </a>
                 </div>
             </div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <p class="text-center text-gray-500 mb-6 font-medium">Explore the dataset via this interactive space</p>
-                <div class="w-full h-[800px] bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                <div class="w-full h-[600px] bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
                     <iframe
-                        src="https://evaleval-every-eval-ever-space.hf.space"
-                        frameborder="0"
-                        width="100%"
-                        height="100%"
+                      src="https://huggingface.co/datasets/evaleval/EEE_datastore/embed/viewer/global-mmlu-lite/train"
+                      frameborder="0"
+                      width="100%"
+                      height="100%"
                     ></iframe>
                 </div>
             </div>
         </section>
-
-    <!-- Eval Factsheets Section -->
-    <section class="py-20 bg-white border-b border-gray-100">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="flex-1">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-100 mb-6">
-                        <span class="w-2 h-2 rounded-full bg-purple-500"></span>
-                        <span class="text-xs font-medium text-purple-700 uppercase tracking-wide">New Tool</span>
-                    </div>
-                    <h2 class="text-3xl font-bold mb-6">Eval Factsheets</h2>
-                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
-                        Standardized documentation for AI model evaluations. While <strong>Every Eval Ever</strong> stores the results, <strong>Eval Factsheets</strong> captures the methodology, context, and alignment details of the evaluation itself.
-                    </p>
-                    
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-3">
-                            <div class="mt-1 bg-green-100 p-1 rounded">
-                                <i data-lucide="file-json" class="w-4 h-4 text-green-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Standardized Metadata</h4>
-                                <p class="text-sm text-gray-500">Generate a <code>factsheet.json</code> that describes your evaluation's purpose, data sources, and metrics.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-3">
-                            <div class="mt-1 bg-blue-100 p-1 rounded">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold">Reproducibility</h4>
-                                <p class="text-sm text-gray-500">Ensure others can understand and replicate your evaluation setup.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-wrap gap-4">
-                        <a href="https://evalevalai.com/EvalFactsheets/" target="_blank" class="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors flex items-center gap-2">
-                            Open Factsheet Generator
-                            <i data-lucide="external-link" class="w-4 h-4"></i>
-                        </a>
-                        <a href="https://github.com/evaleval/EvalFactsheets" target="_blank" class="px-6 py-3 border border-gray-200 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition-colors flex items-center gap-2">
-                            <i data-lucide="github" class="w-4 h-4"></i>
-                            More Info
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="flex-1 w-full">
-                    <div class="bg-gray-900 rounded-xl p-1 shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
-                        <div class="bg-gray-800 rounded-lg overflow-hidden">
-                            <div class="flex items-center gap-2 px-4 py-3 border-b border-gray-700">
-                                <div class="flex gap-1.5">
-                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                                </div>
-                                <div class="flex-1 text-center text-xs font-mono text-gray-400">factsheet.json</div>
-                            </div>
-                            <div class="p-6 font-mono text-xs sm:text-sm text-gray-300 overflow-x-auto">
-<pre><code>{
-  <span class="text-purple-400">"title"</span>: <span class="text-green-400">"MMLU-Pro"</span>,
-  <span class="text-purple-400">"description"</span>: <span class="text-green-400">"Massive Multitask..."</span>,
-  <span class="text-purple-400">"creator"</span>: <span class="text-green-400">"TIGER Lab"</span>,
-  <span class="text-purple-400">"evaluation_type"</span>: <span class="text-green-400">"multiple_choice"</span>,
-  <span class="text-purple-400">"metrics"</span>: [<span class="text-green-400">"accuracy"</span>],
-  <span class="text-purple-400">"links"</span>: {
-    <span class="text-purple-400">"paper"</span>: <span class="text-green-400">"https://arxiv.org/..."</span>
-  }
-}</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Contributor Guide Section -->
     <section class="py-20 bg-gray-50 border-b border-gray-100">
@@ -633,8 +667,7 @@
                     </h3>
                     <div class="bg-white p-6 rounded-xl border border-gray-200 font-mono text-sm text-gray-600 mb-6">
                         data/<br>
-                        └── <span class="font-bold text-blue-700">{eval_name}</span>/<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;├── <span class="text-purple-600 font-bold">factsheet.json</span><br>
+                        └── <span class="font-bold text-blue-700">{benchmark_name}</span>/<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;└── <span class="font-bold text-blue-700">{developer_name}</span>/<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── <span class="font-bold text-blue-700">{model_name}</span>/<br>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── {uuid}.json<br>
@@ -656,14 +689,29 @@
                 <div>
                     <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
                         <i data-lucide="check-circle-2" class="w-5 h-5"></i>
-                        Data Validation
+                        Data Validation & Converters
                     </h3>
                     <p class="text-gray-600 leading-relaxed mb-6">
-                        We use a strict JSON schema to ensure data quality. Our CI/CD pipeline validates every pull request.
+                        We provide tools to easily adapt your existing workflows.
                     </p>
-                    <div class="bg-brand-black text-gray-300 p-6 rounded-xl font-mono text-sm">
-                        <p class="text-gray-500"># Run validation locally</p>
-                        <p><span class="text-purple-400">uv</span> run pre-commit run --all-files</p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
+                            <h4 class="font-bold text-sm mb-2 text-gray-800">🚀 Automatic Converters</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                We have ready-made <a href="https://github.com/evaleval/every_eval_ever/tree/main/eval_converters" target="_blank" class="text-blue-600 hover:text-blue-800 underline decoration-blue-300 underline-offset-2">converters</a> for popular frameworks:
+                            </p>
+                            <div class="flex gap-2 flex-wrap mb-3">
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-mono border border-gray-200">Inspect AI</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-mono border border-gray-200">HELM</span>
+                                <span class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-md font-mono border border-gray-200">lm-eval-harness</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-brand-black text-gray-300 p-6 rounded-xl font-mono text-sm">
+                            <p class="text-gray-500"># Run validation locally</p>
+                            <p><span class="text-purple-400">uv</span> run pre-commit run --all-files</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -671,8 +719,7 @@
             <div class="mt-12 bg-blue-50 border border-blue-100 rounded-xl p-8">
                 <h3 class="text-lg font-bold text-blue-900 mb-4">How to add data for a new eval?</h3>
                 <ol class="list-decimal list-inside space-y-4 text-blue-800">
-                    <li>Add a new folder under <code>/data</code> with a codename for your eval.</li>
-                    <li>Generate a <code>factsheet.json</code> using the <a href="https://evalevalai.com/EvalFactsheets/" class="underline hover:text-blue-600">Eval Factsheets tool</a> and place it in the eval folder.</li>
+                    <li>Add a new folder under <code>/data</code> with the name of the benchmark.</li>
                     <li>Create a 2-tier folder structure: <code>developer_name/model_name</code>.</li>
                     <li>Add your results: one aggregate JSON file and one detailed JSONL file. (For large files, host the JSONL externally and provide the URL).</li>
                     <li>Run the validation script to check against the schema.</li>
@@ -680,6 +727,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Community Section -->
     <section id="community" class="py-20 bg-white">
@@ -690,21 +738,22 @@
                 
                 <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
                     <div class="max-w-xl">
-                        <div class="inline-block px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs font-semibold mb-4 border border-blue-600/30">
-                            COMING SOON
+                        <div class="inline-flex gap-2 mb-6">
+                            <span class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs font-semibold border border-blue-600/30">SHARED TASK</span>
+                            <span class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-xs font-semibold border border-purple-600/30">ACL 2026 WORKSHOP</span>
                         </div>
-                        <h2 class="text-3xl font-bold mb-4">Open Standard & Community</h2>
+                        <h2 class="text-3xl font-bold mb-4">Join the Evaluation Revolution</h2>
                         <p class="text-gray-400 mb-6 leading-relaxed">
-                            We are launching <strong>every_eval_ever</strong> as an open standard and actively soliciting feedback and contributions.
-                            Join the EvalEval coalition in defining the future of AI evaluation.
+                            We are launching a <strong>Shared Task</strong> for practitioners to contribute public and proprietary eval data. 
+                            Participate for co-authorship and join us at the <strong>ACL 2026 Workshop</strong> in San Diego.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                             <a href="https://github.com/evaleval/every_eval_ever" class="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center gap-2">
-                                Start Contributing
+                             <a href="https://evalevalai.com/events/" class="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors inline-flex items-center gap-2">
+                                Shared Task Details
                                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
                             </a>
-                            <a href="https://evalevalai.com" target="_blank" class="px-6 py-3 border border-gray-700 text-white rounded-lg font-medium hover:bg-gray-900 transition-colors">
-                                Learn about EvalEval
+                            <a href="https://evalevalai.com/events/2026-acl-workshop/" target="_blank" class="px-6 py-3 border border-gray-700 text-white rounded-lg font-medium hover:bg-gray-900 transition-colors">
+                                Workshop Info
                             </a>
                         </div>
                     </div>
@@ -737,7 +786,6 @@
             <div class="flex gap-8 text-sm text-gray-600">
                 <a href="https://github.com/evaleval/every_eval_ever" class="hover:text-black transition-colors">GitHub</a>
                 <a href="https://evalevalai.com" class="hover:text-black transition-colors">EvalEval Website</a>
-                <a href="#" class="hover:text-black transition-colors">Schema Docs</a>
             </div>
         </div>
     </footer>
@@ -836,53 +884,81 @@
     <script>
         // Fetch Repo Stats
         async function fetchRepoStats() {
+            const benchmarkCount = document.getElementById('benchmark-count');
+            const modelCount = document.getElementById('model-count');
+            const evalCount = document.getElementById('eval-count');
+
             try {
-                const response = await fetch('https://api.github.com/repos/evaleval/every_eval_ever/git/trees/main?recursive=1');
-                if (!response.ok) throw new Error('Failed to fetch repo data');
-                const data = await response.json();
+                let url = 'https://huggingface.co/api/datasets/evaleval/EEE_datastore/tree/main?recursive=true';
                 
                 const benchmarks = new Set();
                 const models = new Set();
                 let totalEvals = 0;
+                let pageCount = 0;
                 
-                data.tree.forEach(item => {
-                    if (item.path.startsWith('data/')) {
-                        const parts = item.path.split('/');
-                        // data/{benchmark}/{developer}/{model}/{file}
-                        if (parts.length >= 2 && parts[1]) {
-                            benchmarks.add(parts[1]);
+                // Set loading state if needed, or keep original numbers until first update
+                
+                while (url && pageCount < 100) { 
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    
+                    const data = await response.json();
+                    
+                    data.forEach(item => {
+                        if (item.path && item.path.startsWith('data/')) {
+                            const parts = item.path.split('/');
+                            // data/{benchmark}/{developer}/{model}/{file}
+                            
+                            // Count Benchmarks (index 1)
+                            if (parts.length >= 2 && parts[1]) {
+                                benchmarks.add(parts[1]);
+                            }
+                            
+                            // Count Models (index 2 & 3 -> developer/model)
+                            if (parts.length >= 4 && parts[2] && parts[3]) {
+                                models.add(`${parts[2]}/${parts[3]}`);
+                            }
+                            
+                            // Count actual JSON files deep in the structure
+                            if (item.type === 'file' && item.path.endsWith('.json')) {
+                                totalEvals++;
+                            }
                         }
-                        if (parts.length >= 4 && parts[2] && parts[3]) {
-                            models.add(`${parts[2]}/${parts[3]}`);
-                        }
-                        // Count actual JSON files deep in the structure
-                        if (item.type === 'blob' && item.path.endsWith('.json') && parts.length >= 5) {
-                            totalEvals++;
+                    });
+                    
+                    // Update UI incrementally (every page)
+                    if (benchmarkCount) benchmarkCount.textContent = benchmarks.size;
+                    if (modelCount) modelCount.textContent = models.size;
+                    if (evalCount) evalCount.textContent = totalEvals;
+
+                    // Handle pagination
+                    const linkHeader = response.headers.get('Link');
+                    url = null; 
+                    if (linkHeader) {
+                        const links = linkHeader.split(',');
+                        for (const link of links) {
+                            if (link.includes('rel="next"')) {
+                                const match = link.match(/<([^>]+)>/);
+                                if (match) url = match[1];
+                                break;
+                            }
                         }
                     }
-                });
+                    pageCount++;
+                }
                 
-                const benchmarkCount = document.getElementById('benchmark-count');
-                const modelCount = document.getElementById('model-count');
-                const evalCount = document.getElementById('eval-count');
-                
-                if (benchmarkCount) benchmarkCount.textContent = benchmarks.size;
-                if (modelCount) modelCount.textContent = models.size;
-                if (evalCount) evalCount.textContent = totalEvals;
             } catch (error) {
                 console.error('Error fetching stats:', error);
-                // Fallback values if API fails
-                const benchmarkCount = document.getElementById('benchmark-count');
-                const modelCount = document.getElementById('model-count');
-                const evalCount = document.getElementById('eval-count');
-                if (benchmarkCount) benchmarkCount.textContent = '7+';
-                if (modelCount) modelCount.textContent = '50+';
-                if (evalCount) evalCount.textContent = '100+';
+                // Fallback values if API fails completely
+                if (benchmarkCount && benchmarkCount.textContent === '0') benchmarkCount.textContent = '7+';
+                if (modelCount && modelCount.textContent === '0') modelCount.textContent = '50+';
+                if (evalCount && evalCount.textContent === '0') evalCount.textContent = '100+';
             }
         }
+
         
         // Run immediately
-        fetchRepoStats();
+        // fetchRepoStats();
     </script>
 </body>
 </html>

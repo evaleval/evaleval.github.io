@@ -85,6 +85,13 @@ layout: default
               </p>
             {% endif %}
 
+            <!-- Team / Project Chairs -->
+            {% if item.team %}
+              <p class="text-xs text-gray-500 mb-4">
+                <span class="font-semibold">Project Chairs:</span> {{ item.team }}
+              </p>
+            {% endif %}
+
             <!-- Event-specific link (only for events collection) -->
             {% if page.collection == "events" %}
               {% if item.rsvp_url and item.event_date %}

@@ -1,7 +1,7 @@
 ---
 layout: project
 title: Outreach & Research Engagement
-team: Jennifer Mickel, Kevin Klyman, Usman Gohar
+team: Jennifer Mickel, Usman Gohar
 img: workshop.png
 alt: image-alt
 category: Organization

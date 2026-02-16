@@ -1,7 +1,8 @@
 ---
 layout: project
 title: Benchmark Saturation
-team: Anka Reuel, Prajna Soni, Mubashara Akhtar
+order: 3
+team: Anka Reuel, Mubashara Akhtar
 img: saturation.png
 alt: image-alt
 category: Research
