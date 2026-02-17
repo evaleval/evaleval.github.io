@@ -3,7 +3,7 @@ layout: post
 title: "Every Eval Ever: Toward a Common Language for AI Eval Reporting"
 date: 2026-02-15
 published: true
-exclude_from_collection: true
+exclude_from_collection: false
 category: Infrastructure
 image: "/assets/img/blogs/EEEstacked_launch-post.webp"
 image_contain: true
