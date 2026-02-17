@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }} | EvalEval Coalition</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:title" content="{{ page.title }} | EvalEval Coalition">
+    <meta property="og:description" content="A unified, open data format and public dataset for AI evaluation results. We are collecting all evaluation results in a standardized schema to enable rigorous research and broader impact.">
+    <meta property="og:image" content="{{ '/assets/img/blogs/EEEstacked_launch-post.webp' | absolute_url }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ page.url | absolute_url }}">
+    <meta property="twitter:title" content="{{ page.title }} | EvalEval Coalition">
+    <meta property="twitter:description" content="A unified, open data format and public dataset for AI evaluation results. We are collecting all evaluation results in a standardized schema to enable rigorous research and broader impact.">
+    <meta property="twitter:image" content="{{ '/assets/img/blogs/EEEstacked_launch-post.webp' | absolute_url }}">
+
     <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
