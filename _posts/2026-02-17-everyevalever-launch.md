@@ -54,7 +54,7 @@ This need is further intensified by the exploding complexity of modern AI, where
 Ultimately, failing to adopt reusable formats imposes a technical debt on the community, forcing researchers to waste resources rerunning redundant evaluations rather than advancing the scientific frontier. Oh, and of course, even what is shared is often just a single score per dataset, obscuring many questions.
 
 ## What We're Building
-The [Every Eval Ever](https://github.com/evaleval/every_eval_ever) is a schema to describe evaluation results and a community collection of those results. It is by the community and for the community, made simple to contribute to, evaluation or code. Enough high-level, let’s get into the details.
+[Every Eval Ever](https://github.com/evaleval/every_eval_ever) is a schema to describe evaluation results and a community collection of those results. It is by the community and for the community, made simple to contribute to, evaluation or code. Enough high-level, let’s get into the details.
 
 The repository is organized by benchmark, model, and evaluation run. Each result file captures not just scores but the context you need to interpret and reuse them: 
 - who ran the evaluation, 
