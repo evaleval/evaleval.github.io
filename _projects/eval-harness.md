@@ -1,6 +1,7 @@
 ---
 layout: project
 title: Evaluation Harness and Tutorials
+exclude_from_collection: false
 team: Baber Abbasi, Stella Biderman
 img: harness.png
 alt: image-alt

@@ -1,7 +1,8 @@
 ---
 layout: project
 title: Evaluation Cards
-team: Anka Reuel, Avijit Ghosh
+order: 1
+team: Avijit Ghosh, Anka Reuel
 img: cards.png
 alt: image-alt
 category: Research

@@ -1,6 +1,7 @@
 ---
 layout: project
 title: Evaluation Infrastructure & Tooling
+exclude_from_collection: true
 team: Jan Batzner, Leshem Choshen, Avijit Ghosh
 img: cache.png
 alt: image-alt
