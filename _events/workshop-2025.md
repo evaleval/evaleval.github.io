@@ -4,7 +4,7 @@ title: 2025 Workshop on Evaluating AI in Practice
 subtitle: Bridging Statistical Rigor, Sociotechnical Insights, and Ethical Boundaries
 team: Icchya Pant, Jennifer Mickel
 status: active
-order: 1
+order: 3
 category: Organization
 event_date: 2025-12-08
 location: UCSD, San Diego

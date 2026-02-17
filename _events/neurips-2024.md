@@ -3,7 +3,7 @@ layout: event
 title: NeurIPS 2024 Workshop on Evaluating Evaluations
 team: Avijit Ghosh, Irene Solaiman, Zeerak Talat, Yacine Jernite
 status: active
-order: 2
+order: 4
 category: Organization
 event_date: December 15, 2024
 location: Vancouver
