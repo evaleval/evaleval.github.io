@@ -11,7 +11,7 @@ host: EvalEval
 description: |
   Help us build the first unifying, open database of LLM evaluation results! Convert evaluation data from leaderboards, papers, or your own runs into a shared format — and join as co-author on the resulting paper.
 ---
-As the cost of genAI model evaluation is rapidly increasing, researchers, non-profits, small companies, and civil society orgs need to rely on existing evaluation data on the web. Evaluation data refers to Large Language Model evaluations on popular benchmarks or domain-specific tasks, which are commonly saved under HuggingFace leaderboards or reported in research papers. However, with numerous evaluation frameworks emerging across research and industry, evaluation data is scattered across different platforms, stored in inconsistent formats, and lacks standardization that would enable meaningful comparison and meta-analysis.
+As the cost of genAI model evaluation is rapidly increasing, researchers, non-profits, small companies, and civil society orgs need to rely on existing evaluation data on the web. Evaluation data refers to Large Language Model evaluations on popular benchmarks or domain-specific tasks, which are commonly saved under Hugging Face leaderboards or reported in research papers. However, with numerous evaluation frameworks emerging across research and industry, evaluation data is scattered across different platforms, stored in inconsistent formats, and lacks standardization that would enable meaningful comparison and meta-analysis.
 
 The [Every Eval Ever](https://github.com/evaleval/every_eval_ever) Shared Task aims to address this fragmentation by establishing a unified metadata schema for LLM evaluations to populate a comprehensive, standardized database of evaluation results. Qualifying contributors will be invited to join the paper write-up as co-authors.
 
@@ -169,7 +169,7 @@ Better eval infrastructure should be easy and frictionless for practitioners. Th
 ## 🔗 Resources
 - 📂 **Schema:** [Documentation and examples on GitHub](https://github.com/evaleval/every_eval_ever)
 - ✓ **Validation:** [Script to validate your data against the schema](https://github.com/evaleval/every_eval_ever/blob/main/scripts/validate_data.py)
-- 🚀 **Submit:** [Drag & drop or PR on our HuggingFace Datastore](https://huggingface.co/datasets/evaleval/EEE_datastore)
+- 🚀 **Submit:** [Drag & drop or PR on our Hugging Face Datastore](https://huggingface.co/datasets/evaleval/EEE_datastore)
 - 💬 **Slack:** [Reach out to join our discussion forum](mailto:jan.batzner@tum.de)
 - 🤝 **Partner project:** [IBM Auto-BenchmarkCard](https://huggingface.co/datasets/ibm-research/Auto-BenchmarkCard), capturing benchmark metadata complementary to our evaluation schema, with a joint effort to bridge both databases ahead
 

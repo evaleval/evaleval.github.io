@@ -165,7 +165,7 @@ We need your help. We're launching a [Shared Task](https://evalevalai.com/events
 *Submissions open now, deadline May 1, 2026.*
 
 ## Get involved
-- Try the schema 📋 : [HuggingFace Datastore](https://huggingface.co/datasets/evaleval/EEE_datastore)[^1], [Interactive Visualization](https://evalevalai.com/projects/every-eval-ever/)[^2], and [GitHub](https://github.com/evaleval/every_eval_ever)
+- Try the schema 📋 : [Hugging Face Dataset](https://huggingface.co/datasets/evaleval/EEE_datastore)[^1], [Interactive Visualization](https://evalevalai.com/projects/every-eval-ever/)[^2], and [GitHub](https://github.com/evaleval/every_eval_ever)
 
 - Join the Shared Task 🏁 : [Call for Participation](https://evalevalai.com/events/shared-task-every-eval-ever/)
 
