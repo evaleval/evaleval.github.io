@@ -171,6 +171,7 @@ Better eval infrastructure should be easy and frictionless for practitioners. Th
 - ✓ **Validation:** [Script to validate your data against the schema](https://github.com/evaleval/every_eval_ever/blob/main/scripts/validate_data.py)
 - 🚀 **Submit:** [Drag & drop or PR on our HuggingFace Datastore](https://huggingface.co/datasets/evaleval/EEE_datastore)
 - 💬 **Slack:** [Reach out to join our discussion forum](mailto:jan.batzner@tum.de)
+- 🤝 **Partner project:** [IBM Auto-BenchmarkCard](https://huggingface.co/datasets/ibm-research/Auto-BenchmarkCard), capturing benchmark metadata complementary to our evaluation schema, with a joint effort to bridge both databases ahead
 
 ## ❓ FAQ
 
