@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Every Eval Ever: Toward a Common Language for AI Eval Reporting"
-date: 2026-02-15
+date: 2026-02-17
 published: true
 exclude_from_collection: false
 category: Infrastructure
-image: "/assets/img/blogs/EEEstacked_launch-post.webp"
+image: "/assets/img/blogs/evaleval-maskot-smiling_reordering-books.webp"
 image_contain: true
 authors:
   - name: "Jan Batzner*"
@@ -36,6 +36,8 @@ As part of a **cross-institutional, cross-sector initiative, the [EvalEval Coali
 (2) Providing a **crowdsourced eval database**<sup><a href="#fn:1">1</a></sup> so researchers don't have to start from scratch every time.
 
 Today, we're launching [Every Eval Ever](https://github.com/evaleval/every_eval_ever),<sup><a href="#fn:2">2</a></sup> built upon valuable feedback from AI Eval Ecosystem actors including researchers and practitioners at the U.S. Center for AI Standards and Innovation (CAISI), EleutherAI, Hugging Face, Noma Security, Trustible, Inspect AI, Meridian, AVERI, Collective Intelligence Project, Stanford HELM, Weizenbaum, Evidence Prime, MIT, TUM, and IBM Research.
+
+![Developed by the EvalEval Coalition, with feedback from researchers at the listed organizations](/assets/img/blogs/eee-feedback-orgs.webp)
 
 ## The Hidden Problem
 The infrastructure is fragmented, and the results scattered.
@@ -179,7 +181,7 @@ We need your help. We're launching a [Shared Task](https://evalevalai.com/events
   author  = {Jan Batzner and Leshem Choshen and Avijit Ghosh and Sree Harsha Nelaturu and Anastassia Kornilova and Damian Stachura and Yifan Mai and Asaf Yehudai and Anka Reuel and Irene Solaiman and Stella Biderman},
   year    = {2026},
   month   = {February},
-  url     = {https://evalevalai.com/infrastructure/2026/02/15/everyevalever-launch/},
+  url     = {https://evalevalai.com/infrastructure/2026/02/17/everyevalever-launch/},
   note    = {Blog Post, EvalEval Coalition}
 }
 ```
