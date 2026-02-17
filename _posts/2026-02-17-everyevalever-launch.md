@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Every Eval Ever: Toward a Common Language for AI Eval Reporting"
-date: 2026-02-15
+date: 2026-02-17
 published: true
-exclude_from_collection: true
+exclude_from_collection: false
 category: Infrastructure
-image: "/assets/img/blogs/EEEstacked_launch-post.webp"
+image: "/assets/img/blogs/evaleval-maskot-smiling_reordering-books.webp"
 image_contain: true
 authors:
   - name: "Jan Batzner*"
@@ -179,7 +179,7 @@ We need your help. We're launching a [Shared Task](https://evalevalai.com/events
   author  = {Jan Batzner and Leshem Choshen and Avijit Ghosh and Sree Harsha Nelaturu and Anastassia Kornilova and Damian Stachura and Yifan Mai and Asaf Yehudai and Anka Reuel and Irene Solaiman and Stella Biderman},
   year    = {2026},
   month   = {February},
-  url     = {https://evalevalai.com/infrastructure/2026/02/15/everyevalever-launch/},
+  url     = {https://evalevalai.com/infrastructure/2026/02/17/everyevalever-launch/},
   note    = {Blog Post, EvalEval Coalition}
 }
 ```
