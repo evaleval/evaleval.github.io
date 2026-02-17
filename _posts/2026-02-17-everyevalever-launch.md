@@ -188,7 +188,7 @@ We need your help. We're launching a [Shared Task](https://evalevalai.com/events
 
 ### Acknowledgement and Feedback
 We acknowledge feedback by, but not limited to, JJ Allaire (Inspect, Meridian Labs), Ryan Steed (US CAISI), Zeerak Talat
-(University of Edinburgh), Gal Moyal (Noma Security), Sean McGregor (AVERI), Joal Stein
+(University of Edinburgh), Gal Moyal (Noma Security), Sean McGregor (AVERI), Baber Abbasi (EleutherAI), Joal Stein
 (WeVal/CiP), Elizabeth M. Daly (IBM Research), Aris Hofmann (IBM Research), Inge Vejsbjerg (IBM Research), Dhaval Salwala (IBM Research), Srishti Yadav (University of Copenhagen), Andrew Tran (Independent), Sanchit Ahuja (Northeastern),  Marek Šuppa (Slido), Stefan Schmid (Weizenbaum, TUB), Gjergji Kasneci (TUM, MCML).
 
 
