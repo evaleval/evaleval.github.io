@@ -37,6 +37,8 @@ As part of a **cross-institutional, cross-sector initiative, the [EvalEval Coali
 
 Today, we're launching [Every Eval Ever](https://github.com/evaleval/every_eval_ever),<sup><a href="#fn:2">2</a></sup> built upon valuable feedback from AI Eval Ecosystem actors including researchers and practitioners at the U.S. Center for AI Standards and Innovation (CAISI), EleutherAI, Hugging Face, Noma Security, Trustible, Inspect AI, Meridian, AVERI, Collective Intelligence Project, Stanford HELM, Weizenbaum, Evidence Prime, MIT, TUM, and IBM Research.
 
+![Developed by the EvalEval Coalition, with feedback from researchers at the listed organizations](/assets/img/blogs/eee-feedback-orgs.webp)
+
 ## The Hidden Problem
 The infrastructure is fragmented, and the results scattered.
 How does Model A compare to Model B on a given benchmark? One lab reports a five-shot score from its own harness. Another uses zero-shot through a different framework. A third pulls numbers from a leaderboard that does not disclose generation parameters. 
