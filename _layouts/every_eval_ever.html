@@ -57,9 +57,11 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Left side -->
                 <div class="flex items-center gap-2">
-                    <img src="{{ '/assets/img/logo-square.png' | relative_url }}" alt="EvalEval Logo" class="w-8 h-8 rounded-lg">
-                    <span class="font-bold text-sm sm:text-xl tracking-tight whitespace-nowrap">Every Eval Ever</span>
-                    <span class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600">v0.2</span>
+                    <a href="{{ '/' | relative_url }}" class="hover:opacity-80 transition-opacity">
+                        <img src="{{ '/assets/img/logo-square.png' | relative_url }}" alt="EvalEval Logo" class="w-8 h-8 rounded-lg">
+                    </a>
+                    <a href="#" class="font-bold text-sm sm:text-xl tracking-tight whitespace-nowrap hover:opacity-80 transition-opacity">Every Eval Ever</a>
+                    <a href="https://github.com/evaleval/every_eval_ever/releases" target="_blank" class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600 hover:bg-gray-200 transition-colors">v0.2</a>
                 </div>
 
                 <!-- Right side -->
