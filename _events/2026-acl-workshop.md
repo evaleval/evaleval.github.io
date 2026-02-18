@@ -73,7 +73,6 @@ Submissions are **non-archival** by default, but upon acceptance authors may opt
 - **Submission Deadline**: March 12th, 2026
 - **Notification of Acceptance**: April 28, 2026
 - **Camera-ready paper due**: May 14, 2026
-- **Pre-recorded video due (hard deadline)**: June 4, 2026
 - **Workshop at ACL in San Diego**: July 3-4, 2026 
 
 All deadlines are specified in Anywhere on Earth (AoE).
