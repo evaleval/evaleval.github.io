@@ -27,6 +27,7 @@
     <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
@@ -49,6 +50,11 @@
         }
     </script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;600;700&display=swap');
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
         /* Custom scrollbar for code blocks */
         .custom-scrollbar::-webkit-scrollbar {
             width: 8px;
@@ -823,18 +829,35 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-100 py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div>
-                <span class="font-bold text-lg tracking-tight">Every Eval Ever</span>
-                <p class="text-sm text-gray-500 mt-1">Infrastructure @EvalEval Coalition</p>
-            </div>
-            
-            <div class="flex gap-8 text-sm text-gray-600">
-                <a href="https://github.com/evaleval/every_eval_ever" class="hover:text-black transition-colors">GitHub</a>
-                <a href="https://evalevalai.com" class="hover:text-black transition-colors">EvalEval Website</a>
-            </div>
+    <footer class="py-12 px-8 border-t border-gray-200 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:grid md:grid-cols-3 items-center text-center">
+          <div class="mb-6 md:mb-0 md:text-left">
+            <img src="{{ '/assets/img/evaleval-logo.png' | relative_url }}" alt="EvalEval Logo" class="h-12 inline-block" />
+          </div>
+          <div class="mb-6 md:mb-0">
+            <div class="mono text-sm tracking-wider text-gray-600">© 2026 | EvalEval Coalition</div>
+          </div>
+          <div class="flex justify-center md:justify-end space-x-4">
+            <a href="https://x.com/evaluatingevals" class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+                <i class="fa-brands fa-x-twitter text-xs"></i>
+            </a>
+            <a href="https://github.com/evaleval/" class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+                <i class="fab fa-github text-xs"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/evaluating-evaluations/" class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+                <i class="fab fa-linkedin-in text-xs"></i>
+            </a>
+            <a href="https://bsky.app/profile/eval-eval.bsky.social" class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+                <i class="fa-brands fa-bluesky text-xs"></i>
+            </a>
+            <a href="https://huggingface.co/evaleval" 
+                class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:border-black transition-all duration-300 group">
+                <img src="{{ '/assets/img/icon/hf-logo-pirate.svg' | relative_url }}" alt="Hugging Face" class="w-4 h-4 group-hover:invert transition duration-300" />
+            </a>
+          </div>
         </div>
+      </div>
     </footer>
 
     <script>

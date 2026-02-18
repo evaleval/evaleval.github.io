@@ -1,85 +1,47 @@
 <!-- Contact Section -->
 <section id="contact" class="py-20 px-8"> 
-  <div class="max-w-screen-2xl mx-auto">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">Join Our Community</h2>
-      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-        Researchers, practitioners, and students are welcome to contribute to our mission.
-      </p>
-    </div>
+  <div class="max-w-5xl mx-auto text-center">
+    
+    <div class="bg-gray-50 rounded-2xl p-8 md:p-16 shadow-sm border border-gray-100">
+      
+      <!-- Combined Header & Call to Action -->
+      <div class="mb-12 max-w-2xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Join Our Community</h2>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+          Researchers, practitioners, and students are welcome to contribute to our mission. 
+          Send us an email to learn more about getting involved.
+        </p>
+        
+        <!-- Email Button -->
+        <a href="mailto:evalevalpc@googlegroups.com" 
+           class="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-all duration-300 font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5">
+           <i class="fa-regular fa-envelope"></i>
+           <span>evalevalpc@googlegroups.com</span>
+        </a>
+      </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <!-- Blank first column on md+ -->
-      <div class="hidden md:block"></div>
+      <!-- Divider -->
+      <div class="border-t border-gray-200 w-1/3 mx-auto mb-12"></div>
 
-      <!-- Form spans columns 2 & 3 -->
-      <div class="md:col-start-2 md:col-span-2 flex justify-center">
-        <div class="w-full max-w-lg text-center p-8 bg-gray-50 rounded-lg">
-          <h3 class="text-xl font-semibold mb-4">Interested in Joining?</h3>
-          <p class="text-gray-600 mb-6">
-            Send us an email to learn more about getting involved with our community and working groups.
-          </p>
-          <a href="mailto:evalevalpc@googlegroups.com" 
-             class="inline-block bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition-colors duration-300">
-            Email Us
+      <!-- Hosted By Row -->
+      <div class="space-y-6">
+        <h3 class="mono text-xs tracking-[0.2em] font-bold text-gray-400 uppercase">Hosted By</h3>
+        
+        <div class="flex flex-wrap items-center justify-center gap-12 md:gap-16">
+          <a href="https://huggingface.co" target="_blank" class="grayscale hover:grayscale-0 transition-all duration-300 opacity-90 hover:opacity-100">
+            <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo-with-title.svg?download=true" alt="Hugging Face" class="h-12 md:h-14 w-auto">
+          </a>
+          
+          <a href="https://www.ed.ac.uk/" target="_blank" class="grayscale hover:grayscale-0 transition-all duration-300 opacity-90 hover:opacity-100">
+            <img src="https://collegeexpertmn.com/wp-content/uploads/2022/02/University_of_Edinburgh-Logo-e1645114908725-1024x264.png" alt="University of Edinburgh" class="h-12 md:h-14 w-auto">
+          </a>
+          
+          <a href="https://www.eleuther.ai/" target="_blank" class="grayscale hover:grayscale-0 transition-all duration-300 opacity-90 hover:opacity-100">
+             <img src="https://i0.wp.com/opensource.org/wp-content/uploads/2023/06/eleutherai.png?quality=80&ssl=1" alt="EleutherAI" class="h-12 md:h-14 w-auto">
           </a>
         </div>
-        <!-- <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSe3Zks5jyCfmBYCyQl4lgLVXCAXfxxtXTPlCxJpIbhBnmptjg/viewform?embedded=true"
-          class="w-full h-[720px] border-0 rounded-sm shadow"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-        >
-          Loading…
-        </iframe> -->
       </div>
 
-      <!-- Info column -->
-      <div class="md:col-span-1 flex flex-col justify-between">
-        <div>
-          <h3 class="mono text-sm mb-6">CONTACT INFO</h3>
-          <div class="space-y-6">
-            <div>
-              <div class="mono text-xs text-gray-500 mb-1">EMAIL</div>
-              <div class="text-lg"><a href="mailto:evalevalpc@googlegroups.com">evalevalpc@googlegroups.com</a></div>
-            </div>
-            <div>
-              <div class="mono text-xs text-gray-500 mb-1">WORKING GROUPS</div>
-              <div class="text-lg">Research</div>
-              <div class="text-lg">Infrastructure</div>
-              <div class="text-lg">Organization</div>
-            </div>
-            <div>
-              <div class="mono text-xs text-gray-500 mb-1">HOSTED BY</div>
-              <div class="text-lg">HuggingFace</div>
-              <div class="text-lg">University of Edinburgh</div>
-              <div class="text-lg">EleutherAI</div>
-            </div>
-          </div>
-        </div>
-        <div class="mt-8">
-          <h3 class="mono text-sm mb-6">FOLLOW US</h3>
-          <div class="flex space-x-4">
-            <a href="https://x.com/evaluatingevals" class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
-              <i class="fab fa-twitter text-sm"></i>
-            </a>
-            <a href="https://github.com/evaleval/" class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
-              <i class="fab fa-github text-sm"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/evaluating-evaluations/" class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
-              <i class="fab fa-linkedin-in text-sm"></i>
-            </a>
-            <a href="https://bsky.app/profile/eval-eval.bsky.social" class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
-              <i class="fa-brands fa-bluesky"></i>
-            </a>
-            <a href="https://huggingface.co/evaleval" 
-              class="w-10 h-10 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:border-black transition-all duration-300 group">
-              <img src="{{ '/assets/img/icon/hf-logo-pirate.svg' | relative_url }}" alt="Hugging Face" class="w-4 h-4 group-hover:invert transition duration-300" />
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
