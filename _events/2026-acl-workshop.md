@@ -62,8 +62,9 @@ We welcome the following types of submissions:
 
 All submission types are welcome at any length tier. Accepted papers will be presented as posters, with a subset selected for spotlight oral presentation. All papers will be assessed based on their relevance to the workshop themes.
 
-Papers should be submitted in the [conference-provided format](https://github.com/acl-org/acl-style-files). The review process will be double-blinded; therefore, all identifying information must be removed from submissions.
+Papers should be submitted in the [conference-provided format](https://github.com/acl-org/acl-style-files). The review process will be two-way anonymized; therefore, all identifying information must be removed from submissions.
 
+## 📚 Publication
 Submissions may include **unpublished** work as well as **previously published or accepted** papers, provided they do not violate dual-submission policies. Therefore, e.g., ACL 2026 Findings and Main papers, as well as ARR papers can be submitted. 
 
 Submissions are **non-archival** by default, but upon acceptance authors may opt in to **archival** publication. All accepted paper titles will be made publicly available.
