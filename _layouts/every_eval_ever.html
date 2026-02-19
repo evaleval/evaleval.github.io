@@ -87,7 +87,7 @@
                         <img src="{{ '/assets/img/logo-square.png' | relative_url }}" alt="EvalEval Logo" class="w-8 h-8 rounded-lg">
                     </a>
                     <a href="#" class="font-bold text-sm sm:text-xl tracking-tight whitespace-nowrap hover:opacity-80 transition-opacity">Every Eval Ever</a>
-                    <a href="https://github.com/evaleval/every_eval_ever/releases" target="_blank" class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600 hover:bg-gray-200 transition-colors">v0.2</a>
+                    <a href="https://github.com/evaleval/every_eval_ever/releases" target="_blank" class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600 hover:bg-gray-200 transition-colors">v0.2.1</a>
                 </div>
 
                 <!-- Right side -->
@@ -325,15 +325,15 @@
                         <!-- Code Side -->
                         <div class="lg:col-span-3 p-6 md:p-8 overflow-auto custom-scrollbar border-b lg:border-b-0 lg:border-r border-gray-800 bg-[#1e1e1e] h-[600px]">
                             <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500">{</span>
-<span id="agg-code-metadata" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"0.2.0"</span>,
-  <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"helm_capabilities/moonshotai.../17642..."</span>,
+<span id="agg-code-metadata" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"0.2.1"</span>,
+  <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"lm-eval/moonshotai.../17642..."</span>,
   <span class="text-purple-400">"retrieved_timestamp"</span>: <span class="text-green-400">"1764204739.50717"</span>,</span>
   
 <span id="agg-code-source" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"source_metadata"</span>: <span class="text-gray-500">{</span>
-    <span class="text-purple-400">"source_name"</span>: <span class="text-green-400">"HELM"</span>,
+    <span class="text-purple-400">"source_name"</span>: <span class="text-green-400">"lm-eval"</span>,
     <span class="text-purple-400">"source_type"</span>: <span class="text-green-400">"evaluation_run"</span>,
-    <span class="text-purple-400">"source_organization_name"</span>: <span class="text-green-400">"crfm"</span>,
-    <span class="text-purple-400">"source_organization_url"</span>: <span class="text-green-400">"https://crfm.stanford.edu"</span>,
+    <span class="text-purple-400">"source_organization_name"</span>: <span class="text-green-400">"EleutherAI"</span>,
+    <span class="text-purple-400">"source_organization_url"</span>: <span class="text-green-400">"https://www.eleuther.ai"</span>,
     <span class="text-purple-400">"evaluator_relationship"</span>: <span class="text-green-400">"third_party"</span>
   <span class="text-gray-500">}</span>,</span>
 
@@ -346,6 +346,11 @@
         <span class="text-purple-400">"name"</span>: <span class="text-green-400">"vLLM"</span>,
         <span class="text-purple-400">"version"</span>: <span class="text-green-400">"0.6.3"</span>
     <span class="text-gray-500">}</span>
+  <span class="text-gray-500">}</span>,</span>
+
+<span id="agg-eval-lib" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"eval_library"</span>: <span class="text-gray-500">{</span>
+    <span class="text-purple-400">"name"</span>: <span class="text-green-400">"lm-eval"</span>,
+    <span class="text-purple-400">"version"</span>: <span class="text-green-400">"0.4.11"</span>
   <span class="text-gray-500">}</span>,</span>
 
 <span id="agg-code-metrics" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"evaluation_results"</span>: <span class="text-gray-500">[</span>
@@ -408,7 +413,7 @@
                                <div class="details hidden mt-3 text-gray-400 space-y-3">
                                    <p>Every file starts with versioning and a unique identifier.</p>
                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
-                                       <li><span class="text-purple-400">schema_version</span>: Now v0.2.0.</li>
+                                       <li><span class="text-purple-400">schema_version</span>: Now v0.2.1.</li>
                                        <li><span class="text-purple-400">evaluation_id</span>: Unique ID.</li>
                                        <li><span class="text-purple-400">retrieved_timestamp</span>: Unix Time.</li>
                                    </ul>
@@ -440,6 +445,17 @@
                                        <li><span class="text-purple-400">inference_platform</span>: API provider.</li>
                                        <li><span class="text-purple-400">inference_engine</span>: Local runner.</li>
                                    </ul>
+                               </div>
+                           </div>
+                           <div class="annotation-item group cursor-pointer border-l-2 border-red-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-eval-lib">
+                               <div class="flex items-center justify-between">
+                                   <h4 class="text-white font-semibold group-hover:text-red-400 transition-colors">Evaluation Library</h4>
+                                   <div class="icon-wrapper transition-transform duration-300">
+                                       <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500"></i>
+                                   </div>
+                               </div>
+                               <div class="details hidden mt-3 text-gray-400 space-y-3">
+                                   <p>Mandatory field specifying the framework used, like HELM, EleutherAI, or custom code.</p>
                                </div>
                            </div>
                            <div class="annotation-item group cursor-pointer border-l-2 border-yellow-500 pl-4 py-1 hover:bg-white/5 transition-colors rounded-r" data-target="agg-code-metrics">
@@ -491,8 +507,8 @@
                         <!-- Code Side -->
                         <div class="lg:col-span-3 p-6 md:p-8 overflow-auto custom-scrollbar border-b lg:border-b-0 lg:border-r border-gray-800 bg-[#1e1e1e] h-[600px]">
                             <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500">{</span>
-<span id="inst-code-meta" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"instance_level_eval_0.2.0"</span>,
-  <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"helm_capabilities/moonshotai..."</span>,
+<span id="inst-code-meta" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"instance_level_eval_0.2.1"</span>,
+  <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"lm-eval/moonshotai..."</span>,
   <span class="text-purple-400">"model_id"</span>: <span class="text-green-400">"moonshotai/kimi-k2-instruct"</span>,
   <span class="text-purple-400">"evaluation_name"</span>: <span class="text-green-400">"mmlu_pro"</span>,
   <span class="text-purple-400">"sample_id"</span>: <span class="text-green-400">"test_1042"</span>,
