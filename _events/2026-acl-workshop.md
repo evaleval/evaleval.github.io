@@ -16,7 +16,7 @@ description:  |
 ## 📖 Background 
 As Generative AI systems are increasingly integrated into real-world products and decision-making pipelines, evaluation has become a central yet challenging component of responsible AI development.[^1] While evaluation research has advanced rapidly, gaps persist between research and practice: model developers often prioritize scalability and integration into development workflows, while evaluation researchers emphasize rigor, validity, and sociotechnical considerations. [The EvalEval coalition's multi author effort](https://arxiv.org/abs/2511.05613) mapping first- and third-party social impact evaluations shows a clear division of labor, where developers underreport or deprioritize key impacts such as environmental costs, data provenance, and labor practices, while third-party evaluators provide broader but necessarily incomplete coverage, leaving critical gaps in accountability and comparability.[^2]
 
-This workshop focuses on AI evaluation in practice, centering the tensions and collaborations between model developers and evaluation researchers. Through a call for papers on contemporary challenges spanning methodological rigor, sociotechnical perspectives, scalability, community-informed evaluation, and real-world use alongside invited panels, the workshop aims to surface practical insights from across the evaluation ecosystem. The workshop will also host a shared task to foster collaborative development of a robust Evaluation Cards framework, encouraging shared infrastructure and actionable evaluation practices.
+This workshop focuses on AI evaluation in practice, centering the tensions and collaborations between model developers and evaluation researchers. Through a call for papers on contemporary challenges spanning methodological rigor, sociotechnical perspectives, scalability, community-informed evaluation, and real-world use alongside invited panels, the workshop aims to surface practical insights from across the evaluation ecosystem. The workshop will also host a [shared task for building a unifying, standardized database of LLM Evaluations](https://evalevalai.com/events/shared-task-every-eval-ever/), encouraging shared infrastructure and actionable evaluation practices.
 
 ## 📝 Topics
 
@@ -32,7 +32,7 @@ Themes for submission include, but are not limited to:
 
 ### 2. Evaluation Infrastructure, Cost, and Stakeholders
 
-* **Infrastructure**: Evaluation harnesses, tooling, platforms, and scalability of evaluation setups;
+* **Infrastructure**: Evaluation harnesses, tooling, platforms, and scalability of evaluation setups;[^3]
 * **Financial costs**: Monetary costs of evaluations and documentation frameworks for tracking them;
 * **Documentation**: Transparency and reporting standards for evaluation processes and their limitations;
 * **Stakeholders**: Who evaluates, the relationship between evaluators and system developers, and the role of independent and third-party audits.
@@ -125,3 +125,4 @@ We had great success with positions at our last NeurIPS workshop! For instance, 
 
 [^1]: Solaiman, Talat et al. (2025). "Evaluating the Social Impact of Generative AI Systems in Systems and Society." In *The Oxford Handbook of the Foundations and Regulation of Generative AI*.
 [^2]: Reuel, Ghosh, Chim et al. (2025). "Who Evaluates AI's Social Impacts? Mapping Coverage and Gaps in First and Third Party Evaluations." Preprint.
+[^3]: [ACL Shared Task](https://evalevalai.com/events/shared-task-every-eval-ever/)
