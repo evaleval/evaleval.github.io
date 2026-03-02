@@ -61,7 +61,7 @@ Participants will contribute to building a comprehensive database of LLM evaluat
 
 ## 🔍 Schema at a Glance
 
-For the full story, see our blog post: [Every Eval Ever: Toward a Common Language for AI Eval Reporting](/infrastructure/2026/02/15/everyevalever-launch/).
+For the full story, see our blog post: [Every Eval Ever: Toward a Common Language for AI Eval Reporting](/infrastructure/2026/02/17/everyevalever-launch/).
 
 The repository is organized by benchmark, model, and evaluation run. Each result file captures not just scores but the context you need to interpret and reuse them:
 - who ran the evaluation,
