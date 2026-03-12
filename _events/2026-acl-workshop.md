@@ -110,6 +110,12 @@ To support a fair, high-quality, and sustainable review process, we adopt a reci
 **I'm waiting for my ARR decision — can I still submit to EvalEval?**
 Yes! If your paper is later accepted at ACL, you would simply choose our non-archival option.
 
+**I do present already my Eval work at ACL 2026 Main or Findings, can I still submit?**
+Yes, we are happy to have you in the room with us!
+
+**My paper does not fit into the topics listed in the Call for Papers, is it enough to propse a new benchmark?**
+Please refer to at least one our main topic areas outlined in the Call for Papers: (1) Evaluation Methodology and Measurement Theory, (2) Evaluation Infrastructure, Cost, and Stakeholders, and (3) Evaluating Sociotechnical Impacts.
+
 **Can I also submit in the ICML format?**
 No, please use the [ARR formatting](https://github.com/acl-org/acl-style-files).
 
