@@ -70,7 +70,7 @@ Submissions may include **unpublished** work as well as **previously published o
 Submissions are **non-archival** by default, but upon acceptance authors may opt in to **archival** publication. All accepted paper titles will be made publicly available.
 
 ## 📅 Important Dates 
-- **Submission Deadline**: March 12th, 2026
+- **Submission Deadline**: March 19th, 2026 ~~March 12th, 2026~~
 - **Notification of Acceptance**: April 28, 2026
 - **Camera-ready paper due**: May 14, 2026
 - **Workshop at ACL in San Diego**: July 3-4, 2026 
