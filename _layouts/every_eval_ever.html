@@ -73,7 +73,189 @@
         .custom-scrollbar::-webkit-scrollbar-corner {
             background: #1a1a1a;
         }
+
+        /* ===== DESIGN TOKENS ===== */
+        :root {
+            --bg: #ffffff;
+            --bg-subtle: #f5f4f1;
+            --bg-surface: #eeece8;
+            --fg: #1a1916;
+            --fg-muted: #5c5a55;
+            --fg-subtle: #9c9a95;
+            --border: #e8e6e1;
+            --border-strong: #c8c6c0;
+            --accent: #3b82f6;
+            --nav-bg: rgba(255, 255, 255, 0.85);
+        }
+        [data-theme="dark"] {
+            --bg: #111110;
+            --bg-subtle: #1a1916;
+            --bg-surface: #252420;
+            --fg: #f0ede8;
+            --fg-muted: #a09d97;
+            --fg-subtle: #5c5a55;
+            --border: #2e2c28;
+            --border-strong: #484540;
+            --accent: #60a5fa;
+            --nav-bg: rgba(17, 17, 16, 0.92);
+        }
+
+        /* ===== DARK MODE OVERRIDES ===== */
+        [data-theme="dark"] body { background-color: var(--bg); color: var(--fg); }
+
+        /* Nav */
+        [data-theme="dark"] nav {
+            background-color: var(--nav-bg) !important;
+            border-color: var(--border) !important;
+        }
+        [data-theme="dark"] nav a { color: var(--fg); }
+        [data-theme="dark"] nav a.bg-black {
+            background-color: var(--bg-surface) !important;
+            color: var(--fg) !important;
+            border: 1px solid var(--border);
+        }
+        [data-theme="dark"] a.bg-gray-100,
+        [data-theme="dark"] span.bg-gray-100 {
+            background-color: var(--bg-surface) !important;
+            color: var(--fg-muted) !important;
+        }
+
+        /* Hero */
+        [data-theme="dark"] .bg-gray-50.border.border-gray-200 {
+            background-color: var(--bg-surface) !important;
+            border-color: var(--border) !important;
+        }
+        [data-theme="dark"] .text-gray-600 { color: var(--fg-muted) !important; }
+        [data-theme="dark"] .text-gray-500 { color: var(--fg-muted) !important; }
+        [data-theme="dark"] .text-gray-700 { color: var(--fg-muted) !important; }
+        [data-theme="dark"] .text-gray-800 { color: var(--fg) !important; }
+        [data-theme="dark"] .text-gray-900 { color: var(--fg) !important; }
+        [data-theme="dark"] h1, [data-theme="dark"] h2,
+        [data-theme="dark"] h3, [data-theme="dark"] h4 { color: var(--fg); }
+        [data-theme="dark"] .bg-clip-text { background-image: linear-gradient(to right, var(--fg), var(--fg-muted), var(--fg)) !important; }
+
+        /* Light sections */
+        [data-theme="dark"] section.bg-white { background-color: var(--bg) !important; }
+        [data-theme="dark"] section.bg-gray-50 { background-color: var(--bg-subtle) !important; }
+        [data-theme="dark"] .border-gray-100 { border-color: var(--border) !important; }
+        [data-theme="dark"] .border-gray-200 { border-color: var(--border) !important; }
+
+        /* Design decision cards */
+        [data-theme="dark"] .bg-white.p-8.rounded-xl,
+        [data-theme="dark"] .bg-white.p-6.rounded-xl,
+        [data-theme="dark"] .bg-white.p-4.rounded-xl {
+            background-color: var(--bg-surface) !important;
+            border-color: var(--border) !important;
+        }
+        /* Icon bg circles in design decisions */
+        [data-theme="dark"] .bg-blue-100   { background-color: rgba(59, 130, 246, 0.15) !important; }
+        [data-theme="dark"] .bg-green-100  { background-color: rgba(34, 197, 94, 0.15) !important; }
+        [data-theme="dark"] .bg-purple-100 { background-color: rgba(168, 85, 247, 0.15) !important; }
+        [data-theme="dark"] .bg-yellow-100 { background-color: rgba(234, 179, 8, 0.15) !important; }
+        [data-theme="dark"] .bg-red-100    { background-color: rgba(239, 68, 68, 0.15) !important; }
+        [data-theme="dark"] .bg-teal-100   { background-color: rgba(20, 184, 166, 0.15) !important; }
+
+        /* Contributor guide */
+        [data-theme="dark"] .bg-yellow-50 {
+            background-color: rgba(234, 179, 8, 0.08) !important;
+            border-color: rgba(234, 179, 8, 0.2) !important;
+        }
+        [data-theme="dark"] .text-yellow-800 { color: #fbbf24 !important; }
+        [data-theme="dark"] .bg-blue-50 {
+            background-color: rgba(59, 130, 246, 0.08) !important;
+            border-color: rgba(59, 130, 246, 0.2) !important;
+        }
+        [data-theme="dark"] .text-blue-900,
+        [data-theme="dark"] .text-blue-800 { color: #93c5fd !important; }
+        [data-theme="dark"] code.bg-gray-100 {
+            background-color: var(--bg-surface) !important;
+            color: var(--fg-muted) !important;
+        }
+        [data-theme="dark"] span.bg-gray-100.font-mono {
+            background-color: var(--bg-surface) !important;
+            color: var(--fg-muted) !important;
+            border-color: var(--border) !important;
+        }
+        [data-theme="dark"] .bg-white.p-6.rounded-xl.border.border-gray-200.font-mono {
+            background-color: var(--bg-surface) !important;
+            border-color: var(--border) !important;
+            color: var(--fg-muted) !important;
+        }
+        [data-theme="dark"] .text-blue-700 { color: #93c5fd !important; }
+        [data-theme="dark"] .text-blue-600 { color: #60a5fa !important; }
+
+        /* Public dataset iframe container */
+        [data-theme="dark"] .w-full.h-\[600px\].bg-white.rounded-xl {
+            background-color: var(--bg-surface) !important;
+            border-color: var(--border) !important;
+        }
+
+        /* Footer */
+        [data-theme="dark"] footer.bg-white {
+            background-color: var(--bg) !important;
+            border-color: var(--border) !important;
+        }
+        [data-theme="dark"] footer a {
+            border-color: var(--border) !important;
+            color: var(--fg-muted) !important;
+        }
+        [data-theme="dark"] footer a:hover {
+            background-color: var(--fg) !important;
+            color: var(--bg) !important;
+            border-color: var(--fg) !important;
+        }
+        [data-theme="dark"] img[alt="Hugging Face Logo"] {
+            filter: grayscale(1) invert(1) opacity(0.7);
+        }
+
+        /* Footer logo sizing */
+        .eee-footer-logo svg { height: 44px; width: auto; display: block; }
+
+        /* Partner logos section — light panel in dark mode so logos stay readable */
+        [data-theme="dark"] #partners {
+            background-color: #fafaf9 !important;
+            border-color: #e8e6e1 !important;
+        }
+        /* Keep text dark inside the light panel */
+        [data-theme="dark"] #partners .text-gray-900 { color: #1a1916 !important; }
+        [data-theme="dark"] #partners .text-gray-500 { color: #5c5a55 !important; }
+
+
+        /* Hero buttons — remove white shadow glow in dark mode */
+        [data-theme="dark"] .shadow-gray-200,
+        [data-theme="dark"] .shadow-gray-100,
+        [data-theme="dark"] a.shadow-lg { box-shadow: none !important; }
+
+        /* Explore Schema button — add white border so it's visible on dark bg */
+        [data-theme="dark"] a[href="#schema"] {
+            border: 1px solid rgba(255, 255, 255, 0.35) !important;
+        }
+
+        /* Theme toggle button */
+        .eee-theme-toggle {
+            width: 32px; height: 32px;
+            border: 1px solid currentColor;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; opacity: 0.6;
+            transition: opacity 0.2s;
+            background: none;
+        }
+        .eee-theme-toggle:hover { opacity: 1; }
+        .eee-theme-toggle .icon-sun { display: none; }
+        .eee-theme-toggle .icon-moon { display: block; }
+        [data-theme="dark"] .eee-theme-toggle .icon-sun { display: block; }
+        [data-theme="dark"] .eee-theme-toggle .icon-moon { display: none; }
     </style>
+    <script>
+        (function() {
+            var saved = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
 </head>
 <body class="bg-white text-brand-black antialiased font-sans selection:bg-black selection:text-white">
 
@@ -87,7 +269,7 @@
                         <img src="{{ '/assets/img/logo-square.png' | relative_url }}" alt="EvalEval Logo" class="w-8 h-8 rounded-lg">
                     </a>
                     <a href="#" class="font-bold text-sm sm:text-xl tracking-tight whitespace-nowrap hover:opacity-80 transition-opacity">Every Eval Ever</a>
-                    <a href="https://github.com/evaleval/every_eval_ever/releases" target="_blank" class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600 hover:bg-gray-200 transition-colors">v0.2.1</a>
+                    <a href="https://github.com/evaleval/every_eval_ever/releases" target="_blank" class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-gray-100 text-xs font-mono text-gray-600 hover:bg-gray-200 transition-colors">v0.2.2</a>
                 </div>
 
                 <!-- Right side -->
@@ -98,9 +280,14 @@
                     </a>
 
                     <a href="https://github.com/evaleval/every_eval_ever" target="_blank" class="flex items-center gap-2 text-sm font-medium bg-black text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg hover:bg-gray-800 transition-colors">
-                        <i data-lucide="github" class="w-4 h-4"></i>
+                        <i class="fab fa-github"></i>
                         <span class="hidden sm:inline">GitHub</span>
                     </a>
+
+                    <button onclick="eeeToggleTheme()" class="eee-theme-toggle" aria-label="Toggle theme">
+                        <svg class="icon-moon w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/></svg>
+                        <svg class="icon-sun w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path stroke-linecap="round" d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -139,7 +326,7 @@
     </section>
 
     <!-- Partners & Feedback Section -->
-    <section class="py-10 bg-white border-b border-gray-100">
+    <section id="partners" class="py-10 bg-white border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="mb-8">
                 <p class="text-sm font-bold text-gray-900 uppercase tracking-widest mb-2">Developed by the EvalEval Coalition</p>
@@ -325,7 +512,7 @@
                         <!-- Code Side -->
                         <div class="lg:col-span-3 p-6 md:p-8 overflow-auto custom-scrollbar border-b lg:border-b-0 lg:border-r border-gray-800 bg-[#1e1e1e] h-[600px]">
                             <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500">{</span>
-<span id="agg-code-metadata" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"0.2.1"</span>,
+<span id="agg-code-metadata" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"0.2.2"</span>,
   <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"lm-eval/moonshotai.../17642..."</span>,
   <span class="text-purple-400">"retrieved_timestamp"</span>: <span class="text-green-400">"1764204739.50717"</span>,</span>
   
@@ -355,6 +542,7 @@
 
 <span id="agg-code-metrics" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"evaluation_results"</span>: <span class="text-gray-500">[</span>
     <span class="text-gray-500">{</span>
+      <span class="text-purple-400">"evaluation_result_id"</span>: <span class="text-green-400">"mmlu_pro_cot_correct"</span>,
       <span class="text-purple-400">"evaluation_name"</span>: <span class="text-green-400">"MMLU-Pro - COT correct"</span>,
       <span class="text-purple-400">"evaluation_timestamp"</span>: <span class="text-green-400">"1764204739.50717"</span>,
       <span class="text-purple-400">"source_data"</span>: <span class="text-gray-500">{</span>
@@ -413,7 +601,7 @@
                                <div class="details hidden mt-3 text-gray-400 space-y-3">
                                    <p>Every file starts with versioning and a unique identifier.</p>
                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
-                                       <li><span class="text-purple-400">schema_version</span>: Now v0.2.1.</li>
+                                       <li><span class="text-purple-400">schema_version</span>: Now v0.2.2.</li>
                                        <li><span class="text-purple-400">evaluation_id</span>: Unique ID.</li>
                                        <li><span class="text-purple-400">retrieved_timestamp</span>: Unix Time.</li>
                                    </ul>
@@ -468,6 +656,7 @@
                                <div class="details hidden mt-3 text-gray-400 space-y-3">
                                    <p>Supports continuous scores and level-based ratings.</p>
                                    <ul class="space-y-2 text-xs text-gray-500 font-mono bg-black/20 p-3 rounded">
+                                       <li><span class="text-purple-400">evaluation_result_id</span>: Stable key linking to instance records.</li>
                                        <li><span class="text-purple-400">metric_config</span>: Configuration for the metric.</li>
                                        <li><span class="text-purple-400">score_details</span>: The actual score value.</li>
                                    </ul>
@@ -507,7 +696,7 @@
                         <!-- Code Side -->
                         <div class="lg:col-span-3 p-6 md:p-8 overflow-auto custom-scrollbar border-b lg:border-b-0 lg:border-r border-gray-800 bg-[#1e1e1e] h-[600px]">
                             <pre class="font-mono text-sm leading-relaxed text-gray-300"><code><span class="text-gray-500">{</span>
-<span id="inst-code-meta" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"instance_level_eval_0.2.1"</span>,
+<span id="inst-code-meta" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"schema_version"</span>: <span class="text-green-400">"instance_level_eval_0.2.2"</span>,
   <span class="text-purple-400">"evaluation_id"</span>: <span class="text-green-400">"lm-eval/moonshotai..."</span>,
   <span class="text-purple-400">"model_id"</span>: <span class="text-green-400">"moonshotai/kimi-k2-instruct"</span>,
   <span class="text-purple-400">"evaluation_name"</span>: <span class="text-green-400">"mmlu_pro"</span>,
@@ -516,13 +705,13 @@
 
 <span id="inst-code-input" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"input"</span>: <span class="text-gray-500">{</span>
     <span class="text-purple-400">"raw"</span>: <span class="text-green-400">"Question: Which is a scalar?..."</span>,
-    <span class="text-purple-400">"reference"</span>: <span class="text-green-400">"C"</span>,
+    <span class="text-purple-400">"reference"</span>: <span class="text-gray-500">[</span><span class="text-green-400">"C"</span><span class="text-gray-500">]</span>,
     <span class="text-purple-400">"choices"</span>: <span class="text-gray-500">[</span><span class="text-green-400">"Velocity"</span>, <span class="text-green-400">"Force"</span>, <span class="text-green-400">"Speed"</span><span class="text-gray-500">]</span>
   <span class="text-gray-500">}</span>,</span>
 
 <span id="inst-code-output" class="code-section transition-opacity duration-300 block">  <span class="text-purple-400">"output"</span>: <span class="text-gray-500">{</span>
-    <span class="text-purple-400">"raw"</span>: <span class="text-green-400">"Speed is a scalar. The answer is C."</span>,
-    <span class="text-purple-400">"reasoning_trace"</span>: <span class="text-green-400">"Velocity has direction..."</span>
+    <span class="text-purple-400">"raw"</span>: <span class="text-gray-500">[</span><span class="text-green-400">"Speed is a scalar. The answer is C."</span><span class="text-gray-500">]</span>,
+    <span class="text-purple-400">"reasoning_trace"</span>: <span class="text-gray-500">[</span><span class="text-green-400">"Velocity has direction..."</span><span class="text-gray-500">]</span>
   <span class="text-gray-500">}</span>,</span>
 
   <span class="text-purple-400">"answer_attribution"</span>: <span class="text-gray-500">[</span>
@@ -856,7 +1045,9 @@
       <div class="max-w-7xl mx-auto">
         <div class="flex flex-col md:grid md:grid-cols-3 items-center text-center">
           <div class="mb-6 md:mb-0 md:text-left">
-            <img src="{{ '/assets/img/evaleval-logo.png' | relative_url }}" alt="EvalEval Logo" class="h-12 inline-block" />
+            <a href="{{ '/' | relative_url }}" class="inline-block eee-footer-logo" style="color: var(--fg);">
+              {% include logo-svg.html %}
+            </a>
           </div>
           <div class="mb-6 md:mb-0">
             <div class="mono text-sm tracking-wider text-gray-600">© 2026 | EvalEval Coalition</div>
@@ -883,6 +1074,14 @@
       </div>
     </footer>
 
+    <script>
+        function eeeToggleTheme() {
+            var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            var next = isDark ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+        }
+    </script>
     <script>
         // Initialize Icons
         lucide.createIcons();

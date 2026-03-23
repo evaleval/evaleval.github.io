@@ -1,43 +1,45 @@
 <!-- Research Section -->
-<section id="research" class="py-20 px-8">
+<section id="research" class="py-24 px-8" style="background-color: var(--bg);">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-0">Current Projects</h2>
-      <div class="mono text-sm tracking-wider">RESEARCH, INFRASTRUCTURE & ORGANIZATION</div>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-0" style="color: var(--fg);">Current Projects</h2>
+      <div class="mono text-xs tracking-widest uppercase" style="color: var(--fg-subtle);">Research · Infrastructure · Organization</div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {% assign all_active = site.projects | where: "status", "active" %}
       {% assign featured_projects = all_active | where_exp: "item", "item.exclude_from_collection != true" | slice: 0, 3 %}
       {% for project in featured_projects %}
-        <div class="project-card p-6">
-          <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
+        <div class="project-card p-7">
+          <div class="w-10 h-10 rounded flex items-center justify-center mb-6" style="background-color: var(--bg-surface); color: var(--accent);">
             {% case project.category %}
                 {% when "Infrastructure" %}
-                    <i class="fas fa-network-wired"></i>
+                    <i class="fas fa-network-wired text-sm"></i>
                 {% when "Research" %}
-                    <i class="fas fa-flask"></i>
+                    <i class="fas fa-flask text-sm"></i>
                 {% when "Organizing" %}
-                    <i class="fas fa-users"></i>
+                    <i class="fas fa-users text-sm"></i>
                 {% else %}
-                    <i class="fas fa-lightbulb"></i> <!-- Default icon -->
+                    <i class="fas fa-lightbulb text-sm"></i>
             {% endcase %}
           </div>
-          <h3 class="text-xl font-bold mb-4">{{ project.title }}</h3>
-          <p class="text-gray-600 text-sm mb-4">
+          <h3 class="text-xl font-bold mb-3" style="color: var(--fg);">{{ project.title }}</h3>
+          <p class="text-sm leading-relaxed mb-6" style="color: var(--fg-muted);">
             {{ project.description | strip_html | truncate: 200 }}
           </p>
-          <a href="{{ project.url | relative_url }}" class="mono text-xs text-gray-500 hover:text-black">Learn more →</a>
+          <a href="{{ project.url | relative_url }}" class="mono text-xs font-medium transition-all duration-200" style="color: var(--accent);">Learn more →</a>
         </div>
       {% endfor %}
     </div>
 
-    <!-- “View All Projects” Button -->
-    <div class="text-center mt-6">
+    <div class="text-center mt-10">
       <a href="{{ site.baseurl }}/projects/"
-        class="px-8 py-3 border border-black rounded-sm font-medium text-sm mono hover:bg-gray-100 transition-all duration-300 inline-flex items-center">
+        class="px-8 py-3 font-semibold text-sm mono inline-flex items-center gap-2 transition-all duration-200"
+        style="background-color: transparent; color: var(--fg); border: 1.5px solid var(--border-strong);"
+        onmouseover="this.style.backgroundColor='var(--bg-surface)';"
+        onmouseout="this.style.backgroundColor='transparent';">
         View All Projects
-        <i class="fas fa-arrow-right ml-2 text-xs"></i>
+        <i class="fas fa-arrow-right text-xs"></i>
       </a>
     </div>
   </div>

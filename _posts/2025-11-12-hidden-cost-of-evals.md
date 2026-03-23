@@ -4,7 +4,7 @@ title: "The Hidden Social Costs of AI"
 date: 2025-11-12
 published: true
 category: Research 
-image: 
+image: assets/img/blogs/simp_eval_timeline.png
 authors:
   - name: "Abdul Hameed"
   - name: "Afifah Kashif"

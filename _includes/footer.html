@@ -1,31 +1,53 @@
 <!-- Footer -->
-<footer class="py-12 px-8 border-t border-gray-200">
+<footer class="py-12 px-8" style="border-top: 1px solid var(--border); background-color: var(--bg);">
   <div class="max-w-7xl mx-auto">
     <div class="flex flex-col md:grid md:grid-cols-3 items-center text-center">
       <div class="mb-6 md:mb-0 md:text-left">
-        <img src="{{ '/assets/img/evaleval-logo.png' | relative_url }}" alt="EvalEval Logo" class="h-12 inline-block" />
+        <a href="/" class="inline-block" style="height: 44px;">
+          <div class="footer-logo-wrap" style="height: 44px; width: auto;">
+            {% include logo-svg.html %}
+          </div>
+        </a>
       </div>
       <div class="mb-6 md:mb-0">
-        <div class="mono text-sm tracking-wider">© 2026 | EvalEval Coalition</div>
+        <div class="mono text-xs tracking-wider" style="color: var(--fg-subtle);">© 2026 EvalEval Coalition</div>
       </div>
-      <div class="flex justify-center md:justify-end space-x-4">
-        <a href="https://x.com/evaluatingevals" class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+      <div class="flex justify-center md:justify-end space-x-3">
+        <a href="https://x.com/evaluatingevals" aria-label="X / Twitter" class="footer-icon w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200" style="border: 1px solid var(--border); color: var(--fg-muted);">
           <i class="fa-brands fa-x-twitter text-xs"></i>
         </a>
-        <a href="https://github.com/evaleval/" class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+        <a href="https://github.com/evaleval/" aria-label="GitHub" class="footer-icon w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200" style="border: 1px solid var(--border); color: var(--fg-muted);">
           <i class="fab fa-github text-xs"></i>
         </a>
-        <a href="https://www.linkedin.com/company/evaluating-evaluations/" class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+        <a href="https://www.linkedin.com/company/evaluating-evaluations/" aria-label="LinkedIn" class="footer-icon w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200" style="border: 1px solid var(--border); color: var(--fg-muted);">
           <i class="fab fa-linkedin-in text-xs"></i>
         </a>
-        <a href="https://bsky.app/profile/eval-eval.bsky.social" class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition-all duration-300">
+        <a href="https://bsky.app/profile/eval-eval.bsky.social" aria-label="Bluesky" class="footer-icon w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200" style="border: 1px solid var(--border); color: var(--fg-muted);">
           <i class="fa-brands fa-bluesky text-xs"></i>
         </a>
-        <a href="https://huggingface.co/evaleval" 
-          class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-black hover:border-black transition-all duration-300 group">
-          <img src="{{ '/assets/img/icon/hf-logo-pirate.svg' | relative_url }}" alt="Hugging Face" class="w-4 h-4 group-hover:invert transition duration-300" />
+        <a href="https://huggingface.co/evaleval" aria-label="Hugging Face" class="footer-icon w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200" style="border: 1px solid var(--border);">
+          <img src="{{ '/assets/img/icon/hf-logo-pirate.svg' | relative_url }}" alt="Hugging Face" class="hf-footer-icon w-4 h-4" />
         </a>
       </div>
     </div>
   </div>
 </footer>
+
+<style>
+  .footer-logo-wrap svg {
+    height: 44px;
+    width: auto;
+  }
+
+  .footer-icon:hover {
+    background-color: var(--fg);
+    color: var(--bg) !important;
+    border-color: var(--fg) !important;
+  }
+  .footer-icon:hover .hf-footer-icon {
+    filter: invert(1);
+  }
+  [data-theme="dark"] .hf-footer-icon {
+    filter: invert(1);
+  }
+</style>

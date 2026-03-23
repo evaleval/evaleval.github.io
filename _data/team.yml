@@ -134,7 +134,6 @@
   photo: assets/img/team/subho-majumdar.webp
   affiliations:
     - research
-    - infra
   projects:
     - eval-sci
     - cache
@@ -185,18 +184,18 @@
     - bench-sat
     - eval-cards
 
-- name: Prajna Soni
-  lastname: Soni
-  role: Research Chair
-  subheading: Applied Research Scientist at Alinia AI
-  link: https://prajnasoni.github.io
-  photo: assets/img/team/prajna-soni.webp
-  affiliations:
-    - research
-    - org
-  projects:
-    - bench-sat
-    - research-output
+# - name: Prajna Soni
+#   lastname: Soni
+#   role: Research Chair
+#   subheading: Applied Research Scientist at Alinia AI
+#   link: https://prajnasoni.github.io
+#   photo: assets/img/team/prajna-soni.webp
+#   affiliations:
+#     - research
+#     - org
+#   projects:
+#     - bench-sat
+#     - research-output
 
 - name: Kevin Wei
   lastname: Wei

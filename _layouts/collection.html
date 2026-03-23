@@ -2,20 +2,19 @@
 layout: default
 ---
 
-<!-- Collection Layout -->
-<section class="py-20 px-6 bg-white">
+<section class="py-20 px-6" style="background-color: var(--bg);">
   <div class="max-w-7xl mx-auto">
 
     <!-- Header -->
     <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
       <h2 class="text-3xl md:text-4xl font-bold mb-4 md:mb-0">{{ page.title }}</h2>
       {% if page.subtitle %}
-        <div class="mono text-sm tracking-wider text-gray-500">{{ page.subtitle }}</div>
+        <div class="mono text-xs tracking-widest uppercase" style="color: var(--fg-subtle);">{{ page.subtitle }}</div>
       {% endif %}
     </div>
 
-    <!-- Projects Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {% assign ordered_items = site[page.collection] | where_exp: "item", "item.order" | sort: 'order' %}
       {% if page.collection == "posts" %}
         {% assign unordered_items = site[page.collection] | where_exp: "item", "item.order == nil" | sort: 'date' | reverse %}
@@ -23,89 +22,127 @@ layout: default
         {% assign unordered_items = site[page.collection] | where_exp: "item", "item.order == nil" | sort: 'title' %}
       {% endif %}
       {% assign items = ordered_items | concat: unordered_items %}
+
       {% for item in items %}
         {% if item.published != false and item.exclude_from_collection != true %}
-          <div class="project-card p-6 bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300">
-            <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mb-6">
-              {% case item.category %}
-                {% when "Infrastructure" %}
-                  <i class="fas fa-network-wired"></i>
-                {% when "Research" %}
-                  <i class="fas fa-flask"></i>
-                {% when "Organization" %}
-                  <i class="fas fa-users"></i>
-                {% when "Tooling" %}
-                  <i class="fas fa-tools"></i>
-                {% when "Documentation" %}
-                  <i class="fas fa-book"></i>
-                {% when "Datasets" %}
-                  <i class="fas fa-database"></i>
-                {% else %}
-                  <i class="fas fa-lightbulb"></i> <!-- Default icon -->
-              {% endcase %}
-            </div>
 
-            <!-- Title -->
-            <h3 class="text-xl font-bold">
-              <a href="{% if item.custom_url %}{{ item.custom_url | relative_url }}{% else %}{{ item.url | relative_url }}{% endif %}" class="hover:text-blue-600">{{ item.title }}</a>
-            </h3>
-
-            <!-- Category Tag (spaced neatly below title) -->
-            {% if item.category %}
-              <div class="mt-2 mb-4">
-                <span class="inline-block bg-gray-100 text-gray-600 text-xs font-medium px-3 py-1 rounded-full">
-                  {{ item.category }}
-                </span>
+          {% if page.collection == "posts" %}
+            <!-- Blog post card -->
+            <a href="{% if item.custom_url %}{{ item.custom_url | relative_url }}{% else %}{{ item.url | relative_url }}{% endif %}"
+               class="post-card block group overflow-hidden" style="background-color: var(--bg);">
+              {% if item.image %}
+              <div class="overflow-hidden" style="height: 192px;">
+                <img src="{{ item.image | relative_url }}" alt="{{ item.title }}"
+                     class="w-full h-full {% if item.image_contain %}object-contain{% else %}object-cover{% endif %} group-hover:scale-[1.03] transition-transform duration-500">
               </div>
-            {% endif %}
+              {% endif %}
+              <div class="p-6">
+                <div class="mono text-xs mb-2" style="color: var(--fg-subtle);">
+                  {% if item.date %}{{ item.date | date: "%b %-d, %Y" }}{% endif %}
+                  {% if item.category %}
+                    <span style="color: var(--border-strong);">·</span>
+                    <span>{{ item.category }}</span>
+                  {% endif %}
+                </div>
+                <h3 class="text-lg font-bold mb-2 leading-snug">{{ item.title }}</h3>
+                {% if item.description or item.excerpt %}
+                <p class="text-sm leading-relaxed mb-3" style="color: var(--fg-muted);">
+                  {{ item.description | default: item.excerpt | strip_html | truncate: 140 }}
+                </p>
+                {% endif %}
+                {% if item.tags.size > 0 %}
+                <div class="flex flex-wrap gap-1.5">
+                  {% for tag in item.tags limit:3 %}
+                    <span class="post-tag">{{ tag }}</span>
+                  {% endfor %}
+                </div>
+                {% endif %}
+              </div>
+            </a>
 
-            <!-- Event-specific fields (only for events collection) -->
-            {% if page.collection == "events" %}
-              {% if item.event_date %}
-                <p class="text-gray-600 text-sm mb-2">
-                  &#128197; {{ item.event_date | date: "%B %-d, %Y" }}
-                </p>
-              {% endif %}
-              {% if item.location %}
-                <p class="text-gray-600 text-sm mb-2">
-                  &#128205; {{ item.location }}
-                </p>
-              {% endif %}
-              {% if item.host %}
-                <p class="text-gray-600 text-sm mb-4">
-                  &#128101; {{ item.host }}
-                </p>
-              {% endif %}
-            {% endif %}
+          {% else %}
+            <!-- Project / Event card -->
+            <div class="project-card p-7" style="background-color: var(--bg);">
+              <div class="flex items-start justify-between mb-5">
+                <div class="w-9 h-9 rounded flex items-center justify-center" style="background-color: var(--bg-surface); color: var(--accent);">
+                  {% case item.category %}
+                    {% when "Infrastructure" %}<i class="fas fa-network-wired text-sm"></i>
+                    {% when "Research" %}<i class="fas fa-flask text-sm"></i>
+                    {% when "Organization" or "Organizing" %}<i class="fas fa-users text-sm"></i>
+                    {% when "Tooling" %}<i class="fas fa-tools text-sm"></i>
+                    {% when "Documentation" %}<i class="fas fa-book text-sm"></i>
+                    {% when "Datasets" %}<i class="fas fa-database text-sm"></i>
+                    {% else %}<i class="fas fa-lightbulb text-sm"></i>
+                  {% endcase %}
+                </div>
+                {% if item.category %}
+                  <span class="mono text-xs tracking-wider" style="color: var(--accent);">{{ item.category }}</span>
+                {% endif %}
+              </div>
 
-            <!-- Description -->
-            {% if item.description %}
-              <p class="text-gray-600 text-sm mb-4">
+              <h3 class="text-lg font-bold mb-2">
+                <a href="{% if item.custom_url %}{{ item.custom_url | relative_url }}{% else %}{{ item.url | relative_url }}{% endif %}"
+                   class="transition-colors duration-200" style="color: var(--fg);"
+                   onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--fg)'">
+                  {{ item.title }}
+                </a>
+              </h3>
+
+              <!-- Event-specific metadata -->
+              {% if page.collection == "events" %}
+                <div class="space-y-1 mt-3 mb-4">
+                  {% if item.event_date %}
+                  <div class="flex items-center gap-2 text-sm" style="color: var(--fg-muted);">
+                    <i class="fas fa-calendar-alt w-4 text-center" style="color: var(--accent); font-size: 0.7rem;"></i>
+                    {{ item.event_date | date: "%B %-d, %Y" }}
+                  </div>
+                  {% endif %}
+                  {% if item.location %}
+                  <div class="flex items-center gap-2 text-sm" style="color: var(--fg-muted);">
+                    <i class="fas fa-map-marker-alt w-4 text-center" style="color: var(--accent); font-size: 0.7rem;"></i>
+                    {{ item.location }}
+                  </div>
+                  {% endif %}
+                  {% if item.host %}
+                  <div class="flex items-center gap-2 text-sm" style="color: var(--fg-muted);">
+                    <i class="fas fa-users w-4 text-center" style="color: var(--accent); font-size: 0.7rem;"></i>
+                    {{ item.host }}
+                  </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+
+              {% if item.description %}
+              <p class="text-sm leading-relaxed mb-5 mt-3" style="color: var(--fg-muted);">
                 {{ item.description | strip_html | truncate: 200 }}
               </p>
-            {% endif %}
-
-            <!-- Team / Project Chairs -->
-            {% if item.team %}
-              <p class="text-xs text-gray-500 mb-4">
-                <span class="font-semibold">Project Chairs:</span> {{ item.team }}
-              </p>
-            {% endif %}
-
-            <!-- Event-specific link (only for events collection) -->
-            {% if page.collection == "events" %}
-              {% if item.rsvp_url and item.event_date %}
-                {% assign event_date = item.event_date | date: "%s" %}
-                {% assign current_date = site.time | date: "%s" %}
-                {% if current_date <= event_date %}
-                  <p><a href="{{ item.rsvp_url }}" class="mono text-xs text-gray-500 hover:text-black">RSVP →</a></p>
-                {% endif %}
               {% endif %}
-            {% endif %}
 
-            <!-- Link -->
-            <p><a href="{% if item.custom_url %}{{ item.custom_url | relative_url }}{% else %}{{ item.url | relative_url }}{% endif %}" class="mono text-xs text-gray-500 hover:text-black">Learn more →</a></p>
-          </div>
+              {% if item.team %}
+              <p class="text-xs mb-4" style="color: var(--fg-subtle);">
+                <span class="font-semibold" style="color: var(--fg-muted);">Chairs:</span> {{ item.team }}
+              </p>
+              {% endif %}
+
+              <div class="flex items-center gap-4 mt-auto">
+                {% if page.collection == "events" and item.rsvp_url and item.event_date %}
+                  {% assign event_ts = item.event_date | date: "%s" %}
+                  {% assign current_ts = site.time | date: "%s" %}
+                  {% if current_ts <= event_ts %}
+                    <a href="{{ item.rsvp_url }}" class="mono text-xs font-semibold px-3 py-1.5 transition-all duration-200"
+                       style="background-color: var(--fg); color: var(--bg); border: 1.5px solid var(--fg);"
+                       onmouseover="this.style.backgroundColor='var(--accent)'; this.style.borderColor='var(--accent)';"
+                       onmouseout="this.style.backgroundColor='var(--fg)'; this.style.borderColor='var(--fg)';">RSVP →</a>
+                  {% endif %}
+                {% endif %}
+                <a href="{% if item.custom_url %}{{ item.custom_url | relative_url }}{% else %}{{ item.url | relative_url }}{% endif %}"
+                   class="mono text-xs font-medium transition-all duration-200" style="color: var(--accent);">
+                  Learn more →
+                </a>
+              </div>
+            </div>
+          {% endif %}
+
         {% endif %}
       {% endfor %}
     </div>
