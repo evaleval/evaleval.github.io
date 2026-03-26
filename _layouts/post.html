@@ -447,17 +447,17 @@
             let top, left;
 
             if (spaceBelow >= 120 || spaceBelow >= spaceAbove) {
-                top = anchorRect.bottom + window.scrollY + 8;
+                top = anchorRect.bottom + 8;
             } else {
                 // Position above: we don't know height yet, use negative offset trick
                 popover.style.top = '-9999px';
                 popover.style.left = '-9999px';
                 popover.style.display = 'block';
                 const ph = popover.offsetHeight;
-                top = anchorRect.top + window.scrollY - ph - 8;
+                top = anchorRect.top - ph - 8;
             }
 
-            left = anchorRect.left + window.scrollX;
+            left = anchorRect.left;
             // Don't overflow right edge
             if (left + pw > vw - 12) left = vw - pw - 12;
             // Don't overflow left edge
@@ -545,7 +545,7 @@
             document.getElementById('fn-popover-num').textContent = `FOOTNOTE ${info.displayNum}`;
             const bodyEl = document.getElementById('fn-popover-body');
             bodyEl.innerHTML = info.content || '';
-            popover.style.top  = `${window.scrollY + window.innerHeight / 2 - 80}px`;
+            popover.style.top  = `${window.innerHeight / 2 - 80}px`;
             popover.style.left = `${Math.max(12, window.innerWidth / 2 - 170)}px`;
             popover.style.display = 'block';
             popover.classList.add('visible');
