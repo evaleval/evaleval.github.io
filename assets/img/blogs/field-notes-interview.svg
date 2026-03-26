@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400">
+  <defs>
+    <clipPath id="mascotClip">
+      <rect width="197.228" height="197.228" rx="11.674"/>
+    </clipPath>
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="400" fill="#F0F8FC"/>
+
+  <!-- Decorative dots pattern -->
+  <g opacity="0.08" fill="#2C2E36">
+    <circle cx="60" cy="50" r="4"/><circle cx="60" cy="110" r="4"/><circle cx="60" cy="170" r="4"/>
+    <circle cx="60" cy="230" r="4"/><circle cx="60" cy="290" r="4"/><circle cx="60" cy="350" r="4"/>
+    <circle cx="120" cy="50" r="4"/><circle cx="120" cy="110" r="4"/><circle cx="120" cy="170" r="4"/>
+    <circle cx="120" cy="230" r="4"/><circle cx="120" cy="290" r="4"/><circle cx="120" cy="350" r="4"/>
+    <circle cx="1080" cy="50" r="4"/><circle cx="1080" cy="110" r="4"/><circle cx="1080" cy="170" r="4"/>
+    <circle cx="1080" cy="230" r="4"/><circle cx="1080" cy="290" r="4"/><circle cx="1080" cy="350" r="4"/>
+    <circle cx="1140" cy="50" r="4"/><circle cx="1140" cy="110" r="4"/><circle cx="1140" cy="170" r="4"/>
+    <circle cx="1140" cy="230" r="4"/><circle cx="1140" cy="290" r="4"/><circle cx="1140" cy="350" r="4"/>
+  </g>
+
+  <!-- Notebook / field notes element (left side) -->
+  <g transform="translate(180, 30)">
+    <rect x="0" y="0" width="280" height="340" rx="8" fill="white" stroke="#D1E5F0" stroke-width="2"/>
+    <!-- Spiral binding dots -->
+    <circle cx="0" cy="40" r="6" fill="#D1E5F0"/><circle cx="0" cy="80" r="6" fill="#D1E5F0"/>
+    <circle cx="0" cy="120" r="6" fill="#D1E5F0"/><circle cx="0" cy="160" r="6" fill="#D1E5F0"/>
+    <circle cx="0" cy="200" r="6" fill="#D1E5F0"/><circle cx="0" cy="240" r="6" fill="#D1E5F0"/>
+    <circle cx="0" cy="280" r="6" fill="#D1E5F0"/><circle cx="0" cy="320" r="6" fill="#D1E5F0"/>
+    <!-- Ruled lines -->
+    <line x1="30" y1="50" x2="260" y2="50" stroke="#E8F0F6" stroke-width="1"/>
+    <line x1="30" y1="85" x2="260" y2="85" stroke="#E8F0F6" stroke-width="1"/>
+    <line x1="30" y1="120" x2="260" y2="120" stroke="#E8F0F6" stroke-width="1"/>
+    <line x1="30" y1="155" x2="260" y2="155" stroke="#E8F0F6" stroke-width="1"/>
+    <line x1="30" y1="190" x2="260" y2="190" stroke="#E8F0F6" stroke-width="1"/>
+    <line x1="30" y1="225" x2="260" y2="225" stroke="#E8F0F6" stroke-width="1"/>
+    <line x1="30" y1="260" x2="260" y2="260" stroke="#E8F0F6" stroke-width="1"/>
+    <line x1="30" y1="295" x2="260" y2="295" stroke="#E8F0F6" stroke-width="1"/>
+    <!-- Text lines -->
+    <rect x="35" y="42" width="140" height="5" rx="2" fill="#92D4F3" opacity="0.6"/>
+    <rect x="35" y="77" width="200" height="5" rx="2" fill="#2C2E36" opacity="0.15"/>
+    <rect x="35" y="112" width="170" height="5" rx="2" fill="#2C2E36" opacity="0.15"/>
+    <rect x="35" y="147" width="210" height="5" rx="2" fill="#2C2E36" opacity="0.15"/>
+    <rect x="35" y="182" width="120" height="5" rx="2" fill="#2C2E36" opacity="0.15"/>
+    <rect x="35" y="217" width="190" height="5" rx="2" fill="#5BACD1" opacity="0.4"/>
+    <rect x="35" y="252" width="160" height="5" rx="2" fill="#2C2E36" opacity="0.15"/>
+    <rect x="35" y="287" width="185" height="5" rx="2" fill="#2C2E36" opacity="0.15"/>
+    <!-- Annotation marks -->
+  </g>
+
+  <!-- Speech bubbles -->
+  <g filter="url(#shadow)">
+    <!-- Bubble 1 -->
+    <rect x="530" y="40" width="320" height="80" rx="16" fill="white" stroke="#92D4F3" stroke-width="2"/>
+    <rect x="555" y="65" width="180" height="5" rx="2" fill="#2C2E36" opacity="0.2"/>
+    <rect x="555" y="80" width="260" height="5" rx="2" fill="#2C2E36" opacity="0.15"/>
+    <rect x="555" y="95" width="140" height="5" rx="2" fill="#2C2E36" opacity="0.1"/>
+
+    <!-- Bubble 2 -->
+    <rect x="570" y="160" width="350" height="80" rx="16" fill="white" stroke="#5BACD1" stroke-width="2"/>
+    <rect x="595" y="185" width="280" height="5" rx="2" fill="#2C2E36" opacity="0.2"/>
+    <rect x="595" y="200" width="220" height="5" rx="2" fill="#2C2E36" opacity="0.15"/>
+    <rect x="595" y="215" width="160" height="5" rx="2" fill="#2C2E36" opacity="0.1"/>
+
+    <!-- Bubble 3 -->
+    <rect x="540" y="270" width="300" height="80" rx="16" fill="white" stroke="#92D4F3" stroke-width="2"/>
+    <rect x="565" y="295" width="240" height="5" rx="2" fill="#2C2E36" opacity="0.2"/>
+    <rect x="565" y="310" width="200" height="5" rx="2" fill="#2C2E36" opacity="0.15"/>
+    <rect x="565" y="325" width="170" height="5" rx="2" fill="#2C2E36" opacity="0.1"/>
+  </g>
+
+  <!-- Mascot -->
+  <g transform="translate(910, 100) scale(1.1)">
+    <g clip-path="url(#mascotClip)">
+      <rect width="197.228" height="197.228" fill="#92D4F3" rx="11.674"/>
+      <path d="M47.5696 151.128L-21.7318 190.301L57.5396 225.702L87.5678 198.79C89.21 197.318 91.472 196.825 93.669 197.015C111.858 198.585 128.675 177.47 123.652 148.772C123.22 146.306 123.87 143.711 125.721 142.025C132.894 135.49 139.969 132.208 151.787 127.732C155.941 126.158 158.378 121.827 157.5 117.472C156.579 112.907 152.33 109.78 147.71 110.372C122.925 113.548 101.975 118.918 83.8911 130.969C82.4527 131.928 80.4886 131.496 79.5975 130.015C73.8703 120.496 68.2696 114.028 59.2618 108.066C56.4268 106.19 52.8446 105.95 49.6675 107.16C42.5605 109.867 40.346 118.543 43.9797 125.224C46.7325 130.285 48.8356 135.931 50.7508 143.989C51.4204 146.807 50.0908 149.703 47.5696 151.128Z" fill="#5BACD1"/>
+      <path d="M136.912 81.7587C136.912 81.7587 97.8703 73.364 74.2249 67.9949M74.2249 67.9949C77.1703 53.8327 71.9559 46.2088 71.9559 46.2088M74.2249 67.9949C71.2795 82.157 61.7455 88.8386 61.7455 88.8386" stroke="#2C2E36" stroke-width="16.0517" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- Bottom accent line -->
+  <rect x="0" y="392" width="1200" height="8" fill="#92D4F3"/>
+</svg>
