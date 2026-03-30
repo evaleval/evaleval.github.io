@@ -1,0 +1,76 @@
+name: Convert SVG post images to PNG for social thumbnails
+
+# Runs whenever posts or blog images change. Scans every post's `image:` front
+# matter value; if it points to an SVG, a raster PNG copy is generated at the
+# same path (same name, .png extension) and committed back to the branch.
+# The SVG is left untouched — it continues to be used for page display.
+# head.html then swaps .svg → .png only for the og:image / twitter:image tags.
+
+on:
+  push:
+    paths:
+      - "_posts/**"
+      - "assets/img/blogs/**"
+
+jobs:
+  convert-svg:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install rsvg-convert
+        run: sudo apt-get install -y librsvg2-bin
+
+      - name: Convert SVG post images to PNG
+        id: convert
+        run: |
+          set -euo pipefail
+          converted=0
+          converted_files=""
+
+          # Collect every `image:` value from post front matter
+          while IFS= read -r line; do
+            # Strip the key and surrounding quotes, preserving spaces in path
+            raw="${line#image:}"
+            raw="$(echo "$raw" | sed "s/^[[:space:]]*//;s/[[:space:]]*$//;s/^[\"']//;s/[\"']$//")"
+            raw="${raw#/}"   # strip leading slash to form a relative path
+
+            [[ "$raw" == *.svg ]] || continue
+
+            svg="$raw"
+            png="${svg%.svg}.png"
+
+            if [[ ! -f "$svg" ]]; then
+              echo "⚠️  SVG not found, skipping: $svg"
+              continue
+            fi
+
+            if [[ -f "$png" ]]; then
+              echo "✅ PNG already exists, skipping: $png"
+              continue
+            fi
+
+            echo "🔄 Converting $svg → $png"
+            # 1200×630 is the recommended og:image size for all major platforms
+            rsvg-convert --width 1200 --height 630 --keep-aspect-ratio "$svg" -o "$png"
+            converted_files="$converted_files $png"
+            converted=$((converted + 1))
+          done < <(grep -h "^image:" _posts/*.md 2>/dev/null || true)
+
+          echo "converted=$converted" >> "$GITHUB_OUTPUT"
+          echo "converted_files=$converted_files" >> "$GITHUB_OUTPUT"
+
+      - name: Commit converted PNGs
+        if: steps.convert.outputs.converted != '0'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Stage only the files we actually converted (they may live anywhere)
+          for f in ${{ steps.convert.outputs.converted_files }}; do
+            git add "$f"
+          done
+          git commit -m "chore: add PNG thumbnails converted from SVG post images [skip ci]"
+          git push
