@@ -1,5 +1,18 @@
 
 <head>
+    {% comment %} Determine og:image: use the post image when it is a raster format
+    (WebP / PNG / JPG), fall back to the site-wide banner for SVGs or missing images.
+    This ensures every blog post gets a valid social preview thumbnail automatically.
+    Placed before {% seo %} so our tag takes precedence (parsers use the first match). {% endcomment %}
+    {% assign _og_img = site.image | absolute_url %}
+    {% if page.image %}
+      {% assign _page_ext = page.image | split: '.' | last | downcase %}
+      {% unless _page_ext == 'svg' %}
+        {% assign _og_img = page.image | absolute_url %}
+      {% endunless %}
+    {% endif %}
+    <meta property="og:image" content="{{ _og_img }}">
+    <meta name="twitter:image" content="{{ _og_img }}">
     {% seo %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
