@@ -21,7 +21,7 @@
                 {% if page.image %}
                 <div class="mb-8 overflow-hidden" style="border-radius: 2px;">
                     <img src="{{ page.image | relative_url }}" alt="{{ page.title }}"
-                         class="w-full {% if page.image_contain %}max-h-64 md:max-h-80 object-contain{% else %}h-64 md:h-96 object-cover{% endif %}">
+                         class="w-full {% if page.image_contain %}max-h-64 md:max-h-80 object-contain{% else %}h-auto md:h-96 object-contain md:object-cover{% endif %}">
                 </div>
                 {% endif %}
 
@@ -31,14 +31,18 @@
                     {% if page.authors and page.authors.size > 0 %}
                         <span style="color: var(--border-strong);">•</span>
                         <span style="color: var(--fg-muted);">by</span>
-                        {% for author in page.authors %}
-                            {% if forloop.first %}{% elsif forloop.last %} and {% else %}, {% endif %}
-                            {% if author.url %}
-                                <a href="{{ author.url | relative_url }}" style="color: var(--fg);">{{ author.name }}</a>
-                            {% else %}
-                                <span style="color: var(--fg);">{{ author.name }}</span>
-                            {% endif %}
-                        {% endfor %}
+                        <span class="post-authors">
+                            {%- for author in page.authors -%}
+                                {%- unless forloop.first -%}
+                                    <span>{% if forloop.last %}{% if page.authors.size > 2 %}, and {% else %} and {% endif %}{% else %}, {% endif %}</span>
+                                {%- endunless -%}
+                                {%- if author.url -%}
+                                    <a href="{{ author.url | relative_url }}" style="color: var(--fg);">{{ author.name }}</a>
+                                {%- else -%}
+                                    <span style="color: var(--fg);">{{ author.name }}</span>
+                                {%- endif -%}
+                            {%- endfor -%}
+                        </span>
                     {% endif %}
                 </div>
 
