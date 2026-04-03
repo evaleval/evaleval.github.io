@@ -25,29 +25,29 @@
                 </div>
                 {% endif %}
 
-                <!-- Post Meta -->
-                <div class="post-meta mb-5">
-                    <time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-                    {% if page.authors and page.authors.size > 0 %}
-                        <span style="color: var(--border-strong);">•</span>
-                        <span style="color: var(--fg-muted);">by</span>
-                        <span class="post-authors">
-                            {%- for author in page.authors -%}
-                                {%- unless forloop.first -%}
-                                    <span>{% if forloop.last %}{% if page.authors.size > 2 %}, and {% else %} and {% endif %}{% else %}, {% endif %}</span>
-                                {%- endunless -%}
-                                {%- if author.url -%}
-                                    <a href="{{ author.url | relative_url }}" style="color: var(--fg);">{{ author.name }}</a>
-                                {%- else -%}
-                                    <span style="color: var(--fg);">{{ author.name }}</span>
-                                {%- endif -%}
-                            {%- endfor -%}
-                        </span>
-                    {% endif %}
-                </div>
-
                 <!-- Title -->
                 <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight" style="color: var(--fg);">{{ page.title }}</h1>
+
+                <!-- Post Meta -->
+                <div class="post-meta post-meta-stacked mb-5">
+                    {% if page.authors and page.authors.size > 0 %}
+                        <div class="post-authors-line">
+                            <span class="post-authors">
+                                {%- for author in page.authors -%}
+                                    {%- unless forloop.first -%}
+                                        <span>{% if forloop.last %}{% if page.authors.size > 2 %}, and {% else %} and {% endif %}{% else %}, {% endif %}</span>
+                                    {%- endunless -%}
+                                    {%- if author.url -%}
+                                        <a href="{{ author.url | relative_url }}" style="color: var(--fg);">{{ author.name }}</a>
+                                    {%- else -%}
+                                        <span style="color: var(--fg);">{{ author.name }}</span>
+                                    {%- endif -%}
+                                {%- endfor -%}
+                            </span>
+                        </div>
+                    {% endif %}
+                    <time class="post-date-line" datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+                </div>
 
                 <!-- Tags -->
                 {% if page.tags.size > 0 %}
