@@ -5,7 +5,7 @@
 - name: Avijit Ghosh
   lastname: Ghosh
   role: Host
-  subheading: Applied Policy Researcher at Hugging Face
+  subheading: Lead Technical AI Policy Researcher at Hugging Face
   link: https://www.evijit.io
   photo: assets/img/team/avijit-ghosh.webp
   affiliations:
@@ -17,7 +17,7 @@
 - name: Irene Solaiman
   lastname: Solaiman
   role: Host
-  subheading: Head of Global Policy at Hugging Face
+  subheading: Chief Policy Officer at Hugging Face
   link: https://www.irenesolaiman.com/
   photo: assets/img/team/irene-solaiman.webp
   affiliations:
@@ -56,19 +56,6 @@
   projects:
     - lm-harness
     - research-output
-
-- name: Baber Abbassi
-  lastname: Abbassi
-  role: Infrastructure Chair
-  subheading: Evaluations Engineer at EleutherAI
-  link: https://www.linkedin.com/in/baber-abbasi/?originalSubdomain=uk
-  photo: assets/img/team/baber-abbassi.webp
-  affiliations:
-    - infra
-    - host
-  projects:
-    - lm-harness
-
 
 ## CHAIRS
 - name: Mubashara Akhtar
@@ -231,4 +218,3 @@
 #   projects:
 #     - lm-harness
 #     - research-output
-
