@@ -77,8 +77,14 @@
         }
 
         html {
-            scroll-padding-top: 70px;
+            /* h-16 (4rem) + optional notch inset — matches .site-header-bar */
+            scroll-padding-top: calc(4rem + env(safe-area-inset-top, 0px) + 6px);
             scroll-behavior: smooth;
+        }
+
+        /* Fullscreen nav overlay — avoid scroll chaining on iOS; fixed inset covers viewport once header has no backdrop-filter */
+        .mobile-menu-overlay {
+            overscroll-behavior: contain;
         }
 
         /* ===== GLOBAL HEADING + BODY COLOR ===== */
@@ -86,7 +92,7 @@
         h1, h2, h3, h4, h5, h6 {
             color: var(--fg);
         }
-        p, li, td, th, span:not(.fn-badge):not(.post-tag):not(.section-label) {
+        p, li, td, th, span:not(.fn-badge):not(.post-tag):not(.section-label):not(.ui-pill) {
             color: inherit;
         }
 
@@ -101,6 +107,7 @@
         [data-theme="dark"] .text-gray-500 { color: var(--fg-muted) !important; }
         [data-theme="dark"] .text-gray-400 { color: var(--fg-subtle) !important; }
         [data-theme="dark"] .text-black    { color: var(--fg) !important; }
+        [data-theme="dark"] .text-gray-900 { color: var(--fg) !important; }
         [data-theme="dark"] .text-gray-800 { color: var(--fg) !important; }
         [data-theme="dark"] .text-gray-700 { color: var(--fg-muted) !important; }
         [data-theme="dark"] .border-black  { border-color: var(--border-strong) !important; }
@@ -111,6 +118,14 @@
         [data-theme="dark"] .hover\:bg-gray-800:hover { background-color: var(--fg-muted) !important; }
         [data-theme="dark"] .hover\:shadow-lg:hover   { box-shadow: var(--shadow-card) !important; }
         [data-theme="dark"] .border-t      { border-color: var(--border) !important; }
+
+        /* hover:text-black / group-hover:text-black — keep readable in dark mode */
+        [data-theme="dark"] .hover\:text-black:hover {
+            color: var(--fg) !important;
+        }
+        [data-theme="dark"] .group:hover .group-hover\:text-black {
+            color: var(--fg) !important;
+        }
 
         /* Host logos in dark mode — grayscale + invert so white backgrounds
            become dark (merging with page bg) and logo marks appear as light */
@@ -362,6 +377,24 @@
             font-weight: 700;
         }
 
+        /* Dark mode: prose headings stay readable; strip stray Tailwind text-* on children */
+        [data-theme="dark"] .prose h1,
+        [data-theme="dark"] .prose h2,
+        [data-theme="dark"] .prose h3,
+        [data-theme="dark"] .prose h4,
+        [data-theme="dark"] .prose h5,
+        [data-theme="dark"] .prose h6 {
+            color: var(--fg) !important;
+        }
+        [data-theme="dark"] .prose h1 :not(a),
+        [data-theme="dark"] .prose h2 :not(a),
+        [data-theme="dark"] .prose h3 :not(a),
+        [data-theme="dark"] .prose h4 :not(a),
+        [data-theme="dark"] .prose h5 :not(a),
+        [data-theme="dark"] .prose h6 :not(a) {
+            color: inherit !important;
+        }
+
         .prose h2 {
             font-size: 1.875rem;
             margin-top: 2.5rem;
@@ -572,10 +605,14 @@
             filter: brightness(0.85) contrast(1.05);
         }
 
-        /* Blog post images: gentle dim only */
-        [data-theme="dark"] .post-card img,
-        [data-theme="dark"] .blog-image img {
-            filter: brightness(0.85);
+        /* Blog thumbs / hero: light surface so transparent PNGs match light-mode (not page --bg) */
+        [data-theme="dark"] .blog-image-matte {
+            background-color: #ffffff;
+        }
+
+        /* Render like light mode on that white matte — skip global dark img dim */
+        [data-theme="dark"] .blog-image-matte img {
+            filter: none !important;
         }
 
         /* ===== PRINT ===== */

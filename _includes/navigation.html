@@ -1,57 +1,68 @@
-<header class="w-full fixed top-0 left-0 z-50" style="background-color: var(--nav-bg); border-bottom: 1px solid var(--border); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-16">
+<header class="site-header fixed top-0 left-0 right-0 z-50 w-full">
+  <!-- Blur only on this bar — backdrop-filter on an ancestor makes fixed descendants size to that ancestor instead of the viewport -->
+  <div
+    class="site-header-bar w-full border-b"
+    style="background-color: var(--nav-bg); border-bottom: 1px solid var(--border); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding-top: env(safe-area-inset-top, 0px);"
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
 
-      <!-- Logo -->
-      <div class="flex items-center">
-        <a href="{{ "/" | relative_url }}" class="flex items-center space-x-2.5">
-          <img src="{{ '/assets/img/logo-square.png' | relative_url }}" alt="EvalEval Logo" class="no-dark-filter h-7 w-7 rounded-md" />
-          <span class="font-semibold text-base" style="color: var(--fg);">EvalEval Coalition</span>
-        </a>
-      </div>
+        <!-- Logo -->
+        <div class="flex items-center">
+          <a href="{{ "/" | relative_url }}" class="flex items-center space-x-2.5">
+            <img src="{{ '/assets/img/logo-square.png' | relative_url }}" alt="EvalEval Logo" class="no-dark-filter h-7 w-7 rounded-md" />
+            <span class="font-semibold text-base" style="color: var(--fg);">EvalEval Coalition</span>
+          </a>
+        </div>
 
-      <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-7 text-sm font-medium">
-        <a href="{{ "/about" | relative_url }}" class="nav-link">About</a>
-        <a href="{{ "/projects" | relative_url }}" class="nav-link">Projects</a>
-        <a href="{{ "/blog" | relative_url }}" class="nav-link">Blog</a>
-        <a href="{{ "/events" | relative_url }}" class="nav-link">Events</a>
-        <a href="#contact" class="nav-link">Join Us</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-          <svg class="icon-moon w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-          </svg>
-          <svg class="icon-sun w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-          </svg>
-        </button>
-      </nav>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-7 text-sm font-medium">
+          <a href="{{ "/about" | relative_url }}" class="nav-link">About</a>
+          <a href="{{ "/projects" | relative_url }}" class="nav-link">Projects</a>
+          <a href="{{ "/blog" | relative_url }}" class="nav-link">Blog</a>
+          <a href="{{ "/events" | relative_url }}" class="nav-link">Events</a>
+          <a href="#contact" class="nav-link">Join Us</a>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+            <svg class="icon-moon w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+            <svg class="icon-sun w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </button>
+        </nav>
 
-      <!-- Mobile -->
-      <div class="md:hidden flex items-center gap-2">
-        <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle dark mode">
-          <svg class="icon-moon w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-          </svg>
-          <svg class="icon-sun w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-          </svg>
-        </button>
-        <button id="menu-toggle" class="p-2 focus:outline-none" style="color: var(--fg);" aria-label="Open menu">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
+        <!-- Mobile -->
+        <div class="md:hidden flex items-center gap-2">
+          <button id="theme-toggle-mobile" class="theme-toggle" aria-label="Toggle dark mode">
+            <svg class="icon-moon w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+            <svg class="icon-sun w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </button>
+          <button id="menu-toggle" type="button" class="p-2 focus:outline-none" style="color: var(--fg);" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Fullscreen Mobile Menu -->
-  <div id="mobile-menu"
-    class="hidden fixed inset-0 z-40 flex flex-col items-center justify-center space-y-8 text-xl font-semibold"
-    style="background-color: var(--bg);">
-    <button id="menu-close" class="absolute top-5 right-5 p-2 focus:outline-none" style="color: var(--fg-muted);" aria-label="Close menu">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+  <!-- Sibling of blurred bar: position fixed is relative to viewport (header has no filter/transform) -->
+  <div
+    id="mobile-menu"
+    class="mobile-menu-overlay hidden md:hidden fixed inset-0 z-[60] flex flex-col items-center justify-center gap-8 text-xl font-semibold"
+    style="background-color: var(--bg); padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Site navigation"
+  >
+    <button id="menu-close" type="button" class="absolute p-2 focus:outline-none" style="top: max(1.25rem, env(safe-area-inset-top, 0px)); right: max(1.25rem, env(safe-area-inset-right, 0px)); color: var(--fg-muted);" aria-label="Close menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
       </svg>
     </button>

@@ -19,7 +19,7 @@
 
                 <!-- Featured Image -->
                 {% if page.image %}
-                <div class="mb-8 overflow-hidden" style="border-radius: 2px;">
+                <div class="mb-8 overflow-hidden blog-image-matte" style="border-radius: 2px;">
                     <img src="{{ page.image | relative_url }}" alt="{{ page.title }}"
                          class="w-full {% if page.image_contain %}max-h-64 md:max-h-80 object-contain{% else %}h-auto md:h-96 object-contain md:object-cover{% endif %}">
                 </div>
@@ -59,18 +59,18 @@
                 {% endif %}
             </header>
 
-            <!-- Main Content + Sidebar -->
+            <!-- Main Content + Sidebar (sidebar first on narrow screens, right column on lg+) -->
             <div class="flex flex-col lg:flex-row gap-12">
 
                 <!-- Post Content -->
-                <div class="flex-1 min-w-0">
+                <div class="flex-1 min-w-0 order-2 lg:order-1">
                     <div class="prose prose-lg max-w-none">
                         {{ content }}
                     </div>
                 </div>
 
                 <!-- Sidebar -->
-                <aside class="w-full lg:w-72 xl:w-80 lg:sticky lg:top-24 lg:self-start space-y-6">
+                <aside class="w-full lg:w-72 xl:w-80 lg:sticky lg:top-24 lg:self-start space-y-6 order-1 lg:order-2">
 
                     <!-- Table of Contents -->
                     <div class="sidebar-card p-5" style="border: 1px solid var(--border); background-color: var(--bg-subtle);">

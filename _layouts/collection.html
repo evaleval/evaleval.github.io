@@ -31,7 +31,7 @@ layout: default
             <a href="{% if item.custom_url %}{{ item.custom_url | relative_url }}{% else %}{{ item.url | relative_url }}{% endif %}"
                class="post-card block group overflow-hidden" style="background-color: var(--bg);">
               {% if item.image %}
-              <div class="overflow-hidden" style="height: 192px;">
+              <div class="blog-image-matte overflow-hidden" style="height: 192px;">
                 <img src="{{ item.image | relative_url }}" alt="{{ item.title }}"
                      class="w-full h-full {% if item.image_contain %}object-contain{% else %}object-cover{% endif %} group-hover:scale-[1.03] transition-transform duration-500">
               </div>

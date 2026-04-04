@@ -10,7 +10,7 @@ layout: default
 
     <!-- Category Tag -->
     {% if page.category %}
-      <span class="inline-block bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full">
+      <span class="ui-pill inline-block bg-gray-200 text-gray-800 text-xs font-semibold px-3 py-1 rounded-full">
         {{ page.category }}
       </span>
     {% endif %}
@@ -18,11 +18,11 @@ layout: default
     <!-- Status Badge -->
     {% if page.status %}
       {% if page.status == "active" %}
-        <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">
+        <span class="ui-pill inline-block bg-green-100 text-green-800 text-xs font-semibold px-3 py-1 rounded-full">
           Currently Active
         </span>
       {% else %}
-        <span class="inline-block bg-gray-100 text-gray-600 text-xs font-semibold px-3 py-1 rounded-full">
+        <span class="ui-pill inline-block bg-gray-100 text-gray-600 text-xs font-semibold px-3 py-1 rounded-full">
           Wrapped Up
         </span>
       {% endif %}

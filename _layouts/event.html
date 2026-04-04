@@ -70,17 +70,17 @@
                 {% endif %}
             </header>
             
-            <!-- Main Content Area with Sidebar -->
+            <!-- Main Content Area with Sidebar (sidebar first on narrow screens, right column on lg+) -->
             <div class="flex flex-col lg:flex-row gap-12">
                 <!-- Event Content -->
-                <div class="flex-1 max-w-4xl">
+                <div class="flex-1 max-w-4xl order-2 lg:order-1 min-w-0">
                     <div class="prose prose-lg max-w-none">
                         {{ content }}
                     </div>
                 </div>
                 
                 <!-- Sidebar -->
-                <aside class="w-full lg:w-80 lg:sticky lg:top-24 lg:self-start">
+                <aside class="w-full lg:w-80 lg:sticky lg:top-24 lg:self-start order-1 lg:order-2">
                     <div class="bg-gray-50 rounded-lg p-6 mb-8">
                         <!-- Table of Contents -->
                         <div class="mb-8">

@@ -33,31 +33,43 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Hamburger menu toggle
+    // Hamburger menu toggle (body scroll lock + a11y — overlay is viewport-fixed only if no backdrop-filter ancestor)
     const toggleBtn = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const closeBtn = document.getElementById('menu-close');
 
+    function setMobileMenuOpen(open) {
+        if (!mobileMenu) return;
+        mobileMenu.classList.toggle('hidden', !open);
+        document.body.style.overflow = open ? 'hidden' : '';
+        if (toggleBtn) toggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
     if (toggleBtn && mobileMenu) {
-        toggleBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
+        toggleBtn.addEventListener('click', function () {
+            setMobileMenuOpen(mobileMenu.classList.contains('hidden'));
         });
     }
 
     if (closeBtn && mobileMenu) {
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+        closeBtn.addEventListener('click', function () {
+            setMobileMenuOpen(false);
         });
     }
 
-    // Close mobile menu when a link is clicked
     if (mobileMenu) {
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+        mobileMenu.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                setMobileMenuOpen(false);
             });
         });
     }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            setMobileMenuOpen(false);
+        }
+    });
 
     // MathJax typeset (if used)
     if (typeof MathJax !== 'undefined') {

@@ -11,7 +11,7 @@
       {% for post in visible_posts limit:3 %}
       <a href="{{ post.url | relative_url }}" class="post-card block group overflow-hidden" style="background-color: var(--bg);">
         {% if post.image %}
-        <div class="overflow-hidden" style="height: 192px;">
+        <div class="blog-image-matte overflow-hidden" style="height: 192px;">
           <img
             src="{{ post.image | relative_url }}"
             alt="{{ post.title }}"
