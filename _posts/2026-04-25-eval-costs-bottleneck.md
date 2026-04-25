@@ -16,7 +16,7 @@ tags:
 description: "A field guide to evaluation costs: where the money goes, why old compression tricks break, and why agentic evals, training-in-the-loop benchmarks, and reliability measures are starting to break the bank."
 ---
 
-<div class="eval-cost-article tex2jax_ignore">
+<div class="eval-cost-article tex2jax_ignore mathjax_ignore">
 
 <style>
 .eval-cost-article {
@@ -108,7 +108,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 /* Figures */
 .eval-cost-article .figure {
-  max-width: 100%;
+  max-width: 760px;
   width: 100%;
   margin: 46px auto;
   padding: 0;
@@ -281,7 +281,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 /* Table */
 .eval-cost-article .table-wrap {
-  max-width: 100%;
+  max-width: 760px;
   width: 100%;
   margin: 28px auto 12px;
   overflow-x: auto;
@@ -316,7 +316,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 }
 .eval-cost-article tbody tr:last-child td { border-bottom: 0; }
 .eval-cost-article .table-note {
-  max-width: 100%;
+  max-width: 760px;
   margin: 0 auto 28px;
   color: var(--fg-muted);
   font-family: 'Inter', sans-serif;
