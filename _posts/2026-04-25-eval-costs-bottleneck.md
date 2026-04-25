@@ -112,6 +112,44 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   font-family: 'Inter', sans-serif;
 }
 
+/* Citation block */
+.eval-cost-article .citation-block {
+  max-width: 760px;
+  margin: 30px auto 12px;
+  padding: 0;
+}
+.eval-cost-article .citation-block .citation-label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.eval-cost-article .citation-block pre {
+  margin: 0;
+  padding: 18px 20px;
+  background: var(--bg-subtle);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  line-height: 1.55;
+  overflow-x: auto;
+  white-space: pre;
+}
+.eval-cost-article .citation-block code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
 /* Figures */
 .eval-cost-article .figure {
   max-width: 760px;
@@ -614,7 +652,19 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <p>Evaluation now has its own compute budgets, statistical methods, and failure modes. Its price also shapes who gets to evaluate powerful systems in the first place. Whoever can pay for the evaluation gets to write the leaderboard.</p>
 
-<!-- <hr> -->
+<h2 id="cite-this-post">Cite this post</h2>
+
+<div class="citation-block">
+<span class="citation-label">BibTeX</span>
+<pre><code>{% raw %}@misc{ghosh2026evalbottleneck,
+  author       = {Ghosh, Avijit},
+  title        = {{AI} evals are becoming the new compute bottleneck},
+  year         = {2026},
+  month        = apr,
+  howpublished = {EvalEval Coalition Blog},
+  url          = {https://evalevalai.com/research/2026/04/25/eval-costs-bottleneck/}
+}{% endraw %}</code></pre>
+</div>
 
 <div class="sources">
 <strong>Sources:</strong> Perlitz et al. <a href="https://arxiv.org/abs/2308.11696v5" rel="noopener noreferrer" target="_blank">arXiv:2308.11696</a>; Garikaparthi et al. <a href="https://arxiv.org/abs/2602.15112" rel="noopener noreferrer" target="_blank">arXiv:2602.15112</a>; Starace et al. <a href="https://arxiv.org/abs/2504.01848" rel="noopener noreferrer" target="_blank">arXiv:2504.01848</a> (PaperBench); Mehta <a href="https://arxiv.org/abs/2511.14136" rel="noopener noreferrer" target="_blank">arXiv:2511.14136</a> (CLEAR); Ndzomga <a href="https://arxiv.org/abs/2603.23749" rel="noopener noreferrer" target="_blank">arXiv:2603.23749</a>; Kapoor et al. <a href="https://arxiv.org/abs/2510.11977" rel="noopener noreferrer" target="_blank">arXiv:2510.11977</a> (HAL); Tian et al. <a href="https://arxiv.org/abs/2407.13168" rel="noopener noreferrer" target="_blank">arXiv:2407.13168</a> (SciCode); Chen et al. <a href="https://arxiv.org/abs/2410.05080" rel="noopener noreferrer" target="_blank">arXiv:2410.05080</a> (ScienceAgentBench); Siegel et al. <a href="https://arxiv.org/abs/2409.11363" rel="noopener noreferrer" target="_blank">arXiv:2409.11363</a> (CORE-Bench); Chan et al. <a href="https://arxiv.org/abs/2410.07095" rel="noopener noreferrer" target="_blank">arXiv:2410.07095</a> (MLE-Bench); METR <a href="https://arxiv.org/abs/2411.15114" rel="noopener noreferrer" target="_blank">arXiv:2411.15114</a> (RE-Bench); Ohana et al. <a href="https://arxiv.org/abs/2412.00568" rel="noopener noreferrer" target="_blank">arXiv:2412.00568</a> (The Well); Polo et al. <a href="https://arxiv.org/abs/2402.14992" rel="noopener noreferrer" target="_blank">arXiv:2402.14992</a> (tinyBenchmarks); Vivek et al. <a href="https://arxiv.org/abs/2309.08638" rel="noopener noreferrer" target="_blank">arXiv:2309.08638</a> (Anchor Points); Rabanser et al. <a href="https://arxiv.org/abs/2602.16666" rel="noopener noreferrer" target="_blank">arXiv:2602.16666</a>; live HAL leaderboard <a href="https://hal.cs.princeton.edu" rel="noopener noreferrer" target="_blank">hal.cs.princeton.edu</a>.
