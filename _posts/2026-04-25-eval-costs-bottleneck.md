@@ -393,9 +393,12 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   .eval-cost-article .bar-track {
     grid-column: 1 / -1;
     height: 20px;
-    background: var(--bg-subtle);
-    border-left: 1px solid var(--border);
-    border-right: 1px solid var(--border);
+    background: repeating-linear-gradient(to right,
+      transparent 0,
+      transparent calc(33.333% - 1px),
+      var(--border) calc(33.333% - 1px),
+      var(--border) 33.333%);
+    border: 0;
   }
   .eval-cost-article .range-bar { top: 8px; height: 4px; }
   .eval-cost-article .range-bar::before,
