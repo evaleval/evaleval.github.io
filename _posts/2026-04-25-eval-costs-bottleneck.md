@@ -16,20 +16,17 @@ tags:
 description: "A field guide to evaluation costs: where the money goes, why old compression tricks break, and why agentic evals, training-in-the-loop benchmarks, and reliability measures are starting to break the bank."
 ---
 
-<div class="eval-cost-article">
+<div class="eval-cost-article tex2jax_ignore">
 
 <style>
 .eval-cost-article {
-  --eval-warn: #b85b2b;
-  --eval-warn-fg: #ffffff;
+  --eval-warn: var(--accent);
+  --eval-warn-fg: var(--accent-fg);
   --eval-tint: var(--bg-subtle);
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   line-height: 1.66;
   color: var(--fg);
-}
-[data-theme="dark"] .eval-cost-article {
-  --eval-warn: #d97f4f;
 }
 .eval-cost-article * { box-sizing: border-box; }
 .eval-cost-article p { margin: 0 auto 20px; max-width: 760px; }
@@ -96,30 +93,6 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   letter-spacing: .12em;
   text-transform: uppercase;
 }
-.eval-cost-article .toc {
-  max-width: 760px;
-  margin: 0 auto 50px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
-  color: var(--fg-muted);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px;
-  line-height: 1.8;
-}
-.eval-cost-article .toc strong {
-  display: inline-block;
-  margin-right: 13px;
-  color: var(--fg);
-  font-size: 11px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-.eval-cost-article .toc a {
-  margin-right: 14px;
-  white-space: nowrap;
-  text-decoration-color: transparent;
-}
-.eval-cost-article .toc a:hover { text-decoration-color: currentColor; }
 .eval-cost-article .callout {
   max-width: 760px;
   margin: 30px auto;
@@ -378,7 +351,6 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 @media (max-width: 760px) {
   .eval-cost-article { font-size: 16.5px; line-height: 1.68; }
   .eval-cost-article h2 { margin-top: 58px; letter-spacing: -0.025em; }
-  .eval-cost-article .toc a { display: inline-block; }
   .eval-cost-article .figure { margin: 36px auto; }
   .eval-cost-article .chart-title { font-size: 15px; }
   .eval-cost-article .chart-subtitle { margin-bottom: 12px; }
@@ -435,15 +407,6 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 </style>
 
 <p class="bluf"><strong>Summary.</strong> AI evaluation has crossed a cost threshold that changes who can do it. The Holistic Agent Leaderboard recently spent about $40,000 to run 21,730 agent rollouts across 9 models and 9 benchmarks. A single GAIA run on a frontier model can cost $2,829 before caching. In scientific ML, The Well costs about 960 H100-hours to evaluate one new architecture and 3,840 H100-hours for a full four-baseline sweep. While compression techniques have been proposed for static benchmarks, new agent benchmarks are noisy, scaffold-sensitive, and only partly compressible. Training-in-the-loop benchmarks are expensive by construction, and when you try to add reliability to these evals, repeated runs further multiply the cost.</p>
-
-<nav aria-label="Article sections" class="toc">
-<strong>Roadmap</strong>
-<a href="#making-static-llm-benchmarks-cheaper">static evals</a>
-<a href="#agent-evals-are-messier">agents</a>
-<a href="#some-evals-are-just-training">training-in-the-loop</a>
-<a href="#reliability-is-the-expensive-part">reliability</a>
-<a href="#what-this-means-for-ml-as-a-field">implications</a>
-</nav>
 
 <h2 id="making-static-llm-benchmarks-cheaper">Making static LLM benchmarks cheaper</h2>
 
