@@ -74,22 +74,26 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   letter-spacing: -0.01em;
 }
 
-/* BLUF + roadmap + callout */
+/* BLUF + callout */
 .eval-cost-article .bluf {
   max-width: 760px;
-  margin: 0 auto 26px;
-  padding: 20px 0 22px;
-  border-top: 1px solid var(--border-strong);
-  border-bottom: 1px solid var(--border);
+  margin: 8px auto 36px;
+  padding: 22px 26px 24px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
   font-size: 16.5px;
   line-height: 1.62;
+  color: var(--fg);
 }
 .eval-cost-article .bluf strong {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   color: var(--accent);
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
+  font-weight: 600;
   letter-spacing: .12em;
   text-transform: uppercase;
 }
