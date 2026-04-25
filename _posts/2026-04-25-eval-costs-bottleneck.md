@@ -4,6 +4,8 @@ title: "AI evals are becoming the new compute bottleneck"
 date: 2026-04-25
 published: true
 category: Research
+image: /assets/img/blogs/eval-costs-bottleneck.png
+image_contain: true
 authors:
   - name: "Avijit Ghosh"
 tags:
@@ -602,7 +604,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <p>Evaluation now has its own compute budgets, statistical methods, and failure modes. Its price also shapes who gets to evaluate powerful systems in the first place. Whoever can pay for the evaluation gets to write the leaderboard.</p>
 
-<hr>
+<!-- <hr> -->
 
 <div class="sources">
 <strong>Sources:</strong> Perlitz et al. <a href="https://arxiv.org/abs/2308.11696" rel="noopener noreferrer" target="_blank">arXiv:2308.11696</a>; Garikaparthi et al. <a href="https://arxiv.org/abs/2602.15112" rel="noopener noreferrer" target="_blank">arXiv:2602.15112</a>; Starace et al. <a href="https://arxiv.org/abs/2504.01848" rel="noopener noreferrer" target="_blank">arXiv:2504.01848</a> (PaperBench); Mehta <a href="https://arxiv.org/abs/2511.14136" rel="noopener noreferrer" target="_blank">arXiv:2511.14136</a> (CLEAR); Ndzomga <a href="https://arxiv.org/abs/2603.23749" rel="noopener noreferrer" target="_blank">arXiv:2603.23749</a>; Kapoor et al. <a href="https://arxiv.org/abs/2510.11977" rel="noopener noreferrer" target="_blank">arXiv:2510.11977</a> (HAL); Tian et al. <a href="https://arxiv.org/abs/2407.13168" rel="noopener noreferrer" target="_blank">arXiv:2407.13168</a> (SciCode); Chen et al. <a href="https://arxiv.org/abs/2410.05080" rel="noopener noreferrer" target="_blank">arXiv:2410.05080</a> (ScienceAgentBench); Siegel et al. <a href="https://arxiv.org/abs/2409.11363" rel="noopener noreferrer" target="_blank">arXiv:2409.11363</a> (CORE-Bench); Chan et al. <a href="https://arxiv.org/abs/2410.07095" rel="noopener noreferrer" target="_blank">arXiv:2410.07095</a> (MLE-Bench); METR <a href="https://arxiv.org/abs/2411.15114" rel="noopener noreferrer" target="_blank">arXiv:2411.15114</a> (RE-Bench); Ohana et al. <a href="https://arxiv.org/abs/2412.00568" rel="noopener noreferrer" target="_blank">arXiv:2412.00568</a> (The Well); Polo et al. <a href="https://arxiv.org/abs/2402.14992" rel="noopener noreferrer" target="_blank">arXiv:2402.14992</a> (tinyBenchmarks); Vivek et al. <a href="https://arxiv.org/abs/2309.08638" rel="noopener noreferrer" target="_blank">arXiv:2309.08638</a> (Anchor Points); Rabanser et al. <a href="https://arxiv.org/abs/2602.16666" rel="noopener noreferrer" target="_blank">arXiv:2602.16666</a>; live HAL leaderboard <a href="https://hal.cs.princeton.edu" rel="noopener noreferrer" target="_blank">hal.cs.princeton.edu</a>.
