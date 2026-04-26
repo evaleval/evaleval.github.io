@@ -664,7 +664,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 <div class="citation-block">
 <span class="citation-label">BibTeX Citation</span>
 <pre><code>{% raw %}@misc{ghosh2026evalbottleneck,
-  author       = {Ghosh, Avijit},
+  author       = {Ghosh, Avijit and Mai, Yifan and Channing, Georgia and Choshen, Leshem},
   title        = {{AI} evals are becoming the new compute bottleneck},
   year         = {2026},
   month        = apr,
