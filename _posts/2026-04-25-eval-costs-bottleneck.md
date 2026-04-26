@@ -394,6 +394,28 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   letter-spacing: .1em;
   font-size: 11px;
 }
+.eval-cost-article .source-list {
+  list-style: decimal;
+  margin: 14px 0 0;
+  padding-left: 26px;
+  max-width: none;
+  font-size: 12.5px;
+  line-height: 1.55;
+  column-count: 1;
+}
+.eval-cost-article .source-list li {
+  margin-bottom: 5px;
+  padding-left: 2px;
+  break-inside: avoid;
+}
+.eval-cost-article .source-list li::marker {
+  color: var(--fg-subtle);
+  font-variant-numeric: tabular-nums;
+}
+.eval-cost-article .source-list cite {
+  font-style: italic;
+  color: var(--fg);
+}
 
 @media (max-width: 760px) {
   .eval-cost-article { font-size: 16.5px; line-height: 1.68; }
@@ -464,7 +486,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <p>The more striking observation came from <a href="https://arxiv.org/abs/2308.11696v5" rel="noopener noreferrer" target="_blank">Perlitz et al.'s analysis</a> of <a href="https://arxiv.org/abs/2304.01373" rel="noopener noreferrer" target="_blank">EleutherAI's Pythia</a> checkpoints, developers pay for evaluation even more. Pythia released 154 checkpoints across 16 model sizes so the community could study training dynamics. Running the LM Evaluation Harness across all those checkpoints turns eval into a multiplier on training: <a href="https://arxiv.org/abs/2308.11696v5" rel="noopener noreferrer" target="_blank">Perlitz et al. (2024)</a> noted that evaluation costs "may even surpass those of pretraining when evaluating checkpoints." For small models, evaluation becomes the dominant compute line item across the whole development cycle. When we scale inference-time compute, we scale evaluation costs.</p>
 
-<p>Perlitz et al. then asked how much of HELM actually carried the rankings. The result was uncomfortable: a 100× to 200× reduction in compute preserved nearly the same ordering, and even a 400× reduction still grouped models into the same coarse tiers. Flash-HELM turned that finding into a coarse-to-fine procedure: run cheap evaluations first, then spend high-resolution compute only on the top candidates. Much of HELM's compute was not discovering new information. It was confirming rankings that the field could have inferred much more cheaply.</p>
+<p>Perlitz et al. then asked how much of HELM actually carried the rankings. The result was uncomfortable: a 100× to 200× reduction in compute preserved nearly the same ordering, and even a 400× reduction still grouped models into the same coarse tiers. Flash-HELM turned that finding into a coarse-to-fine procedure: run cheap evaluations first, then spend high-resolution compute only on the top candidates. Much of HELM's compute was not discovering new information; it was confirming rankings that the field could have inferred much more cheaply.</p>
 
 <p>Other work reached the same conclusion from different angles. <a href="https://arxiv.org/abs/2402.14992">tinyBenchmarks</a> compressed MMLU from 14,000 items to 100 anchor items at about 2% error using Item Response Theory. The Open LLM Leaderboard collapsed from 29,000 examples to 180. <a href="https://arxiv.org/abs/2309.08638">Anchor Points</a> showed that as few as 1 to 30 examples could rank-order 77 LLMs on GLUE, and <a href="https://arxiv.org/abs/2511.04689">others</a> followed, reducing dataset sizes by 90\%. Static benchmarks had a weakness you could exploit: model differences often concentrate in a small subset of items, so ranking can survive aggressive subsampling.</p>
 
@@ -474,7 +496,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <p>The cleanest public accounting of agent evaluation comes from the <a href="https://arxiv.org/abs/2510.11977" rel="noopener noreferrer" target="_blank">Holistic Agent Leaderboard</a> (Kapoor et al., ICLR 2026). HAL runs standardized agent harnesses across nine benchmarks covering coding, web navigation, science tasks, and customer service, with shared scaffolds and centralized cost tracking. The headline cost: $40,000 for 21,730 rollouts across 9 models and 9 benchmarks. By April 2026, the leaderboard had grown to 26,597 rollouts. <a href="https://arxiv.org/abs/2603.23749" rel="noopener noreferrer" target="_blank">Ndzomga's independent reproduction</a> arrives at almost the same number: $46,000 across 242 agent runs.</p>
 
-<p>The aggregate number hides the important part: the cost of a single benchmark run varies by four orders of magnitude across HAL tasks, and by three orders within some individual benchmarks.</p>
+<p>Behind that aggregate, the cost of a single benchmark run varies by four orders of magnitude across HAL tasks, and by three orders within some individual benchmarks.</p>
 
 <figure class="figure" id="agent-cost-spread">
 <div class="chart-title">Per-run cost spread on agent benchmarks</div>
@@ -500,7 +522,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <p>Worse, higher spend does not reliably buy better results. On <a href="https://hal.cs.princeton.edu/online_mind2web">Online Mind2Web</a>, Browser-Use with Claude Sonnet 4 cost $1,577 for 40% accuracy. SeeAct with GPT-5 Medium hit 42% for $171. The HAL paper notes "a 9× difference in cost despite just a two-percentage-point difference in accuracy." On <a href="https://hal.cs.princeton.edu/gaia">GAIA</a>, an HAL Generalist with o3 Medium cost $2,828 for 28.5% accuracy, while a different agent hit 57.6% for $1,686. <a href="https://arxiv.org/abs/2511.14136">CLEAR</a> finds across 6 SOTA agents on 300 enterprise tasks that "accuracy-optimal configurations cost 4.4 to 10.8× more than Pareto-efficient alternatives" with comparable real-world performance.</p>
 
-<p>The static-era toolkit should have helped, but it has only gone so far. Ndzomga's mid-difficulty filter, which selects tasks with 30 to 70% historical pass rates, achieves a 2× to 3.5× reduction while preserving rank fidelity under scaffold and temporal shifts. That is useful, but it falls far short of the 100× to 200× gains available for static benchmarks. The mechanics explain why: when each item is a multi-turn rollout with its own variance, the expensive object is not the large number of questions. It is the unavoidable long trajectory per single question.</p>
+<p>The static-era toolkit should have helped, but it has only gone so far. Ndzomga's mid-difficulty filter, which selects tasks with 30 to 70% historical pass rates, achieves a 2× to 3.5× reduction while preserving rank fidelity under scaffold and temporal shifts. That is useful, but it falls far short of the 100× to 200× gains available for static benchmarks. When each item is a multi-turn rollout with its own variance, the expensive object is not the large number of questions but the unavoidable long trajectory per single question.</p>
 
 <h2 id="some-evals-are-just-training">Some evals are just training</h2>
 
@@ -508,7 +530,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <p><a href="https://arxiv.org/abs/2412.00568" rel="noopener noreferrer" target="_blank">The Well</a> (NeurIPS 2024 D&amp;B) gives the cleanest current example. It bundles 16 scientific machine-learning datasets spanning biological systems, fluid dynamics, magnetohydrodynamics, supernova explosions, viscoelastic instability, and active matter, totaling 15 TB. The protocol leaves little room to economize: train each baseline model for 12 hours on a single H100, try five learning rates per (model, dataset) pair, repeat across four architectures and 16 datasets. The full sweep consumes 3,840 H100-hours, or roughly $7,700 to $11,500 under the conversion assumptions below. A single new architecture still costs about 960 H100-hours.</p>
 
-<p>This is the asymmetry that makes The Well important. Training one neural operator can take a single 12-hour H100 run, while evaluating it across the benchmark requires 80 such trainings. In this corner of ML, evaluation compute exceeds training compute by roughly two orders of magnitude, reversing the old deep-learning mental model.</p>
+<p>Training one neural operator can take a single 12-hour H100 run, while evaluating it across the benchmark requires 80 such trainings — the asymmetry that makes The Well important. In this corner of ML, evaluation compute exceeds training compute by roughly two orders of magnitude, reversing the old deep-learning mental model.</p>
 
 <p>The same pattern recurs across SciML. <a href="https://arxiv.org/abs/2210.07182" rel="noopener noreferrer" target="_blank">PDEBench</a> covers 11 PDE families with per-submission training in the 50 to 200 GPU-hour range per architecture. <a href="https://arxiv.org/abs/2410.07095" rel="noopener noreferrer" target="_blank">MLE-Bench</a> (OpenAI) sits between agent and training regimes. Each agent attempt at one of 75 Kaggle competitions runs 24 hours on a single A10 GPU, training real ML pipelines. The paper is explicit: "A single run of our main experiment setup of 24 hours per competition attempt requires 24 hours × 75 competitions = 1,800 GPU hours of compute," plus o1-preview consuming 127.5M input and 15M output tokens per seed. Three seeds × six models for a comparison study lands comfortably in six figures.</p>
 
@@ -516,7 +538,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <p><a href="https://arxiv.org/abs/2602.15112" rel="noopener noreferrer" target="_blank">ResearchGym</a> (ICLR 2026) makes the agent run actual ML research. Five test tasks (39 sub-tasks) drawn from ICML, ICLR, ACL, and CVPR orals, with the proposed methods withheld. The agent has to propose hypotheses, train models, and beat the original authors' baselines. The budget is tight: $10 in API plus 12 to 24 hours on a single GPU under 24 GB per task. A full pass (5 tasks × 24h × 3 seeds) consumes about 360 GPU-hours per agent.</p>
 
-<p><a href="https://arxiv.org/abs/2504.01848" rel="noopener noreferrer" target="_blank">PaperBench</a> is where the cost picture turns brutal. Twenty ICML 2024 Spotlight or Oral papers must be replicated from scratch, graded against rubric trees with 8,316 leaf-node criteria. Each rollout uses an A10 GPU for 12 hours. The costs are easy to state and hard to absorb:</p>
+<p><a href="https://arxiv.org/abs/2504.01848" rel="noopener noreferrer" target="_blank">PaperBench</a> is where the cost picture turns brutal. Twenty ICML 2024 Spotlight or Oral papers must be replicated from scratch, graded against rubric trees with 8,316 leaf-node criteria. Each rollout uses an A10 GPU for 12 hours, and the per-paper math is straightforward:</p>
 
 <ul>
 <li>$400 in API per o1 IterativeAgent rollout, times 20 papers, comes to about $8,000 per evaluation.</li>
@@ -524,7 +546,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 <li>Using o1 as judge would push grading to about $830 per paper.</li>
 </ul>
 
-<p>PaperBench Code-Dev drops execution on purpose. That choice halves rollout cost to about $4,000 and cuts grading to $10 per paper (85% lower). OpenAI built the variant because many groups cannot afford the full benchmark; the paper says so directly.</p>
+<p>PaperBench Code-Dev drops execution on purpose. That choice halves rollout cost to about $4,000 and cuts grading to $10 per paper (85% lower). OpenAI built the variant because many groups cannot afford the full benchmark.</p>
 
 <p>The historical precedent is <a href="https://arxiv.org/abs/1902.09635" rel="noopener noreferrer" target="_blank">NAS-Bench-101</a>, whose tabular construction required over 100 TPU-years of training. Without that one-time investment, every NAS algorithm comparison would have cost 1 to 100+ GPU-hours per run, which would have made comparison pricier than the algorithms themselves.</p>
 
@@ -576,11 +598,9 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <p>The most recent reliability accounting comes from <a href="https://arxiv.org/abs/2602.16666" rel="noopener noreferrer" target="_blank">Rabanser, Kapoor et al.'s "Towards a Science of AI Agent Reliability"</a>, which proposes twelve metrics across consistency, robustness, predictability, and safety. Their finding: "recent capability gains have only yielded small improvements in reliability." HAL's internal analysis shows how much fragility hides behind aggregate accuracy. On SciCode and CORE-Bench, agents almost never completed a run without a tool-calling failure. On AssistantBench and CORE-Bench, environmental errors occurred in roughly 40% of runs. Agents violated explicit benchmark instructions in their final answer over 60% of the time on failed tasks.</p>
 
-<div class="callout">
-<strong>The reliability multiplier in practice.</strong> A statistically credible HAL-style evaluation with k = 8 reruns per cell takes the $40K aggregate to roughly $320K. The same multiplier on PaperBench's $9,500-per-run cost pushes a single agent's evaluation past $75K. On The Well, a multi-seed protocol takes the per-architecture cost from ~960 H100-hours to several thousand. Reliability doesn't require new cost categories. It inflates the ones that already exist.
-</div>
+<p>A statistically credible HAL-style evaluation with k = 8 reruns per cell takes the $40K aggregate to roughly $320K. The same multiplier on PaperBench's $9,500-per-run cost pushes a single agent's evaluation past $75K, and on The Well, a multi-seed protocol takes the per-architecture cost from ~960 H100-hours to several thousand. Reliability acts as a multiplier on every cost category above.</p>
 
-<p>HAL has paused new model evaluations to focus on reliability, which makes the issue plain: the field's headline numbers still carry too much noise, and reducing that noise costs real money. The figures above are floors, not ceilings, and those floors already exclude many evaluators.</p>
+<p>HAL has paused new model evaluations to focus on reliability: the field's headline numbers still carry too much noise, and reducing that noise costs real money. And the figures above are lower bounds; many evaluators are already priced out.</p>
 
 <h2 id="what-this-means-for-ml-as-a-field">What this means for ML as a field</h2>
 
@@ -596,7 +616,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <h3>Cost-blind leaderboards reward waste</h3>
 
-<p>When leaderboards report raw accuracy and omit cost, researchers can rationally pour tokens into a problem until the number ticks up. The HAL paper finds that higher reasoning effort actually reduces accuracy in the majority of runs, which exposes the deeper pathology: extra inference compute does not reliably improve even the metric it is supposed to optimize. Pareto frontiers fix the comparison by ranking accuracy against cost. HAL implements them, but most leaderboards still do not.</p>
+<p>When leaderboards report raw accuracy and omit cost, researchers can rationally pour tokens into a problem until the number ticks up. The HAL paper finds that higher reasoning effort actually reduces accuracy in the majority of runs: extra inference compute does not reliably improve even the metric it is supposed to optimize. Pareto frontiers fix the comparison by ranking accuracy against cost. HAL implements them, but most leaderboards still do not.</p>
 
 <p>If only frontier-lab compute budgets can produce statistically reliable benchmark numbers on the highest-cost agentic and scientific benchmarks, the social process of evaluating AI systems becomes concentrated inside the same labs that build them, rendering external validation partial, and sometimes absent, unless someone subsidizes the cost directly.</p>
 
@@ -657,9 +677,37 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 
 <div class="sources">
-<strong>Sources:</strong> Liang et al. <a href="https://arxiv.org/abs/2211.09110" rel="noopener noreferrer" target="_blank">arXiv:2211.09110</a> (HELM); Biderman et al. <a href="https://arxiv.org/abs/2304.01373" rel="noopener noreferrer" target="_blank">arXiv:2304.01373</a> (Pythia); Perlitz et al. <a href="https://arxiv.org/abs/2308.11696v5" rel="noopener noreferrer" target="_blank">arXiv:2308.11696</a>; Polo et al. <a href="https://arxiv.org/abs/2402.14992" rel="noopener noreferrer" target="_blank">arXiv:2402.14992</a> (tinyBenchmarks); Vivek et al. <a href="https://arxiv.org/abs/2309.08638" rel="noopener noreferrer" target="_blank">arXiv:2309.08638</a> (Anchor Points); Li et al. <a href="https://arxiv.org/abs/2511.04689" rel="noopener noreferrer" target="_blank">arXiv:2511.04689</a> (Adaptive Testing); Garikaparthi et al. <a href="https://arxiv.org/abs/2602.15112" rel="noopener noreferrer" target="_blank">arXiv:2602.15112</a> (ResearchGym); Starace et al. <a href="https://arxiv.org/abs/2504.01848" rel="noopener noreferrer" target="_blank">arXiv:2504.01848</a> (PaperBench); Mehta <a href="https://arxiv.org/abs/2511.14136" rel="noopener noreferrer" target="_blank">arXiv:2511.14136</a> (CLEAR); Ndzomga <a href="https://arxiv.org/abs/2603.23749" rel="noopener noreferrer" target="_blank">arXiv:2603.23749</a>; Kapoor et al. <a href="https://arxiv.org/abs/2510.11977" rel="noopener noreferrer" target="_blank">arXiv:2510.11977</a> (HAL); Kapoor et al. <a href="https://arxiv.org/abs/2407.01502" rel="noopener noreferrer" target="_blank">arXiv:2407.01502</a> (AI Agents That Matter); Tian et al. <a href="https://arxiv.org/abs/2407.13168" rel="noopener noreferrer" target="_blank">arXiv:2407.13168</a> (SciCode); Chen et al. <a href="https://arxiv.org/abs/2410.05080" rel="noopener noreferrer" target="_blank">arXiv:2410.05080</a> (ScienceAgentBench); Siegel et al. <a href="https://arxiv.org/abs/2409.11363" rel="noopener noreferrer" target="_blank">arXiv:2409.11363</a> (CORE-Bench); Chan et al. <a href="https://arxiv.org/abs/2410.07095" rel="noopener noreferrer" target="_blank">arXiv:2410.07095</a> (MLE-Bench); METR <a href="https://arxiv.org/abs/2411.15114" rel="noopener noreferrer" target="_blank">arXiv:2411.15114</a> (RE-Bench); Takamoto et al. <a href="https://arxiv.org/abs/2210.07182" rel="noopener noreferrer" target="_blank">arXiv:2210.07182</a> (PDEBench); Ohana et al. <a href="https://arxiv.org/abs/2412.00568" rel="noopener noreferrer" target="_blank">arXiv:2412.00568</a> (The Well); Ying et al. <a href="https://arxiv.org/abs/1902.09635" rel="noopener noreferrer" target="_blank">arXiv:1902.09635</a> (NAS-Bench-101); Rabanser et al. <a href="https://arxiv.org/abs/2602.16666" rel="noopener noreferrer" target="_blank">arXiv:2602.16666</a>; Ahmed, Wahed and Thompson <a href="https://www.science.org/doi/10.1126/science.ade2420" rel="noopener noreferrer" target="_blank">Science (2023)</a>; IBM Research <a href="https://research.ibm.com/blog/efficient-llm-benchmarking" rel="noopener noreferrer" target="_blank">"Efficient LLM Benchmarking"</a>; UK AISI <a href="https://www.aisi.gov.uk/blog/evidence-for-inference-scaling-in-ai-cyber-tasks-increased-evaluation-budgets-reveal-higher-success-rates" rel="noopener noreferrer" target="_blank">inference-scaling cyber blog</a>; live HAL leaderboard <a href="https://hal.cs.princeton.edu" rel="noopener noreferrer" target="_blank">hal.cs.princeton.edu</a>.
+<strong>Sources</strong>
+<ol class="source-list">
+<li>Ying et al. (2019). <cite>NAS-Bench-101: Towards Reproducible Neural Architecture Search</cite>. <a href="https://arxiv.org/abs/1902.09635" rel="noopener noreferrer" target="_blank">arXiv:1902.09635</a>.</li>
+<li>Liang et al. (2022). <cite>Holistic Evaluation of Language Models</cite>. <a href="https://arxiv.org/abs/2211.09110" rel="noopener noreferrer" target="_blank">arXiv:2211.09110</a>.</li>
+<li>Takamoto et al. (2022). <cite>PDEBench: An Extensive Benchmark for Scientific Machine Learning</cite>. <a href="https://arxiv.org/abs/2210.07182" rel="noopener noreferrer" target="_blank">arXiv:2210.07182</a>.</li>
+<li>Ahmed, Wahed and Thompson (2023). <cite>The growing influence of industry in AI research</cite>. <a href="https://www.science.org/doi/10.1126/science.ade2420" rel="noopener noreferrer" target="_blank">Science 379(6635)</a>.</li>
+<li>Biderman et al. (2023). <cite>Pythia: A Suite for Analyzing Large Language Models Across Training and Scaling</cite>. <a href="https://arxiv.org/abs/2304.01373" rel="noopener noreferrer" target="_blank">arXiv:2304.01373</a>.</li>
+<li>IBM Research (2023). <cite>Efficient LLM Benchmarking</cite>. <a href="https://research.ibm.com/blog/efficient-llm-benchmarking" rel="noopener noreferrer" target="_blank">research.ibm.com</a>.</li>
+<li>Perlitz et al. (2023). <cite>Efficient Benchmarking of Language Models</cite>. <a href="https://arxiv.org/abs/2308.11696v5" rel="noopener noreferrer" target="_blank">arXiv:2308.11696</a>.</li>
+<li>Vivek et al. (2023). <cite>Anchor Points: Benchmarking Models with Much Fewer Examples</cite>. <a href="https://arxiv.org/abs/2309.08638" rel="noopener noreferrer" target="_blank">arXiv:2309.08638</a>.</li>
+<li>Chan et al. (2024). <cite>MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering</cite>. <a href="https://arxiv.org/abs/2410.07095" rel="noopener noreferrer" target="_blank">arXiv:2410.07095</a>.</li>
+<li>Chen et al. (2024). <cite>ScienceAgentBench: Toward Rigorous Assessment of Language Agents for Data-Driven Scientific Discovery</cite>. <a href="https://arxiv.org/abs/2410.05080" rel="noopener noreferrer" target="_blank">arXiv:2410.05080</a>.</li>
+<li>Kapoor et al. (2024). <cite>AI Agents That Matter</cite>. <a href="https://arxiv.org/abs/2407.01502" rel="noopener noreferrer" target="_blank">arXiv:2407.01502</a>.</li>
+<li>Wijk et al. (METR, 2024). <cite>RE-Bench: Evaluating Frontier AI R&amp;D Capabilities of Language Model Agents Against Human Experts</cite>. <a href="https://arxiv.org/abs/2411.15114" rel="noopener noreferrer" target="_blank">arXiv:2411.15114</a>.</li>
+<li>Ohana et al. (2024). <cite>The Well: a Large-Scale Collection of Diverse Physics Simulations for Machine Learning</cite>. <a href="https://arxiv.org/abs/2412.00568" rel="noopener noreferrer" target="_blank">arXiv:2412.00568</a>.</li>
+<li>Polo et al. (2024). <cite>tinyBenchmarks: evaluating LLMs with fewer examples</cite>. <a href="https://arxiv.org/abs/2402.14992" rel="noopener noreferrer" target="_blank">arXiv:2402.14992</a>.</li>
+<li>Siegel et al. (2024). <cite>CORE-Bench: Fostering the Credibility of Published Research Through a Computational Reproducibility Agent Benchmark</cite>. <a href="https://arxiv.org/abs/2409.11363" rel="noopener noreferrer" target="_blank">arXiv:2409.11363</a>.</li>
+<li>Tian et al. (2024). <cite>SciCode: A Research Coding Benchmark Curated by Scientists</cite>. <a href="https://arxiv.org/abs/2407.13168" rel="noopener noreferrer" target="_blank">arXiv:2407.13168</a>.</li>
+<li>Kapoor et al. (2025). <cite>Holistic Agent Leaderboard: The Missing Infrastructure for AI Agent Evaluation</cite>. <a href="https://arxiv.org/abs/2510.11977" rel="noopener noreferrer" target="_blank">arXiv:2510.11977</a>.</li>
+<li>Li et al. (2025). <cite>Adaptive Testing for LLM Evaluation: A Psychometric Alternative to Static Benchmarks</cite>. <a href="https://arxiv.org/abs/2511.04689" rel="noopener noreferrer" target="_blank">arXiv:2511.04689</a>.</li>
+<li>Mehta (2025). <cite>Beyond Accuracy: A Multi-Dimensional Framework for Evaluating Enterprise Agentic AI Systems</cite>. <a href="https://arxiv.org/abs/2511.14136" rel="noopener noreferrer" target="_blank">arXiv:2511.14136</a>.</li>
+<li>Starace et al. (2025). <cite>PaperBench: Evaluating AI's Ability to Replicate AI Research</cite>. <a href="https://arxiv.org/abs/2504.01848" rel="noopener noreferrer" target="_blank">arXiv:2504.01848</a>.</li>
+<li>UK AISI (2025). <cite>Evidence for inference scaling in AI cyber tasks: increased evaluation budgets reveal higher success rates</cite>. <a href="https://www.aisi.gov.uk/blog/evidence-for-inference-scaling-in-ai-cyber-tasks-increased-evaluation-budgets-reveal-higher-success-rates" rel="noopener noreferrer" target="_blank">aisi.gov.uk</a>.</li>
+<li>Garikaparthi et al. (2026). <cite>ResearchGym: Evaluating Language Model Agents on Real-World AI Research</cite>. <a href="https://arxiv.org/abs/2602.15112" rel="noopener noreferrer" target="_blank">arXiv:2602.15112</a>.</li>
+<li>Ndzomga (2026). <cite>Efficient Benchmarking of AI Agents</cite>. <a href="https://arxiv.org/abs/2603.23749" rel="noopener noreferrer" target="_blank">arXiv:2603.23749</a>.</li>
+<li>Rabanser et al. (2026). <cite>Towards a Science of AI Agent Reliability</cite>. <a href="https://arxiv.org/abs/2602.16666" rel="noopener noreferrer" target="_blank">arXiv:2602.16666</a>.</li>
+<li>Holistic Agent Leaderboard (live). <a href="https://hal.cs.princeton.edu" rel="noopener noreferrer" target="_blank">hal.cs.princeton.edu</a>.</li>
+</ol>
 </div>
 
+<hr>
 
 <div class="citation-block">
 <span class="citation-label">BibTeX Citation</span>
