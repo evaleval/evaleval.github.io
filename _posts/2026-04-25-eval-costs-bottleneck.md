@@ -231,13 +231,12 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   color: var(--fg-subtle);
 }
 .eval-cost-article .axis-scale {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid var(--border-strong);
   padding-bottom: 4px;
 }
 .eval-cost-article .axis-scale span {
-  text-align: center;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
@@ -269,15 +268,33 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11.5px;
 }
+.eval-cost-article .chart-body {
+  position: relative;
+  --grid-interval: 20%;
+}
+.eval-cost-article .chart-body::before {
+  content: "";
+  position: absolute;
+  left: 228px;
+  right: 106px;
+  top: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(to right,
+    transparent 0,
+    transparent calc(var(--grid-interval) - 1px),
+    var(--border) calc(var(--grid-interval) - 1px),
+    var(--border) var(--grid-interval));
+  pointer-events: none;
+  z-index: 0;
+}
+.eval-cost-article .chart-body .chart-row {
+  position: relative;
+  z-index: 1;
+}
 .eval-cost-article .range-track,
 .eval-cost-article .bar-track {
   position: relative;
   height: 22px;
-  background: repeating-linear-gradient(to right,
-    transparent 0,
-    transparent calc(20% - 1px),
-    var(--border) calc(20% - 1px),
-    var(--border) 20%);
 }
 .eval-cost-article .range-bar {
   position: absolute;
@@ -418,6 +435,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 }
 
 @media (max-width: 760px) {
+  .eval-cost-article .chart-body::before { display: none; }
   .eval-cost-article { font-size: 16.5px; line-height: 1.68; }
   .eval-cost-article h2 { margin-top: 58px; letter-spacing: -0.025em; }
   .eval-cost-article .figure { margin: 36px auto; }
@@ -482,9 +500,9 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <h2 id="making-static-llm-benchmarks-cheaper">Making static LLM benchmarks cheaper</h2>
 
-<p>The cost problem started before agents. When Stanford's CRFM released <a href="https://arxiv.org/abs/2211.09110" rel="noopener noreferrer" target="_blank">HELM</a> in 2022, full-coverage evaluation already required roughly $10,000 or 4,000+ GPU-hours per model. <a href="https://arxiv.org/abs/2308.11696v5" rel="noopener noreferrer" target="_blank">Perlitz et al. (2023)</a> restate that figure, and <a href="https://research.ibm.com/blog/efficient-llm-benchmarking" rel="noopener noreferrer" target="_blank">IBM Research</a> notes that putting Granite-13B through HELM "can consume as many as 1,000 GPU hours." Multiplied across HELM's 30 models and 42 scenarios, the aggregate ran into the high six figures. </p>
+<p>The cost problem started before agents. When Stanford's CRFM released <a href="https://arxiv.org/abs/2211.09110" rel="noopener noreferrer" target="_blank">HELM</a> in 2022, the paper's own per-model accounting (Section 6, p. 43) showed API costs ranging from $169 for OpenAI's ada (350M) to $10,926 for AI21's J1-Jumbo (178B), and 540 to 4,200 GPU-hours for the open models, with BLOOM (176B) and OPT (175B) at the top end. <a href="https://arxiv.org/abs/2308.11696v5" rel="noopener noreferrer" target="_blank">Perlitz et al. (2023)</a> restate those figures, and <a href="https://research.ibm.com/blog/efficient-llm-benchmarking" rel="noopener noreferrer" target="_blank">IBM Research</a> notes that putting Granite-13B through HELM "can consume as many as 1,000 GPU hours." Across HELM's 30 models and 42 scenarios, the aggregate of reported costs and GPU compute came to roughly $100,000.</p>
 
-<p>The more striking observation came from <a href="https://arxiv.org/abs/2308.11696v5" rel="noopener noreferrer" target="_blank">Perlitz et al.'s analysis</a> of <a href="https://arxiv.org/abs/2304.01373" rel="noopener noreferrer" target="_blank">EleutherAI's Pythia</a> checkpoints, developers pay for evaluation even more. Pythia released 154 checkpoints across 16 model sizes so the community could study training dynamics. Running the LM Evaluation Harness across all those checkpoints turns eval into a multiplier on training: <a href="https://arxiv.org/abs/2308.11696v5" rel="noopener noreferrer" target="_blank">Perlitz et al. (2024)</a> noted that evaluation costs "may even surpass those of pretraining when evaluating checkpoints." For small models, evaluation becomes the dominant compute line item across the whole development cycle. When we scale inference-time compute, we scale evaluation costs.</p>
+<p>The more striking observation came from <a href="https://arxiv.org/abs/2308.11696v5" rel="noopener noreferrer" target="_blank">Perlitz et al.'s analysis</a> of <a href="https://arxiv.org/abs/2304.01373" rel="noopener noreferrer" target="_blank">EleutherAI's Pythia</a> checkpoints, developers pay for evaluation even more. Pythia released 154 checkpoints across 16 models spanning 8 sizes so the community could study training dynamics. Running the LM Evaluation Harness across all those checkpoints turns eval into a multiplier on training: <a href="https://arxiv.org/abs/2308.11696v5" rel="noopener noreferrer" target="_blank">Perlitz et al. (2024)</a> noted that evaluation costs "may even surpass those of pretraining when evaluating checkpoints." For small models, evaluation becomes the dominant compute line item across the whole development cycle. When we scale inference-time compute, we scale evaluation costs.</p>
 
 <p>Perlitz et al. then asked how much of HELM actually carried the rankings. The result was uncomfortable: a 100× to 200× reduction in compute preserved nearly the same ordering, and even a 400× reduction still grouped models into the same coarse tiers. Flash-HELM turned that finding into a coarse-to-fine procedure: run cheap evaluations first, then spend high-resolution compute only on the top candidates. Much of HELM's compute was not discovering new information; it was confirming rankings that the field could have inferred much more cheaply.</p>
 
@@ -507,13 +525,15 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 </div>
 <div aria-label="Per-run cost ranges on agent benchmarks from 19 cents to 2829 dollars." class="responsive-chart" role="img">
 <div class="axis"><span></span><div class="axis-scale"><span>$0.10</span><span>$1</span><span>$10</span><span>$100</span><span>$1k</span><span>$10k</span></div><span></span><div class="axis-label">Per-run cost (USD, log scale)</div></div>
-<div class="chart-row"><div class="chart-label">ScienceAgentBench</div><div class="range-track"><span class="range-bar" style="--min:5.56%;--max:57.33%;"></span></div><div class="chart-value">$0.19–$77</div></div>
-<div class="chart-row"><div class="chart-label">TAU-bench Airline</div><div class="range-track"><span class="range-bar" style="--min:9.83%;--max:65.11%;"></span></div><div class="chart-value">$0.31–$180</div></div>
+<div class="chart-body" style="--grid-interval: 20%;">
+<div class="chart-row"><div class="chart-label">ScienceAgentBench</div><div class="range-track"><span class="range-bar" style="--min:5.58%;--max:57.73%;"></span></div><div class="chart-value">$0.19–$77</div></div>
+<div class="chart-row"><div class="chart-label">TAU-bench Airline</div><div class="range-track"><span class="range-bar" style="--min:9.82%;--max:65.10%;"></span></div><div class="chart-value">$0.31–$180</div></div>
 <div class="chart-row"><div class="chart-label">CORE-Bench Hard</div><div class="range-track"><span class="range-bar" style="--min:26.02%;--max:74.15%;"></span></div><div class="chart-value">$2–$510</div></div>
 <div class="chart-row"><div class="chart-label">SciCode</div><div class="range-track"><span class="range-bar" style="--min:1.58%;--max:75.92%;"></span></div><div class="chart-value">$0.12–$625</div></div>
 <div class="chart-row"><div class="chart-label">SWE-bench Verified Mini</div><div class="range-track"><span class="range-bar" style="--min:32.04%;--max:84.08%;--series:var(--eval-warn);"></span></div><div class="chart-value">$4–$1,600</div></div>
-<div class="chart-row"><div class="chart-label">Online Mind2Web</div><div class="range-track"><span class="range-bar" style="--min:33.98%;--max:84.14%;--series:var(--eval-warn);"></span></div><div class="chart-value">$5–$1,610</div></div>
-<div class="chart-row"><div class="chart-label">GAIA</div><div class="range-track"><span class="range-bar" style="--min:37.84%;--max:89.03%;--series:var(--eval-warn);"></span></div><div class="chart-value">$7.80–$2,829</div></div>
+<div class="chart-row"><div class="chart-label">Online Mind2Web</div><div class="range-track"><span class="range-bar" style="--min:33.98%;--max:84.13%;--series:var(--eval-warn);"></span></div><div class="chart-value">$5–$1,610</div></div>
+<div class="chart-row"><div class="chart-label">GAIA</div><div class="range-track"><span class="range-bar" style="--min:37.84%;--max:89.04%;--series:var(--eval-warn);"></span></div><div class="chart-value">$7.80–$2,829</div></div>
+</div>
 </div>
 <figcaption class="figure-caption"><strong>Figure 1.</strong> Each bar shows the minimum-to-maximum cost across HAL configurations on a single benchmark. Highlighted bars cross the round $1,000-per-run threshold. A "run" is one full agent evaluation across all tasks. Within-benchmark spread reflects the model × scaffold × token-budget product. Source: live HAL leaderboard, April 2026.</figcaption>
 </figure>
@@ -558,14 +578,16 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 <span class="legend-item"><span class="legend-swatch red"></span>$5,000 or more</span>
 </div>
 <div aria-label="Training-in-the-loop benchmark costs range from about 540 dollars to 11500 dollars." class="responsive-chart" role="img">
-<div class="axis"><span></span><div class="axis-scale"><span>$100</span><span>$500</span><span>$1k</span><span>$5k</span><span>$10k</span><span>$20k</span></div><span></span><div class="axis-label">USD per single evaluation (log scale)</div></div>
-<div class="chart-row"><div class="chart-label">ResearchGym (1 seed)</div><div class="range-track"><span class="range-bar" style="--min:31.83%;--max:47.83%;"></span></div><div class="chart-value">$540–$1,260</div></div>
-<div class="chart-row"><div class="chart-label">RE-Bench (full agent)</div><div class="range-track"><span class="range-bar" style="--min:46.91%;--max:53.56%;"></span></div><div class="chart-value">$1,200–$1,800</div></div>
-<div class="chart-row"><div class="chart-label">The Well (per architecture)</div><div class="range-track"><span class="range-bar" style="--min:54.77%;--max:62.37%;"></span></div><div class="chart-value">$1,920–$2,880</div></div>
-<div class="chart-row"><div class="chart-label">MLE-Bench (1 seed)</div><div class="range-track"><span class="range-bar" style="--min:61.15%;--max:63.16%;"></span></div><div class="chart-value">~$2,800</div></div>
-<div class="chart-row"><div class="chart-label">PaperBench Code-Dev</div><div class="range-track"><span class="range-bar" style="--min:70.68%;--max:70.68%;"></span></div><div class="chart-value">~$4,200</div></div>
-<div class="chart-row"><div class="chart-label">The Well (full sweep)</div><div class="range-track"><span class="range-bar" style="--min:82.01%;--max:89.60%;--series:var(--eval-warn);"></span></div><div class="chart-value">$7,700–$11,500</div></div>
-<div class="chart-row"><div class="chart-label">PaperBench (full)</div><div class="range-track"><span class="range-bar" style="--min:85.97%;--max:85.97%;--series:var(--eval-warn);"></span></div><div class="chart-value">~$9,500</div></div>
+<div class="axis"><span></span><div class="axis-scale"><span>$100</span><span>$1k</span><span>$10k</span><span>$100k</span></div><span></span><div class="axis-label">USD per single evaluation (log scale)</div></div>
+<div class="chart-body" style="--grid-interval: 33.333%;">
+<div class="chart-row"><div class="chart-label">ResearchGym (full pass, 3 seeds)</div><div class="range-track"><span class="range-bar" style="--min:24.41%;--max:36.68%;"></span></div><div class="chart-value">$540–$1,260</div></div>
+<div class="chart-row"><div class="chart-label">RE-Bench (full agent)</div><div class="range-track"><span class="range-bar" style="--min:35.97%;--max:41.84%;"></span></div><div class="chart-value">$1,200–$1,800</div></div>
+<div class="chart-row"><div class="chart-label">The Well (per architecture)</div><div class="range-track"><span class="range-bar" style="--min:42.78%;--max:48.65%;"></span></div><div class="chart-value">$1,920–$2,880</div></div>
+<div class="chart-row"><div class="chart-label">MLE-Bench (1 seed)</div><div class="range-track"><span class="range-bar" style="--min:47.71%;--max:49.24%;"></span></div><div class="chart-value">$2,700–$3,000</div></div>
+<div class="chart-row"><div class="chart-label">PaperBench Code-Dev</div><div class="range-track"><span class="range-bar" style="--min:54.11%;--max:54.11%;"></span></div><div class="chart-value">~$4,200</div></div>
+<div class="chart-row"><div class="chart-label">The Well (full sweep)</div><div class="range-track"><span class="range-bar" style="--min:62.88%;--max:68.69%;--series:var(--eval-warn);"></span></div><div class="chart-value">$7,700–$11,500</div></div>
+<div class="chart-row"><div class="chart-label">PaperBench (full)</div><div class="range-track"><span class="range-bar" style="--min:65.92%;--max:65.92%;--series:var(--eval-warn);"></span></div><div class="chart-value">~$9,500</div></div>
+</div>
 </div>
 <figcaption class="figure-caption"><strong>Figure 2.</strong> All values in USD per single evaluation of one model or agent through the full benchmark protocol. GPU costs converted at $2.50/H100-hr, $1.50/A10-hr; API and grading costs included where applicable. Highlighted bars denote benchmarks costing at least the round $5,000-per-evaluation threshold. The most expensive of these match the most expensive agent benchmarks (Figure 1) but require GPU compute that has no API substitute.</figcaption>
 </figure>
@@ -578,16 +600,18 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 <div class="chart-title">Compression factors achievable by benchmark type</div>
 <div class="chart-subtitle">Maximum reduction in evaluation compute that preserves model-rank fidelity, log scale</div>
 <div aria-label="Color legend" class="chart-legend">
-<span class="legend-item"><span class="legend-swatch block"></span>Measured compression</span>
+<span class="legend-item"><span class="legend-swatch block"></span>Maximum measured compression</span>
 <span class="legend-item"><span class="legend-swatch block red"></span>No general compression method</span>
 </div>
 <div aria-label="Static benchmarks compress by about 100 to 200 times, agent benchmarks by 2 to 3.5 times, and training-in-the-loop benchmarks by about 1 time." class="responsive-chart" role="img">
-<div class="axis"><span></span><div class="axis-scale"><span>1×</span><span>10×</span><span>100×</span><span>1k×</span><span>10k×</span><span></span></div><span></span><div class="axis-label">Compression factor (log scale)</div></div>
+<div class="axis"><span></span><div class="axis-scale"><span>1×</span><span>10×</span><span>100×</span><span>1k×</span><span>10k×</span></div><span></span><div class="axis-label">Compression factor (log scale)</div></div>
+<div class="chart-body" style="--grid-interval: 25%;">
 <div class="chart-row"><div class="chart-label">Static benchmarks</div><div class="bar-track"><span class="single-bar" style="--max:57.53%;"></span></div><div class="chart-value">100–200×</div></div>
 <div class="chart-row"><div class="chart-label">Agentic benchmarks</div><div class="bar-track"><span class="single-bar" style="--max:13.60%;"></span></div><div class="chart-value">2–3.5×</div></div>
 <div class="chart-row"><div class="chart-label">Training-in-the-loop</div><div class="bar-track"><span class="single-bar thin" style="--max:.8%;"></span></div><div class="chart-value">~1×</div></div>
 </div>
-<figcaption class="figure-caption"><strong>Figure 3.</strong> The toolkit for compressing evaluation does not transfer as benchmarks become more complex. Solid bars show measured compression ranges. The highlighted bar is not a cost threshold; it flags the ~1× baseline where no general compression method exists. Static benchmarks routinely compress 100–200× without losing rankings. Agent benchmarks compress 2–3.5× at best. Training-in-the-loop benchmarks resist subsampling because the unit being evaluated <em>is</em> the trained model.</figcaption>
+</div>
+<figcaption class="figure-caption"><strong>Figure 3.</strong> The toolkit for compressing evaluation does not transfer as benchmarks become more complex. Bars show the maximum measured compression that preserves model-rank fidelity; labels give the published range. The highlighted bar flags the ~1× baseline where no general compression method exists. Static benchmarks routinely compress 100–200× without losing rankings. Agent benchmarks compress 2–3.5× at best. Training-in-the-loop benchmarks resist subsampling because the unit being evaluated <em>is</em> the trained model.</figcaption>
 </figure>
 
 <h2 id="reliability-is-the-expensive-part">Reliability is the expensive part</h2>
@@ -633,7 +657,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 </tr>
 </thead>
 <tbody>
-<tr><td>HELM (per LLM, 2022)</td><td>Static LLM</td><td>~$8,000 – $10,000</td><td>One LLM through full HELM (~4,000 GPU-hrs)</td></tr>
+<tr><td>HELM (per LLM, 2022)</td><td>Static LLM</td><td>$85 – $10,926 API; 540 – 4,200 GPU-hrs open</td><td>One LLM through 42 scenarios; per-model table in HELM §6 p. 43</td></tr>
 <tr><td>ScienceAgentBench</td><td>Agentic, science</td><td>$0.19 – $77</td><td>One agent config across 102 tasks</td></tr>
 <tr><td>TAU-bench Airline</td><td>Agentic</td><td>$0.31 – $180</td><td>One agent across all airline tasks</td></tr>
 <tr><td>SciCode</td><td>Agentic, science</td><td>$0.12 – $625</td><td>One agent across 338 sub-problems</td></tr>
@@ -641,7 +665,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 <tr><td>SWE-bench Verified Mini</td><td>Agentic, coding</td><td>$4 – $1,600</td><td>One agent across 50 issues</td></tr>
 <tr><td>Online Mind2Web</td><td>Agentic, web</td><td>$5 – $1,610</td><td>One agent across 300 web tasks</td></tr>
 <tr><td>GAIA</td><td>Agentic, multimodal</td><td>$7.80 – $2,829</td><td>One agent across GAIA tasks</td></tr>
-<tr><td>ResearchGym (per seed)</td><td>ML research, training</td><td>$540 – $1,260</td><td>5 tasks × 24h GPU + API</td></tr>
+<tr><td>ResearchGym (full pass)</td><td>ML research, training</td><td>$540 – $1,260</td><td>5 tasks × 24h × 3 seeds (~360 GPU-hrs) + API</td></tr>
 <tr><td>RE-Bench (full agent)</td><td>ML R&amp;D, training</td><td>$1,200 – $1,800</td><td>7 environments × 8h on H100</td></tr>
 <tr><td>The Well (per architecture)</td><td>SciML, training</td><td>$1,920 – $2,880</td><td>5 LRs × 16 datasets × 12h H100</td></tr>
 <tr><td>MLE-Bench (1 seed)</td><td>ML R&amp;D, training</td><td>~$2,700 – $3,000</td><td>75 Kaggle competitions × 24h on A10</td></tr>
