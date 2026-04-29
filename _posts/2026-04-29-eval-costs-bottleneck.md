@@ -506,7 +506,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <p>Perlitz et al. then asked how much of HELM actually carried the rankings. The result was striking: a 100× to 200× reduction in compute preserved nearly the same ordering, with larger reductions still useful for coarse grouping under the paper's tiered analysis. Flash-HELM turned that finding into a coarse-to-fine procedure: run cheap evaluations first, then spend high-resolution compute only on the top candidates. Much of HELM's compute was confirming rankings that the field could have inferred much more cheaply.</p>
 
-<p>Other work reached the same conclusion from different angles. <a href="https://arxiv.org/abs/2402.14992">tinyBenchmarks</a> compressed MMLU from 14,000 items to 100 anchor items at about 2% error using Item Response Theory. The Open LLM Leaderboard collapsed from 29,000 examples to 180. <a href="https://arxiv.org/abs/2309.08638">Anchor Points</a> showed that as few as 1 to 30 examples could rank-order 77 LLMs on GLUE, and <a href="https://arxiv.org/abs/2511.04689">others</a> followed, reducing dataset sizes by 90\%. Static benchmarks had a weakness you could exploit: model differences often concentrate in a small subset of items, so ranking can survive aggressive subsampling.</p>
+<p>Other work reached the same conclusion from different angles. <a href="https://arxiv.org/abs/2402.14992">tinyBenchmarks</a> compressed MMLU from 14,000 items to 100 anchor items at about 2% error using Item Response Theory. The Open LLM Leaderboard collapsed from 29,000 examples to 180. <a href="https://arxiv.org/abs/2309.08638">Anchor Points</a> showed that as few as 1 to 30 examples could rank-order 87 language-model/prompt pairs on GLUE, and <a href="https://arxiv.org/abs/2511.04689">others</a> followed, reducing dataset sizes by 90\%. Static benchmarks had a weakness you could exploit: model differences often concentrate in a small subset of items, so ranking can survive aggressive subsampling.</p>
 
 <p>That trick weakened sharply once benchmarks moved from static predictions to agents.</p>
 
@@ -548,7 +548,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <p>Some benchmarks escape the API-cost framing altogether because their evaluation protocol trains models from scratch.</p>
 
-<p><a href="https://arxiv.org/abs/2412.00568" rel="noopener noreferrer" target="_blank">The Well</a> gives a very interesting example of this. It bundles 16 scientific machine-learning datasets spanning biological systems, fluid dynamics, magnetohydrodynamics, supernova explosions, viscoelastic instability, and active matter, totaling 15 TB. The protocol leaves little room to economize: train each baseline model for 12 hours on a single H100, try five learning rates per (model, dataset) pair, repeat across four architectures and 16 datasets. The full sweep consumes 3,840 H100-hours, or roughly $9,600 under the conversion assumptions below. A single new architecture still costs about 960 H100-hours, or about $2,400.</p>
+<p><a href="https://arxiv.org/abs/2412.00568" rel="noopener noreferrer" target="_blank">The Well</a> gives a very interesting example of this. It bundles 16 scientific machine-learning datasets spanning biological systems, fluid dynamics, magnetohydrodynamics, supernova explosions, viscoelastic instability, and active matter, totaling 15 TB. Using the paper's headline 16-dataset grid, the protocol leaves little room to economize: train each baseline model for 12 hours on a single H100, try five learning rates per (model, dataset) pair, repeat across four architectures and 16 datasets. That headline-grid sweep consumes 3,840 H100-hours, or roughly $9,600 under the conversion assumptions below. A single new architecture still costs about 960 H100-hours, or about $2,400.</p>
 
 <p>Training one neural operator can take a single 12-hour H100 run, while evaluating it across the benchmark requires 80 such trainings. That asymmetry is what makes The Well important. In this corner of ML, evaluation compute exceeds training compute by roughly two orders of magnitude, reversing the old deep-learning mental model.</p>
 
@@ -665,10 +665,10 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 <tr><td>GAIA</td><td>Agentic, multimodal</td><td>$7.80 – $2,829</td><td>One agent across GAIA tasks</td></tr>
 <tr><td>ResearchGym (full pass)</td><td>ML research, training</td><td>$540 – $1,260</td><td>5 tasks × 24h × 3 seeds (~360 GPU-hrs) + API</td></tr>
 <tr><td>RE-Bench (single pass)</td><td>ML R&amp;D, training</td><td>$140 – $840</td><td>7 environments × 8h × 1–6 H100s</td></tr>
-<tr><td>The Well (per architecture)</td><td>SciML, training</td><td>~$2,400</td><td>5 LRs × 16 datasets × 12h H100</td></tr>
+<tr><td>The Well (per architecture)</td><td>SciML, training</td><td>~$2,400</td><td>Headline 16-dataset grid: 5 LRs × 16 datasets × 12h H100</td></tr>
 <tr><td>MLE-Bench (1 seed)</td><td>ML R&amp;D, training</td><td>~$5,500</td><td>75 Kaggle competitions × 24h on A10 + o1-preview API</td></tr>
 <tr><td>PaperBench Code-Dev</td><td>Scientific, code only</td><td>~$4,200</td><td>One agent across 20 papers, no execution</td></tr>
-<tr><td>The Well (full sweep)</td><td>SciML, training</td><td>~$9,600</td><td>4 architectures, full protocol</td></tr>
+<tr><td>The Well (full sweep)</td><td>SciML, training</td><td>~$9,600</td><td>4 architectures under the headline 16-dataset grid</td></tr>
 <tr><td>PaperBench (full)</td><td>Scientific</td><td>~$9,500</td><td>One agent across 20 papers, full protocol</td></tr>
 <tr><td>HAL aggregate</td><td>9 benchmarks × 9 models</td><td>~$40,000</td><td>All 81 cells, single seed each</td></tr>
 </tbody>
