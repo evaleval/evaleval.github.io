@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AI evals are becoming the new compute bottleneck"
-date: 2026-04-25
+date: 2026-04-29
 published: true
 category: Research
 image: /assets/img/blogs/eval-costs-bottleneck.png
@@ -742,7 +742,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   year         = {2026},
   month        = apr,
   howpublished = {EvalEval Coalition Blog},
-  url          = {https://evalevalai.com/research/2026/04/25/eval-costs-bottleneck/}
+  url          = {https://evalevalai.com/research/2026/04/29/eval-costs-bottleneck/}
 }{% endraw %}</code></pre>
 </div>
 
