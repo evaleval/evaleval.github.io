@@ -254,12 +254,15 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   align-items: center;
   min-height: 34px;
   padding: 4px 0;
+  border-radius: 4px;
+  transition: background-color 140ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 .eval-cost-article .chart-label {
   color: var(--fg);
   font-weight: 520;
   line-height: 1.22;
   overflow-wrap: anywhere;
+  transition: color 140ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 .eval-cost-article .chart-value {
   color: var(--fg-muted);
@@ -267,6 +270,13 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   white-space: nowrap;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11.5px;
+  justify-self: start;
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition:
+    background-color 140ms cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 140ms cubic-bezier(0.25, 1, 0.5, 1),
+    color 140ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 .eval-cost-article .chart-body {
   position: relative;
@@ -303,6 +313,12 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   width: calc(var(--max) - var(--min));
   height: 3px;
   background: var(--series, var(--fg));
+  transform-origin: left center;
+  transition:
+    box-shadow 140ms cubic-bezier(0.25, 1, 0.5, 1),
+    height 140ms cubic-bezier(0.25, 1, 0.5, 1),
+    top 140ms cubic-bezier(0.25, 1, 0.5, 1),
+    transform 140ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 .eval-cost-article .range-bar::before,
 .eval-cost-article .range-bar::after {
@@ -324,12 +340,71 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   width: var(--max);
   height: 10px;
   background: var(--series, var(--fg));
+  transform-origin: left center;
+  transition:
+    box-shadow 140ms cubic-bezier(0.25, 1, 0.5, 1),
+    transform 140ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 .eval-cost-article .single-bar.thin {
   height: 4px;
   top: 9px;
   min-width: 3px;
   background: var(--eval-warn);
+}
+.eval-cost-article .chart-row:hover {
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+.eval-cost-article .chart-row:hover .chart-label {
+  color: var(--fg);
+}
+.eval-cost-article .chart-row:hover .chart-value {
+  background: color-mix(in srgb, var(--accent) 14%, var(--bg));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 34%, transparent);
+  color: var(--accent);
+}
+.eval-cost-article .chart-row:hover .range-bar {
+  top: 8px;
+  height: 5px;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--series, var(--fg)) 14%, transparent);
+}
+.eval-cost-article .chart-row:hover .single-bar {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--series, var(--fg)) 14%, transparent);
+  transform: scaleY(1.45);
+}
+.eval-cost-article .responsive-chart.chart-armed .chart-row {
+  opacity: 0;
+}
+.eval-cost-article .responsive-chart.chart-armed .single-bar {
+  clip-path: inset(0 100% 0 0);
+}
+.eval-cost-article .responsive-chart.chart-armed.is-visible .chart-row {
+  animation: eval-chart-row-in 360ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: var(--row-delay, 0ms);
+}
+.eval-cost-article .responsive-chart.chart-armed.is-visible .single-bar {
+  animation: eval-chart-mark-in 520ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: var(--row-delay, 0ms);
+}
+.eval-cost-article .chart-body .chart-row:nth-child(1) { --row-delay: 40ms; }
+.eval-cost-article .chart-body .chart-row:nth-child(2) { --row-delay: 90ms; }
+.eval-cost-article .chart-body .chart-row:nth-child(3) { --row-delay: 140ms; }
+.eval-cost-article .chart-body .chart-row:nth-child(4) { --row-delay: 190ms; }
+.eval-cost-article .chart-body .chart-row:nth-child(5) { --row-delay: 240ms; }
+.eval-cost-article .chart-body .chart-row:nth-child(6) { --row-delay: 290ms; }
+.eval-cost-article .chart-body .chart-row:nth-child(7) { --row-delay: 340ms; }
+@keyframes eval-chart-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes eval-chart-mark-in {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
 }
 .eval-cost-article .figure-caption {
   max-width: 760px;
@@ -348,16 +423,14 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   max-width: 760px;
   width: 100%;
   margin: 28px auto 12px;
-  overflow-x: auto;
   border-top: 1px solid var(--border-strong);
   border-bottom: 1px solid var(--border-strong);
-  -webkit-overflow-scrolling: touch;
 }
 .eval-cost-article table {
   width: 100%;
-  min-width: 820px;
   margin: 0;
   border-collapse: collapse;
+  table-layout: fixed;
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   line-height: 1.45;
@@ -370,6 +443,12 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   border: 0;
   border-bottom: 1px solid var(--border);
   color: var(--fg);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  transition:
+    background-color 140ms cubic-bezier(0.25, 1, 0.5, 1),
+    color 140ms cubic-bezier(0.25, 1, 0.5, 1);
 }
 .eval-cost-article th {
   background: var(--bg-subtle);
@@ -377,6 +456,40 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   font-weight: 650;
   letter-spacing: .05em;
   text-transform: uppercase;
+}
+.eval-cost-article tbody tr:hover td {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.eval-cost-article tbody tr:hover td:first-child,
+.eval-cost-article tbody tr:hover td:nth-child(3) {
+  color: var(--accent);
+}
+.eval-cost-article .table-wrap.table-armed tbody tr {
+  opacity: 0;
+}
+.eval-cost-article .table-wrap.table-armed.is-visible tbody tr {
+  animation: eval-table-row-in 320ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: var(--table-row-delay, 0ms);
+}
+.eval-cost-article tbody tr:nth-child(1) { --table-row-delay: 40ms; }
+.eval-cost-article tbody tr:nth-child(2) { --table-row-delay: 75ms; }
+.eval-cost-article tbody tr:nth-child(3) { --table-row-delay: 110ms; }
+.eval-cost-article tbody tr:nth-child(4) { --table-row-delay: 145ms; }
+.eval-cost-article tbody tr:nth-child(5) { --table-row-delay: 180ms; }
+.eval-cost-article tbody tr:nth-child(6) { --table-row-delay: 215ms; }
+.eval-cost-article tbody tr:nth-child(7) { --table-row-delay: 250ms; }
+.eval-cost-article tbody tr:nth-child(8) { --table-row-delay: 285ms; }
+.eval-cost-article tbody tr:nth-child(9) { --table-row-delay: 320ms; }
+.eval-cost-article tbody tr:nth-child(10) { --table-row-delay: 355ms; }
+.eval-cost-article tbody tr:nth-child(11) { --table-row-delay: 390ms; }
+.eval-cost-article tbody tr:nth-child(12) { --table-row-delay: 425ms; }
+.eval-cost-article tbody tr:nth-child(13) { --table-row-delay: 460ms; }
+.eval-cost-article tbody tr:nth-child(14) { --table-row-delay: 495ms; }
+.eval-cost-article tbody tr:nth-child(15) { --table-row-delay: 530ms; }
+.eval-cost-article tbody tr:nth-child(16) { --table-row-delay: 565ms; }
+@keyframes eval-table-row-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 .eval-cost-article tbody tr:last-child td { border-bottom: 0; }
 .eval-cost-article .table-note {
@@ -432,6 +545,27 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 .eval-cost-article .source-list cite {
   font-style: italic;
   color: var(--fg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eval-cost-article .chart-row,
+  .eval-cost-article .chart-label,
+  .eval-cost-article .chart-value,
+  .eval-cost-article .range-bar,
+  .eval-cost-article .single-bar,
+  .eval-cost-article .table-wrap tbody tr,
+  .eval-cost-article .table-wrap td {
+    animation: none;
+    transition: none;
+  }
+  .eval-cost-article .chart-body .chart-row,
+  .eval-cost-article .table-wrap.table-armed tbody tr {
+    opacity: 1;
+  }
+  .eval-cost-article .responsive-chart.chart-armed .single-bar,
+  .eval-cost-article .single-bar {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 @media (max-width: 760px) {
@@ -492,7 +626,9 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   .eval-cost-article .range-bar::after { width: 7px; height: 7px; }
   .eval-cost-article .single-bar { top: 5px; height: 10px; }
   .eval-cost-article .single-bar.thin { top: 8px; height: 4px; }
-  .eval-cost-article table { min-width: 760px; }
+  .eval-cost-article table { font-size: 12px; }
+  .eval-cost-article th,
+  .eval-cost-article td { padding: 8px 7px; }
 }
 </style>
 
@@ -558,7 +694,7 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <p><a href="https://arxiv.org/abs/2602.15112" rel="noopener noreferrer" target="_blank">ResearchGym</a> (ICLR 2026) makes the agent run actual ML research. Five test tasks (39 sub-tasks) drawn from ACL, ICLR, and ICML papers, including ACL Highlights, ICML Spotlight, ICLR Spotlight, and ICLR Oral categories, with the proposed methods withheld. The agent has to propose hypotheses, train models, and beat the original authors' baselines. The budget is tight: $10 in API plus 12 to 24 hours on a single GPU under 24 GB per task. A full pass (5 tasks × 24h × 3 seeds) consumes about 360 GPU-hours per agent.</p>
 
-<p><a href="https://arxiv.org/abs/2504.01848" rel="noopener noreferrer" target="_blank">PaperBench</a> is where the cost picture turns brutal. Twenty ICML 2024 Spotlight or Oral papers must be replicated from scratch, graded against rubric trees with 8,316 leaf-node criteria. Each rollout uses an A10 GPU for 12 hours, and the per-paper math is straightforward:</p>
+<p>The cost picture turns brutal in <a href="https://arxiv.org/abs/2504.01848" rel="noopener noreferrer" target="_blank">PaperBench</a>. Twenty ICML 2024 Spotlight or Oral papers must be replicated from scratch, graded against rubric trees with 8,316 leaf-node criteria. Each rollout uses an A10 GPU for 12 hours, and the per-paper math is straightforward:</p>
 
 <ul>
 <li>$400 in API per o1 IterativeAgent rollout, times 20 papers, comes to about $8,000 per evaluation.</li>
@@ -626,8 +762,6 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <h2 id="what-this-means-for-ml-as-a-field">What this means for ML as a field</h2>
 
-<p>The data point to three consequences that reinforce one another.</p>
-
 <h3>Eval cost is now an accountability barrier</h3>
 
 <p>Academic groups, AI Safety Institutes, and journalists now hit the budget constraint before the technical one when they try to evaluate frontier agents independently. A single GAIA run can exceed an annual graduate student travel budget. A single PaperBench evaluation, including the LLM judge, runs about $9,500. Three-seed comparisons of six models, the kind of study one might publish, push above $150,000. The established practice of "running a benchmark once and reporting the accuracy number" has roughly the rigor of crash-testing one car in perfect weather. Moving past it requires money the academic system does not currently allocate as research compute.</p>
@@ -646,6 +780,12 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 
 <div aria-label="Cost summary across benchmark types" class="table-wrap" role="region" tabindex="0">
 <table>
+<colgroup>
+<col style="width: 22%;">
+<col style="width: 16%;">
+<col style="width: 26%;">
+<col style="width: 36%;">
+</colgroup>
 <thead>
 <tr>
 <th>Benchmark</th>
@@ -729,6 +869,45 @@ description: "A field guide to evaluation costs: where the money goes, why old c
 <li>Holistic Agent Leaderboard (live). <a href="https://hal.cs.princeton.edu" rel="noopener noreferrer" target="_blank">hal.cs.princeton.edu</a>.</li>
 </ol>
 </div>
+
+<script>
+(function () {
+  var animatedBlocks = Array.prototype.slice.call(
+    document.querySelectorAll('.eval-cost-article .responsive-chart, .eval-cost-article .table-wrap')
+  );
+  if (!animatedBlocks.length) return;
+
+  animatedBlocks.forEach(function (block) {
+    if (block.classList.contains('responsive-chart')) {
+      block.classList.add('chart-armed');
+    } else {
+      block.classList.add('table-armed');
+    }
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    animatedBlocks.forEach(function (block) {
+      block.classList.add('is-visible');
+    });
+    return;
+  }
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, {
+    rootMargin: '0px 0px -12% 0px',
+    threshold: 0.2
+  });
+
+  animatedBlocks.forEach(function (block) {
+    observer.observe(block);
+  });
+})();
+</script>
 
 <hr>
 
