@@ -70,7 +70,7 @@ This panel brings together model developers and evaluation researchers to examin
 
 ---
 
-### 🗣️ 2:50 PM – 3:50 PM | Six Oral Presentations *(60 mins)*
+### 🗣️ 2:50 PM – 3:20 PM | Six Oral Presentations *(30 mins)*
 **Moderator:** Usman Gohar, Iowa State University
 
 📄 [Rigorous Interpretation Is a Form of Evaluation](https://openreview.net/forum?id=5DPXnrt8vU&referrer=%5BProgram%20Chair%20Console%5D(%2Fgroup%3Fid%3Daclweb.org%2FACL%2F2026%2FWorkshop%2FEvalEval%2FProgram_Chairs%23submission-status))
@@ -93,7 +93,7 @@ This panel brings together model developers and evaluation researchers to examin
 
 ---
 
-### 🪧 3:50 PM – 4:20 PM | Poster Presentations *(60 mins)*
+### 🪧 3:20 PM – 4:20 PM | Poster Presentations *(60 mins)*
 **Moderator:** Usman Gohar, University of Iowa
 
 ---
