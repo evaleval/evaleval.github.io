@@ -112,7 +112,7 @@ The [Every Eval Ever](https://github.com/evaleval/every_eval_ever) Shared Task a
 ---
 
 ### 🏆 5:15 PM – 5:25 PM | EvalEval Community Awards *(10 mins)*
-**Moderator:** Leshem Chosen, MIT CSAIL & IBM Research
+**Moderator:** Leshem Choshen, IBM Research, MIT-IBM Watson AI lab, MIT
 
 ---
 
