@@ -1,13 +1,13 @@
 ---
 layout: event
-title: 2026 ACL Workshop on Evaluating AI in Practice
-subtitle: Methodological Rigor, Sociotechnical Perspectives, and Community Collaborations
+title: Second Workshop on Evaluating Evaluations (EvalEval)
+subtitle: Examining Best Practices for Utilizing and Developing Generative Model Evaluations
 team: Mubashara Akhtar, Jan Batzner, Leshem Choshen, Avijit Ghosh, Usman Gohar, Jennifer Mickel, Ichhya Pant, Zeerak Talat
 status: active
 order: 1
 category: Organization
-event_date: 2026-7-03
-location: ACL in San Diego
+event_date: 2026-7-04
+location: Room Harbor A
 host: EvalEval
 description:  |
   This workshop focuses on AI evaluation in practice, centering the tensions and collaborations between model developers and evaluation researchers and aims to surface practical insights from across the evaluation ecosystem.
@@ -47,6 +47,77 @@ State of sociotechnical evaluations of generative AI systems, drawing on categor
 * **Labor and creativity**: Evaluations of data and content moderation labor, intellectual property, ownership, and labor market impacts;
 * **Ecosystem and environment**: Evaluations of environmental costs, carbon emissions, and widening resource gaps.
 
+## 🗓️ Schedule
+
+### 👋 2:00 PM – 2:05 PM | Welcome and Introduction *(5 mins)*
+**Jennifer Mickel**, EvalEval Workshop Co-Chair
+
+---
+
+### 🎙️ 2:05 PM – 2:45 PM | Panel Presentation *(30 mins panel + 10 mins Q&A)*
+**Moderator:** Leshem Chosen, MIT CSAIL
+
+This panel brings together model developers and evaluation researchers to examine how evaluations are designed, interpreted, and used in real-world model development. We will surface key tensions carefully balancing between speed vs. rigor, benchmarks vs. deployment needs, and generality vs. task-specificity while highlighting points of productive collaboration. The discussion aims to bridge perspectives from both communities and identify concrete pathways for more aligned, impactful evaluation practices in NLP.
+
+**👥 Panelists:**
+- [Angelina Wang](https://angelina-wang.github.io/), Cornell Tech
+- [Michal Shmueli-Scheuer](https://research.ibm.com/people/michal-shmueli-scheuer), IBM
+- [Sebastian Gehrman](https://sebastiangehrmann.github.io/), Bloomberg
+
+---
+
+### ☕ 2:45 PM – 2:50 PM | BREAK *(5 mins)*
+
+---
+
+### 🗣️ 2:50 PM – 3:50 PM | Six Oral Presentations *(60 mins)*
+**Moderator:** Usman Gohar, Iowa State University
+
+📄 [Rigorous Interpretation Is a Form of Evaluation](https://openreview.net/forum?id=5DPXnrt8vU&referrer=%5BProgram%20Chair%20Console%5D(%2Fgroup%3Fid%3Daclweb.org%2FACL%2F2026%2FWorkshop%2FEvalEval%2FProgram_Chairs%23submission-status))
+[Isabelle Lee](https://openreview.net/profile?id=~Isabelle_Lee1), [Emmy Liu](https://openreview.net/profile?id=~Emmy_Liu1), [Cathy Jiao](https://openreview.net/profile?id=~Cathy_Jiao1), [Brihi Joshi](https://openreview.net/profile?id=~Brihi_Joshi1), [Dani Yogatama](https://openreview.net/profile?id=~Dani_Yogatama2), [Fazl Barez](https://openreview.net/profile?id=~Fazl_Barez1), [Michael Saxon](https://openreview.net/profile?id=~Michael_Saxon1)
+
+📄 [Graduating the Benchmark Scale: Lessons from Thermometry](https://openreview.net/forum?id=EJSwPvVTpm&referrer=%5BProgram%20Chair%20Console%5D(%2Fgroup%3Fid%3Daclweb.org%2FACL%2F2026%2FWorkshop%2FEvalEval%2FProgram_Chairs%23submission-status))
+[Sean Trott](https://openreview.net/profile?id=~Sean_Trott1), [Oisín Parkinson-Coombs](https://openreview.net/profile?id=~Ois%C3%ADn_Parkinson-Coombs1)
+
+📄 [One Persona, Many Cues, Different Results: How Sociodemographic Cues Impact LLM Personalization](https://openreview.net/forum?id=oKiZ4EgUa5&referrer=%5BProgram%20Chair%20Console%5D(%2Fgroup%3Fid%3Daclweb.org%2FACL%2F2026%2FWorkshop%2FEvalEval%2FProgram_Chairs%23submission-status))
+[Franziska Weeber](https://openreview.net/profile?id=~Franziska_Weeber1), [Vera Neplenbroek](https://openreview.net/profile?id=~Vera_Neplenbroek1), [Jan Batzner](https://openreview.net/profile?id=~Jan_Batzner1), [Sebastian Padó](https://openreview.net/profile?id=~Sebastian_Pad%C3%B32)
+
+📄 [Becoming Experienced Judges: Selective Test-Time Learning for Evaluators](https://openreview.net/forum?id=Jxa0lJWZ5b&referrer=%5BProgram%20Chair%20Console%5D(%2Fgroup%3Fid%3Daclweb.org%2FACL%2F2026%2FWorkshop%2FEvalEval%2FProgram_Chairs%23submission-status))
+[Seungyeon Jwa](https://openreview.net/profile?id=~Seungyeon_Jwa1), [Daechul Ahn](https://openreview.net/profile?id=~Daechul_Ahn4), [Reokyoung Kim](https://openreview.net/profile?id=~Reokyoung_Kim1), [Dongyeop Kang](https://openreview.net/profile?id=~Dongyeop_Kang2), [Jonghyun Choi](https://openreview.net/profile?id=~Jonghyun_Choi1)
+
+📄 [LLMs Gaming Verifiers: RLVR can Lead to Reward Hacking](https://openreview.net/forum?id=g6sqdWLzV0&referrer=%5BProgram%20Chair%20Console%5D(%2Fgroup%3Fid%3Daclweb.org%2FACL%2F2026%2FWorkshop%2FEvalEval%2FProgram_Chairs%23submission-status))
+[Lukas Helff](https://openreview.net/profile?id=~Lukas_Helff1), [Quentin Delfosse](https://openreview.net/profile?id=~Quentin_Delfosse1), [David Steinmann](https://openreview.net/profile?id=~David_Steinmann1), [Ruben Härle](https://openreview.net/profile?id=~Ruben_H%C3%A4rle1), [Hikaru Shindo](https://openreview.net/profile?id=~Hikaru_Shindo1), [Patrick Schramowski](https://openreview.net/profile?id=~Patrick_Schramowski1), [Wolfgang Stammer](https://openreview.net/profile?id=~Wolfgang_Stammer1), [Kristian Kersting](https://openreview.net/profile?id=~Kristian_Kersting1), [Felix Friedrich](https://openreview.net/profile?id=~Felix_Friedrich1)
+
+📄 [Community-Centered Measurement of Cultural Content in AI Images](https://openreview.net/forum?id=GwJ6ypeh66&referrer=%5BProgram%20Chair%20Console%5D(%2Fgroup%3Fid%3Daclweb.org%2FACL%2F2026%2FWorkshop%2FEvalEval%2FProgram_Chairs%23submission-status))
+[Nari Johnson](https://openreview.net/profile?id=~Nari_Johnson1), [Deepthi Sudharsan](https://openreview.net/profile?id=~Deepthi_Sudharsan1), [Hamna](https://openreview.net/profile?id=~Hamna1), [Samantha Dalal](https://openreview.net/profile?id=~Samantha_Dalal1), [Theo Holroyd](https://openreview.net/profile?id=~Theo_Holroyd1), [Anja Thieme](https://openreview.net/profile?id=~Anja_Thieme1), [Hoda Heidari](https://openreview.net/profile?id=~Hoda_Heidari2), [Daniela Massiceti](https://openreview.net/profile?id=~Daniela_Massiceti1), [Jennifer Wortman Vaughan](https://openreview.net/profile?id=~Jennifer_Wortman_Vaughan1), [Cecily Morrison](https://openreview.net/profile?id=~Cecily_Morrison1)
+
+---
+
+### 🪧 3:50 PM – 4:20 PM | Poster Presentations *(60 mins)*
+**Moderator:** Usman Gohar, University of Iowa
+
+---
+
+### ☕ 4:20 PM – 4:25 PM | BREAK *(5 mins)*
+
+---
+
+### 🔬 4:25 PM – 5:15 PM | Shared Task *(50 mins)*
+**Moderator:** Jan Batzner, Technical University Munich
+
+As the cost of genAI model evaluation is rapidly increasing, researchers, non-profits, small companies, and civil society orgs need to rely on existing evaluation data on the web. Evaluation data refers to Large Language Model evaluations on popular benchmarks or domain-specific tasks, which are commonly saved under Hugging Face leaderboards or reported in research papers. However, with numerous evaluation frameworks emerging across research and industry, evaluation data is scattered across different platforms, stored in inconsistent formats, and lacks standardization that would enable meaningful comparison and meta-analysis.
+
+The [Every Eval Ever](https://github.com/evaleval/every_eval_ever) Shared Task aims to address this fragmentation by establishing a unified metadata schema for LLM evaluations to populate a comprehensive, standardized database of evaluation results. Qualifying contributors will be invited to join the paper write-up as co-authors. 🖊️
+
+---
+
+### 🏆 5:15 PM – 5:25 PM | EvalEval Community Awards *(10 mins)*
+**Moderator:** Leshem Chosen, MIT CSAIL & IBM Research
+
+---
+
+### 🎤 5:25 PM – 5:30 PM | Closing Remarks *(5 mins)*
+**Ichhya Pant**, EvalEval Workshop Co-Chair
 
 ## 📄 Submission Guidelines
 We welcome the following types of submissions:
