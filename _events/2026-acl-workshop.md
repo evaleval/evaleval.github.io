@@ -1,6 +1,6 @@
 ---
 layout: event
-title: Second Workshop on Evaluating Evaluations (EvalEval)
+title: 2026 ACL Workshop on Evaluating Evaluations (EvalEval)
 subtitle: Examining Best Practices for Utilizing and Developing Generative Model Evaluations
 team: Mubashara Akhtar, Jan Batzner, Leshem Choshen, Avijit Ghosh, Usman Gohar, Jennifer Mickel, Ichhya Pant, Zeerak Talat
 status: active
