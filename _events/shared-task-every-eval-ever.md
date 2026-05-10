@@ -1,6 +1,6 @@
 ---
 layout: event
-title: "Shared Task: Every Eval Ever"
+title: "ACL Shared Task on Every Eval Ever"
 subtitle: Building a Unifying, Standardized Database of LLM Evaluations
 status: active
 order: 2
@@ -8,6 +8,7 @@ category: Infrastructure
 event_date: 2026-05-01
 location: 🌐 Online
 host: EvalEval
+team: Jan Batzner, Sree Harsha Nelaturu, Anastassia Kornilova, Damian Stachura, Stella Biderman, Irene Solaiman, Avijit Ghosh, Leshem Choshen
 description: |
   Help us build the first unifying, open database of LLM evaluation results! Convert evaluation data from leaderboards, papers, or your own runs into a shared format — and join as co-author on the resulting paper.
 ---
