@@ -13,41 +13,9 @@ description:  |
   This workshop focuses on AI evaluation in practice, centering the tensions and collaborations between model developers and evaluation researchers and aims to surface practical insights from across the evaluation ecosystem.
 ---
 
-## 📖 Background 
-As Generative AI systems are increasingly integrated into real-world products and decision-making pipelines, evaluation has become a central yet challenging component of responsible AI development.[^1] While evaluation research has advanced rapidly, gaps persist between research and practice: model developers often prioritize scalability and integration into development workflows, while evaluation researchers emphasize rigor, validity, and sociotechnical considerations. [The EvalEval coalition's multi author effort](https://arxiv.org/abs/2511.05613) mapping first- and third-party social impact evaluations shows a clear division of labor, where developers underreport or deprioritize key impacts such as environmental costs, data provenance, and labor practices, while third-party evaluators provide broader but necessarily incomplete coverage, leaving critical gaps in accountability and comparability.[^2]
+**Update:** We are excited to meet you in San Diego! Save the date: on 03/July/2026 around 8pm, we will co-host a Social together with the [GEM workshop](https://gem-workshop.com). Both of our workshops will then be on the day after.
 
-This workshop focuses on AI evaluation in practice, centering the tensions and collaborations between model developers and evaluation researchers. Through a call for papers on contemporary challenges spanning methodological rigor, sociotechnical perspectives, scalability, community-informed evaluation, and real-world use alongside invited panels, the workshop aims to surface practical insights from across the evaluation ecosystem. The workshop will also host a [shared task for building a unifying, standardized database of LLM Evaluations](https://evalevalai.com/events/shared-task-every-eval-ever/), encouraging shared infrastructure and actionable evaluation practices.
-
-## 📝 Topics
-
-Themes for submission include, but are not limited to:
-
-### 1. Evaluation Methodology and Measurement Theory
-
-* **Conceptualization**: Operationalization and construct definition issues in evaluations of generative AI;
-* **Validity**: Construct, convergent, and discriminant validity of existing evaluations;
-* **Reliability**: Robustness, consistency, and generalizability of evaluation methods;
-* **Metrics**: Design, selection, and limitations of evaluation metrics, benchmarks, and scoring methods;
-* **Reproducibility**: Cross-model and cross-context reproducibility, standardization, and aggregation of evaluation results.
-
-### 2. Evaluation Infrastructure, Cost, and Stakeholders
-
-* **Infrastructure**: Evaluation harnesses, tooling, platforms, and scalability of evaluation setups;[^3]
-* **Financial costs**: Monetary costs of evaluations and documentation frameworks for tracking them;
-* **Documentation**: Transparency and reporting standards for evaluation processes and their limitations;
-* **Stakeholders**: Who evaluates, the relationship between evaluators and system developers, and the role of independent and third-party audits.
-
-### 3. Evaluating Sociotechnical Impacts
-
-State of sociotechnical evaluations of generative AI systems, drawing on categories such as those in the [EvalEval social impact taxonomy](https://zeerak.org/papers/Evaluating_the_Social_Impact_of_Generative_AI_Systems_in_Systems_and_Society__preprint_.pdf):<sup><a href="#fn:1">1</a></sup>
-
-* **Bias, stereotypes, and representational harms**: Evaluations of stereotypes, disparate performance, inequality, marginalization, and community erasure;
-* **Cultural values and sensitive content**: Evaluations of linguistic diversity, sensitive content, trustworthiness, overreliance on outputs, and imposing norms and values;
-* **Privacy and data protection**: Evaluations of memorization, data leakage, contextual integrity, and personal privacy and sense of self;
-* **Labor and creativity**: Evaluations of data and content moderation labor, intellectual property, ownership, and labor market impacts;
-* **Ecosystem and environment**: Evaluations of environmental costs, carbon emissions, and widening resource gaps.
-
-## 🗓️ Schedule
+## 🗓️ Schedule 04/July/2026 Afternoon 
 
 ### 👋 2:00 PM – 2:05 PM | Welcome and Introduction *(5 mins)*
 **Jennifer Mickel**, EvalEval Workshop Co-Chair
@@ -55,14 +23,14 @@ State of sociotechnical evaluations of generative AI systems, drawing on categor
 ---
 
 ### 🎙️ 2:05 PM – 2:45 PM | Panel Presentation *(30 mins panel + 10 mins Q&A)*
-**Moderator:** Leshem Chosen, MIT CSAIL
+**Moderator:** Leshem Choshen, MIT, IBM Research, MIT-IBM Watson AI Lab
 
-This panel brings together model developers and evaluation researchers to examine how evaluations are designed, interpreted, and used in real-world model development. We will surface key tensions carefully balancing between speed vs. rigor, benchmarks vs. deployment needs, and generality vs. task-specificity while highlighting points of productive collaboration. The discussion aims to bridge perspectives from both communities and identify concrete pathways for more aligned, impactful evaluation practices in NLP.
+This panel brings together model developers and evaluation researchers to examine how evaluations are designed, interpreted, and used in real-world model development. We will surface key tensions — speed vs. rigor, benchmarks vs. deployment needs, and generality vs. task-specificity — while highlighting points of productive collaboration. The discussion aims to bridge perspectives from both communities and identify concrete pathways for more aligned, impactful evaluation practices in NLP.
 
 **👥 Panelists:**
 - [Angelina Wang](https://angelina-wang.github.io/), Cornell Tech
 - [Michal Shmueli-Scheuer](https://research.ibm.com/people/michal-shmueli-scheuer), IBM
-- [Sebastian Gehrman](https://sebastiangehrmann.github.io/), Bloomberg
+- [Sebastian Gehrmann](https://sebastiangehrmann.github.io/), Bloomberg
 
 ---
 
@@ -94,7 +62,7 @@ This panel brings together model developers and evaluation researchers to examin
 ---
 
 ### 🪧 3:20 PM – 4:20 PM | Poster Presentations *(60 mins)*
-**Moderator:** Usman Gohar, University of Iowa
+**Moderator:** Usman Gohar, Iowa State University
 
 ---
 
@@ -103,21 +71,53 @@ This panel brings together model developers and evaluation researchers to examin
 ---
 
 ### 🔬 4:25 PM – 5:15 PM | Shared Task *(50 mins)*
-**Moderator:** Jan Batzner, Technical University Munich
+**Moderator:** Jan Batzner, Weizenbaum Institute, Technical University Munich
 
-As the cost of genAI model evaluation is rapidly increasing, researchers, non-profits, small companies, and civil society orgs need to rely on existing evaluation data on the web. Evaluation data refers to Large Language Model evaluations on popular benchmarks or domain-specific tasks, which are commonly saved under Hugging Face leaderboards or reported in research papers. However, with numerous evaluation frameworks emerging across research and industry, evaluation data is scattered across different platforms, stored in inconsistent formats, and lacks standardization that would enable meaningful comparison and meta-analysis.
-
-The [Every Eval Ever](https://github.com/evaleval/every_eval_ever) Shared Task aims to address this fragmentation by establishing a unified metadata schema for LLM evaluations to populate a comprehensive, standardized database of evaluation results. Qualifying contributors will be invited to join the paper write-up as co-authors. 🖊️
+AI evaluation results are scattered across leaderboards, papers, blog posts, and harness logs in incompatible formats, with different frameworks producing divergent scores and inconsistent metadata that hinder comparison, reuse, and cost reduction. **Every Eval Ever** is the first shared schema and community-crowdsourced repository for AI evaluation results — source-agnostic by design and at unprecedented scale: **22,235 models, 2,273 unique benchmarks, and 31 evaluation formats — and growing**. At ACL, we present the [Every Eval Ever Shared Task](https://github.com/evaleval/every_eval_ever) and the community case studies it has enabled on this data. 🖊️
 
 ---
 
 ### 🏆 5:15 PM – 5:25 PM | EvalEval Community Awards *(10 mins)*
-**Moderator:** Leshem Choshen, IBM Research, MIT-IBM Watson AI lab, MIT
+**Moderator:** Leshem Choshen, MIT, IBM Research, MIT-IBM Watson AI Lab
 
 ---
 
 ### 🎤 5:25 PM – 5:30 PM | Closing Remarks *(5 mins)*
 **Ichhya Pant**, EvalEval Workshop Co-Chair
+
+## 📖 Background 
+As Generative AI systems are increasingly integrated into real-world products and decision-making pipelines, evaluation has become a central yet challenging component of responsible AI development.[^1] While evaluation research has advanced rapidly, gaps persist between research and practice: model developers often prioritize scalability and integration into development workflows, while evaluation researchers emphasize rigor, validity, and sociotechnical considerations. [The EvalEval coalition's multi author effort](https://arxiv.org/abs/2511.05613) mapping first - and third-party social impact evaluations shows a clear division of labor, where developers underreport or deprioritize key impacts such as environmental costs, data provenance, and labor practices, while third-party evaluators provide broader but necessarily incomplete coverage, leaving critical gaps in accountability and comparability.[^2]
+
+This workshop focuses on AI evaluation in practice, centering the tensions and collaborations between model developers and evaluation researchers. Through a call for papers on contemporary challenges spanning methodological rigor, sociotechnical perspectives, scalability, community-informed evaluation, and real-world use alongside invited panels, the workshop aims to surface practical insights from across the evaluation ecosystem. The workshop will also host a [shared task for building a unifying, standardized database of LLM Evaluations](https://evalevalai.com/events/shared-task-every-eval-ever/), encouraging shared infrastructure and actionable evaluation practices.
+
+## 📝 Topics
+
+Themes for submission include, but are not limited to:
+
+### 1. Evaluation Methodology and Measurement Theory
+
+* **Conceptualization**: Operationalization and construct definition issues in evaluations of generative AI;
+* **Validity**: Construct, convergent, and discriminant validity of existing evaluations;
+* **Reliability**: Robustness, consistency, and generalizability of evaluation methods;
+* **Metrics**: Design, selection, and limitations of evaluation metrics, benchmarks, and scoring methods;
+* **Reproducibility**: Cross-model and cross-context reproducibility, standardization, and aggregation of evaluation results.
+
+### 2. Evaluation Infrastructure, Cost, and Stakeholders
+
+* **Infrastructure**: Evaluation harnesses, tooling, platforms, and scalability of evaluation setups;[^3]
+* **Financial costs**: Monetary costs of evaluations and documentation frameworks for tracking them;
+* **Documentation**: Transparency and reporting standards for evaluation processes and their limitations;
+* **Stakeholders**: Who evaluates, the relationship between evaluators and system developers, and the role of independent and third-party audits.
+
+### 3. Evaluating Sociotechnical Impacts
+
+State of sociotechnical evaluations of generative AI systems, drawing on categories such as those in the [EvalEval social impact taxonomy](https://zeerak.org/papers/Evaluating_the_Social_Impact_of_Generative_AI_Systems_in_Systems_and_Society__preprint_.pdf):<sup><a href="#fn:1">1</a></sup>
+
+* **Bias, stereotypes, and representational harms**: Evaluations of stereotypes, disparate performance, inequality, marginalization, and community erasure;
+* **Cultural values and sensitive content**: Evaluations of linguistic diversity, sensitive content, trustworthiness, overreliance on outputs, and imposing norms and values;
+* **Privacy and data protection**: Evaluations of memorization, data leakage, contextual integrity, and personal privacy and sense of self;
+* **Labor and creativity**: Evaluations of data and content moderation labor, intellectual property, ownership, and labor market impacts;
+* **Ecosystem and environment**: Evaluations of environmental costs, carbon emissions, and widening resource gaps.
 
 ## 📄 Submission Guidelines
 We welcome the following types of submissions:
@@ -165,11 +165,6 @@ To support a fair, high-quality, and sustainable review process, we adopt a reci
 - Jennifer Mickel, Eleuther AI 
 - Ichhya Pant, Independent 
 - Zeerak Talat, University of Edinburgh
-
-
-## 🏛️ Organizers 
-[EvalEval Coalition](/about/)
-
 
 ## 📬 Workshop Contact 
 - Ichhya Pant: [ipant@gwu.edu](mailto:ipant@gwu.edu)
