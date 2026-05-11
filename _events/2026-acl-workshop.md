@@ -1,13 +1,13 @@
 ---
 layout: event
-title: 2026 ACL Workshop on Evaluating Evaluations (EvalEval)
+title: ACL 2026 Workshop on Evaluating Evaluations (EvalEval)
 subtitle: Examining Best Practices for Utilizing and Developing Generative Model Evaluations
 team: Mubashara Akhtar, Jan Batzner, Leshem Choshen, Avijit Ghosh, Usman Gohar, Jennifer Mickel, Ichhya Pant, Zeerak Talat
 status: active
 order: 1
 category: Organization
 event_date: 2026-7-04
-location: Room Harbor A
+location: San Diego (USA), Room Harbor A
 host: EvalEval
 description:  |
   This workshop focuses on AI evaluation in practice, centering the tensions and collaborations between model developers and evaluation researchers and aims to surface practical insights from across the evaluation ecosystem.
@@ -73,7 +73,7 @@ This panel brings together model developers and evaluation researchers to examin
 ### 🔬 4:25 PM – 5:15 PM | Shared Task *(50 mins)*
 **Moderator:** Jan Batzner, Weizenbaum Institute, Technical University Munich
 
-AI evaluation results are scattered across leaderboards, papers, blog posts, and harness logs in incompatible formats, with different frameworks producing divergent scores and inconsistent metadata that hinder comparison, reuse, and cost reduction. **Every Eval Ever** is the first shared schema and community-crowdsourced repository for AI evaluation results — source-agnostic by design and at unprecedented scale: **22,235 models, 2,273 unique benchmarks, and 31 evaluation formats — and growing**. At ACL, we present the [Every Eval Ever Shared Task](https://github.com/evaleval/every_eval_ever) and the community case studies it has enabled on this data. 🖊️
+AI evaluation results are scattered across leaderboards, papers, blog posts, and harness logs in incompatible formats, with different frameworks producing divergent scores and inconsistent metadata that hinder comparison, reuse, and [cost](https://evalevalai.com/research/2026/04/29/eval-costs-bottleneck/) reduction. [**Every Eval Ever**](https://evalevalai.com/infrastructure/2026/02/17/everyevalever-launch/) is the first unifying schema and community-crowdsourced repository for all AI evaluation results — source-agnostic by design and at unprecedented scale: over 22,235 models, 2,273 unique benchmarks, and 31 evaluation formats — and growing! At ACL, we present the [ACL Every Eval Ever Shared Task](https://evalevalai.com/events/shared-task-every-eval-ever/) and the fantastic community case studies it has already enabled on this [database](https://huggingface.co/datasets/evaleval/EEE_datastore). 
 
 ---
 
@@ -173,6 +173,15 @@ To support a fair, high-quality, and sustainable review process, we adopt a reci
 
 
 ## ❓ FAQ
+**Can I attend this workshop online?**
+The workshop is in-person at ACL 2026 in San Diego. At least one author of each accepted paper must present and register on-site.
+
+**How do I change from non-archival to archival?**
+Please indicate in the form sent to all accepted authors whether you want your submission to be considered archival or non-archival.
+
+**Do I need to upload a Camera Ready if I selected non-archival?**
+We encourage all authors to deanonymize their papers and incorporate the reviewers feedback in their revision. Nevertheless, Camera Ready instructions are tailored to archival submissions.
+
 **I'm waiting for my ARR decision — can I still submit to EvalEval?**
 Yes! If your paper is later accepted at ACL, you would simply choose our non-archival option.
 
@@ -184,9 +193,6 @@ Please refer to at least one our main topic areas outlined in the Call for Paper
 
 **Can I also submit in the ICML format?**
 No, please use the [ARR formatting](https://github.com/acl-org/acl-style-files).
-
-**Can I attend this workshop online?**
-The workshop is in-person at ACL 2026 in San Diego. At least one author of each accepted paper must present on-site.
 
 **My position paper is 6 pages. Does that work?**
 Yes, all submission types (research and positions/provocations) are welcome at any of the three length tiers.
