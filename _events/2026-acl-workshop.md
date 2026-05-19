@@ -31,6 +31,7 @@ This panel brings together model developers and evaluation researchers to examin
 - [Angelina Wang](https://angelina-wang.github.io/), Cornell Tech
 - [Michal Shmueli-Scheuer](https://research.ibm.com/people/michal-shmueli-scheuer), IBM
 - [Sebastian Gehrmann](https://sebastiangehrmann.github.io/), Bloomberg
+- [Wesley Deng](https://wesleydeng.com/), Microsoft Research
 
 ---
 
