@@ -2,7 +2,7 @@
 layout: post
 title: "Introducing Evaluation Cards: A Live Interpretive Layer for Understanding the AI Evaluations Ecosystem"
 date: 2026-06-09
-published: true
+published: false
 exclude_from_collection: true
 category: Infrastructure
 image: "/assets/img/blogs/evalcards_launch_banner.webp"
