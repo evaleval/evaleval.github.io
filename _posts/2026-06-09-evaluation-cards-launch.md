@@ -15,7 +15,7 @@ authors:
   - name: "Shrishti Yadav"
   - name: "Kabir Manghnani"
   - name: "Leshem Chosen"
-  - name: “David Manheim”
+  - name: "David Manheim"
   - name: "Jennifer Mickel"
   - name: "Jessica Ji"
   - name: "Irene Solaiman"
@@ -88,8 +88,8 @@ Evaluation Cards goes the rest of the way: composing the raw data that the ecosy
 
 Furthermore, Evaluation Cards is open, built by and for the wider evaluations community. Contributors span institutions, sectors, continents, and specializations.
 
-<img src=”/assets/img/blogs/evalcards_contributor_logos.webp”
-    alt=”EvalCards contributor affiliation logos”
+<img src="/assets/img/blogs/evalcards_contributor_logos.webp"
+    alt="EvalCards contributor affiliation logos"
     class="w-full h-auto my-8">
    
 
@@ -102,7 +102,7 @@ Organizations that contribute their own evaluation data earn a verification badg
 
 <img src="/assets/img/blogs/evalcards_verification_tooltip.gif"
      alt="EvalCards tooltip"
-     style="float: right; margin: 0 0 1em 1em; width: 400px;">
+     style="display: block; margin: 1em 0; width: 400px;">
 
 ## Four new interpretive signals
 
