@@ -103,7 +103,7 @@ Organizations that contribute their own evaluation data earn a verification badg
 
 <img src="/assets/img/blogs/evalcards_verification_tooltip.gif"
      alt="EvalCards tooltip"
-     style="float: right; margin: 0 0 1em 1em; width: 400px;">
+     style="display: block; margin: 1em 0; width: 400px;">
 
 ## Four new interpretive signals
 
