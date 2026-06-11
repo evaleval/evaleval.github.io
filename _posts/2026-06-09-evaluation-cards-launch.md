@@ -181,7 +181,7 @@ Check out our contributor guides with more details [here](https://evalcards.eval
 
 - Spread the word! Evaluation Cards promotes ecological validity in direct proportion to the number of those who know about it, use it, and contribute to it.
 - Explore the corpus: [Browse by model](https://evalcards.evalevalai.com/models) or [Browse by evaluation](https://evalcards.evalevalai.com/evals)
-- [Help us build Evaluation Cards (also, we're hiring)
+- Help us build Evaluation Cards (also, we're hiring)
 - Flag [missing data](https://huggingface.co/spaces/evaleval/general-eval-card/discussions) or [incorrect scores](https://github.com/evaleval/every_eval_ever/issues)
 - [Become a verified contributor](https://evalcards.evalevalai.com/help/get-verified)
 - [Give us your feedback](https://evalcards.evalevalai.com/feedback)
