@@ -89,8 +89,8 @@ Evaluation Cards goes the rest of the way: composing the raw data that the ecosy
 
 Furthermore, Evaluation Cards is open, built by and for the wider evaluations community. Contributors span institutions, sectors, continents, and specializations.
 
-<img src=”/assets/img/blogs/evalcards_contributor_logos.webp”
-    alt=”EvalCards contributor affiliation logos”
+<img src="/assets/img/blogs/evalcards_contributor_logos.webp"
+    alt="EvalCards contributor affiliation logos"
     class="w-full h-auto my-8">
    
 
