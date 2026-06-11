@@ -145,7 +145,7 @@ The field is doing good work. It is just doing that work in isolation. As a resu
 
 The evaluations community includes a diversity of stakeholders who are interested in evaluation results for many reasons. That's why we've launched supporting different "reader modes" (Research and Summary) to support different user needs. Both modes read identical data. They differ only in how they display it. Users can easily toggle between modes without losing their place.
 
-We are actively exploring additional stakeholder reader modes. Our roadmap is public, and ideas are welcome: https://changemap.co/evaleval/evalcards/
+We are actively exploring additional stakeholder reader modes. Our roadmap is public, and ideas are welcome: [https://changemap.co/evaleval/evalcards/](https://changemap.co/evaleval/evalcards/)
 
 **Research mode**
 
