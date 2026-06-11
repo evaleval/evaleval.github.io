@@ -16,7 +16,7 @@ authors:
   - name: "Shrishti Yadav"
   - name: "Kabir Manghnani"
   - name: "Leshem Chosen"
-  - name: “David Manheim”
+  - name: "David Manheim"
   - name: "Jennifer Mickel"
   - name: "Jessica Ji"
   - name: "Irene Solaiman"
