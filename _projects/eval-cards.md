@@ -1,11 +1,11 @@
 ---
-layout: project
+layout: eval_cards
 title: Evaluation Cards
 order: 1
-team: Avijit Ghosh, Anka Reuel
+team: "Wm. Matthew Kennedy, Anka Reuel, Jenny Chim, Avijit Ghosh"
 img: cards.png
 alt: image-alt
-category: Research
+category: Infrastructure
 status: active
-description: This project addresses the need for a structured and systematic approach to documenting AI model evaluations through the creation of "evaluation cards," focusing specifically on technical base systems in their pre-deployment state. By concentrating on context-independent upstream evaluations, this framework, informed by stakeholder interviews and building upon prior work, enables early-stage model assessments that capture core capabilities, risks, and trade-offs relevant to future adopters regardless of specific downstream applications. The resulting evaluation cards will provide a user-friendly format for model developers to document key social aspects and evaluation results, facilitating transparent communication and informed use of AI models by attaching these cards to release documentation such as model and system cards.
+description: A live interpretive layer over AI evaluation reporting. Evaluation Cards composes run data, benchmark metadata, and model metadata into one canonical evaluation record, then computes four novel signals—reproducibility, completeness, provenance, and comparability—across 100,000+ reported results spanning hundreds of benchmarks and thousands of models. Built as an open, participatory initiative, it lets developers, evaluators, researchers, and policymakers centralize and interpret evaluation results across the whole ecosystem.
 ---

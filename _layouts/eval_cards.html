@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | EvalEval Coalition</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:title" content="{{ page.title }} | EvalEval Coalition">
+    <meta property="og:description" content="A live interpretive layer over AI evaluation reporting — surfacing reproducibility, completeness, provenance, and comparability across 100,000+ reported evaluation results.">
+    <meta property="og:image" content="{{ '/assets/img/blogs/evalcards_launch_banner.webp' | absolute_url }}">
+    <meta property="og:image:alt" content="Evaluation Cards Launch Banner">
+    <meta property="og:site_name" content="EvalEval Coalition">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ page.url | absolute_url }}">
+    <meta name="twitter:title" content="{{ page.title }} | EvalEval Coalition">
+    <meta name="twitter:description" content="A live interpretive layer over AI evaluation reporting — surfacing reproducibility, completeness, provenance, and comparability across 100,000+ reported evaluation results.">
+    <meta name="twitter:image" content="{{ '/assets/img/blogs/evalcards_launch_banner.webp' | absolute_url }}">
+
+    <!-- Pinterest -->
+    <meta name="pinterest-rich-pin" content="true">
+
+    <link rel="icon" type="image/png" href="{{ '/assets/img/favicon.png' | relative_url }}">
+
+    <!-- Set theme before paint to avoid flash -->
+    <script>
+        (function() {
+            var saved = localStorage.getItem('theme');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (saved === 'dark' || (!saved && prefersDark)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;600;700&display=swap');
+
+        /* ============================================================
+           EvalEval Coalition — Design Tokens
+           Source: EvalEval Design System (colors_and_type.css)
+           ============================================================ */
+        :root {
+            /* surfaces — warm off-white stack */
+            --bg:           #ffffff;
+            --bg-warm:      #faf9f6;
+            --bg-subtle:    #f5f4f1;
+            --bg-surface:   #eeece8;
+            /* foreground — warm near-black, never pure black */
+            --fg:           #1a1916;
+            --fg-muted:     #5c5a55;
+            --fg-subtle:    #9c9a95;
+            /* borders — 1px hairlines */
+            --border:        #e8e6e1;
+            --border-strong: #c8c6c0;
+            /* accent — the one brand color (sky blue) */
+            --accent:       #5bacd1;
+            --accent-hover: #4a9bb8;
+            --accent-fg:    #ffffff;
+            /* chrome */
+            --nav-bg:      rgba(255, 255, 254, 0.95);
+            --shadow-card: 0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.07);
+            /* type */
+            --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+            --fs-xs:     0.75rem;
+            --tracking-widest: 0.15em;
+            /* categorical region tints (signal colors) */
+            --r-repro: #5bacd1;   /* reproducibility — brand blue */
+            --r-comp:  #8a7aa8;   /* completeness — muted violet */
+            --r-prov:  #5b9c7d;   /* provenance — muted green */
+            --r-compa: #c08a3e;   /* comparability — warm amber */
+            --r-alert: #c25b4e;   /* findings — muted red */
+        }
+        [data-theme="dark"] {
+            --bg:            #111110;
+            --bg-warm:       #141412;
+            --bg-subtle:     #1a1916;
+            --bg-surface:    #252420;
+            --fg:            #f0ede8;
+            --fg-muted:      #a09d97;
+            --fg-subtle:     #5c5a55;
+            --border:        #2e2c28;
+            --border-strong: #484540;
+            --accent:        #7dc3e0;
+            --accent-hover:  #9dd3ec;
+            --accent-fg:     #111110;
+            --nav-bg:        rgba(17, 17, 16, 0.96);
+            --shadow-card:   0 1px 2px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.5);
+            --r-repro: #7dc3e0;
+            --r-comp:  #ab9bca;
+            --r-prov:  #7cbf9e;
+            --r-compa: #d6a85f;
+            --r-alert: #e08a7e;
+        }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+        body {
+            background-color: var(--bg);
+            color: var(--fg);
+            font-family: var(--font-sans);
+        }
+        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+        ::selection { background-color: var(--accent); color: var(--accent-fg); }
+
+        /* kicker — ubiquitous mono uppercase label above section headings */
+        .kicker {
+            font-family: var(--font-mono);
+            font-size: var(--fs-xs);
+            letter-spacing: var(--tracking-widest);
+            text-transform: uppercase;
+            color: var(--fg-subtle);
+            font-weight: 400;
+        }
+
+        /* nav underline animation */
+        .nav-link { position: relative; color: var(--fg); font-weight: 500; transition: color .2s ease; }
+        .nav-link::after {
+            content: ''; position: absolute; left: 0; bottom: -4px;
+            width: 0; height: 1.5px; background: var(--accent); transition: width .3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: var(--accent); }
+
+        /* buttons — solid fg that turns brand-blue on hover (signature interaction) */
+        .btn-solid {
+            background: var(--fg); color: var(--bg); border: 1.5px solid var(--fg);
+            transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+        }
+        .btn-solid:hover { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+        .btn-ghost {
+            background: transparent; color: var(--fg); border: 1.5px solid var(--border-strong);
+            transition: background-color .2s ease;
+        }
+        .btn-ghost:hover { background: var(--bg-surface); }
+
+        /* feature / record cards — border-only, shadow appears on hover */
+        .feat {
+            border: 1px solid var(--border); background: var(--bg);
+            transition: box-shadow .25s ease, border-color .25s ease, transform .25s ease;
+        }
+        .feat:hover { box-shadow: var(--shadow-card); border-color: var(--border-strong); }
+        .feat-lift:hover { transform: translateY(-2px); }
+        /* icon well inside a card — the recurring brand moment */
+        .well {
+            width: 44px; height: 44px; border-radius: 2px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--bg-surface); color: var(--accent);
+        }
+
+        /* stat cards */
+        .stat-card {
+            border: 1px solid var(--border); background: var(--bg-subtle);
+            transition: border-color .25s ease;
+        }
+        .stat-card:hover { border-color: var(--border-strong); }
+
+        /* live embed frame */
+        .evalcard-embed {
+            background: var(--bg); border: 1px solid var(--border);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 18px 50px -20px rgba(0,0,0,.22);
+        }
+
+        /* theme toggle */
+        .theme-toggle {
+            width: 34px; height: 34px; border-radius: 50%;
+            border: 1.5px solid var(--border); background: var(--bg); color: var(--fg-muted);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: all .2s ease;
+        }
+        .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+        .theme-toggle .icon-sun { display: none; }
+        [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+        /* footer logo + socials */
+        .eee-footer-logo svg { height: 44px; width: auto; display: block; }
+        .social-link {
+            border: 1px solid var(--border-strong); color: var(--fg-muted);
+            transition: all .2s ease;
+        }
+        .social-link:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+        /* contributor panel stays a light matte so logos read in dark mode */
+        [data-theme="dark"] #contributors .matte {
+            background: #fafaf9; border-color: #e8e6e1;
+        }
+        [data-theme="dark"] #contributors .matte .c-dark { color: #1a1916 !important; }
+        [data-theme="dark"] #contributors .matte .c-muted { color: #5c5a55 !important; }
+        [data-theme="dark"] img[alt="Hugging Face"] { filter: grayscale(1) invert(1) opacity(0.75); }
+
+        /* ============================================================
+           THE EVALUATION-CARD ARTIFACT — the signature object
+           ============================================================ */
+        :root { --card-paper: #fffefb; }
+        [data-theme="dark"] { --card-paper: #1b1a17; }
+
+        .ec {
+            background: var(--card-paper);
+            border: 1px solid var(--border-strong);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05), 0 18px 50px -20px rgba(0,0,0,.28);
+            width: 100%; overflow: hidden; border-radius: 4px;
+        }
+        .ec-head {
+            background: var(--fg); color: var(--bg);
+            padding: 18px 22px;
+            display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+        }
+        /* annotation accordion */
+        .anno { border: 1px solid var(--border); background: var(--bg); border-radius: 4px; cursor: pointer; transition: border-color .2s ease, box-shadow .2s ease; }
+        .anno:hover { border-color: var(--border-strong); }
+        .anno.active { border-color: var(--region-c, var(--accent)); box-shadow: var(--shadow-card); }
+        .anno-head { display: flex; align-items: center; gap: 14px; padding: 16px 18px; }
+        .anno-num { font-family: var(--font-mono); font-size: 12px; color: #fff; width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex: none; }
+        .anno-body { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+        .anno.active .anno-body { max-height: 260px; }
+        .anno-body-inner { padding: 0 18px 18px 58px; color: var(--fg-muted); font-size: 14px; line-height: 1.6; }
+        .anno .chev { transition: transform .3s ease; color: var(--fg-subtle); }
+        .anno.active .chev { transform: rotate(180deg); }
+
+        /* paper-stack effect behind the hero card */
+        .paper-stack { position: absolute; inset: 0; transform: translate(10px, 10px); z-index: -1; border: 1px solid var(--border); background: var(--card-paper); border-radius: 4px; opacity: .55; }
+
+        /* embed view-tabs (anatomy) */
+        .embed-tab {
+            font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em;
+            padding: 4px 10px; border-radius: 2px; border: 1px solid transparent;
+            color: var(--fg-muted); background: transparent; cursor: pointer; transition: all .2s ease;
+        }
+        .embed-tab:hover { color: var(--fg); background: var(--bg-surface); }
+        .embed-tab.active { color: var(--bg); background: var(--fg); border-color: var(--fg); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ===================== NAV ===================== -->
+    <header class="fixed top-0 inset-x-0 z-50">
+        <div class="border-b" style="background: var(--nav-bg); border-color: var(--border); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex items-center gap-2.5">
+                        <a href="{{ '/' | relative_url }}" class="hover:opacity-80 transition-opacity">
+                            <img src="{{ '/assets/img/logo-square.png' | relative_url }}" alt="EvalEval" class="w-8 h-8 rounded-md object-cover">
+                        </a>
+                        <a href="#" class="font-bold text-sm sm:text-xl tracking-tight whitespace-nowrap hover:opacity-80 transition-opacity" style="color: var(--fg);">Evaluation Cards</a>
+                        <span class="hidden sm:inline-block px-2 py-0.5 rounded-full text-xs font-mono" style="background: var(--bg-surface); color: var(--fg-muted);">beta</span>
+                    </div>
+                    <nav class="flex items-center gap-5 sm:gap-7 text-sm">
+                        <a href="#why" class="nav-link hidden md:inline">Why</a>
+                        <a href="#anatomy" class="nav-link hidden md:inline">Anatomy</a>
+                        <a href="#explore" class="nav-link hidden lg:inline">Explore</a>
+                        <a href="#findings" class="nav-link hidden lg:inline">Findings</a>
+                        <a href="https://arxiv.org/abs/2606.09809" target="_blank" rel="noopener" class="nav-link hidden md:inline-flex items-center gap-1.5">
+                            <i class="fas fa-file-lines"></i> Paper
+                        </a>
+                        <a href="https://evalcards.evalevalai.com/" target="_blank" rel="noopener" class="flex items-center gap-2 text-sm font-medium px-3 py-1.5 sm:px-4 sm:py-2 btn-solid" style="border-radius: 6px; font-family: var(--font-mono);">
+                            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                            <span class="hidden sm:inline">Launch App</span>
+                        </a>
+                        <button onclick="eeeToggleTheme()" class="theme-toggle" aria-label="Toggle dark mode">
+                            <svg class="icon-moon w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                            <svg class="icon-sun w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="pt-28 pb-16 sm:pt-36 sm:pb-20 px-4 sm:px-6 lg:px-8" style="background: var(--bg-warm);">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+            <!-- left: copy -->
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-6" style="background: var(--bg); border: 1px solid var(--border);">
+                    <span class="w-2 h-2 rounded-full" style="background: var(--accent);"></span>
+                    <span class="kicker" style="color: var(--fg-muted);">Infrastructure @ EvalEval · Now in Beta</span>
+                </div>
+
+                <h1 class="font-bold tracking-tight mb-6" style="font-size: clamp(2.4rem, 5.5vw, 4rem); line-height: 1.05; letter-spacing: -0.03em; color: var(--fg);">
+                    A card for<br class="hidden sm:block">
+                    <span style="border-bottom: 4px solid var(--accent);">every evaluation.</span>
+                </h1>
+
+                <p class="text-lg mb-8 leading-relaxed" style="color: var(--fg-muted); max-width: 32rem;">
+                    A <strong style="color: var(--fg); font-weight: 600;">live interpretive layer</strong> over AI evaluation reporting. Evaluation Cards composes run data, benchmark metadata, and model metadata into one canonical record — and surfaces <strong style="color: var(--fg); font-weight: 600;">reproducibility, completeness, provenance, and comparability</strong> across the whole ecosystem.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="https://evalcards.evalevalai.com/" target="_blank" rel="noopener" class="px-6 py-3 btn-solid font-semibold text-sm inline-flex items-center justify-center gap-2" style="font-family: var(--font-mono);">
+                        Explore Evaluation Cards
+                        <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="{{ '/infrastructure/2026/06/09/evaluation-cards-launch/' | relative_url }}" class="px-6 py-3 btn-ghost font-semibold text-sm inline-flex items-center justify-center gap-2" style="font-family: var(--font-mono);">
+                        Launch Announcement
+                        <i data-lucide="megaphone" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="mt-6">
+                    <a href="https://arxiv.org/abs/2606.09809" target="_blank" rel="noopener" class="text-sm font-medium inline-flex items-center gap-1.5" style="color: var(--accent);">
+                        <i data-lucide="file-text" class="w-4 h-4"></i> Read the full paper (arXiv:2606.09809)
+                    </a>
+                </div>
+            </div>
+
+            <!-- right: a LIVE evaluation embed, framed as the signature card -->
+            <div class="relative">
+                <div class="ec" id="heroCard">
+                    <div class="ec-head">
+                        <div>
+                            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; opacity: .7;">LIVE LEADERBOARD</div>
+                            <div class="font-bold mt-1" style="font-size: 18px;">MMLU · HELM</div>
+                            <div style="font-size: 12px; opacity: .65; margin-top: 2px;">Reported results across the model ecosystem</div>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; opacity: .8;">
+                            <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: #5b9c7d;"></span>LIVE
+                        </span>
+                    </div>
+                    <div style="background: var(--card-paper);">
+                        <iframe
+                            src="https://evalcards.evalevalai.com/embed/eval/leaderboard/helm-mmlu/mmlu"
+                            title="MMLU leaderboard — live Evaluation Card data"
+                            loading="lazy" frameborder="0" width="100%"
+                            style="display:block; height: 460px; border: 0;"></iframe>
+                    </div>
+                </div>
+                <div aria-hidden="true" class="paper-stack"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===================== LIVE STATS BAND ===================== -->
+    <section class="pb-20 px-4 sm:px-6 lg:px-8" style="background: var(--bg-warm);">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="stat-card p-6 text-center" style="border-radius: 4px;">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1" style="color: var(--fg);">101,955</div>
+                    <div class="kicker">Reported results</div>
+                </div>
+                <div class="stat-card p-6 text-center" style="border-radius: 4px;">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1" style="color: var(--fg);">638</div>
+                    <div class="kicker">Benchmarks</div>
+                </div>
+                <div class="stat-card p-6 text-center" style="border-radius: 4px;">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1" style="color: var(--fg);">5,816</div>
+                    <div class="kicker">Models</div>
+                </div>
+                <div class="stat-card p-6 text-center" style="border-radius: 4px;">
+                    <div class="text-3xl sm:text-4xl font-extrabold mb-1" style="color: var(--fg);">31</div>
+                    <div class="kicker">Organizations</div>
+                </div>
+            </div>
+            <p class="text-center text-sm mt-5" style="color: var(--fg-subtle);">The largest and most comprehensive corpus of reported evaluation results yet assembled (as of 9 June 2026).</p>
+        </div>
+    </section>
+
+    <!-- ===================== WHY ===================== -->
+    <section id="why" class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <span class="kicker">The Problem</span>
+                <h2 class="font-bold mt-3 mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--fg); letter-spacing: -.01em;">Why Evaluation Cards?</h2>
+                <p class="text-lg leading-relaxed" style="color: var(--fg-muted);">
+                    Results are reported everywhere and in every way — but rarely with enough information to interpret them. Evaluation Cards fixes the reporting layer.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-6"><i data-lucide="shuffle" class="w-5 h-5"></i></div>
+                    <h3 class="font-bold mb-2" style="font-size: 18px; color: var(--fg);">Fragmented Reporting</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Scores live in leaderboards, model cards, blog posts, papers, and posters. With no shared standard, there is no way to compare results across sources or identify what a report leaves out.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-6"><i data-lucide="git-compare" class="w-5 h-5"></i></div>
+                    <h3 class="font-bold mb-2" style="font-size: 18px; color: var(--fg);">Hidden Discrepancies</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Three organizations report GPT-5's MATH-500 score anywhere from 84.7% to 98.9% — depending on configuration that is rarely fully reported. Evaluation Cards surfaces the discrepancies <em>and</em> why they exist.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-6"><i data-lucide="search-check" class="w-5 h-5"></i></div>
+                    <h3 class="font-bold mb-2" style="font-size: 18px; color: var(--fg);">From Scores to Claims</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Evals are more than numbers — they are interpretive claims. By unflattening the model–benchmark–score triple, we recover the structure needed to answer deeper questions about what results actually mean.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ANATOMY (interactive card + signals) ===================== -->
+    <section id="anatomy" class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg-subtle);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14 max-w-2xl mx-auto">
+                <span class="kicker">Anatomy of a Card</span>
+                <h2 class="font-bold mt-3 mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--fg); letter-spacing: -.01em;">Four interpretive signals, one record.</h2>
+                <p class="text-lg leading-relaxed" style="color: var(--fg-muted);">
+                    Across 100,000+ records, every card computes four signals — grounded in our user interviews with evaluation stakeholders. Explore them beside a live view of the underlying data.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+                <!-- live embed (sticky) — real data the signals are computed over -->
+                <div class="lg:sticky lg:top-24">
+                    <div class="ec">
+                        <div class="ec-head">
+                            <div>
+                                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; opacity: .7;">LIVE EVALUATION CARD</div>
+                                <div class="font-bold mt-1" style="font-size: 18px;">MATH-500 · Vals AI</div>
+                                <div style="font-size: 12px; opacity: .65; margin-top: 2px;">Reported scores across reporters &amp; setups</div>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; opacity: .8;">
+                                <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: #5b9c7d;"></span>LIVE
+                            </span>
+                        </div>
+                        <!-- view tabs -->
+                        <div class="flex items-center gap-1 px-3 py-2" style="border-bottom: 1px solid var(--border); background: var(--bg);">
+                            <button class="embed-tab active" data-src="https://evalcards.evalevalai.com/embed/eval/distribution/vals-ai/math-500">Distribution</button>
+                            <button class="embed-tab" data-src="https://evalcards.evalevalai.com/embed/eval/frontier/vals-ai/math-500">Frontier</button>
+                            <button class="embed-tab" data-src="https://evalcards.evalevalai.com/embed/eval/leaderboard/vals-ai/math-500">Leaderboard</button>
+                        </div>
+                        <div style="background: var(--card-paper);">
+                            <iframe id="anatomyEmbed"
+                                src="https://evalcards.evalevalai.com/embed/eval/distribution/vals-ai/math-500"
+                                title="MATH-500 — live Evaluation Card data"
+                                loading="lazy" frameborder="0" width="100%"
+                                style="display:block; height: 440px; border: 0;"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- annotations -->
+                <div class="flex flex-col gap-3">
+                    <div class="anno active" data-region="repro" style="--region-c: var(--r-repro);">
+                        <div class="anno-head">
+                            <span class="anno-num" style="background: var(--r-repro);">01</span>
+                            <span class="font-bold flex-1" style="color: var(--fg);">Reproducibility</span>
+                            <i data-lucide="chevron-down" class="chev w-4 h-4"></i>
+                        </div>
+                        <div class="anno-body"><div class="anno-body-inner">Can someone else run this evaluation and get the same results? We check for the minimal set of fields — like temperature and max-tokens — needed to re-run it. 96.5% of records are missing at least one.</div></div>
+                    </div>
+                    <div class="anno" data-region="comp" style="--region-c: var(--r-comp);">
+                        <div class="anno-head">
+                            <span class="anno-num" style="background: var(--r-comp);">02</span>
+                            <span class="font-bold flex-1" style="color: var(--fg);">Completeness</span>
+                            <i data-lucide="chevron-down" class="chev w-4 h-4"></i>
+                        </div>
+                        <div class="anno-body"><div class="anno-body-inner">Is benchmark documentation sufficient to interpret scores? We assess construct definitions, validation, intended use, limitations, and provenance — median completeness today is just 10.7%.</div></div>
+                    </div>
+                    <div class="anno" data-region="prov" style="--region-c: var(--r-prov);">
+                        <div class="anno-head">
+                            <span class="anno-num" style="background: var(--r-prov);">03</span>
+                            <span class="font-bold flex-1" style="color: var(--fg);">Provenance</span>
+                            <i data-lucide="chevron-down" class="chev w-4 h-4"></i>
+                        </div>
+                        <div class="anno-body"><div class="anno-body-inner">Who reported the score, and who has reproduced it? We distinguish first-party from third-party reporters and track corroboration across sources — 98.2% of pairs are reported by only one party.</div></div>
+                    </div>
+                    <div class="anno" data-region="compa" style="--region-c: var(--r-compa);">
+                        <div class="anno-head">
+                            <span class="anno-num" style="background: var(--r-compa);">04</span>
+                            <span class="font-bold flex-1" style="color: var(--fg);">Comparability</span>
+                            <i data-lucide="chevron-down" class="chev w-4 h-4"></i>
+                        </div>
+                        <div class="anno-body"><div class="anno-body-inner">What is the measurement target, and how faithfully do different setups evaluate against it? We flag divergences that reflect configuration rather than capability — among multiply-reported pairs, scores diverge 51.9% of the time.</div></div>
+                    </div>
+
+                    <a href="https://evalcards.evalevalai.com/" target="_blank" rel="noopener" class="mt-2 inline-flex items-center gap-2 text-sm font-medium" style="color: var(--accent); font-family: var(--font-mono);">
+                        See a live card <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== ONE CANONICAL RECORD ===================== -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <span class="kicker">How it composes</span>
+                <h2 class="font-bold mt-3 mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--fg); letter-spacing: -.01em;">One Canonical Record</h2>
+                <p class="text-lg leading-relaxed" style="color: var(--fg-muted);">
+                    Evaluation Cards composes the raw data the ecosystem already produces — at scale — into a single, interpretable evaluation record.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-4" style="width: 40px; height: 40px;"><i data-lucide="play" class="w-5 h-5"></i></div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Run Data</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Who ran the eval, on what model, with what generation settings — sourced from <a href="{{ '/projects/every-eval-ever/' | relative_url }}" style="color: var(--accent);" class="underline underline-offset-2">Every Eval Ever (EEE)</a>, the Coalition's standardized schema and community repository for eval run data.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-4" style="width: 40px; height: 40px;"><i data-lucide="book-open-text" class="w-5 h-5"></i></div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Benchmark Metadata</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        The benchmark's measurement target, scoring, provenance, and known risks — drawn from <a href="https://research.ibm.com/publications/auto-benchmarkcard-automated-synthesis-of-benchmark-documentation" target="_blank" rel="noopener" style="color: var(--accent);" class="underline underline-offset-2">IBM AutoBenchmarkCards</a>, which extract documentation from papers and system cards.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-4" style="width: 40px; height: 40px;"><i data-lucide="box" class="w-5 h-5"></i></div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Model Metadata</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Release date, parameter count, and weight accessibility — pulled automatically from community catalogs (hub-stats, models.dev) covering both open and API-hosted models.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Live Embed -->
+            <div class="mt-16 max-w-5xl mx-auto">
+                <div class="flex items-center justify-center gap-2 mb-4 text-sm" style="color: var(--fg-subtle);">
+                    <i data-lucide="mouse-pointer-click" class="w-4 h-4"></i>
+                    <span>A live Evaluation Card — toggle reader modes at the top left</span>
+                </div>
+                <div class="evalcard-embed w-full overflow-hidden" style="border-radius: 4px;">
+                    <iframe
+                        src="https://evalcards.evalevalai.com/evals/helm-capabilities/gpqa"
+                        title="GPQA Evaluation Card"
+                        loading="lazy"
+                        frameborder="0"
+                        width="100%"
+                        style="height: 760px;">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== TWO AXES (by benchmark / by model) + HISTOGRAMS ===================== -->
+    <section id="explore" class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg-warm);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-14 max-w-2xl mx-auto">
+                <span class="kicker">Two ways in</span>
+                <h2 class="font-bold mt-3 mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--fg); letter-spacing: -.01em;">Read it by benchmark, or by model.</h2>
+                <p class="text-lg leading-relaxed" style="color: var(--fg-muted);">
+                    Every score is one cell in a model × benchmark matrix. Read down a column — one benchmark, every model — or across a row — one model, every benchmark it has reported.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-8">
+                <!-- by benchmark -->
+                <div class="relative">
+                    <div class="ec">
+                        <div class="ec-head">
+                            <div>
+                                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; opacity: .7;">BY BENCHMARK</div>
+                                <div class="font-bold mt-1" style="font-size: 18px;">GPQA · OpenEval</div>
+                                <div style="font-size: 12px; opacity: .65; margin-top: 2px;">Every model that reported a score on one benchmark</div>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; opacity: .8;">
+                                <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: #5b9c7d;"></span>LIVE
+                            </span>
+                        </div>
+                        <div class="flex items-center gap-1 px-3 py-2" style="border-bottom: 1px solid var(--border); background: var(--bg);">
+                            <button class="embed-tab active" data-src="https://evalcards.evalevalai.com/embed/eval/leaderboard/openeval/gpqa">Leaderboard</button>
+                            <button class="embed-tab" data-src="https://evalcards.evalevalai.com/embed/eval/distribution/openeval/gpqa">Distribution</button>
+                        </div>
+                        <div style="background: var(--card-paper);">
+                            <iframe src="https://evalcards.evalevalai.com/embed/eval/leaderboard/openeval/gpqa"
+                                title="GPQA — by benchmark" loading="lazy" frameborder="0" width="100%"
+                                style="display:block; height: 460px; border: 0;"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- by model -->
+                <div class="relative">
+                    <div class="ec">
+                        <div class="ec-head">
+                            <div>
+                                <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; opacity: .7;">BY MODEL</div>
+                                <div class="font-bold mt-1" style="font-size: 18px;">GPT-4o · OpenAI</div>
+                                <div style="font-size: 12px; opacity: .65; margin-top: 2px;">Every benchmark a single model has reported</div>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; opacity: .8;">
+                                <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: #5b9c7d;"></span>LIVE
+                            </span>
+                        </div>
+                        <div style="background: var(--card-paper);">
+                            <iframe src="https://evalcards.evalevalai.com/embed/model/reported-metrics/openai/gpt-4o"
+                                title="GPT-4o — reported metrics by model" loading="lazy" frameborder="0" width="100%"
+                                style="display:block; height: 506px; border: 0;"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- histogram drill-down -->
+            <div class="relative max-w-3xl mx-auto">
+                <div class="ec">
+                    <div class="ec-head">
+                        <div>
+                            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; opacity: .7;">HISTOGRAM · ONE MODEL ON ONE BENCHMARK</div>
+                            <div class="font-bold mt-1" style="font-size: 18px;">Where GPT-4o lands</div>
+                            <div style="font-size: 12px; opacity: .65; margin-top: 2px;">A model's score against the full distribution of reported results</div>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5" style="font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; opacity: .8;">
+                            <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background: #5b9c7d;"></span>LIVE
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-1 px-3 py-2" style="border-bottom: 1px solid var(--border); background: var(--bg);">
+                        <button class="embed-tab active" data-src="https://evalcards.evalevalai.com/embed/eval/histogram/helm-mmlu/mmlu?model=openai/gpt-4o">MMLU</button>
+                        <button class="embed-tab" data-src="https://evalcards.evalevalai.com/embed/eval/histogram/vals-ai/math-500?model=openai/gpt-4o">MATH-500</button>
+                        <button class="embed-tab" data-src="https://evalcards.evalevalai.com/embed/eval/histogram/mmlu-pro-leaderboard/mmlu-pro?model=openai/gpt-4o">MMLU-Pro</button>
+                    </div>
+                    <div style="background: var(--card-paper);">
+                        <iframe src="https://evalcards.evalevalai.com/embed/eval/histogram/helm-mmlu/mmlu?model=openai/gpt-4o"
+                            title="GPT-4o histogram across benchmarks" loading="lazy" frameborder="0" width="100%"
+                            style="display:block; height: 480px; border: 0;"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center text-sm mt-8" style="color: var(--fg-subtle);">
+                Browse the whole corpus —
+                <a href="https://evalcards.evalevalai.com/evals" target="_blank" rel="noopener" style="color: var(--accent);" class="underline underline-offset-2">by evaluation</a>
+                or
+                <a href="https://evalcards.evalevalai.com/models" target="_blank" rel="noopener" style="color: var(--accent);" class="underline underline-offset-2">by model</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===================== READER MODES ===================== -->
+    <section class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg-subtle);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <span class="kicker">Built for everyone</span>
+                <h2 class="font-bold mt-3 mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--fg); letter-spacing: -.01em;">Two reader modes, one source of truth</h2>
+                <p class="text-lg leading-relaxed" style="color: var(--fg-muted);">
+                    Both reader modes read identical data — they differ only in how it's displayed. Toggle between them without losing your place.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-4" style="width: 40px; height: 40px;"><i data-lucide="microscope" class="w-5 h-5"></i></div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Research Mode</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        For evals researchers, model developers, and technical AI governance. Foregrounds methodology — missing fields, setup-driven divergence, and full metric configuration.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px;">
+                    <div class="well mb-4" style="width: 40px; height: 40px;"><i data-lucide="newspaper" class="w-5 h-5"></i></div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Summary Mode</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        For policy researchers, qualitative researchers, journalists, and anyone who prefers narrative. Plain-language elaborations of the measurement target, central caveats, and intended uses.
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-center text-sm mt-8" style="color: var(--fg-subtle);">
+                Our roadmap is public and ideas are welcome —
+                <a href="https://changemap.co/evaleval/evalcards/" target="_blank" rel="noopener" style="color: var(--accent);" class="underline underline-offset-2">see what's next</a>.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===================== EARLY FINDINGS ===================== -->
+    <section id="findings" class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg);">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 max-w-2xl mx-auto">
+                <span class="kicker">First results</span>
+                <h2 class="font-bold mt-3 mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); color: var(--fg); letter-spacing: -.01em;">A first glimpse of the whole ecosystem</h2>
+                <p class="text-lg leading-relaxed" style="color: var(--fg-muted);">
+                    Aggregating the four signals across the reporting ecosystem reveals startling early findings (5 June 2026 snapshot).
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="feat p-8" style="border-radius: 4px; border-top: 3px solid var(--r-alert);">
+                    <div class="text-4xl font-extrabold mb-2" style="color: var(--r-alert);">96.5%</div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Not reproducible</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Of 50,000+ records, 96.5% are missing at least one field needed to re-run them. Max-tokens is absent 95.6% of the time, temperature 93.9%. Even 95% of GPT-5's documented results lack the parameters to reproduce them.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px; border-top: 3px solid var(--r-compa);">
+                    <div class="text-4xl font-extrabold mb-2" style="color: var(--r-compa);">10.7%</div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Median completeness</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        Across all 635 benchmarks, median documentation completeness is a paltry 10.7%. Scores are present, but construct definitions, validation, intended use, and limitations are missing far more often than not.
+                    </p>
+                </div>
+                <div class="feat p-8" style="border-radius: 4px; border-top: 3px solid var(--accent);">
+                    <div class="text-4xl font-extrabold mb-2" style="color: var(--accent);">51.9%</div>
+                    <h3 class="text-lg font-bold mb-2" style="color: var(--fg);">Scores diverge</h3>
+                    <p style="color: var(--fg-muted); font-size: 14px; line-height: 1.65;">
+                        98.2% of model–benchmark pairs are reported by only one party. Of the rest, scores from different parties diverge substantially more than half the time (51.9%).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CONTRIBUTORS ===================== -->
+    <section id="contributors" class="py-20 px-4 sm:px-6 lg:px-8" style="background: var(--bg);">
+        <div class="max-w-7xl mx-auto">
+            <div class="matte mx-auto" style="background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 4px; padding: 3rem 1.5rem;">
+                <div class="text-center mb-8">
+                    <p class="kicker c-dark mb-2" style="color: var(--fg);">An open, community-built initiative</p>
+                    <p class="kicker c-muted">contributors span institutions, sectors, continents, and specializations</p>
+                </div>
+                <img src="{{ '/assets/img/blogs/evalcards_contributor_logos.webp' | relative_url }}"
+                     alt="EvalCards contributor affiliation logos"
+                     class="w-full max-w-5xl h-auto mx-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== COMMUNITY / CTA ===================== -->
+    <section id="community" class="py-24 px-4 sm:px-6 lg:px-8" style="background: var(--bg-warm);">
+        <div class="max-w-6xl mx-auto">
+            <div class="relative overflow-hidden" style="background: var(--fg); color: var(--bg); border-radius: 6px; padding: 3rem;">
+                <div class="relative z-10">
+                    <div class="max-w-xl mb-10">
+                        <div class="inline-flex gap-2 mb-6">
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold font-mono" style="background: color-mix(in srgb, var(--accent) 22%, transparent); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);">BETA</span>
+                            <span class="px-3 py-1 rounded-full text-xs font-semibold font-mono" style="background: color-mix(in srgb, var(--r-prov) 22%, transparent); color: var(--r-prov); border: 1px solid color-mix(in srgb, var(--r-prov) 35%, transparent);">OPEN SOURCE</span>
+                        </div>
+                        <h2 class="font-bold mb-4" style="font-size: clamp(1.8rem,3.5vw,2.4rem); letter-spacing: -.01em;">Evaluation Cards needs you!</h2>
+                        <p style="color: rgba(240,237,232,.7); line-height: 1.7;">
+                            Fixing evaluation reporting is a community effort that benefits everyone — and the Coalition can't do it alone. Contribute your evaluation data, earn a verification badge, and help us compare results apples-to-apples.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                        <div style="background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 4px; padding: 1.25rem;">
+                            <h4 class="font-bold mb-1.5 flex items-center gap-2"><i data-lucide="box" class="w-4 h-4" style="color: var(--r-repro);"></i> Model developers</h4>
+                            <p class="text-sm" style="color: rgba(240,237,232,.6);">Report your evaluations, review third-party results for discrepancies, and earn a verification badge.</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 4px; padding: 1.25rem;">
+                            <h4 class="font-bold mb-1.5 flex items-center gap-2"><i data-lucide="ruler" class="w-4 h-4" style="color: var(--r-comp);"></i> Evaluation developers</h4>
+                            <p class="text-sm" style="color: rgba(240,237,232,.6);">Upload your evals, setup, and config so others can find, run, and build on them.</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 4px; padding: 1.25rem;">
+                            <h4 class="font-bold mb-1.5 flex items-center gap-2"><i data-lucide="landmark" class="w-4 h-4" style="color: var(--r-prov);"></i> Research &amp; policy</h4>
+                            <p class="text-sm" style="color: rgba(240,237,232,.6);">Use Evaluation Cards in your analysis and cite us in papers, reports, and policy briefs.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://evalcards.evalevalai.com/models" target="_blank" rel="noopener" class="px-6 py-3 font-medium inline-flex items-center gap-2" style="background: var(--bg); color: var(--fg); border-radius: 4px; font-family: var(--font-mono); font-size: 14px;">
+                            Browse by model <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://evalcards.evalevalai.com/evals" target="_blank" rel="noopener" class="px-6 py-3 font-medium inline-flex items-center gap-2" style="border: 1.5px solid rgba(255,255,255,.25); color: var(--bg); border-radius: 4px; font-family: var(--font-mono); font-size: 14px;">
+                            Browse by evaluation
+                        </a>
+                        <a href="https://evalcards.evalevalai.com/help/get-verified" target="_blank" rel="noopener" class="px-6 py-3 font-medium inline-flex items-center gap-2" style="border: 1.5px solid rgba(255,255,255,.25); color: var(--bg); border-radius: 4px; font-family: var(--font-mono); font-size: 14px;">
+                            Become verified
+                        </a>
+                        <a href="https://evalcards.evalevalai.com/feedback" target="_blank" rel="noopener" class="px-6 py-3 font-medium inline-flex items-center gap-2" style="border: 1.5px solid rgba(255,255,255,.25); color: var(--bg); border-radius: 4px; font-family: var(--font-mono); font-size: 14px;">
+                            Give feedback
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="py-12 px-8" style="border-top: 1px solid var(--border); background: var(--bg);">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:grid md:grid-cols-3 items-center text-center">
+          <div class="mb-6 md:mb-0 md:text-left">
+            <a href="{{ '/' | relative_url }}" class="inline-block eee-footer-logo" style="color: var(--fg);">
+              {% include logo-svg.html %}
+            </a>
+          </div>
+          <div class="mb-6 md:mb-0">
+            <div class="font-mono text-sm tracking-wider" style="color: var(--fg-muted);">© 2026 | EvalEval Coalition</div>
+          </div>
+          <div class="flex justify-center md:justify-end space-x-3">
+            <a href="https://x.com/evaluatingevals" class="social-link w-8 h-8 rounded-full flex items-center justify-center">
+                <i class="fa-brands fa-x-twitter text-xs"></i>
+            </a>
+            <a href="https://github.com/evaleval/" class="social-link w-8 h-8 rounded-full flex items-center justify-center">
+                <i class="fab fa-github text-xs"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/evaluating-evaluations/" class="social-link w-8 h-8 rounded-full flex items-center justify-center">
+                <i class="fab fa-linkedin-in text-xs"></i>
+            </a>
+            <a href="https://bsky.app/profile/eval-eval.bsky.social" class="social-link w-8 h-8 rounded-full flex items-center justify-center">
+                <i class="fa-brands fa-bluesky text-xs"></i>
+            </a>
+            <a href="https://huggingface.co/evaleval" class="social-link w-8 h-8 rounded-full flex items-center justify-center group">
+                <img src="{{ '/assets/img/icon/hf-logo-pirate.svg' | relative_url }}" alt="Hugging Face" class="w-4 h-4 group-hover:invert transition duration-300" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+        function eeeToggleTheme() {
+            var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            var next = isDark ? 'light' : 'dark';
+            if (next === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
+            else { document.documentElement.removeAttribute('data-theme'); }
+            localStorage.setItem('theme', next);
+        }
+
+        // Initialize Lucide icons (guarded — a failed CDN load must not
+        // abort the rest of this script and kill the tab/accordion handlers)
+        if (window.lucide) { try { lucide.createIcons(); } catch (e) {} }
+
+        // Smooth scroll for in-page anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (e) {
+                var target = this.getAttribute('href');
+                if (target.length > 1) {
+                    var el = document.querySelector(target);
+                    if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+                }
+            });
+        });
+
+        // Anatomy: accordion (one open at a time) explaining the four signals
+        (function () {
+            var annos = Array.prototype.slice.call(document.querySelectorAll('.anno'));
+            annos.forEach(function (a) {
+                a.querySelector('.anno-head').addEventListener('click', function () {
+                    var wasActive = a.classList.contains('active');
+                    annos.forEach(function (x) { x.classList.remove('active'); });
+                    if (!wasActive) a.classList.add('active');
+                });
+            });
+        })();
+
+        // Live embeds: tab switchers. Each tab is scoped to its own row
+        // (parent) and swaps the iframe inside the same card (.ec). Works
+        // for any number of tabbed embed cards on the page.
+        (function () {
+            var tabs = Array.prototype.slice.call(document.querySelectorAll('.embed-tab'));
+            tabs.forEach(function (t) {
+                t.addEventListener('click', function () {
+                    if (t.classList.contains('active')) return;
+                    var card = t.closest('.ec');
+                    var frame = card ? card.querySelector('iframe') : null;
+                    var row = t.parentElement;
+                    Array.prototype.forEach.call(row.querySelectorAll('.embed-tab'), function (x) {
+                        x.classList.remove('active');
+                    });
+                    t.classList.add('active');
+                    if (frame) frame.src = t.dataset.src;
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
