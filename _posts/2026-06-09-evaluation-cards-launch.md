@@ -28,7 +28,7 @@ tags:
 description: "The EvalEval Coalition launches Evaluation Cards, an open-source live interpretive layer over the AI evaluations reporting ecosystem—surfacing reproducibility, completeness, provenance, and comparability across 100,000+ reported results."
 ---
 
-Today, [the EvalEval Coalition](https://evalevalai.com/) is beta launching Evaluation Cards, an open-source project for stakeholders across the evaluation ecosystem to improve reproducibility, completeness, provenance, and comparability across AI evaluations. Evaluation Cards includes:
+Today, [the EvalEval Coalition](https://evalevalai.com/) is beta launching [Evaluation Cards](https://evalevalai.com/projects/eval-cards/), an open-source project for stakeholders across the evaluation ecosystem to improve reproducibility, completeness, provenance, and comparability across AI evaluations. Evaluation Cards includes:
 
 - An interface to explore the largest and most comprehensive corpus yet assembled, with 101,955 reported evaluation results for 638 benchmarks run by 31 organizations on 5,816 models (as of 9 June 2026) based on our [EvalEval sister project, Every Eval Ever (EEE)](https://evalevalai.com/projects/every-eval-ever/)and [IBM AutoBenchmark Cards](https://research.ibm.com/publications/auto-benchmarkcard-automated-synthesis-of-benchmark-documentation).
 - A front end that shows four novel signals about the state of evaluations as a whole: reproducibility, completeness, provenance, and comparability.
