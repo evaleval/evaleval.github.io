@@ -21,12 +21,10 @@ In this tutorial, we walk through [**Every Eval Ever**](https://evalevalai.com/i
 All technical experience levels are welcome. If you can, please bring a laptop or tablet! 💻
 
 ## 📅 In-Person FAccT Tutorial
-- **When:** Friday, June 26, 2026 · 3:00 – 4:00 PM (Canada)
+- **When:** Friday, June 26, 2026 · 5:00 – 6:00 PM (Canada)
 - **Where:** ACM FAccT 2026, Montreal (in person)
+- **Room:** Jarry Room at Le Centre Sheraton Hotel 
 
-## 🌐 Online FAccT Tutorial
-- **When:** Friday, June 26, 2026 · TBD
-- **Where:** Zoom Video Conference
 
 ## 🏛️ Tutorial Program Committee
 - Jan Batzner, Weizenbaum Institute, Technical University Munich
