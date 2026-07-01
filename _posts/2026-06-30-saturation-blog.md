@@ -2,9 +2,9 @@
 layout: post
 title: "When AI Benchmarks Stop Measuring Progress"
 date: 2026-06-30
-published: false
+published: true
 category: # Infrastructure | Research | Organization | Tooling | Documentation | Datasets
-image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
+image: /assets/img/blogs/saturation_scores_scatter.png
 authors:
   - name: Mubashara Akhtar, Jeba Sania, Jocelyn D’Arcy, Leshem Choshen
 tags:
