@@ -6,7 +6,7 @@ published: false
 category: # Infrastructure | Research | Organization | Tooling | Documentation | Datasets
 image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80"
 authors:
-  - name: "Author Name"
+  - name: Mubashara Akhtar, Jeba Sania, Jocelyn D’Arcy, Leshem Choshen
 tags:
   - "Benchmarks"
   - "Evaluation"
