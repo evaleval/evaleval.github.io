@@ -22,19 +22,11 @@ The EvalEval Coalition is excited to announce recent grant support from funders 
   <img src="{{ '/assets/img/blogs/funder_logos/BMFTR_-_Logo_(en).png' | relative_url }}" alt="BMFTR logo" class="h-16 w-auto object-contain">
 </div>
 
-## Founders Pledge (Global Catastrophic Risks Fund)
-
 Founders Pledge (Global Catastrophic Risks Fund) has awarded the coalition funding to support development of Eval Cards. We are grateful to Sammy Martin and the Founders Pledge GCR team for their support of this work.
-
-## Survival and Flourishing Fund
 
 The Survival and Flourishing Fund (SFF) has also awarded the coalition support for our ongoing infrastructure and research work, and we are grateful to SFF for backing shared, open evaluation resources for the field.
 
-## The Weizenbaum Project
-
 Additionally, the Weizenbaum Project "Evaluating GenAI Evaluations," funded by the German Federal Ministry of Research, Technology, and Space (BMFTR) and the State of Berlin, supports our Shared Task on Evaluating GenAI Evaluations, and we are grateful for this support of the coalition's meta-evaluation research.
-
-## What This Enables
 
 These contributions directly enable the coalition's ongoing work on Every Eval Ever, Eval Cards, the Shared Task, and our collaborations with stakeholders including CAISI, UK AISI, and others working to bring greater coherence to AI evaluation.
 
