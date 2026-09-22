@@ -30,7 +30,29 @@
 
                 <!-- Post Meta -->
                 <div class="post-meta post-meta-stacked mb-5">
-                    {% if page.authors and page.authors.size > 0 %}
+                    {% if page.author_groups and page.author_groups.size > 0 %}
+                        <div class="post-author-groups">
+                            {% for group in page.author_groups %}
+                                <div class="post-author-group">
+                                    {%- if group.affiliation -%}
+                                        <span class="post-author-affiliation">{{ group.affiliation }}</span>
+                                    {%- endif -%}
+                                    <span class="post-authors">
+                                        {%- for author in group.authors -%}
+                                            {%- unless forloop.first -%}
+                                                <span>{% if forloop.last %}{% if group.authors.size > 2 %}, and {% else %} and {% endif %}{% else %}, {% endif %}</span>
+                                            {%- endunless -%}
+                                            {%- if author.url -%}
+                                                <a href="{{ author.url | relative_url }}" style="color: var(--fg);">{{ author.name }}</a>
+                                            {%- else -%}
+                                                <span style="color: var(--fg);">{{ author.name }}</span>
+                                            {%- endif -%}
+                                        {%- endfor -%}
+                                    </span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% elsif page.authors and page.authors.size > 0 %}
                         <div class="post-authors-line">
                             <span class="post-authors">
                                 {%- for author in page.authors -%}

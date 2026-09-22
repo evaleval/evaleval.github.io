@@ -330,6 +330,35 @@
             color: var(--fg);
         }
 
+        .post-author-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+            gap: 0.9rem 2.25rem;
+            width: 100%;
+            margin: 0.15rem 0 0.35rem;
+        }
+
+        .post-author-group {
+            border-left: 2px solid var(--border);
+            padding-left: 0.85rem;
+        }
+
+        .post-author-affiliation {
+            display: block;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--fg-subtle);
+            margin-bottom: 0.3rem;
+        }
+
+        .post-author-group .post-authors {
+            display: block;
+            line-height: 1.55;
+            color: var(--fg);
+        }
+
         .post-date-line {
             color: var(--fg-muted);
         }
