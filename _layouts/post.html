@@ -33,7 +33,10 @@
                     {% if page.author_groups and page.author_groups.size > 0 %}
                         <div class="post-author-groups">
                             {% for group in page.author_groups %}
-                                <div class="post-authors-line">
+                                <div class="post-author-group">
+                                    {%- if group.affiliation -%}
+                                        <span class="post-author-affiliation">{{ group.affiliation }}</span>
+                                    {%- endif -%}
                                     <span class="post-authors">
                                         {%- for author in group.authors -%}
                                             {%- unless forloop.first -%}
@@ -46,9 +49,6 @@
                                             {%- endif -%}
                                         {%- endfor -%}
                                     </span>
-                                    {%- if group.affiliation -%}
-                                        <span class="post-author-affiliation"> ({{ group.affiliation }})</span>
-                                    {%- endif -%}
                                 </div>
                             {% endfor %}
                         </div>

@@ -4,8 +4,7 @@ title: "How UK AISI and EvalEval Are Making Benchmark Results Reproducible"
 date: 2026-09-22
 published: false
 category: Infrastructure
-image: "/assets/img/blogs/evaleval-maskot_reordering-books.webp"
-image_contain: true
+image: "/assets/img/blogs/evaleval-aisi-banner.webp"
 authors:
   - name: "Avijit Ghosh"
   - name: "Jenny Chim"
@@ -48,10 +47,54 @@ description: "UK AISI is sharing verified evaluation results through EvalEval's 
 .aisi-collab-post .evaluation-figure iframe {
   display: block;
   width: 100%;
-  height: 680px;
   border: 1px solid var(--border);
   border-radius: 4px;
   background: var(--bg-subtle);
+}
+
+/* These embeds are cross-origin, so they cannot report their height, and their
+   shell stretches to fill whatever height it is given. Each height below is the
+   embed's measured content height at the narrowest column width its tier
+   produces, so the figures are sized to their content rather than padded out.
+   The step at 1279px is the sidebar: it sits beside the text from 1024px up,
+   which squeezes the column to its narrowest at exactly that breakpoint. */
+.aisi-collab-post .evaluation-figure--trajectories iframe { height: 615px; }
+.aisi-collab-post .evaluation-figure--distribution iframe { height: 470px; }
+
+@media (max-width: 1343px) {
+  .aisi-collab-post .evaluation-figure--trajectories iframe { height: 655px; }
+}
+
+@media (max-width: 1279px) {
+  .aisi-collab-post .evaluation-figure--trajectories iframe { height: 685px; }
+  .aisi-collab-post .evaluation-figure--distribution iframe { height: 500px; }
+}
+
+@media (max-width: 1023px) {
+  .aisi-collab-post .evaluation-figure--trajectories iframe { height: 670px; }
+}
+
+@media (max-width: 767px) {
+  .aisi-collab-post .evaluation-figure--trajectories iframe { height: 770px; }
+}
+
+@media (max-width: 663px) {
+  .aisi-collab-post .evaluation-figure--trajectories iframe { height: 810px; }
+}
+
+@media (max-width: 563px) {
+  .aisi-collab-post .evaluation-figure--trajectories iframe { height: 885px; }
+  .aisi-collab-post .evaluation-figure--distribution iframe { height: 580px; }
+}
+
+@media (max-width: 463px) {
+  .aisi-collab-post .evaluation-figure--trajectories iframe { height: 980px; }
+  .aisi-collab-post .evaluation-figure--distribution iframe { height: 612px; }
+}
+
+@media (max-width: 383px) {
+  .aisi-collab-post .evaluation-figure--trajectories iframe { height: 1125px; }
+  .aisi-collab-post .evaluation-figure--distribution iframe { height: 680px; }
 }
 
 .aisi-collab-post .evaluation-figure figcaption {
@@ -59,12 +102,6 @@ description: "UK AISI is sharing verified evaluation results through EvalEval's 
   color: var(--fg-muted);
   font-size: 0.9rem;
   line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  .aisi-collab-post .evaluation-figure iframe {
-    height: 760px;
-  }
 }
 </style>
 
@@ -92,8 +129,9 @@ Transcript-level transparency matters not only for reproducibility, but also for
 
 These results cover six frontier models: Claude Opus 4, Claude Opus 4.5, Claude Opus 4.6, GPT-5, GPT-5.2, and GPT-5.4. The release also includes results from two related cyber evaluations—Cyber CTFs and The Last Ones—which use a different, partially overlapping set of models. The data accompany AISI's paper, [*How Inference Compute Shapes Frontier LLM Evaluation*](https://arxiv.org/abs/2606.17930), which studies how benchmark performance depends on inference-time compute and evaluation protocol.
 
-<figure class="evaluation-figure">
+<figure class="evaluation-figure evaluation-figure--trajectories">
   <iframe
+    scrolling="no"
     src="https://evaleval-general-eval-card.hf.space/embed/eval/trajectories/aisi-inference-scaling/hle?panel=tokens"
     title="Humanity's Last Exam cumulative success rate by tokens used">
   </iframe>
@@ -102,8 +140,9 @@ These results cover six frontier models: Claude Opus 4, Claude Opus 4.5, Claude 
 
 When results are openly released with setup information, researchers and practitioners can examine individual studies more closely and compare findings across the wider ecosystem. Where other reports lack these details, releases like AISI's provide verified reference points for interpreting evaluations in context—for example, by helping researchers understand how setup choices may influence reported performance. As more evaluators adopt EEE, open comparisons like these can support broader and more reliable meta-research.
 
-<figure class="evaluation-figure">
+<figure class="evaluation-figure evaluation-figure--distribution">
   <iframe
+    scrolling="no"
     src="https://evaleval-general-eval-card.hf.space/embed/eval/distribution/aisi-inference-scaling/terminal-bench-2?view=context"
     title="AISI Terminal-Bench 2.0 results in the context of other reported evaluations">
   </iframe>
