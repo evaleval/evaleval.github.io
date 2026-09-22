@@ -2,7 +2,7 @@
 layout: post
 title: "How UK AISI and EvalEval Are Making Benchmark Results Reproducible"
 date: 2026-09-22
-published: false
+published: true
 category: Infrastructure
 image: "/assets/img/blogs/evaleval-aisi-banner.webp"
 authors:
