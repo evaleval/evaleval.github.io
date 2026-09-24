@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mapping Every Eval Ever to Emerging AI Governance Requirements in California, the EU, and the UK"
+title: "Mapping Evaluation Cards to Emerging AI Governance Requirements in California, the EU, and the UK"
 date: 2026-09-24
 published: true
 wide: true
@@ -12,6 +12,7 @@ authors:
   - name: "David Manheim"
   - name: "Andrew Tran"
   - name: "Wm. Matthew Kennedy"
+  - name: "Anka Reuel"
   - name: "Irene Solaiman"
 tags:
   - "infrastructure"
@@ -136,8 +137,6 @@ description: "We broke AI governance requirements from California, the EU and th
 }
 </style>
 
-In recent days, there has been renewed interest in what independent assessment of AI systems should look like in practice.
-
 ## A push for independent assessment
 
 On September 18, California Governor Gavin Newsom [issued an executive order](https://www.gov.ca.gov/2026/09/18/governor-newsom-issues-executive-order-to-accelerate-independent-oversight-and-advance-the-creation-of-an-ai-kill-switch/) accelerating the state's work on independent AI oversight. Among other things, the order asks state agencies to develop recommendations around embedding independent verification organizations inside frontier AI companies to conduct regular audits and evaluations, independently verifying safety frameworks and risk assessments, and maintaining independent verification of emergency shutdown mechanisms. California has also recently created frameworks for [independent verification organizations](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB813) and a [registry for AI auditors](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB1405).
@@ -148,11 +147,11 @@ This builds on a broader shift toward technical evaluation and assurance around 
 
 Across these approaches, a practical implementation question keeps coming up: **once an evaluation is conducted, how should its evidence be recorded and communicated?**
 
-Policymakers need to know what was tested and how. Evaluators need enough methodological detail to interpret or reproduce results. Developers increasingly face requests for similar evidence in different formats. Shared reporting conventions can make that evidence easier to reuse across research, assurance, and governance processes.
+Policymakers need to know what was tested and how. Evaluators need enough methodological detail to interpret or reproduce results. Developers increasingly face requests for similar evidence in different formats. Shared reporting conventions can make that evidence easier to reuse across research, assurance, and governance processes. Standardized reporting could also reduce the burden on oversight bodies, which currently have to sift through differently structured provider documentation to identify and compare the evaluation information they need. It can also enable reliable automatic parsing of such information.
 
-## Mapping requirements to Every Eval Ever
+## Mapping requirements to Evaluation Cards
 
-This is where our work at EvalEval fits into a **broader open evaluation ecosystem**. Through [Every Eval Ever](https://github.com/evaleval/every_eval_ever) and the wider [Evaluation Cards](/projects/eval-cards/) ecosystem, we are working on shared, open infrastructure for documenting evaluation results in ways that make them easier to find, compare, reproduce, and reuse.
+This is where our work at EvalEval fits into a **broader open evaluation ecosystem**. Through [Every Eval Ever](https://github.com/evaleval/every_eval_ever) and the wider [Evaluation Cards](/projects/eval-cards/) effort, we are working on shared, open infrastructure for documenting evaluation results in ways that make them easier to find, compare, reproduce, and reuse.
 
 We are already working with public-sector evaluators to put this infrastructure into practice. In our [collaboration with the UK AI Security Institute](/infrastructure/2026/09/22/uk-aisi-evaleval-reproducible-benchmark-results/), AISI is making publicly reported evaluation methods and findings available through Evaluation Cards where appropriate, including verified results, context, and configuration information. Feedback from AISI has also helped shape the EEE schema itself. This gives us a concrete example of how open reporting infrastructure can support independent evaluation: results produced by an evaluator can be published in a shared structure and compared with evidence from the wider ecosystem.
 
@@ -162,9 +161,9 @@ So we broke requirements from California, the EU, and the UK into the individual
 
 ## What the mapping found
 
-For the **60 pieces of evidence across 40 requirements whose natural home is evaluation or benchmark reporting**, EEE can already represent **56 of 60**. Fifty-one are captured through dedicated, typed fields. Adding [AutoBenchmarkCards](https://arxiv.org/abs/2512.09577) makes two additional pieces structured at the benchmark level.
+For the **60 pieces of evidence across 40 requirements whose natural home is evaluation or benchmark reporting**, EEE can already represent **56 of 60**. Fifty-one are captured through dedicated, typed fields. Adding [AutoBenchmarkCards](https://arxiv.org/abs/2512.09577) makes two additional pieces structured at the benchmark level. Both come from the AI Act's requirement to describe the data used for testing and validation: AutoBenchmarkCards records a benchmark's data type and its languages as typed fields, where EEE can only note them in free text. The interactive visualization below shows how every piece of evidence maps.
 
-The remaining gaps are useful because they point to places where evaluation reporting can get better. They include representing evaluations that do not fit neatly into per-sample records, such as human-uplift studies; comparing results with and without mitigations; documenting random sample-selection methods; and recording why particular trajectories or additional samples were selected.
+The remaining gaps are useful because they point to places where evaluation reporting can get better. They include representing evaluations that do not fit neatly into per-sample records, such as human-uplift studies; comparing results with and without mitigations; documenting random sample-selection methods; and recording why particular trajectories or additional samples were selected. EvalEval has active workstreams to extend EEE and Evaluation Cards to these and other kinds of evaluation.
 
 ## Where other standards fit
 
