@@ -154,6 +154,8 @@ Policymakers need to know what was tested and how. Evaluators need enough method
 
 This is where our work at EvalEval fits into a **broader open evaluation ecosystem**. Through [Every Eval Ever](https://github.com/evaleval/every_eval_ever) and the wider [Evaluation Cards](/projects/eval-cards/) ecosystem, we are working on shared, open infrastructure for documenting evaluation results in ways that make them easier to find, compare, reproduce, and reuse.
 
+We are already working with public-sector evaluators to put this infrastructure into practice. In our [collaboration with the UK AI Security Institute](/infrastructure/2026/09/22/uk-aisi-evaleval-reproducible-benchmark-results/), AISI is making publicly reported evaluation methods and findings available through Evaluation Cards where appropriate, including verified results, context, and configuration information. Feedback from AISI has also helped shape the EEE schema itself. This gives us a concrete example of how open reporting infrastructure can support independent evaluation: results produced by an evaluator can be published in a shared structure and compared with evidence from the wider ecosystem.
+
 We wanted to understand how far that existing infrastructure could already support emerging governance requirements.
 
 So we broke requirements from California, the EU, and the UK into the individual pieces of evidence that would need to be recorded, then mapped those pieces against EEE and related documentation schemas.
