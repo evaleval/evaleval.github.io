@@ -37,9 +37,9 @@ header .crosslink{display:none}.controls fieldset[hidden]{display:none}
 .chip.free_text{color:#1a1916}.chip.narrative{color:#1a1916}
 :root[data-theme="dark"] .chip.structured,:root[data-theme="dark"] .chip.none,:root[data-theme="dark"] .chip.gap,:root[data-theme="dark"] .chip.narrative{color:#111110}
 :root[data-theme="dark"] .chip.narrative{color:#f0ede8}
-.chip.mixed{box-shadow:inset -9px 0 0 var(--cov-free)}:root{--stage:#5c5a55}:root[data-theme="dark"]{--stage:#a09d97}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--stage:#a09d97}}.source-key{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:10px;margin:14px 0 0}.source-key .sk{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--sch);border-radius:4px;padding:10px 12px}.source-key .sk-abbr{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.source-key .sk-name{font-weight:600;font-size:.95rem;margin:1px 0 4px}.source-key .sk-name a{color:var(--fg);text-decoration:none}.source-key .sk-name a:hover{color:var(--accent)}.source-key p{margin:0 0 4px;font-size:.84rem;line-height:1.5}.source-key .sk-unit{color:var(--muted);font-size:.78rem}.source-key .sk-aef{grid-column:1/-1}.source-key .sk-aef p{max-width:110ch}header .lede{max-width:none}header .lede b{color:var(--fg)}.chip.eee{background:var(--sch-eee);color:#fff}.chip.aef{background:var(--sch-aef);color:#fff}.chip.abc{background:var(--sch-abc);color:#fff}:root[data-theme="dark"] .chip.eee,:root[data-theme="dark"] .chip.abc{color:#111110}
+.chip.mixed{box-shadow:inset -9px 0 0 var(--cov-free)}:root{--stage:#5c5a55}:root[data-theme="dark"]{--stage:#a09d97}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--stage:#a09d97}}.source-key{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:10px;margin:14px 0 0}.source-key .sk{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--sch);border-radius:4px;padding:10px 12px}.source-key .sk-abbr{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.source-key .sk-name{font-weight:600;font-size:.95rem;margin:1px 0 4px}.source-key .sk-name a{color:var(--fg);text-decoration:none}.source-key .sk-name a:hover{color:var(--accent)}.source-key p{margin:0 0 4px;font-size:.84rem;line-height:1.5}.source-key .sk-unit{color:var(--muted);font-size:.78rem}.source-key .sk-aef{grid-column:1/-1}.source-key .sk[hidden]{display:none}.source-key .sk-aef p{max-width:110ch}header .lede{max-width:none}header .lede b{color:var(--fg)}.chip.eee{background:var(--sch-eee);color:#fff}.chip.aef{background:var(--sch-aef);color:#fff}.chip.abc{background:var(--sch-abc);color:#fff}:root[data-theme="dark"] .chip.eee,:root[data-theme="dark"] .chip.abc{color:#111110}
 .optional-tag{border-radius:9999px}
-.controls input{accent-color:var(--accent)}
+.controls input{accent-color:var(--fg)}
 /* Embedded in the blog: the post supplies the page chrome */
 html.embedded main{padding:16px 12px 24px}
 html.embedded header h1{font-size:1.25rem}
@@ -67,7 +67,7 @@ const EVC = DATA.schemas.evc, AEF = DATA.schemas.aef;
 DATA.schemas = { eee: DATA.schemas.eee, abc: DATA.schemas.abc, aef: DATA.schemas.aef };
 Object.assign(DATA.schemas.eee, { label: "Reported fields (Every Eval Ever)", short: "Reported" });
 Object.assign(DATA.schemas.abc, { label: "Auto-pulled fields (AutoBenchmarkCards)", short: "Auto-pulled" });
-Object.assign(DATA.schemas.aef, { label: "AEF-1 (Evaluator Independence Standard)", short: "AEF-1", optional: true });
+Object.assign(DATA.schemas.aef, { label: "AEF-1 (Evaluator Independence Standard)", short: "AEF-1", toggle: "Independent Evaluator Conditions (AEF-1)", optional: true });
 DATA.groups = DATA.groups.filter(g => g.schema === "eee" || g.schema === "abc" || g.schema === "aef");
 DATA.groups.forEach(g => { g.label = g.label.replace("Detailed-results reference & integrity", "Detailed results & integrity"); });
 DATA.requirements.forEach(r => r.elements.forEach(el => { el.mappings = el.mappings.filter(m => m.schema_family !== "evc"); }));
@@ -75,7 +75,7 @@ const AEF_OVERLAP = DATA.requirements.flatMap(r => r.elements).filter(el => el.s
 const AEF_HOME = DATA.requirements.flatMap(r => r.elements).filter(el => el.scope === "other" && el.category === "auditor_reporting").length;
 DATA.page.title = "Governance Evidence in Evaluation Cards";
 DATA.page.heading = "Which governance evidence can an Evaluation Card hold?";
-DATA.page.lede = "We split 40 governance requirements from California, the EU and the UK into the 60 pieces of evidence whose natural home is evaluation reporting. Each band links one piece of evidence to an Evaluation Card field that could record it. An Evaluation Card has two kinds of field: <b>reported</b> fields, which the evaluator fills in and submits through Every Eval Ever, and <b>auto-pulled</b> fields, benchmark metadata that Evaluation Cards pulls in from AutoBenchmarkCards without the evaluator doing anything. AEF-1, the AI Evaluator Forum's Evaluator Independence Standard, describes the evaluator rather than the evaluation, so it is unticked by default; tick it under Fields to overlay the evidence it also covers. Switch Scope to All evidence to also see the other 221 pieces of governance evidence, which belong in other kinds of record.";
+DATA.page.lede = "We split 40 governance requirements from California, the EU and the UK into the 60 pieces of evidence whose natural home is evaluation reporting. Each band links one piece of evidence to an Evaluation Card field that could record it. An Evaluation Card has two kinds of field: <b>reported</b> fields, which the evaluator fills in and submits through Every Eval Ever, and <b>auto-pulled</b> fields, benchmark metadata that Evaluation Cards pulls in from AutoBenchmarkCards without the evaluator doing anything. AEF-1, the AI Evaluator Forum's Evaluator Independence Standard, describes the evaluator rather than the evaluation, so it is unticked by default; tick Independent Evaluator Conditions (AEF-1) under Fields to overlay the evidence it also covers and see what it is. Switch Scope to All evidence to also see the other 221 pieces of governance evidence, which belong in other kinds of record.";
 const COVERAGE_LABEL = {
 structured: "Structured field",
 free_text: "Free-text only",
@@ -281,10 +281,10 @@ const schemaBox = document.getElementById("schemas");
 FAMILIES.forEach(s => {
 const opt = SCHEMAS[s].optional;
 schemaBox.insertAdjacentHTML("beforeend", `<label title="${esc(SCHEMAS[s].label)}: ${esc(SCHEMAS[s].unit)}">
-<input type="checkbox" value="${s}" ${opt ? "" : "checked"}><span class="schema-sw" style="background:${schVar(s)}"></span>${esc(SCHEMAS[s].short)}${opt ? '<span class="optional-tag">optional</span>' : ""}</label>`);
+<input type="checkbox" value="${s}" ${opt ? "" : "checked"}><span class="schema-sw" style="background:${schVar(s)}"></span>${esc(SCHEMAS[s].toggle || SCHEMAS[s].short)}${opt ? '<span class="optional-tag">optional</span>' : ""}</label>`);
 });
 const getJur = jurisdictionControls(document.getElementById("jur"), draw);
-schemaBox.addEventListener("change", draw);
+schemaBox.addEventListener("change", () => { document.querySelector(".source-key .sk-aef").hidden = !schemaBox.querySelector('input[value="aef"]').checked; draw(); });
 document.getElementById("cov").addEventListener("change", draw);
 document.querySelectorAll("input[name=left], input[name=mid], input[name=scope]").forEach(r => r.addEventListener("change", draw));
 let resizeTimer;
@@ -305,9 +305,9 @@ document.getElementById("source-key").innerHTML = ["eee", "abc"].map(s => { cons
 <div class="sk-name"><a href="${esc(EVC.url)}" target="_blank" rel="noopener">Evaluation Cards</a></div>
 <p>Evaluation Cards joins the two, adds model metadata from public catalogs, and computes reproducibility, completeness, provenance and comparability signals. Those signals are derived from the fields shown here, so they add no evidence of their own.</p></div>`;
 document.getElementById("source-key").insertAdjacentHTML("beforeend", `
-<div class="sk sk-aef" style="--sch:var(--sch-aef)"><div class="sk-abbr">Evaluator Independence Standard · AI Evaluator Forum</div>
+<div class="sk sk-aef" style="--sch:var(--sch-aef)" hidden><div class="sk-abbr">Evaluator Independence Standard · AI Evaluator Forum</div>
 <div class="sk-name"><a href="https://aievaluatorforum.org/initiatives/minimum-operating-conditions" target="_blank" rel="noopener">AEF-1</a></div>
-<p>A voluntary standard for independent third-party evaluations, with 26 conditions under five principles, including sufficient access and resources, minimized conflicts of interest, and transparency. Evaluators attest to it and publish the checklist with their results. It describes the evaluator rather than the evaluation, so it is not part of an Evaluation Card. It is the natural home for ${AEF_HOME} pieces of governance evidence about evaluators, such as independence, access and qualifications; switch Scope to All evidence to see them under “Relevant to other schemas”. Tick AEF-1 in the controls to overlay the ${AEF_OVERLAP} pieces of eval evidence it also covers.</p>
+<p>A voluntary standard for independent third-party evaluations, with 26 conditions under five principles, including sufficient access and resources, minimized conflicts of interest, and transparency. Evaluators attest to it and publish the checklist with their results. It describes the evaluator rather than the evaluation, so it is not part of an Evaluation Card. It is the natural home for ${AEF_HOME} pieces of governance evidence about evaluators, such as independence, access and qualifications; switch Scope to All evidence to see them under “Relevant to other schemas”. The chart now also shows the ${AEF_OVERLAP} pieces of eval evidence it covers, in its own colour.</p>
 <div class="sk-unit">One record = ${esc(AEF.unit)}</div></div>`);
 if (MERGE) document.querySelector(".legend-other").hidden = false;
 const selectedSchemas = () => new Set([...schemaBox.querySelectorAll("input:checked")].map(i => i.value));
