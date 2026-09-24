@@ -26,7 +26,7 @@
                 {% endif %}
 
                 <!-- Title -->
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight" style="color: var(--fg);">{{ page.title }}</h1>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl {% if page.title_spaced %}leading-[1.25] md:leading-[1.2] lg:leading-[1.18]{% else %}leading-tight{% endif %} font-bold mb-6" style="color: var(--fg);">{{ page.title }}</h1>
 
                 <!-- Post Meta -->
                 <div class="post-meta post-meta-stacked mb-5">
@@ -82,7 +82,7 @@
             </header>
 
             <!-- Main Content + Sidebar (sidebar first on narrow screens, right column on lg+) -->
-            <div class="flex flex-col lg:flex-row gap-12">
+            <div class="flex flex-col lg:flex-row {% if page.wide %}gap-12 lg:gap-8{% else %}gap-12{% endif %}">
 
                 <!-- Post Content -->
                 <div class="flex-1 min-w-0 order-2 lg:order-1">
@@ -92,7 +92,7 @@
                 </div>
 
                 <!-- Sidebar -->
-                <aside class="w-full lg:w-72 xl:w-80 lg:sticky lg:top-24 lg:self-start space-y-6 order-1 lg:order-2">
+                <aside class="w-full {% if page.wide %}lg:w-60 xl:w-64{% else %}lg:w-72 xl:w-80{% endif %} lg:sticky lg:top-24 lg:self-start space-y-6 order-1 lg:order-2">
 
                     <!-- Table of Contents -->
                     <div class="sidebar-card p-5" style="border: 1px solid var(--border); background-color: var(--bg-subtle);">
