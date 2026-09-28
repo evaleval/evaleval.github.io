@@ -15,12 +15,13 @@ authors:
   - name: "Jessica Ji"
   - name: "Jan Batzner"
   - name: "Wm. Matthew Kennedy"
+  - name: "Usman Gohar"
   - name: "Anka Reuel"
   - name: "Irene Solaiman"
 tags:
   - "infrastructure"
   - "evaluation reporting"
-  - "AI governance"
+  - "ai governance"
   - "independent evaluation"
 description: "We analyzed prominent policy and regulatory frameworks for evaluation reporting and determined that Evaluation Cards can not only meet required information disclosure needs but also serve as a shared standard for developers to communicate with policymakers."
 ---
@@ -152,7 +153,7 @@ Across these approaches, a practical implementation question keeps coming up: **
 
 Policymakers need to know what was tested and how. Evaluators and auditors need enough methodological detail, including completed metadata, to interpret or reproduce results. Developers increasingly face requests for similar evidence in different formats. Shared reporting conventions can streamline that evidence across research, assurance, and governance processes.
 
-Shared reporting can also reduce the burden on oversight bodies. When providers report evaluation evidence in different formats and at varying levels of detail, regulators have to spend additional time locating, interpreting, and comparing the information they need. Standardized, structured reporting can make that process easier and also enable more reliable automatic parsing and analysis of evaluation evidence.
+Shared reporting can also reduce the burden on oversight bodies. When providers report evaluation evidence in different formats and at varying levels of detail, regulators have to spend additional time locating, interpreting, and comparing the information they need. Standardized, structured reporting can make that process easier and also enable more reliable automated parsing and analysis of evaluation evidence.
 
 Such a common baseline can also support other governance processes. In California, for example, the state will need to evaluate and compare prospective Independent Verification Organizations as it develops its designation regime. SB 813 requires applicants to provide information about the benchmarks, technologies, metrics, and methodologies they propose using, and directs the state to develop the regime with attention to consistency, comparability, and avoiding duplicative requirements where practicable. A common format for describing evaluation evidence could make that information easier to assess across applicants and over time.
 
@@ -160,11 +161,11 @@ Such a common baseline can also support other governance processes. In Californi
 
 This is where our work at EvalEval fits into a **broader open evaluation ecosystem**. Through [Every Eval Ever](https://github.com/evaleval/every_eval_ever) and the wider [Evaluation Cards](/projects/eval-cards/) effort, we are working on shared, open infrastructure for documenting evaluation results in ways that make them easier to find, compare, analyze, reproduce, and reuse.
 
-We are currently working with public-sector evaluators to put this infrastructure into practice. In our [collaboration with the UK AI Security Institute](/infrastructure/2026/09/22/uk-aisi-evaleval-reproducible-benchmark-results/), AISI is making publicly reported evaluation methods and findings available through Evaluation Cards where appropriate, including verified results, context, and configuration information. Feedback from AISI has also helped shape the EEE schema itself. This gives us a concrete example of how open reporting infrastructure can support independent evaluation: results produced by an evaluator can be published in a shared structure and compared with evidence from the wider ecosystem.
+We are currently working with public-sector evaluators to put this infrastructure into practice. In our [collaboration with the UK AI Security Institute](/infrastructure/2026/09/22/uk-aisi-evaleval-reproducible-benchmark-results/), AISI is making publicly reported evaluation methods and findings available through Evaluation Cards where appropriate, including verified results, context, and configuration information. Feedback from AISI has also helped shape the Every Eval Ever (EEE) schema itself. This gives us a concrete example of how open reporting infrastructure can support independent evaluation: results produced by an evaluator can be published in a shared structure and compared with evidence from the wider ecosystem.
 
 To understand how far this infrastructure could support emerging governance requirements, we reviewed **40 requirements across the California ([AB 1405](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260AB1405), [SB 813](https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB813)), EU ([AI Act](https://artificialintelligenceact.eu/article/55/), [GPAI Code of Practice](https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai)), and UK ([JCHR report](https://publications.parliament.uk/pa/jt5902/jtselect/jtrights/160/report.html)) instruments in our crosswalk and broke each requirement into the discrete pieces of evidence needed to satisfy it. This produced 281 evidence elements in total.**
 
-We then classified each element according to its **unit of record**. We treated an element as evaluation-reporting evidence when it primarily describes an evaluation run, its methodology, configuration, benchmark, results, or the conditions under which it was conducted. We classify this as information that can reasonably be attached to an evaluation record. Evidence about an evaluator's institutional independence or qualifications, a model as a whole, an incident, organizational governance, or a regulatory process was instead assigned to the corresponding evaluator-, model-, incident-, organization-, or regulator-level record. On this basis, **60 of the 281 elements fell within the scope of evaluation reporting**, while the remaining 221 belong in other kinds of records.
+We then classified each element according to its **unit of record**. We treated an element as evaluation-reporting evidence when it primarily describes an evaluation run, its methodology, configuration, benchmark, results, or the conditions under which it was conducted. We classify this as information that can reasonably be attached to an evaluation record. Evidence about an evaluator's institutional independence or qualifications, a model as a whole, an incident, organizational governance, or a regulatory process was instead assigned to the corresponding evaluator-, model-, incident-, organization-, or regulator-level record. On this basis, **60 of the 281 elements fall within the scope of evaluation reporting**, while the remaining 221 belong in other kinds of records.
 
 For each of those 60 elements, we then asked whether EEE or AutoBenchmarkCards contains a field whose unit and meaning match the required evidence, and whether that information can be represented in a structured field, in free text only, or not at all. **Evaluation Cards unifies evaluator-reported information from EEE with benchmark metadata automatically supplied by AutoBenchmarkCards, as shown in the [visualization](#crosswalk).**[^aef]
 
@@ -172,7 +173,7 @@ For each of those 60 elements, we then asked whether EEE or AutoBenchmarkCards c
 
 Of the **60 evidence elements in scope for evaluation reporting, EEE can already represent 56**. Fifty-one are captured through dedicated, typed fields; another five can currently be recorded through free-text fields supplied by the evaluator or other reporter.
 
-For example, requirements in the EU's GPAI Code of Practice to document an evaluation's tooling and resource constraints map onto existing EEE fields for tools available during an evaluation and token limits, while requirements to record whether an evaluation was conducted internally or by an external evaluator map to `source_metadata.evaluator_relationship`.
+For example, requirements in the EU's General-Purpose AI (GPAI) Code of Practice to document an evaluation's tooling and resource constraints map onto existing EEE fields for tools available during an evaluation and token limits, while requirements to record whether an evaluation was conducted internally or by an external evaluator map to `source_metadata.evaluator_relationship`.
 
 Evaluation Cards can combine those submissions with benchmark-level information automatically pulled from [AutoBenchmarkCards](https://arxiv.org/abs/2512.09577). In our crosswalk, AutoBenchmarkCards turns two of the five elements that EEE captures only in free text (benchmark data type and benchmark languages) into structured metadata. This increases the number represented through structured fields from **51 to 53**.
 
@@ -184,7 +185,7 @@ These efforts can work as complementary layers: evaluator standards establish ex
 
 ## Explore the map
 
-**The interactive visualization below shows our current mapping.** It shows which pieces of governance evidence an [Evaluation Card](https://arxiv.org/abs/2606.09809) can address, with each field color-coded by where it comes from: *reported* fields that evaluators fill in and submit through Every Eval Ever, and *auto-pulled* benchmark metadata that Evaluation Cards brings in from AutoBenchmarkCards. What a reporter controls is what they submit through EEE. Open it in a new tab for the most room, and hover any band for the source text and field definitions.
+**The interactive visualization below presents our current mapping.** It shows which pieces of governance evidence an [Evaluation Card](https://arxiv.org/abs/2606.09809) can address, with each field color-coded by where it comes from: *reported* fields that evaluators fill in and submit through Every Eval Ever, and *auto-pulled* benchmark metadata that Evaluation Cards brings in from AutoBenchmarkCards. What a reporter controls is what they submit through EEE. Open it in a new tab for the most room, and hover over any band for the source text and field definitions.
 
 <figure class="crosswalk-figure" id="crosswalk">
   <div class="crosswalk-toolbar">
@@ -199,7 +200,7 @@ These efforts can work as complementary layers: evaluator standards establish ex
     src="{{ '/assets/embeds/governance-evidence-crosswalk.html' | relative_url }}"
     title="Interactive Sankey diagram mapping governance evidence to evaluation schema fields"
     loading="lazy"></iframe>
-  <figcaption>Each band links one piece of required evidence to an Evaluation Card field that could record it: blue for fields the evaluator reports through Every Eval Ever, violet for benchmark metadata pulled in from AutoBenchmarkCards. Hover a band or node for the source quote, field definition and mapping rationale; click to pin.</figcaption>
+  <figcaption>Each band links one piece of required evidence to an Evaluation Card field that could record it: blue for fields the evaluator reports through Every Eval Ever, violet for benchmark metadata pulled in from AutoBenchmarkCards. Hover a band or node for the source quote, field definition, and mapping rationale; click to pin.</figcaption>
 </figure>
 
 Evaluation Cards are designed to be living documents that grow with multi-stakeholder input over time. We therefore believe that the relationship between governance requirements and evaluation infrastructure should be bidirectional: new policy requirements can help identify where Evaluation Cards need to become more expressive, while existing schemas can give policymakers a concrete, machine-readable way to specify and compare the evaluation evidence they are asking for. Our mapping shows that the same reporting infrastructure can already support a substantial share of the evaluation-specific evidence appearing across California, the EU, and the UK, while making clear where complementary standards or new fields are still needed. We hope regulators, evaluators, developers, and researchers will use the crosswalk as a practical reference and share feedback from real-world use so that Evaluation Cards can continue to evolve alongside emerging governance requirements.
