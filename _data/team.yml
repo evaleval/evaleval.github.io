@@ -1,58 +1,52 @@
 # Team Members in order that they should appear on the page
-# Hosts are in custom order, the rest are alphabetical by last name
+# Steering Committee is in custom order; Chairs and Founding Chairs are alphabetical by last name
+#
+# affiliations keys:
+#   steering        - Steering Committee section (Bylaws §5)
+#   chair           - Chairs section; the card shows `role` under the name (Bylaws §6)
+#   founding-chair  - adds a "Founding Chair" label to the card (Bylaws §3)
+#   former-chair    - Founding Chair with no current role; not shown on the page
 
-## HOSTS
+## STEERING COMMITTEE
 - name: Avijit Ghosh
   lastname: Ghosh
-  role: Host
+  role: Steering Committee
   subheading: Lead Technical AI Policy Researcher at Hugging Face
   link: https://www.evijit.io
   photo: assets/img/team/avijit-ghosh.webp
   affiliations:
-    - research
-    - host
+    - steering
   projects:
     - eval-cards
 
 - name: Irene Solaiman
   lastname: Solaiman
-  role: Host
+  role: Steering Committee
   subheading: Chief Policy Officer at Hugging Face
   link: https://www.irenesolaiman.com/
   photo: assets/img/team/irene-solaiman.webp
   affiliations:
-    - host
+    - steering
   projects:
 
 - name: Zeerak Talat
   lastname: Talat
-  role: Host
+  role: Steering Committee
   subheading: Chancellor's Fellow at the University of Edinburgh
   link: https://zeerak.org/
   photo: assets/img/team/zeerak-talat.webp
   affiliations:
-    - host
-  projects:
-
-- name: Yacine Jernite
-  lastname: Jernite
-  role: Host
-  subheading: ML & Society Lead at Hugging Face
-  link: https://yjernite.github.io/
-  photo: assets/img/team/yacine-jernite.webp
-  affiliations:
-    - host
+    - steering
   projects:
 
 - name: Stella Biderman
   lastname: Biderman
-  role: Host
+  role: Steering Committee
   subheading: Executive Director at EleutherAI
   link: https://stella-biderman.com/
   photo: assets/img/team/stella-biderman.webp
   affiliations:
-    - infra
-    - host
+    - steering
   projects:
     - lm-harness
     - research-output
@@ -60,102 +54,153 @@
 ## CHAIRS
 - name: Mubashara Akhtar
   lastname: Akhtar
-  role: Research Chair
-  subheading: Postdoc Fellow at ETH AI Center, ETH Zurich 
+  role: Social Media and Public Relations Chair  # currently on break
+  subheading: Postdoc Fellow at ETH AI Center, ETH Zurich
   link: https://www.mubasharaakhtar.com/
   photo: assets/img/team/mubashara-akhtar.webp
   affiliations:
-    - research
+    - chair
+    - founding-chair
   projects:
     - bench-sat
 
 - name: Jan Batzner
   lastname: Batzner
-  role: Infrastructure Chair
+  role: Research Chair
   subheading: Research Associate at Weizenbaum Institute and Technical University Munich
   link: https://www.gov.sot.tum.de/rds/team/jan-batzner/
   photo: assets/img/team/jan-batzner.webp
   affiliations:
-    - infra
+    - chair
+    - founding-chair
   projects:
     - cache
 
+- name: Jenny Chim
+  lastname: Chim
+  role: Coordination Chair
+  subheading: Applied Scientist at Warden AI
+  link: https://j-chim.github.io/
+  photo: assets/img/team/jenny-chim.webp
+  affiliations:
+    - chair
+  projects:
+
 - name: Leshem Choshen
   lastname: Choshen
-  role: Infrastructure Chair
+  role: Research Chair
   subheading: MIT, MIT-IBM Watson AI Lab
   link: https://ktilana.wixsite.com/leshem-choshen
   photo: assets/img/team/leshem-choshen.webp
   affiliations:
-    - infra
+    - chair
+    - founding-chair
   projects:
-    - cache
 
 - name: Usman Gohar
   lastname: Gohar
-  role: Organizing Chair
+  role: Social Media and Public Relations Chair
   subheading: PhD Candidate at Iowa State University
   link: https://usmangohar.github.io/
   photo: assets/img/team/usman-gohar.webp
   affiliations:
-    - org
+    - chair
+    - founding-chair
   projects:
     - research-output
 
+- name: Matt Kennedy
+  lastname: Kennedy
+  role: Fundraising Chair
+  subheading: AI+ Senior Research Fellow at King's College London
+  link: https://www.linkedin.com/in/wm-matthew-kennedy-phd-52a8b826/
+  photo: assets/img/team/matt-kennedy.webp
+  affiliations:
+    - chair
+    - founding-chair
+  projects:
+
 - name: Kevin Klyman
   lastname: Klyman
-  role: Organizing Chair
+  role: Social Media and Public Relations Chair
   subheading: Researcher at Stanford University
   link: https://www.kevinklyman.com/
   photo: assets/img/team/kevin-klyman.webp
   affiliations:
-    - org
+    - chair
+    - founding-chair
   projects:
     - research-output
 
-- name: Subho Majumdar
-  lastname: Majumdar
-  role: Research Chair
-  subheading: Head of AI at Vijil
-  link: https://shubhobm.github.io/
-  photo: assets/img/team/subho-majumdar.webp
+- name: Michelle Lin
+  lastname: Lin
+  role: Fundraising Chair
+  subheading: Master's Researcher at Université de Montréal and Mila
+  link: https://ca.linkedin.com/in/lin-michelle
+  photo: assets/img/team/michelle-lin.webp
   affiliations:
-    - research
+    - chair
+    - founding-chair
   projects:
-    - eval-sci
-    - cache
 
 - name: Jennifer Mickel
   lastname: Mickel
-  role: Organizing Chair
+  role: Strategy and Community Engagement Chair
   subheading: EleutherAI
   link: https://jennm.github.io/
   photo: assets/img/team/jennifer-mickel.webp
   affiliations:
-    - org
+    - chair
+    - founding-chair
   projects:
     - workshop
     - research-output
 
 - name: Ichhya Pant
   lastname: Pant
-  role: Organizing Chair
+  role: Strategy and Community Engagement Chair
   subheading: Independent Researcher
   link: https://www.linkedin.com/in/ichhya-pant/
   photo: assets/img/team/ichhya-pant.webp
   affiliations:
-    - org
+    - chair
+    - founding-chair
   projects:
     - workshop
 
+- name: Kevin Wei
+  lastname: Wei
+  role: Partnerships Chair
+  subheading: JD Candidate at Harvard Law School
+  link: https://kevinlwei.com/
+  photo: assets/img/team/kevin-wei.webp
+  affiliations:
+    - chair
+    - founding-chair
+  projects:
+    - research-output
+
+## FOUNDING CHAIRS (no current Chair role)
+- name: Subho Majumdar
+  lastname: Majumdar
+  role: Founding Chair
+  subheading: Head of AI at Vijil
+  link: https://shubhobm.github.io/
+  photo: assets/img/team/subho-majumdar.webp
+  affiliations:
+    - former-chair
+  projects:
+    - eval-sci
+    - cache
+
 - name: Patricia Paskov
   lastname: Paskov
-  role: Research Chair
-  subheading: 
+  role: Founding Chair
+  subheading:
   link: https://www.prpaskov.com
   photo: assets/img/team/patricia-paskov.webp
   affiliations:
-    - research
+    - former-chair
   projects:
     - eval-sci
 
@@ -166,55 +211,20 @@
   link: https://ankareuel.com
   photo: assets/img/team/anka-reuel.webp
   affiliations:
-    - research
+    - chair
+    - founding-chair
   projects:
     - bench-sat
     - eval-cards
 
-# - name: Prajna Soni
-#   lastname: Soni
-#   role: Research Chair
-#   subheading: Applied Research Scientist at Alinia AI
-#   link: https://prajnasoni.github.io
-#   photo: assets/img/team/prajna-soni.webp
-#   affiliations:
-#     - research
-#     - org
-#   projects:
-#     - bench-sat
-#     - research-output
-
-- name: Kevin Wei
-  lastname: Wei
-  role: Organizing Chair
-  subheading: JD Candidate at Harvard Law School
-  link: https://kevinlwei.com/
-  photo: assets/img/team/kevin-wei.webp
+- name: Prajna Soni
+  lastname: Soni
+  role: Founding Chair
+  subheading: Applied Research Scientist at Alinia AI  
+  link: https://prajnasoni.github.io
+  photo: assets/img/team/prajna-soni.webp
   affiliations:
-    - org
+    - former-chair
   projects:
+    - bench-sat
     - research-output
-
-# - name: Cedric Deslandes Whitney
-#   lastname: Whitney
-#   role: Research Chair
-#   subheading: PhD Candidate at UC Berkeley, School of Information
-#   link: https://scholar.google.com/citations?hl=en&user=-hx7ClMAAAAJ
-#   photo: assets/img/team/cedric-whitney.webp
-#   affiliations:
-#     - research
-#   projects:
-#     - eval-cards
-
-# - name: Garnett Achieng
-#   lastname: Achieng
-#   role: Organizing Chair
-#   subheading: Policy Manager at TikTok
-#   link: https://garnettachieng.notion.site/Hello-I-m-Garnett-Achieng-4401ae2666134b149d8ea407ad41adde
-#   photo: assets/img/team/garnett-achieng.webp
-#   affiliations:
-#     - infra
-#     - org
-#   projects:
-#     - lm-harness
-#     - research-output

@@ -2,7 +2,7 @@
 layout: event
 title: 2025 Workshop on Evaluating AI in Practice
 subtitle: Bridging Statistical Rigor, Sociotechnical Insights, and Ethical Boundaries
-team: Icchya Pant, Jennifer Mickel
+team: Icchya Pant, Jennifer Mickel, Usman Gohar
 status: active
 order: 3
 category: Organization
