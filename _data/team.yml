@@ -91,9 +91,9 @@
 - name: Jenny Chim
   lastname: Chim
   role: Coordination Chair
-  subheading:   # TODO
-  link:         # TODO
-  photo: assets/img/team/jenny-chim.webp  # TODO: add image
+  subheading: Applied Scientist at Warden AI
+  link: https://j-chim.github.io/
+  photo: assets/img/team/jenny-chim.webp
   affiliations:
     - chair
   projects:
@@ -108,7 +108,6 @@
     - chair
     - founding-chair
   projects:
-    - cache
 
 - name: Usman Gohar
   lastname: Gohar
