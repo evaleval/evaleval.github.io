@@ -125,9 +125,9 @@
 - name: Matt Kennedy
   lastname: Kennedy
   role: Fundraising Chair
-  subheading:   # TODO
-  link:         # TODO
-  photo: assets/img/team/matt-kennedy.webp  # TODO: add image
+  subheading: AI+ Senior Research Fellow at King's College London
+  link: https://www.linkedin.com/in/wm-matthew-kennedy-phd-52a8b826/
+  photo: assets/img/team/matt-kennedy.webp
   affiliations:
     - chair
     - founding-chair
@@ -148,9 +148,9 @@
 - name: Michelle Lin
   lastname: Lin
   role: Fundraising Chair
-  subheading:   # TODO
-  link:         # TODO
-  photo: assets/img/team/michelle-lin.webp  # TODO: add image
+  subheading: Master's Researcher at Université de Montréal and Mila
+  link: https://ca.linkedin.com/in/lin-michelle
+  photo: assets/img/team/michelle-lin.webp
   affiliations:
     - chair
     - founding-chair
@@ -232,7 +232,7 @@
 - name: Prajna Soni
   lastname: Soni
   role: Founding Chair
-  subheading: Applied Research Scientist at Alinia AI  # TODO: confirm still current
+  subheading: Applied Research Scientist at Alinia AI  
   link: https://prajnasoni.github.io
   photo: assets/img/team/prajna-soni.webp
   affiliations:
