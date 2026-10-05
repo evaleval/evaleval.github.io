@@ -218,12 +218,13 @@
 
 - name: Anka Reuel
   lastname: Reuel
-  role: Founding Chair
+  role: Research Chair
   subheading: PhD Candidate at Stanford University
   link: https://ankareuel.com
   photo: assets/img/team/anka-reuel.webp
   affiliations:
-    - former-chair
+    - chair
+    - founding-chair
   projects:
     - bench-sat
     - eval-cards
