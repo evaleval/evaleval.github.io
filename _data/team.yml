@@ -51,18 +51,6 @@
     - lm-harness
     - research-output
 
-# TODO: Yacine is not on the Steering Committee or named as a Founding Organization
-# representative in the bylaws. Confirm
-# - name: Yacine Jernite
-#   lastname: Jernite
-#   role: Host
-#   subheading: ML & Society Lead at Hugging Face
-#   link: https://yjernite.github.io/
-#   photo: assets/img/team/yacine-jernite.webp
-#   affiliations:
-#     - host
-#   projects:
-
 ## CHAIRS
 - name: Mubashara Akhtar
   lastname: Akhtar
