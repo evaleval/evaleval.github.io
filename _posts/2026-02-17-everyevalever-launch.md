@@ -5,7 +5,7 @@ date: 2026-02-17
 published: true
 exclude_from_collection: false
 category: Infrastructure
-image: "/assets/img/blogs/evaleval-maskot-smiling_reordering-books.webp"
+image: "/assets/img/blogs/eee-banner-hires.webp"
 image_contain: true
 authors:
   - name: "Jan Batzner*"
