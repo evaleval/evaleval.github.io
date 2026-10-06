@@ -46,3 +46,28 @@ This project, led by the Evaluating Evaluations (EvalEval) Coalition, highlights
 * [Paper](https://arxiv.org/abs/2511.05613)
 * [Dataset](https://huggingface.co/datasets/evaleval/social_impact_eval_annotations)
 * [Code](https://github.com/evaleval/social_impact_eval_annotations_code)
+
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation · Blog Post</span>
+<pre><code>{% raw %}@misc{hameed2025hiddencosts,
+  author       = {Hameed, Abdul and Kashif, Afifah and Tran, Andrew and Gohar, Usman},
+  title        = {The Hidden Social Costs of {AI}},
+  year         = {2025},
+  month        = nov,
+  howpublished = {EvalEval Coalition Blog},
+  url          = {https://evalevalai.com/research/2025/11/12/hidden-cost-of-evals/}
+}{% endraw %}</code></pre>
+</div>
+
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation · Paper</span>
+<pre><code>{% raw %}@misc{reuel2026evaluatesaissocialimpacts,
+  author        = {Anka Reuel and Avijit Ghosh and Jenny Chim and Andrew Tran and Yanan Long and Jennifer Mickel and Usman Gohar and Srishti Yadav and Pawan Sasanka Ammanamanchi and Mowafak Allaham and Hossein A. Rahmani and Mubashara Akhtar and Felix Friedrich and Robert Scholz and Michael Alexander Riegler and Jan Batzner and Eliya Habba and Arushi Saxena and Anastassia Kornilova and Kevin Wei and Prajna Soni and Yohan Mathew and Kevin Klyman and Jeba Sania and Subramanyam Sahoo and Olivia Beyer Bruvik and Pouya Sadeghi and Sujata Goswami and Angelina Wang and Yacine Jernite and Zeerak Talat and Stella Biderman and Mykel Kochenderfer and Sanmi Koyejo and Irene Solaiman},
+  title         = {Who Evaluates AI's Social Impacts? Mapping Coverage and Gaps in First and Third Party Evaluations},
+  year          = {2026},
+  eprint        = {2511.05613},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CY},
+  url           = {https://arxiv.org/abs/2511.05613}
+}{% endraw %}</code></pre>
+</div>

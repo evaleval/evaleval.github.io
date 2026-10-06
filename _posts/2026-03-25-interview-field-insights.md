@@ -117,6 +117,18 @@ As we enter the next phase of the Science of Evaluations workstream, we welcome 
 
 If you are interested in contributing, suggesting interviewees, or sharing relevant work, we invite you to reach out at [core@evalevalai.com](mailto:core@evalevalai.com). We see this effort as collaborative and ecosystem-wide, and we welcome participation as we continue to build the scientific foundations for AI evaluation.
 
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation</span>
+<pre><code>{% raw %}@misc{scholz2026fieldnotes,
+  author       = {Scholz, Robert and Atalla, Chad and Soni, Prajna and Staufer, Leon and Balayn, Agathe and Zouhar, Vilém and Mukhija, Namrata and Mayeesha, Tahsin and Paskov, Patricia and Majumdar, Subho and {EvalEval Coalition}},
+  title        = {Field Notes: Challenges in {GenAI} Evaluation Science},
+  year         = {2026},
+  month        = mar,
+  howpublished = {EvalEval Coalition Blog},
+  url          = {https://evalevalai.com/research/2026/03/25/interview-field-insights/}
+}{% endraw %}</code></pre>
+</div>
+
 [^1]: For the purposes of this post, we adopt a broad, simplified interpretation of 'evaluation.' We recognize that in rigorous practice, measurement and evaluation are not synonymous (the distinction is concisely described in [*Measurement to Meaning*](https://arxiv.org/pdf/2505.10573)).
 [^2]: Quite a few studies have recently raised the issue of validity, e.g. [*Measuring what Matters*](https://openreview.net/pdf?id=mdA5lVvNcU), [*Evaluating Generative AI Systems Is a Social Science Measurement Challenge*](https://arxiv.org/pdf/2502.00561), [*Toward an evaluation science for generative AI systems*](https://arxiv.org/pdf/2503.05336), [*Understanding and Meeting Practitioner Needs*](https://aclanthology.org/2025.findings-acl.947/), [*Stereotyping Norwegian Salmon*](https://aclanthology.org/2021.acl-long.81/).
 [^3]: The concept of [ecological validity](https://en.wikipedia.org/wiki/Ecological_validity) was originally conceived in a different context and may carry additional nuance beyond our usage here.

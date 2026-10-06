@@ -175,17 +175,30 @@ We need your help. We're launching a [Shared Task](https://evalevalai.com/events
 [^2]: EvalEval (2026). [Interactive Visualization of the Every Eval Ever Schema](https://evalevalai.com/projects/every-eval-ever/). Top Contributor: Avijit Ghosh.
 [^3]: EvalEval (2026). [Every Eval Ever Converters](https://github.com/evaleval/every_eval_ever/tree/main/eval_converters). Converters for popular evaluation frameworks to the Every Eval Ever format. Top Contributor: Damian Stachura.
 
-```bibtex
-@misc{batzner2026evaleverunifyingschema,
-      title={Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results}, 
-      author={Jan Batzner and Sree Harsha Nelaturu and Damian Stachura and Anastassia Kornilova and Jon Crall and Tommaso Cerruti and Yanan Long and Yifan Mai and Sanchit Ahuja and Asaf Yehudai and Marek Šuppa and John P. Lalor and Oluwagbemike Olowe and Jatin Ganhotra and Brian H. Hu and Eliya Habba and Andrew M. Bean and Chang Liu and Sander Land and Steven Dillmann and Aniketh Garikaparthi and Elron Bandel and Saki Imai and James Edgell and Wm. Matthew Kennedy and Jenny Chim and Patrick Meusling and Asteria Kaeberlein and Venkata Ramachandra Karthik Chundi and Manasi Patwardhan and Martin Ku and Austin Meek and Leon Knauer and Brian Wingenroth and Srishti Yadav and Usman Gohar and Felix Friedrich and Michelle Lin and Jennifer Mickel and Arman Cohan and Stella Biderman and Irene Solaiman and Zeerak Talat and Anka Reuel and Mubashara Akhtar and Gjergji Kasneci and Avijit Ghosh and Leshem Choshen},
-      year={2026},
-      eprint={2606.14516},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2606.14516}, 
-}
-```
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation · Blog Post</span>
+<pre><code>{% raw %}@misc{batzner2026eeeblog,
+  author       = {Batzner, Jan and Choshen, Leshem and Ghosh, Avijit and Nelaturu, Sree Harsha and Kornilova, Anastassia and Stachura, Damian and Mai, Yifan and Yehudai, Asaf and Reuel, Anka and Solaiman, Irene and Biderman, Stella},
+  title        = {Every Eval Ever: Toward a Common Language for {AI} Eval Reporting},
+  year         = {2026},
+  month        = feb,
+  howpublished = {EvalEval Coalition Blog},
+  url          = {https://evalevalai.com/infrastructure/2026/02/17/everyevalever-launch/}
+}{% endraw %}</code></pre>
+</div>
+
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation · Paper</span>
+<pre><code>{% raw %}@misc{batzner2026evaleverunifyingschema,
+  author        = {Jan Batzner and Sree Harsha Nelaturu and Damian Stachura and Anastassia Kornilova and Jon Crall and Tommaso Cerruti and Yanan Long and Yifan Mai and Sanchit Ahuja and Asaf Yehudai and Marek Šuppa and John P. Lalor and Oluwagbemike Olowe and Jatin Ganhotra and Brian H. Hu and Eliya Habba and Andrew M. Bean and Chang Liu and Sander Land and Steven Dillmann and Aniketh Garikaparthi and Elron Bandel and Saki Imai and James Edgell and Wm. Matthew Kennedy and Jenny Chim and Patrick Meusling and Asteria Kaeberlein and Venkata Ramachandra Karthik Chundi and Manasi Patwardhan and Martin Ku and Austin Meek and Leon Knauer and Brian Wingenroth and Srishti Yadav and Usman Gohar and Felix Friedrich and Michelle Lin and Jennifer Mickel and Arman Cohan and Stella Biderman and Irene Solaiman and Zeerak Talat and Anka Reuel and Mubashara Akhtar and Gjergji Kasneci and Avijit Ghosh and Leshem Choshen},
+  title         = {Every Eval Ever: A Unifying Schema and Community Repository for AI Evaluation Results},
+  year          = {2026},
+  eprint        = {2606.14516},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url           = {https://arxiv.org/abs/2606.14516}
+}{% endraw %}</code></pre>
+</div>
 
 ### Acknowledgement and Feedback
 We acknowledge feedback by, but not limited to, JJ Allaire (Inspect, Meridian Labs), Ryan Steed (US CAISI), Zeerak Talat

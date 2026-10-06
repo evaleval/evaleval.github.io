@@ -227,6 +227,18 @@ Evaluation Cards are designed to be living documents that grow with multi-stakeh
 </ol>
 </div>
 
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation</span>
+<pre><code>{% raw %}@misc{ghosh2026evalcardsgovernance,
+  author       = {Ghosh, Avijit and Manheim, David and Tran, Andrew and Nelaturu, Sree Harsha and Ji, Jessica and Batzner, Jan and Kennedy, Wm. Matthew and Gohar, Usman and Reuel, Anka and Solaiman, Irene},
+  title        = {Mapping {Evaluation Cards} to Emerging {AI} Governance Requirements in {California}, the {EU}, and the {UK}},
+  year         = {2026},
+  month        = sep,
+  howpublished = {EvalEval Coalition Blog},
+  url          = {https://evalevalai.com/infrastructure/2026/09/28/mapping-evaluation-cards-to-ai-governance-requirements/}
+}{% endraw %}</code></pre>
+</div>
+
 </div>
 
 <script>

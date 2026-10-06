@@ -64,3 +64,28 @@ If models genuinely master a capability, a saturated benchmark may be evidence o
 
 - Paper: [https://arxiv.org/pdf/2602.16763](https://arxiv.org/pdf/2602.16763)
 - Code & dataset: [https://github.com/evaleval/benchmark-saturation](https://github.com/evaleval/benchmark-saturation)
+
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation · Blog Post</span>
+<pre><code>{% raw %}@misc{akhtar2026saturationblog,
+  author       = {Akhtar, Mubashara and Sania, Jeba and D'Arcy, Jocelyn and Choshen, Leshem},
+  title        = {When {AI} Benchmarks Stop Measuring Progress},
+  year         = {2026},
+  month        = jun,
+  howpublished = {EvalEval Coalition Blog},
+  url          = {https://evalevalai.com/2026/06/30/saturation-blog/}
+}{% endraw %}</code></pre>
+</div>
+
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation · Paper</span>
+<pre><code>{% raw %}@misc{akhtar2026aibenchmarksplateausystematic,
+  author        = {Mubashara Akhtar and Anka Reuel and Prajna Soni and Sanchit Ahuja and Pawan Sasanka Ammanamanchi and Ruchit Rawal and Vilém Zouhar and Srishti Yadav and Chenxi Whitehouse and Dayeon Ki and Jennifer Mickel and Leshem Choshen and Marek Šuppa and Jan Batzner and Jenny Chim and Jeba Sania and Yanan Long and Hossein A. Rahmani and Christina Knight and Yiyang Nan and Jyoutir Raj and Yu Fan and Shubham Singh and Subramanyam Sahoo and Eliya Habba and Usman Gohar and Siddhesh Pawar and Robert Scholz and Arjun Subramonian and Jingwei Ni and Mykel Kochenderfer and Sanmi Koyejo and Mrinmaya Sachan and Stella Biderman and Zeerak Talat and Avijit Ghosh and Irene Solaiman},
+  title         = {When AI Benchmarks Plateau: A Systematic Study of Benchmark Saturation},
+  year          = {2026},
+  eprint        = {2602.16763},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url           = {https://arxiv.org/abs/2602.16763}
+}{% endraw %}</code></pre>
+</div>

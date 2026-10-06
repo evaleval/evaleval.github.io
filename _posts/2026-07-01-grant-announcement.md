@@ -25,3 +25,15 @@ Additionally, the Weizenbaum Project "Evaluating GenAI Evaluations," funded by t
 These contributions directly enable the coalition's ongoing work on Every Eval Ever, Eval Cards, the Shared Task, and our collaborations with stakeholders including CAISI, UK AISI, and others working to bring greater coherence to AI evaluation.
 
 For more about the EvalEval Coalition and how to join our efforts and Slack community, visit [evalevalai.com](https://evalevalai.com).
+
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation</span>
+<pre><code>{% raw %}@misc{lin2026grants,
+  author       = {Lin, Michelle},
+  title        = {Announcing Our New {EvalEval} Grant Support!},
+  year         = {2026},
+  month        = jul,
+  howpublished = {EvalEval Coalition Blog},
+  url          = {https://evalevalai.com/organization/2026/07/01/grant-announcement/}
+}{% endraw %}</code></pre>
+</div>

@@ -70,3 +70,15 @@ The AI community faces a choice: continue allowing business pressures to comprom
 
 
 We invite the broader community to explore our work and join our mission to establish evaluation practices worthy of the transformative technology we're building. The future of AI depends not just on better models, but on better ways of understanding and communicating what those models can actually do.
+
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation</span>
+<pre><code>{% raw %}@misc{tran2025chartcrisis,
+  author       = {Tran, Andrew and Choshen, Leshem and Mickel, Jennifer and Ghosh, Avijit},
+  title        = {The {AI} Evaluation Chart Crisis},
+  year         = {2025},
+  month        = aug,
+  howpublished = {EvalEval Coalition Blog},
+  url          = {https://evalevalai.com/documentation/2025/08/09/blog-chart-crisis/}
+}{% endraw %}</code></pre>
+</div>

@@ -12,9 +12,9 @@ authors:
   - name: "Jenny Chim"
   - name: "Andrew Tran"
   - name: "Yanan Long"
-  - name: "Shrishti Yadav"
+  - name: "Srishti Yadav"
   - name: "Kabir Manghnani"
-  - name: "Leshem Chosen"
+  - name: "Leshem Choshen"
   - name: "David Manheim"
   - name: "Jennifer Mickel"
   - name: "Jessica Ji"
@@ -200,18 +200,30 @@ Check out our contributor guides with more details [here](https://evalcards.eval
 - [Join the EvalEval community](https://evalevalai.com)
 - [See our recent activity](https://evalevalai.com/events/)
 
-```bibtex
-@misc{ghosh2026evaluationcardsinterpretivelayer,
-      title={Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting}, 
-      author={Avijit Ghosh and Anka Reuel and Jenny Chim and Wm. Matthew Kennedy and Srishti Yadav and Jennifer Mickel and Yanan Long and Andrew Tran and Anastassia Kornilova and Damian Stachura and Kevin Klyman and Felix Friedrich and Jeba Sania and Max Lamparth and Jan Batzner and Anoop Mishra and Eliya Habba and Yixiong Hao and Nathan Heath and Shalaleh Rismani and Usman Gohar and Andrea Loehr and David Manheim and Ruchira Dhar and Sree Harsha Nelaturu and Aarush Sinha and Leshem Choshen and Drishti Sharma and Ishan Khire and Amit Saha and Subramanyam Sahoo and Michael Hardy and Michael Alexander Riegler and Kabir Manghnani and Michelle Lin and Yanan Jiang and Yilin Huang and Asaf Yehudai and Jessica Ji and Aris Hofmann and Mubashara Akhtar and Nuno Moniz and Yacine Jernite and Stella Biderman and Zeerak Talat and Sanmi Koyejo and Mykel Kochenderfer and Irene Solaiman},
-      year={2026},
-      eprint={2606.09809},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2606.09809}, 
-}
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation · Blog Post</span>
+<pre><code>{% raw %}@misc{kennedy2026evalcardsblog,
+  author       = {Kennedy, Wm. Matthew and Reuel, Anka and Chim, Jenny and Tran, Andrew and Long, Yanan and Yadav, Srishti and Manghnani, Kabir and Choshen, Leshem and Manheim, David and Mickel, Jennifer and Ji, Jessica and Solaiman, Irene and Ghosh, Avijit},
+  title        = {Introducing {Evaluation Cards}: A Live Interpretive Layer for Understanding the {AI} Evaluations Ecosystem},
+  year         = {2026},
+  month        = jun,
+  howpublished = {EvalEval Coalition Blog},
+  url          = {https://evalevalai.com/infrastructure/2026/06/09/evaluation-cards-launch/}
+}{% endraw %}</code></pre>
+</div>
 
-```
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation · Paper</span>
+<pre><code>{% raw %}@misc{ghosh2026evaluationcardsinterpretivelayer,
+  author        = {Avijit Ghosh and Anka Reuel and Jenny Chim and Wm. Matthew Kennedy and Srishti Yadav and Jennifer Mickel and Yanan Long and Andrew Tran and Anastassia Kornilova and Damian Stachura and Kevin Klyman and Felix Friedrich and Jeba Sania and Max Lamparth and Jan Batzner and Anoop Mishra and Eliya Habba and Yixiong Hao and Nathan Heath and Shalaleh Rismani and Usman Gohar and Andrea Loehr and David Manheim and Ruchira Dhar and Sree Harsha Nelaturu and Aarush Sinha and Leshem Choshen and Drishti Sharma and Ishan Khire and Amit Saha and Subramanyam Sahoo and Michael Hardy and Michael Alexander Riegler and Kabir Manghnani and Michelle Lin and Yanan Jiang and Yilin Huang and Asaf Yehudai and Jessica Ji and Aris Hofmann and Mubashara Akhtar and Nuno Moniz and Yacine Jernite and Stella Biderman and Zeerak Talat and Sanmi Koyejo and Mykel Kochenderfer and Irene Solaiman},
+  title         = {Evaluation Cards: An Interpretive Layer for AI Evaluation Reporting},
+  year          = {2026},
+  eprint        = {2606.09809},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url           = {https://arxiv.org/abs/2606.09809}
+}{% endraw %}</code></pre>
+</div>
 
 
 [^1]: Timnit Gebru, Jamie Morgenstern, Briana Vecchione, Jennifer Wortman Vaughan, Hanna Wallach, Hal Daumé III, and Kate Crawford. 2021. Datasheets for datasets. Commun. ACM 64, 12 (December 2021), 86–92. https://doi.org/10.1145/3458723 

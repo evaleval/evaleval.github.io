@@ -33,6 +33,18 @@ Many researchers and practitioners in the evaluation ecosystem have accordingly 
 
 In carrying out this work we will aim to bridge the gap between rigorous best practices and pragmatic implementation details, producing impactful research and tools that improve the AI evaluation ecosystem. If you’d like to join us, join the slack community!
 
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation</span>
+<pre><code>{% raw %}@misc{majumdar2025evalscience,
+  author       = {Majumdar, Subho and Paskov, Patricia},
+  title        = {The Science of Evaluations: Workstream Kickoff Post},
+  year         = {2025},
+  month        = jul,
+  howpublished = {EvalEval Coalition Blog},
+  url          = {https://evalevalai.com/research/2025/07/13/eval-science-kickoff/}
+}{% endraw %}</code></pre>
+</div>
+
 ---
 
 [^1]: “AI models can be thought of as the raw, mathematical essence that is often the ‘engine’ of AI applications. An AI system is a combination of several components, including one or more AI models, that is designed to be particularly useful to humans in some way.” ([Bengio et al. 2025](https://www.gov.uk/government/publications/international-ai-safety-report-2025/international-ai-safety-report-2025))

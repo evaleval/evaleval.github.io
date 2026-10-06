@@ -87,7 +87,27 @@
                 <!-- Post Content -->
                 <div class="flex-1 min-w-0 order-2 lg:order-1">
                     <div class="prose prose-lg max-w-none">
-                        {{ content }}
+                        {%- comment -%}
+                          Citations always come after a post's references. Kramdown renders
+                          footnotes at the very end of the content, after anything written in
+                          the Markdown, so when a post has footnotes, lift its citation blocks
+                          out and append them after the footnotes. Citation blocks contain no
+                          nested divs, so each one ends at the first </div>.
+                        {%- endcomment -%}
+                        {%- assign post_body = content -%}
+                        {%- if content contains 'class="footnotes"' and content contains '<div class="citation-block">' -%}
+                          {%- assign chunks = content | split: '<div class="citation-block">' -%}
+                          {%- assign post_body = chunks | first -%}
+                          {%- assign citations = "" -%}
+                          {%- for chunk in chunks offset: 1 -%}
+                            {%- assign citation = chunk | split: '</div>' | first -%}
+                            {%- assign rest = chunk | remove_first: citation | remove_first: '</div>' -%}
+                            {%- assign citations = citations | append: '<div class="citation-block">' | append: citation | append: '</div>' -%}
+                            {%- assign post_body = post_body | append: rest -%}
+                          {%- endfor -%}
+                          {%- assign post_body = post_body | append: citations -%}
+                        {%- endif -%}
+                        {{ post_body }}
                     </div>
                 </div>
 
@@ -299,6 +319,43 @@
             to   { opacity: 1; }
         }
         .fn-fade { animation: fn-fade 0.15s ease forwards; }
+
+        /* BibTeX citation block, used at the end of posts */
+        .citation-block {
+            margin: 30px 0 12px;
+            padding: 0;
+        }
+        .citation-block .citation-label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--accent);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+        .citation-block pre {
+            margin: 0;
+            padding: 18px 20px;
+            background: var(--bg-subtle);
+            color: var(--fg);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 4px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 12.5px;
+            line-height: 1.55;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        .citation-block code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+            font-size: inherit;
+            font-family: inherit;
+        }
     </style>
 
     <script>

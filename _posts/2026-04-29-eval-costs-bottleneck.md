@@ -115,42 +115,10 @@ description: "A field guide to evaluation costs: where the money goes, why old c
   font-family: 'Inter', sans-serif;
 }
 
-/* Citation block */
+/* Citation block: match the article's 760px column (base styles live in the post layout) */
 .eval-cost-article .citation-block {
   max-width: 760px;
   margin: 30px auto 12px;
-  padding: 0;
-}
-.eval-cost-article .citation-block .citation-label {
-  display: block;
-  margin-bottom: 10px;
-  color: var(--accent);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-.eval-cost-article .citation-block pre {
-  margin: 0;
-  padding: 18px 20px;
-  background: var(--bg-subtle);
-  color: var(--fg);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
-  border-radius: 4px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 12.5px;
-  line-height: 1.55;
-  overflow-x: auto;
-  white-space: pre;
-}
-.eval-cost-article .citation-block code {
-  background: transparent;
-  color: inherit;
-  padding: 0;
-  font-size: inherit;
-  font-family: inherit;
 }
 
 /* Figures */

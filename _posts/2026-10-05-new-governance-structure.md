@@ -78,4 +78,16 @@ Meet our Steering Committee and Chairs on the [About page]({{ '/about/' | relati
 </ol>
 </div>
 
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation</span>
+<pre><code>{% raw %}@misc{evaleval2026governance,
+  author       = {{EvalEval Coalition}},
+  title        = {{EvalEval} Adopts a New Governance Structure},
+  year         = {2026},
+  month        = oct,
+  howpublished = {EvalEval Coalition Blog},
+  url          = {https://evalevalai.com/organization/2026/10/05/new-governance-structure/}
+}{% endraw %}</code></pre>
+</div>
+
 </div>

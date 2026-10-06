@@ -176,4 +176,16 @@ The [UK AI Security Institute](https://www.aisi.gov.uk/) is a research organisat
 - [Every Eval Ever]({{ site.baseurl }}/projects/every-eval-ever/)
 - [Evaluation Cards](https://evalcards.evalevalai.com/)
 
+<div class="citation-block">
+<span class="citation-label">BibTeX Citation</span>
+<pre><code>{% raw %}@misc{ghosh2026aisireproducible,
+  author       = {Ghosh, Avijit and Chim, Jenny and Joshi, Deep and Yadav, Srishti and Kennedy, Wm. Matthew and Solaiman, Irene and McFadyen, Jessica and Tan, Lynn and Ududec, Cozmin},
+  title        = {How {UK} {AISI} and {EvalEval} Are Making Benchmark Results Reproducible},
+  year         = {2026},
+  month        = sep,
+  howpublished = {EvalEval Coalition Blog},
+  url          = {https://evalevalai.com/infrastructure/2026/09/22/uk-aisi-evaleval-reproducible-benchmark-results/}
+}{% endraw %}</code></pre>
+</div>
+
 </div>
