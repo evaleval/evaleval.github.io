@@ -1,0 +1,5 @@
+<a href="{{ include.member.link }}" target="_blank" rel="noopener noreferrer" class="group block h-full min-h-[15.5rem] p-5 transition-all duration-200" style="border: 1px solid var(--border); border-radius: 2px;" onmouseover="this.style.boxShadow='var(--shadow-card)'; this.style.borderColor='var(--border-strong)';" onmouseout="this.style.boxShadow='none'; this.style.borderColor='var(--border)';">
+  <img src="{{ include.member.photo | relative_url }}" alt="{{ include.member.name }}" loading="lazy" decoding="async" class="team-photo w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+  <h3 class="text-base font-semibold text-center" style="color: var(--fg);">{{ include.member.name }}</h3>
+  <p class="text-center text-sm mt-1" style="color: var(--fg-muted);">{{ include.member.subheading }}</p>
+</a>

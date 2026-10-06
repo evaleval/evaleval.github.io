@@ -3,8 +3,8 @@
 #
 # affiliations keys:
 #   steering        - Steering Committee section (Bylaws §5)
-#   chair           - Chairs section; the card shows `role` under the name (Bylaws §6)
-#   founding-chair  - adds a "Founding Chair" label to the card (Bylaws §3)
+#   chair           - Chairs section, grouped by `role` (must exactly match an area in _includes/about-team.html; Bylaws §6)
+#   founding-chair  - Founding Chair recognition (Bylaws §3); not shown on the card
 #   former-chair    - Founding Chair with no current role; not shown on the page
 
 ## STEERING COMMITTEE

@@ -29,35 +29,57 @@
     </div>
 </section>
 
-<section class="max-w-4xl mx-auto px-8 pb-24 space-y-14" style="background-color: var(--bg);">
-  {% assign categories =
-    "steering:Steering Committee,chair:Chairs" | split: "," %}
+<section class="max-w-4xl mx-auto px-8 pt-16 pb-24 space-y-14" style="background-color: var(--bg);">
+  <div>
+    <h2 class="text-2xl font-bold mb-8 text-center" style="color: var(--fg);">Steering Committee</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% assign steering = site.data.team | where_exp: "m", "m.affiliations contains 'steering'" %}
+      {% for member in steering %}
+        {% include team-card.html member=member %}
+      {% endfor %}
+    </div>
+  </div>
 
-  {% for cat in categories %}
-    {% assign parts = cat | split: ":" %}
-    {% assign cat_key = parts[0] %}
-    {% assign cat_title = parts[1] %}
-
-    <div>
-      <h2 class="text-2xl font-bold mb-8 text-center" style="color: var(--fg);">{{ cat_title }}</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {% assign filtered = site.data.team | where_exp: "m", "m.affiliations contains cat_key" %}
-        {% for member in filtered %}
-          {% if member.affiliations contains cat_key %}
-            <a href="{{ member.link }}" target="_blank" rel="noopener noreferrer" class="group block p-5 transition-all duration-200" style="border: 1px solid var(--border); border-radius: 2px;" onmouseover="this.style.boxShadow='var(--shadow-card)'; this.style.borderColor='var(--border-strong)';" onmouseout="this.style.boxShadow='none'; this.style.borderColor='var(--border)';">
-              <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}" loading="lazy" decoding="async" class="team-photo w-20 h-20 rounded-full mx-auto mb-4 object-cover">
-              <h3 class="text-base font-semibold text-center" style="color: var(--fg);">{{ member.name }}</h3>
-              {% if cat_key == 'chair' %}
-                <p class="text-center text-sm font-medium mt-1" style="color: var(--fg);">{{ member.role }}</p>
-              {% endif %}
-              <p class="text-center text-sm mt-1" style="color: var(--fg-muted);">{{ member.subheading }}</p>
-              {% if member.affiliations contains 'founding-chair' %}
-                <p class="mono text-xs tracking-widest uppercase text-center mt-3" style="color: var(--fg-subtle);">Founding Chair</p>
-              {% endif %}
-            </a>
+  <div>
+    <h2 class="text-2xl font-bold mb-8 text-center" style="color: var(--fg);">Chairs</h2>
+    {% comment %}
+      Areas of responsibility from Bylaws §6; a chair's `role` must match one exactly.
+      Each area is as wide as its cards (on the same 4-column grid as the Steering Committee),
+      and areas flow into shared rows, largest first so that smaller areas pair up.
+    {% endcomment %}
+    {% assign chair_areas = "Research Chair|Strategy and Community Engagement Chair|Partnerships Chair|Social Media and Public Relations Chair|Fundraising Chair|Coordination Chair" | split: "|" %}
+    {% assign chairs = site.data.team | where_exp: "m", "m.affiliations contains 'chair'" %}
+    <div class="flex flex-wrap justify-center items-end gap-x-6 gap-y-10">
+      {% for size in (1..chairs.size) reversed %}
+        {% for area in chair_areas %}
+          {% assign area_chairs = chairs | where: "role", area %}
+          {% if area_chairs.size == size %}
+            {% assign cols = size | at_most: 4 %}
+            <div class="chair-area" style="--cols: {{ cols }};">
+              <h3 class="mono text-xs tracking-widest uppercase text-center mb-5" style="color: var(--fg-subtle);">{% if size > 1 %}{{ area }}s{% else %}{{ area }}{% endif %}</h3>
+              <div class="flex flex-wrap justify-center gap-6">
+                {% for member in area_chairs %}
+                  <div class="chair-slot">
+                    {% include team-card.html member=member %}
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
           {% endif %}
         {% endfor %}
-      </div>
+      {% endfor %}
     </div>
-  {% endfor %}
+  </div>
 </section>
+
+<style>
+  .chair-area, .chair-slot { width: 100%; }
+  @media (min-width: 640px) {
+    .chair-slot { width: calc(50% - 0.75rem); }
+  }
+  @media (min-width: 1024px) {
+    /* --cols cards of width (25% - 1.125rem) plus the 1.5rem gaps between them */
+    .chair-area { width: calc(var(--cols) * (25% - 1.125rem) + (var(--cols) - 1) * 1.5rem); }
+    .chair-slot { width: calc((100% - (var(--cols) - 1) * 1.5rem) / var(--cols)); }
+  }
+</style>
