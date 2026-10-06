@@ -94,13 +94,15 @@
                 <!-- Sidebar -->
                 <aside class="w-full {% if page.wide %}lg:w-60 xl:w-64{% else %}lg:w-72 xl:w-80{% endif %} lg:sticky lg:top-24 lg:self-start space-y-6 order-1 lg:order-2">
 
-                    <!-- Table of Contents -->
+                    <!-- Table of Contents (only when the post has subheadings) -->
+                    {% if content contains '<h2' or content contains '<h3' or content contains '<h4' %}
                     <div class="sidebar-card p-5" style="border: 1px solid var(--border); background-color: var(--bg-subtle);">
                         <h3 class="mono text-xs font-semibold tracking-widest uppercase mb-4" style="color: var(--fg-subtle);">Contents</h3>
                         <nav id="toc" class="space-y-0.5">
                             <!-- populated by JS -->
                         </nav>
                     </div>
+                    {% endif %}
 
                     <!-- Footnotes -->
                     <div id="footnote-section" class="sidebar-card p-5 hidden" style="border: 1px solid var(--border); background-color: var(--bg-subtle);">
@@ -589,8 +591,9 @@
         function generateTOC() {
             const toc      = document.getElementById('toc');
             const headings = document.querySelectorAll('.prose h2, .prose h3, .prose h4');
+            if (!toc) return;
             if (headings.length === 0) {
-                toc.innerHTML = '<span style="font-size:0.8rem; color:var(--fg-subtle); font-style:italic;">No headings</span>';
+                toc.closest('.sidebar-card').remove();
                 return;
             }
             headings.forEach((h, i) => {
