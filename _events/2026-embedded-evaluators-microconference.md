@@ -127,7 +127,7 @@ Groups consolidate shared principles, disagreements, open questions, and possibl
 
 ## 🧑‍🔬 Organizers
 
-- Ichhya Pant, EvalEval Strategy and Community Engagement Co-Chair, Independent Researcher
+- [Ichhya Pant](https://www.linkedin.com/in/3rdcultureme/), EvalEval Strategy and Community Engagement Co-Chair, Independent Researcher
 - [Jennifer Mickel](jennm.github.io), EvalEval Strategy and Community Engagement Co-Chair, UC Berkeley
 - [Sachin Pendse](https://www.sachinpendse.in/), UCSF (Host)
 - [Avijit Ghosh](https://evijit.io/), EvalEval Co-Founder, Hugging Face
@@ -137,6 +137,11 @@ Groups consolidate shared principles, disagreements, open questions, and possibl
 - [Wm. Matthew Kennedy](https://www.kcl.ac.uk/people/wm.-matthew-kennedy), EvalEval Funding Co-Chair, AI+ Senior Research Fellow, King's College London
 - [Aspen Hopkins](https://aspen-hopkins.com/), MIT CSAIL
 - [Kevin Wei](https://kevinlwei.com/), EvalEval Partnerships Chair, GovAI
+
+## 🧑‍🔬 Advisors
+
+- [Stella Biderman](https://stellabiderman.ai/), EvalEval Steering Committee + EleutherAI
+- [Irene Solaiman](https://www.irenesolaiman.com/), EvalEval Steering Committee + Hugging Face
 
 ## 📬 Contact
 
