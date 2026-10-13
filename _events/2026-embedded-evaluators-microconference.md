@@ -2,7 +2,7 @@
 layout: event
 title: "2026 Microconference on Embedding Evaluators in Practice"
 subtitle: Making Embedded AI Evaluation Independent, Rigorous, and Consequential
-team: Ichhya Pant, Jennifer Mickel, Sachin Pendse, Avijit Ghosh, Jan Batzner, Michelle Lin, Wm. Matthew Kennedy, Aspen Hopkins, Usman Gohar, Kevin Wei
+team: Ichhya Pant, Jennifer Mickel, Sachin Pendse, Avijit Ghosh, Usman Gohar, Jan Batzner, Michelle Lin, Wm. Matthew Kennedy, Aspen Hopkins, Kevin Wei
 status: active
 order: 1
 category: Organization
@@ -15,8 +15,8 @@ description:  |
 
 ## 📌 Key Details
 - **When:** Saturday, October 24, 2026 · 9:00 AM – 6:00 PM (PT)
-- **Where:** San Francisco, California
-- **Format:** Hybrid (in person and remote)
+- **Where:** San Francisco, California (Exact location to be shared with confirmed attendees)
+- **Format:** Hybrid (in-person and remote)
 - **Hosted by:** EvalEval
 
 **Attendance is by invitation only. Discussions follow the Chatham House Rule.**
@@ -98,11 +98,11 @@ Groups consolidate shared principles, disagreements, open questions, and possibl
 - Jennifer Mickel, EvalEval Strategy and Community Engagement Co-Chair, UC Berkeley
 - Sachin Pendse, UCSF (Host)
 - Avijit Ghosh, EvalEval Co-Founder, Hugging Face
+- Usman Gohar, EvalEval Public Relations Chair, Iowa State University
 - Jan Batzner, EvalEval Research Chair, TU Munich
 - Michelle Lin, EvalEval Funding Co-Chair, Mila
 - Wm. Matthew Kennedy, EvalEval Funding Co-Chair, AI+ Senior Research Fellow, King's College London
 - Aspen Hopkins, MIT CSAIL
-- Usman Gohar, EvalEval Public Relations Chair, Iowa State University
 - Kevin Wei, EvalEval Partnerships Chair, GovAI
 
 ## 📬 Contact
