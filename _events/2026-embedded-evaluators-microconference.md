@@ -20,7 +20,9 @@ description:  |
 - **Format:** Hybrid (in-person and remote)
 - **Hosted by:** EvalEval
 
-**Attendance is by invitation only. Discussions follow the Chatham House Rule.**
+****Attendance is by invitation only, please sign up below. Discussions follow the Chatham House Rule.**
+
+[Request an invitation on Luma →](https://luma.com/nfu166a1)
 
 ## 📖 Background
 Embedded evaluators are commonplace in public health[^1], education[^2], banking, and nuclear energy, and interest in applying this approach to AI evaluation is growing. The AI Evaluator Forum's open letter calling for the [Minimum Conditions for Embedding Evaluators](https://aievaluatorforum.org/initiatives/embedded-evaluation-letter) has drawn more than 100 signatories, while Anthropic[^3] and OpenAI[^4] have committed to giving external evaluators sustained, employee-level access to internal systems. These developments raise a natural question. What should embedded AI evaluation look like in practice?
