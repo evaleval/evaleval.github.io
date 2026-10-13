@@ -9,6 +9,7 @@ category: Organization
 event_date: 2026-10-24
 location: San Francisco
 host: EvalEval
+rsvp_url: https://luma.com/nfu166a1
 description:  |
   EvalEval is convening an invite-only microconference on October 24, 2026, in San Francisco to set a shared agenda for embedded AI evaluation that is independent, rigorous, and consequential.
 ---
