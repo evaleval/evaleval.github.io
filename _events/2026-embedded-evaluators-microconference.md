@@ -45,13 +45,13 @@ This microconference brings together third-party evaluators, model developers, p
 
 Introduces the central question of what conditions make embedded frontier-AI evaluation independent, rigorous, and consequential, and sets the goal of a shared agenda for action.
 
-## **Ichhya Pant** and **Jennifer Mickel**
+## **Ichhya Pant** and **Jennifer Mickel**, EvalEval Strategy and Community Engagement Co-Chairs
 
 ### 🎙️ 9:45 AM – 10:30 AM | Evaluators' Perspectives Panel _(45 mins)_
 
 Third-party evaluators and academic researchers discuss independence, methodological rigor, access, resources, and reporting. What should embedded evaluation examine, and what can its findings credibly establish?
 
-**Moderator:**
+**Moderator**: Avijit Ghosh, EvalEval + HuggingFace
 
 **👥 Panelists:**
 
@@ -69,7 +69,7 @@ Participants identify practical conditions for independence and rigor, including
 
 Panelists examine how evaluation findings inform governance and protect the public, what enables escalation, remediation, and accountability, and how embedded evaluation connects to broader oversight and downstream defenses.
 
-**Moderator**:
+**👥 Panelists:**
 
 - [Irene Chen](https://irenechen.net/), UC Berkeley
 - [Rumman Chowdhury](https://www.rummanchowdhury.com/), Human Intelligence
@@ -90,7 +90,7 @@ Participants map the path from a significant finding to a decision, response, an
 
 Panelists discuss how embedded evaluation works within development and deployment processes across a range of developers, including experiment review, monitoring, incident response, transparency, and protections for employees and evaluators.
 
-**Moderator:**
+**Panelist:**
 
 - [Smitha Milli](https://smithamilli.com/), Meta
 
