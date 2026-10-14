@@ -55,8 +55,9 @@ Third-party evaluators and academic researchers discuss independence, methodolog
 
 **Moderator**: Avijit Ghosh, EvalEval + HuggingFace
 
-**👥 Panelist:**
+**👥 Panelists:**
 
+- [Alan Aqrawi](https://www.linkedin.com/in/aaqrawi/), Accenture
 - [Rayan Krishnan](https://www.linkedin.com/in/rayankrishnan/), Vals AI
 
 ---
