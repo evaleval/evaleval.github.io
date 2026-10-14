@@ -45,7 +45,7 @@ This microconference brings together third-party evaluators, model developers, p
 
 Introduces the central question of what conditions make embedded frontier-AI evaluation independent, rigorous, and consequential, and sets the goal of a shared agenda for action.
 
-## **Ichhya Pant** and **Jennifer Mickel**, EvalEval Strategy and Community Engagement Co-Chairs
+**Ichhya Pant** and **Jennifer Mickel**, EvalEval Strategy and Community Engagement Co-Chairs
 
 ---
 
