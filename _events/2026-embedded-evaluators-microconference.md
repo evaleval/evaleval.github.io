@@ -47,15 +47,17 @@ Introduces the central question of what conditions make embedded frontier-AI eva
 
 ## **Ichhya Pant** and **Jennifer Mickel**, EvalEval Strategy and Community Engagement Co-Chairs
 
+---
+
 ### 🎙️ 9:45 AM – 10:30 AM | Evaluators' Perspectives Panel _(45 mins)_
 
 Third-party evaluators and academic researchers discuss independence, methodological rigor, access, resources, and reporting. What should embedded evaluation examine, and what can its findings credibly establish?
 
 **Moderator**: Avijit Ghosh, EvalEval + HuggingFace
 
-**👥 Panelists:**
+**👥 Panelist:**
 
-- [Rayan Krishnan](https://angelina-wang.github.io/), Vals AI
+- [Rayan Krishnan](https://www.linkedin.com/in/rayankrishnan/), Vals AI
 
 ---
 
