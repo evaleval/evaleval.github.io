@@ -7,6 +7,9 @@ wide: true
 title_spaced: true
 category: Infrastructure
 image: "/assets/img/blogs/eee-governance-crosswalk-banner.webp"
+thumbnail_contain: true
+thumbnail_bg: "linear-gradient(#ffffff, #f0f3ff)"
+thumbnail_zoom: 1.7
 authors:
   - name: "Avijit Ghosh"
   - name: "David Manheim"

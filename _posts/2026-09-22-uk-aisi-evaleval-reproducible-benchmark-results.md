@@ -4,7 +4,10 @@ title: "How UK AISI and EvalEval Are Making Benchmark Results Reproducible"
 date: 2026-09-22
 published: true
 category: Infrastructure
-image: "/assets/img/blogs/evaleval-aisi-banner.webp"
+image: "/assets/img/blogs/evaleval-aisi-banner-centered.webp"
+thumbnail_contain: true
+thumbnail_bg: "radial-gradient(circle at 0% 0%, #1a1b31, transparent 45%), radial-gradient(circle at 100% 100%, #0a1f3a, transparent 45%), #0b121e"
+thumbnail_zoom: 1.25
 authors:
   - name: "Avijit Ghosh"
   - name: "Jenny Chim"

@@ -5,6 +5,9 @@ date: 2026-03-25
 published: true
 category: Research
 image: "/assets/img/blogs/field-notes-interview.svg"
+thumbnail_contain: true
+thumbnail_bg: "#f0f8fc"
+thumbnail_zoom: 1.05
 authors:
   - name: "Robert Scholz"
   - name: "Chad Atalla"

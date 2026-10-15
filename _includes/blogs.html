@@ -11,11 +11,11 @@
       {% for post in visible_posts limit:3 %}
       <a href="{{ post.url | relative_url }}" class="post-card block group overflow-hidden" style="background-color: var(--bg);">
         {% if post.image %}
-        <div class="blog-image-matte overflow-hidden" style="height: 192px;">
+        <div class="blog-image-matte overflow-hidden" style="height: 192px;{% if post.thumbnail_bg %} background: {{ post.thumbnail_bg }};{% endif %}">
           <img
             src="{{ post.image | relative_url }}"
             alt="{{ post.title }}"
-            class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+            class="w-full h-full {% if post.image_contain or post.thumbnail_contain %}object-contain{% else %}object-cover{% endif %} group-hover:scale-[1.03] transition-transform duration-500"{% if post.thumbnail_zoom or post.thumbnail_align %} style="{% if post.thumbnail_zoom %}scale: {{ post.thumbnail_zoom }};{% endif %}{% if post.thumbnail_align %} object-position: {{ post.thumbnail_align }}; transform-origin: {{ post.thumbnail_align }};{% endif %}"{% endif %}
           >
         </div>
         {% endif %}

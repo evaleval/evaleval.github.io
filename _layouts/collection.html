@@ -31,9 +31,9 @@ layout: default
             <a href="{% if item.custom_url %}{{ item.custom_url | relative_url }}{% else %}{{ item.url | relative_url }}{% endif %}"
                class="post-card block group overflow-hidden" style="background-color: var(--bg);">
               {% if item.image %}
-              <div class="blog-image-matte overflow-hidden" style="height: 192px;">
+              <div class="blog-image-matte overflow-hidden" style="height: 192px;{% if item.thumbnail_bg %} background: {{ item.thumbnail_bg }};{% endif %}">
                 <img src="{{ item.image | relative_url }}" alt="{{ item.title }}"
-                     class="w-full h-full {% if item.image_contain %}object-contain{% else %}object-cover{% endif %} group-hover:scale-[1.03] transition-transform duration-500">
+                     class="w-full h-full {% if item.image_contain or item.thumbnail_contain %}object-contain{% else %}object-cover{% endif %} group-hover:scale-[1.03] transition-transform duration-500"{% if item.thumbnail_zoom or item.thumbnail_align %} style="{% if item.thumbnail_zoom %}scale: {{ item.thumbnail_zoom }};{% endif %}{% if item.thumbnail_align %} object-position: {{ item.thumbnail_align }}; transform-origin: {{ item.thumbnail_align }};{% endif %}"{% endif %}>
               </div>
               {% endif %}
               <div class="p-6">

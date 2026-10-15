@@ -5,6 +5,9 @@ date: 2026-07-01
 published: true
 category: Organization
 image: "/assets/img/blogs/grant-announcement-banner.webp"
+thumbnail_contain: true
+thumbnail_bg: "#ffffff"
+thumbnail_zoom: 1.5
 authors:
   - name: "Michelle Lin, WG co-chair on behalf of the EvalEval Coalition"
 tags:
