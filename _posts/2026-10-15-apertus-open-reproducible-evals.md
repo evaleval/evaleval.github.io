@@ -5,6 +5,9 @@ date: 2026-10-15
 published: true
 category: Infrastructure
 image: "/assets/img/blogs/evaleval-apertus-banner.webp"
+thumbnail_contain: true
+thumbnail_bg: "radial-gradient(circle at 0% 0%, #1c1830, transparent 45%), radial-gradient(circle at 100% 100%, #0e1c35, transparent 45%), #0b0e16"
+thumbnail_zoom: 1.2
 authors:
   - name: "The EvalEval Coalition"
 tags:
@@ -30,19 +33,34 @@ description: "Apertus 1.5 is the first model release to submit all of its evalua
   background: var(--bg-subtle);
 }
 
-/* Cross-origin embeds cannot report their height, so each is sized to its
-   measured content height at the column widths below. */
-.apertus-collab-post .evaluation-figure--global-mmlu iframe { height: 560px; }
-.apertus-collab-post .evaluation-figure--ifeval iframe { height: 620px; }
+/* Cross-origin embeds cannot report their height, and each embed page puts
+   its own footer below a full-viewport main area, so it always overflows the
+   frame. The frames therefore don't scroll (hiding only that footer) and are
+   sized to the chart card's measured height at each width. */
+.apertus-collab-post .evaluation-figure--global-mmlu iframe { height: 457px; }
+.apertus-collab-post .evaluation-figure--ifeval iframe { height: 520px; }
 
-@media (max-width: 767px) {
-  .apertus-collab-post .evaluation-figure--global-mmlu iframe { height: 580px; }
-  .apertus-collab-post .evaluation-figure--ifeval iframe { height: 640px; }
+@media (max-width: 605px) {
+  .apertus-collab-post .evaluation-figure--ifeval iframe { height: 548px; }
 }
 
-@media (max-width: 463px) {
-  .apertus-collab-post .evaluation-figure--global-mmlu iframe { height: 600px; }
-  .apertus-collab-post .evaluation-figure--ifeval iframe { height: 720px; }
+@media (max-width: 545px) {
+  .apertus-collab-post .evaluation-figure--ifeval iframe { height: 575px; }
+}
+
+@media (max-width: 425px) {
+  .apertus-collab-post .evaluation-figure--global-mmlu iframe { height: 471px; }
+  .apertus-collab-post .evaluation-figure--ifeval iframe { height: 610px; }
+}
+
+@media (max-width: 395px) {
+  .apertus-collab-post .evaluation-figure--global-mmlu iframe { height: 492px; }
+  .apertus-collab-post .evaluation-figure--ifeval iframe { height: 637px; }
+}
+
+@media (max-width: 365px) {
+  .apertus-collab-post .evaluation-figure--global-mmlu iframe { height: 511px; }
+  .apertus-collab-post .evaluation-figure--ifeval iframe { height: 683px; }
 }
 
 .apertus-collab-post .evaluation-figure figcaption {
@@ -64,12 +82,12 @@ Apertus reported every evaluation for both final models in the [Every Eval Ever 
 Those records now feed the Evaluation Cards for the [8B](https://evaleval-general-eval-card.hf.space/embed/model/reported-metrics/swiss-ai/Apertus-v1.5-8B) and [70B](https://evaleval-general-eval-card.hf.space/embed/model/reported-metrics/swiss-ai/Apertus-v1.5-70B) models, where each benchmark gets its own plot comparing Apertus with every other model reported on it. Here are two, for multilingual knowledge and instruction following, since those are the two areas the Apertus team singles out in their release notes.
 
 <figure class="evaluation-figure evaluation-figure--global-mmlu">
-  <iframe src="https://evaleval-general-eval-card.hf.space/embed/eval/histogram/swissai-apertus-evals/global-mmlu?model=swiss-ai%2FApertus-v1.5-8B" loading="lazy" title="Global MMLU results for Apertus 1.5 8B on Evaluation Cards"></iframe>
+  <iframe src="https://evaleval-general-eval-card.hf.space/embed/eval/histogram/swissai-apertus-evals/global-mmlu?model=swiss-ai%2FApertus-v1.5-8B" loading="lazy" scrolling="no" title="Global MMLU results for Apertus 1.5 8B on Evaluation Cards"></iframe>
   <figcaption>Global MMLU: Apertus 1.5 8B alongside other models reported on Evaluation Cards.</figcaption>
 </figure>
 
 <figure class="evaluation-figure evaluation-figure--ifeval">
-  <iframe src="https://evaleval-general-eval-card.hf.space/embed/eval/histogram/swissai-apertus-evals/ifeval?model=swiss-ai%2FApertus-v1.5-8B" loading="lazy" title="IFEval results for Apertus 1.5 8B on Evaluation Cards"></iframe>
+  <iframe src="https://evaleval-general-eval-card.hf.space/embed/eval/histogram/swissai-apertus-evals/ifeval?model=swiss-ai%2FApertus-v1.5-8B" loading="lazy" scrolling="no" title="IFEval results for Apertus 1.5 8B on Evaluation Cards"></iframe>
   <figcaption>IFEval: Apertus 1.5 8B alongside other models reported on Evaluation Cards.</figcaption>
 </figure>
 
@@ -83,8 +101,8 @@ The [UK AI Security Institute]({{ site.baseurl }}/infrastructure/2026/09/22/uk-a
 
 We'd love every model release to look like this. If you build models and want to report your evals the same way, here's how to start:
 
-- Write your results in the [EEE schema](https://github.com/evaleval/every_eval_ever). If you already use lm-evaluation-harness, the converter handles most of it.
-- Cross-post them to your Hugging Face model pages through [Community Evals](https://huggingface.co/blog/eee-community-evals). Your [Eval Card](https://evalcards.evalevalai.com) picks them up from there.
+- Write your results in the [EEE schema](https://github.com/evaleval/every_eval_ever). If you already use lm-evaluation-harness, the converter handles most of it. Your [Eval Card](https://evalcards.evalevalai.com) picks them up from there.
+- Cross-post them through [Community Evals](https://huggingface.co/blog/eee-community-evals), so they appear on your Hugging Face model cards.
 
 If you want a hand with your first submission, reach out through [evalevalai.com](https://evalevalai.com). As for Apertus, we're working with the team to make this the default for every release. Thank you to everyone at the Swiss AI Initiative for going first.
 
