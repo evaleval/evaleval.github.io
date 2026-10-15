@@ -54,7 +54,7 @@
 ## CHAIRS
 - name: Mubashara Akhtar
   lastname: Akhtar
-  role: Social Media and Public Relations Chair  # currently on break
+  role: Social Media and Public Relations Chair # currently on break
   subheading: Postdoc Fellow at ETH AI Center, ETH Zurich
   link: https://www.mubasharaakhtar.com/
   photo: assets/img/team/mubashara-akhtar.webp
@@ -146,7 +146,7 @@
 - name: Jennifer Mickel
   lastname: Mickel
   role: Strategy and Community Engagement Chair
-  subheading: EleutherAI
+  subheading: UC Berkeley
   link: https://jennm.github.io/
   photo: assets/img/team/jennifer-mickel.webp
   affiliations:
@@ -220,7 +220,7 @@
 - name: Prajna Soni
   lastname: Soni
   role: Founding Chair
-  subheading: Applied Research Scientist at Alinia AI  
+  subheading: Applied Research Scientist at Alinia AI
   link: https://prajnasoni.github.io
   photo: assets/img/team/prajna-soni.webp
   affiliations:
