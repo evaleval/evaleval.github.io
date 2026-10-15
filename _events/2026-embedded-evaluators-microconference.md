@@ -59,6 +59,7 @@ Third-party evaluators and academic researchers discuss independence, methodolog
 
 - [Alan Aqrawi](https://www.linkedin.com/in/aaqrawi/), Accenture
 - [Rayan Krishnan](https://www.linkedin.com/in/rayankrishnan/), Vals AI
+- [Robbie Torney](https://www.linkedin.com/in/rtorney/), Commonsense Media
 
 ---
 
