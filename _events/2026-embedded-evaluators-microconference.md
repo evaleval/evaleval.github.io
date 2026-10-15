@@ -93,6 +93,10 @@ Participants map the path from a significant finding to a decision, response, an
 
 Panelists discuss how embedded evaluation works within development and deployment processes across a range of developers, including experiment review, monitoring, incident response, transparency, and protections for employees and evaluators.
 
+**👥 Panelist:**
+
+- [Lama Saouma](https://www.linkedin.com/in/lama-saouma-84892881/), Microsoft
+
 ---
 
 ### 💬 2:15 PM – 2:45 PM | Breakout: Making Embedded Evaluations Work in Practice _(30 mins)_
