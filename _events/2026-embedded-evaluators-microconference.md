@@ -49,7 +49,7 @@ Introduces the central question of what conditions make embedded frontier-AI eva
 
 ---
 
-### 🎙️ 9:45 AM – 10:30 AM | Evaluators' Perspectives Panel _(45 mins)_
+### 🎙️ 9:45 AM – 10:30 AM | Evaluators' Perspectives Panel I _(45 mins)_
 
 Third-party evaluators and academic researchers discuss independence, methodological rigor, access, resources, and reporting. What should embedded evaluation examine, and what can its findings credibly establish?
 
@@ -58,8 +58,8 @@ Third-party evaluators and academic researchers discuss independence, methodolog
 **👥 Panelists:**
 
 - [Alan Aqrawi](https://www.linkedin.com/in/aaqrawi/), Accenture
-- [Rayan Krishnan](https://www.linkedin.com/in/rayankrishnan/), Vals AI
-- [Robbie Torney](https://www.linkedin.com/in/rtorney/), Commonsense Media
+- [Mick Yang](https://www.linkedin.com/in/mick-yang/), FAR AI
+- [Charles Foster](https://www.linkedin.com/in/charles-foster-000/), METR
 
 ---
 
@@ -77,6 +77,7 @@ Panelists examine how evaluation findings inform governance and protect the publ
 
 - [Irene Chen](https://irenechen.net/), UC Berkeley
 - [Rumman Chowdhury](https://www.rummanchowdhury.com/), Human Intelligence
+- [Lama Saouma](https://www.linkedin.com/in/lama-saouma-84892881/), Microsoft
 
 ---
 
@@ -90,13 +91,16 @@ Participants map the path from a significant finding to a decision, response, an
 
 ---
 
-### 🎙️ 1:30 PM – 2:15 PM | Developers' Perspectives Panel _(45 mins)_
+### 🎙️ 1:30 PM – 2:15 PM | Evaluators' Perspectives Panel II _(45 mins)_
 
 Panelists discuss how embedded evaluation works within development and deployment processes across a range of developers, including experiment review, monitoring, incident response, transparency, and protections for employees and evaluators.
 
 **👥 Panelist:**
 
-- [Lama Saouma](https://www.linkedin.com/in/lama-saouma-84892881/), Microsoft
+- [Rayan Krishnan](https://www.linkedin.com/in/rayankrishnan/), Vals AI
+- [Robbie Torney](https://www.linkedin.com/in/rtorney/), Commonsense Media
+- [Lisa-Maria Neudert](https://www.linkedin.com/in/dr-lisa-maria-neudert-165649a0/), Pattrn AI
+- [Leif Hancox-Li](https://www.linkedin.com/in/leif-hancox-li-1a6a7a132/), Gray Swan
 
 ---
 
