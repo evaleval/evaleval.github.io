@@ -49,9 +49,9 @@ Introduces the central question of what conditions make embedded frontier-AI eva
 
 ---
 
-### 🎙️ 9:45 AM – 10:30 AM | Evaluators' Perspectives Panel I _(45 mins)_
+### 🎙️ 9:45 AM – 10:30 AM | Evaluators’ Perspectives: Access, Accountability, and Trust _(45 mins)_
 
-Third-party evaluators and academic researchers discuss independence, methodological rigor, access, resources, and reporting. What should embedded evaluation examine, and what can its findings credibly establish?
+Third-party evaluators discuss independence, methodological rigor, access, resources, and reporting. How do we ensure third-party evaluations are credible, independent, and accessible?
 
 **Moderator**: Avijit Ghosh, EvalEval + HuggingFace
 
@@ -69,7 +69,30 @@ Participants identify practical conditions for independence and rigor, including
 
 ---
 
-### 🎙️ 11:00 AM – 11:45 AM | Impact Perspectives Panel _(45 mins)_
+### 🎙️ 11:00 AM – 11:45 AM | Evaluators’ Perspectives: From Emerging Risks to Evaluation Priorities _(45 mins)_
+
+Panelists discuss how embedded evaluation works within development and deployment processes across a range of developers, including experiment review, monitoring, incident response, transparency, and protections for employees and evaluators. How do evaluators identify what needs to be tested, who shapes those priorities, and what motivates the work?
+
+**👥 Panelist:**
+
+- [Rayan Krishnan](https://www.linkedin.com/in/rayankrishnan/), Vals AI
+- [Robbie Torney](https://www.linkedin.com/in/rtorney/), Commonsense Media
+- [John Gallacher](https://www.linkedin.com/in/john-g-3953315a/), Pattrn AI
+- [Leif Hancox-Li](https://www.linkedin.com/in/leif-hancox-li-1a6a7a132/), Gray Swan
+
+---
+
+### 💬 11:45 AM – 12:15 AM | Breakout: Making Embedded Evaluations Work in Practice _(30 mins)_
+
+Participants identify implementation challenges and options for addressing them, including access, confidentiality, timelines, and coordination across research, security, legal, and governance teams.
+
+---
+
+### 🍽️ 12:14 PM – 1:30 PM | LUNCH _(75 mins)_
+
+---
+
+### 🎙️ 1:30 PM – 2:15 PM | Impact Perspectives Panel _(45 mins)_
 
 Panelists examine how evaluation findings inform governance and protect the public, what enables escalation, remediation, and accountability, and how embedded evaluation connects to broader oversight and downstream defenses.
 
@@ -77,36 +100,14 @@ Panelists examine how evaluation findings inform governance and protect the publ
 
 - [Irene Chen](https://irenechen.net/), UC Berkeley
 - [Rumman Chowdhury](https://www.rummanchowdhury.com/), Human Intelligence
-- [Lama Saouma](https://www.linkedin.com/in/lama-saouma-84892881/), Microsoft
+- [Lama Saouma](https://www.linkedin.com/in/lama-saouma-84892881/), Microsoft AI
+- [Kevin Wei](https://kevinlwei.com/), Gov AI
 
 ---
 
-### 💬 11:45 AM – 12:30 PM | Breakout: From Findings to Action _(45 mins)_
+### 💬 2:15 PM – 2:45 PM | Breakout: From Findings to Action _(45 mins)_
 
 Participants map the path from a significant finding to a decision, response, and verification of follow-through, and identify gaps in authority, responsibility, and communication.
-
----
-
-### 🍽️ 12:30 PM – 1:30 PM | LUNCH _(60 mins)_
-
----
-
-### 🎙️ 1:30 PM – 2:15 PM | Evaluators' Perspectives Panel II _(45 mins)_
-
-Panelists discuss how embedded evaluation works within development and deployment processes across a range of developers, including experiment review, monitoring, incident response, transparency, and protections for employees and evaluators.
-
-**👥 Panelist:**
-
-- [Rayan Krishnan](https://www.linkedin.com/in/rayankrishnan/), Vals AI
-- [Robbie Torney](https://www.linkedin.com/in/rtorney/), Commonsense Media
-- [Lisa-Maria Neudert](https://www.linkedin.com/in/dr-lisa-maria-neudert-165649a0/), Pattrn AI
-- [Leif Hancox-Li](https://www.linkedin.com/in/leif-hancox-li-1a6a7a132/), Gray Swan
-
----
-
-### 💬 2:15 PM – 2:45 PM | Breakout: Making Embedded Evaluations Work in Practice _(30 mins)_
-
-Participants identify implementation challenges and options for addressing them, including access, confidentiality, timelines, and coordination across research, security, legal, and governance teams.
 
 ---
 
@@ -138,18 +139,18 @@ Groups consolidate shared principles, disagreements, open questions, and possibl
 - [Ichhya Pant](https://www.linkedin.com/in/3rdcultureme/), EvalEval Strategy and Community Engagement Co-Chair, Independent Researcher
 - [Jennifer Mickel](jennm.github.io), EvalEval Strategy and Community Engagement Co-Chair, UC Berkeley
 - [Sachin Pendse](https://www.sachinpendse.in/), UCSF (Host)
+- [Aspen Hopkins](https://aspen-hopkins.com/), MIT CSAIL
 - [Avijit Ghosh](https://evijit.io/), EvalEval Co-Founder, Hugging Face
 - [Usman Gohar](https://usmangohar.github.io/), EvalEval Public Relations Chair, Iowa State University
-- [Jan Batzner](https://www.linkedin.com/in/jan-batzner-743673233/), EvalEval Research Chair, TU Munich
 - [Michelle Lin](https://mchll-ln.github.io/), EvalEval Funding Co-Chair, Mila
 - [Wm. Matthew Kennedy](https://www.kcl.ac.uk/people/wm.-matthew-kennedy), EvalEval Funding Co-Chair, AI+ Senior Research Fellow, King's College London
-- [Aspen Hopkins](https://aspen-hopkins.com/), MIT CSAIL
 - [Kevin Wei](https://kevinlwei.com/), EvalEval Partnerships Chair, GovAI
+- [Jan Batzner](https://www.linkedin.com/in/jan-batzner-743673233/), EvalEval Research Chair, TU Munich
 
 ## 🧑‍🔬 Advisors
 
-- [Stella Biderman](https://stellabiderman.ai/), EvalEval Steering Committee + EleutherAI
 - [Irene Solaiman](https://www.irenesolaiman.com/), EvalEval Steering Committee + Hugging Face
+- [Stella Biderman](https://stellabiderman.ai/), EvalEval Steering Committee + EleutherAI
 
 ## 📬 Contact
 
