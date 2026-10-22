@@ -73,7 +73,7 @@ Participants identify practical conditions for independence and rigor, including
 
 Panelists discuss how embedded evaluation works within development and deployment processes across a range of developers, including experiment review, monitoring, incident response, transparency, and protections for employees and evaluators. How do evaluators identify what needs to be tested, who shapes those priorities, and what motivates the work?
 
-**👥 Panelist:**
+**👥 Panelists:**
 
 - [Rayan Krishnan](https://www.linkedin.com/in/rayankrishnan/), Vals AI
 - [Robbie Torney](https://www.linkedin.com/in/rtorney/), Commonsense Media
@@ -88,7 +88,7 @@ Participants identify implementation challenges and options for addressing them,
 
 ---
 
-### 🍽️ 12:14 PM – 1:30 PM | LUNCH _(75 mins)_
+### 🍽️ 12:15 PM – 1:30 PM | LUNCH _(75 mins)_
 
 ---
 
