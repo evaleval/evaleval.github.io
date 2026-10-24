@@ -83,7 +83,7 @@ Panelists discuss how embedded evaluation works within development and deploymen
 
 ---
 
-### 💬 11:45 AM – 12:15 AM | Breakout: Making Embedded Evaluations Work in Practice _(30 mins)_
+### 💬 11:45 AM – 12:15 PM | Breakout: Making Embedded Evaluations Work in Practice _(30 mins)_
 
 Participants identify implementation challenges and options for addressing them, including access, confidentiality, timelines, and coordination across research, security, legal, and governance teams.
 
