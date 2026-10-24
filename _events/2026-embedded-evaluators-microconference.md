@@ -60,6 +60,7 @@ Third-party evaluators discuss independence, methodological rigor, access, resou
 - [Alan Aqrawi](https://www.linkedin.com/in/aaqrawi/), Accenture
 - [Mick Yang](https://www.linkedin.com/in/mick-yang/), FAR AI
 - [Charles Foster](https://www.linkedin.com/in/charles-foster-000/), METR
+- [Rayan Krishnan](https://www.linkedin.com/in/rayankrishnan/), Vals AI
 
 ---
 
@@ -75,10 +76,10 @@ Panelists discuss how embedded evaluation works within development and deploymen
 
 **👥 Panelists:**
 
-- [Rayan Krishnan](https://www.linkedin.com/in/rayankrishnan/), Vals AI
 - [Robbie Torney](https://www.linkedin.com/in/rtorney/), Commonsense Media
 - [John Gallacher](https://www.linkedin.com/in/john-g-3953315a/), Pattrn AI
 - [Leif Hancox-Li](https://www.linkedin.com/in/leif-hancox-li-1a6a7a132/), Gray Swan
+- [Samira Nedungadi](https://www.linkedin.com/in/samiranedungadi/), Secure Bio
 
 ---
 
